@@ -17,7 +17,7 @@ setup(
     version='0.1',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
-    url='http://nodeconductor.com',
+    url='http://waldur.com',
     description='Lightweight FreeIPA client',
     long_description=open('README.rst').read(),
     install_requires=install_requires,
