@@ -12,11 +12,11 @@ class Client(object):
     Lightweight FreeIPA JSON RPC client.
     """
 
-    def __init__(self, host, verify_ssl=False, version=None):
+    def __init__(self, host, verify_ssl=True, version=None):
         """
         :param host: hostname to connect to
         :type host: str
-        :param verify_ssl: verify SSL certificates for HTTPS requests, defaults to False
+        :param verify_ssl: verify SSL certificates for HTTPS requests, defaults to True
         :type verify_ssl: bool
         :param version: default client version, may be overwritten in individual requests
         :type version: str
@@ -150,7 +150,7 @@ class Client(object):
             params['mail'] = mail
 
         if ssh_key:
-            params['ipasshpubkey'] = mail
+            params['ipasshpubkey'] = ssh_key
 
         if job_title:
             params['title'] = job_title
