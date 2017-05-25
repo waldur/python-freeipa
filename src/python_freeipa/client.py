@@ -15,11 +15,11 @@ class Client(object):
     def __init__(self, host, verify_ssl=True, version=None):
         """
         :param host: hostname to connect to
-        :type host: str
+        :type host: string
         :param verify_ssl: verify SSL certificates for HTTPS requests, defaults to True
         :type verify_ssl: bool
         :param version: default client version, may be overwritten in individual requests
-        :type version: str
+        :type version: string
         """
         self._host = host
         self._base_url = 'https://{0}/ipa'.format(self._host)
@@ -32,9 +32,9 @@ class Client(object):
         Login to FreeIPA server using username and password.
         
         :param username: user to connect
-        :type username: str
+        :type username: string
         :param password: password of the user
-        :type password: str
+        :type password: string
         :raises Unauthorized:
         """
         login_url = '{0}/session/login_password'.format(self._base_url)
@@ -56,9 +56,9 @@ class Client(object):
         Make an HTTP request to FreeIPA JSON RPC server.
 
         :param method: RPC method name is required
-        :type method: str
+        :type method: string
         :param args: optional positional argument or list of arguments
-        :type args: list or str
+        :type args: list or string
         :param params: optional named parameters
         :type params: dict
         :return: parsed response from the request
@@ -116,23 +116,23 @@ class Client(object):
         Add a new user. Username corresponds to UID field of user.
 
         :param username: User login, it should be alphanumeric and maximum length is 255.
-        :type username: str
+        :type username: string
         :param first_name: First name
-        :type first_name: str
+        :type first_name: string
         :param last_name: Last name
-        :type last_name: str
+        :type last_name: string
         :param full_name: Full name
-        :type full_name: str
+        :type full_name: string
         :param noprivate: Don't create user private group
         :type noprivate: bool
         :param mail: Email address
-        :type mail: str or list
+        :type mail: string or list
         :param ssh_key: SSH public key
-        :type ssh_key: str or list
+        :type ssh_key: string or list
         :param job_title: Job title
-        :type job_title: str
+        :type job_title: string
         :param preferred_language: Preferred language ISO code
-        :type preferred_language: str
+        :type preferred_language: string
         :param disabled: Account disabled
         :type disabled: bool
         """
@@ -170,7 +170,7 @@ class Client(object):
         Search for users.
 
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: str
+        :type criteria: string
         """
         params = {
             'all': True,
@@ -186,7 +186,7 @@ class Client(object):
         Display information about a user.
 
         :param username: User login.
-        :type username: str
+        :type username: string
         """
         data = self._request('user_show', username, {'all': True, 'raw': False})
         return data['result']
@@ -196,7 +196,7 @@ class Client(object):
         Get lockout status of a user account.
 
         :param username: User login.
-        :type username: str
+        :type username: string
         """
         return self._request('user_status', username, {'all': True, 'raw': False})
 
@@ -205,7 +205,7 @@ class Client(object):
         Disable a user account.
 
         :param username: User login.
-        :type username: str
+        :type username: string
         """
         self._request('user_disable', username)
 
@@ -214,7 +214,7 @@ class Client(object):
         Enable a user account.
 
         :param username: User login.
-        :type username: str
+        :type username: string
         """
         self._request('user_enable', username)
 
@@ -223,7 +223,7 @@ class Client(object):
         Modify a user.
 
         :param username: User login.
-        :type username: str
+        :type username: string
         """
         params = {
             'all': False,  # Retrieve and print all attributes from the server.
@@ -240,7 +240,7 @@ class Client(object):
         Delete a user.
 
         :param username: User login.
-        :type username: str
+        :type username: string
         :param skip_errors: Continuous mode: Don't stop on errors.
         :type skip_errors: bool
         :param soft_delete: Mark user as deleted instead of removing record.
@@ -280,9 +280,9 @@ class Client(object):
 
         :param group: Group name.
         :param users: Users to add.
-        :type users: str or list
+        :type users: string or list
         :param groups: Groups to add.
-        :type groups: str or list
+        :type groups: string or list
         :param skip_errors: Skip processing errors.
         :type skip_errors: bool
         """
@@ -304,9 +304,9 @@ class Client(object):
 
         :param group: Group name.
         :param users: Users to remove.
-        :type users: str or list
+        :type users: string or list
         :param groups: Groups to remove.
-        :type groups: str or list
+        :type groups: string or list
         :param skip_errors: Skip processing errors.
         :type skip_errors: bool
         """
@@ -328,7 +328,7 @@ class Client(object):
         Search for groups.
 
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: str
+        :type criteria: string
         """
         params = {
             'all': True,
