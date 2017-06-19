@@ -115,7 +115,7 @@ class Client(object):
         """
         Add a new user. Username corresponds to UID field of user.
 
-        :param username: User login, it should be alphanumeric and maximum length is 255.
+        :param username: User login, it should be alphanumeric and maximum length is 32.
         :type username: string
         :param first_name: First name
         :type first_name: string
