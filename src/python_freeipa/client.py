@@ -266,7 +266,6 @@ class Client(object):
         :type current_password: string
         """
         if not current_password:  # resetting for another user
-            # Resetting the password of another user sets the new password to expired
             params = {}
         else:  # resetting for current user
             params = {'current_password': current_password}
