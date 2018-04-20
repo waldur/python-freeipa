@@ -115,7 +115,7 @@ class Client(object):
         """
         Add a new user. Username corresponds to UID field of user.
 
-        :param username: User login, it should be alphanumeric and maximum length is 255.
+        :param username: User login, it should be alphanumeric and maximum length is 32.
         :type username: string
         :param first_name: First name
         :type first_name: string
@@ -251,6 +251,27 @@ class Client(object):
             'preserve': soft_delete,
         }
         return self._request('user_del', username, params)
+
+    def passwd(self, login, password, current_password=None):
+        """
+        Set the password of a user.
+
+        :param login: User login (username)
+        :type login: string
+        :param password: New password for the user
+        :type password: string
+        :param current_password: current password of the logged in user.
+                                 Leave blank if resetting for another user,
+                                 this will set the new password to expired
+        :type current_password: string
+        """
+        if not current_password:  # resetting for another user
+            params = {}
+        else:  # resetting for current user
+            params = {'current_password': current_password}
+
+        data = self._request('passwd', args=[login, password], params=params)
+        return data['result']
 
     def group_add(self, group, **kwargs):
         """

@@ -14,6 +14,7 @@ Features
 - Add, modify and delete a group.
 - Add members to a group.
 - Remove members from a group.
+- Change user password.
 
 Dependencies
 ============
