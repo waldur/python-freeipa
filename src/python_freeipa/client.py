@@ -2,7 +2,8 @@ import json
 import logging
 import requests
 
-from .exceptions import *
+from .exceptions import (Unauthorized, DuplicateEntry, FreeIPAError)
+from .exceptions import (parse_group_management_error, parse_error)
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +31,7 @@ class Client(object):
     def login(self, username, password):
         """
         Login to FreeIPA server using username and password.
-        
+
         :param username: user to connect
         :type username: string
         :param password: password of the user
@@ -386,4 +387,290 @@ class Client(object):
         }
         params.update(kwargs)
         data = self._request('group_mod', group, params)
+        return data['result']
+
+    def automountkey_find(self, location, automount_map, key=None, criteria=None, **kwargs):
+        """
+        Search for automount key
+
+        :params key:
+        :type key: string
+        :params automount_location: Automount location name
+        :type automount_location: string
+        :params automount_map: Automount map name
+        :type automount_map: string
+        :return:
+        :rtype: dict
+        """
+
+        args = [
+            location,
+            automount_map
+        ]
+
+        if criteria:
+            args.append(criteria)
+
+        params = {
+            'all': True,
+            'raw': False,
+        }
+
+        if key:
+            params['automountkey'] = key
+
+        params.update(kwargs)
+
+        data = self._request('automountkey_find', args, params)
+        return data['result']
+
+    def automounkey_add(self, key, mount_info, location, automount_map, **kwargs):
+        """
+        Create a new automount key
+
+        :param key: Automount key name
+        :type key: string
+        :params mount_info: Mount information
+        :type mount_info: string
+        :params location: Automount location name
+        :type string
+        :params automount_map: Automount map name
+        :type string
+        :returns: automount key data
+        :rtype: dict
+        """
+
+        if self.automountkey_find(key, location, automount_map):
+            raise DuplicateEntry()
+
+        args = [
+            location,
+            automount_map
+        ]
+
+        params = {
+            'all': True,
+            'raw': False,
+            'automountkey': key,
+            'automountinformation': mount_info
+        }
+        params.update(kwargs)
+
+        data = self._request('automountkey_add', args, params)
+        return data
+
+    def automounkey_mod(self, key, mount_info, automount_location, automount_map):
+        """
+        Modify an automount key.
+
+        :param key: Automount key name
+        :type key: string
+        :params mount_info: Mount information
+        :type mount_info: string
+        :params automount_location: Automount location name
+        :type string
+        :params automount_map: Automount map name
+        :type string
+        :returns: automount key data
+        :rtype: dict
+        """
+
+        args = [
+            automount_location,
+            automount_map
+        ]
+
+        params = {
+            'all': True,
+            'raw': False,
+            'rights': False,
+            'automountkey': key,
+            'automountinformation': mount_info
+        }
+
+        data = self._request('automountkey_mod', args, params)
+        return data
+
+    def automountlocation_add(self, location, **kwargs):
+        """
+        Create a new automount location.
+
+        :param location: Automount location name.
+        :type location: string
+        """
+        params = {
+            'all': True,
+            'raw': False
+        }
+        params.update(kwargs)
+
+        data = self._request('automountlocation_add', location, params)
+        return data
+
+    def automountlocation_del(self, location, skip_errors=False):
+        """
+        Delete an automount location.
+
+        :param location: Automount location name.
+        :type location: string
+        """
+        params = {'continue': skip_errors}
+        data = self._request('automountlocation_del', location, params)
+        return data
+
+    def automountlocation_find(self, criteria=None, **kwargs):
+        """
+        Search for an automount location.
+
+        :param criteria: A string searched in all relevant object attributes.
+        :type criteria: string
+        """
+        params = {
+            'all': True,
+            'raw': False,
+            'sizelimit': 0
+        }
+        params.update(kwargs)
+
+        data = self._request('automountlocation_find', criteria, params)
+        return data['result']
+
+    def automountlocation_show(self, location, **kwargs):
+        """
+        Display an automount location.
+
+        :param location: Automount location name.
+        :type location: string
+        """
+        params = {
+            'all': True,
+            'raw': False,
+            'rights': False
+        }
+
+        data = self._request('automountlocation_find', location, params)
+        return data['result']
+
+    def automountlocation_tofiles(self, location):
+        """
+        Generate automount files for a specific location.
+
+        :params location: Automount location name
+        :type string
+        """
+
+        data = self._request('automountlocation_tofiles', location)
+        return data['result']
+
+    def automountmap_add(self, location, automount_map, **kwargs):
+        """
+        Display an automount map.
+
+        :params location: Automount location name
+        :type string
+        :params automount_map: Automount map name
+        :type string
+        """
+        args = [
+            location,
+            automount_map
+        ]
+
+        params = {
+            'all': True,
+            'raw': False
+        }
+        params.update(kwargs)
+
+        data = self._request('automountmap_add', args, params)
+        return data
+
+    def automountmap_del(self, location, automount_map, skip_errors=False):
+        """
+        Delete an automount map.
+
+        :params location: Automount location name
+        :type string
+        :params automount_map: Automount map name
+        :type string
+        """
+        args = [location, automount_map]
+        params = {'continue': skip_errors}
+
+        data = self._request('automountmap_del', args, params)
+        return data
+
+    def automountmap_find(self, location, criteria=None, **kwargs):
+        """
+        Find an automount map.
+
+        :params location: Automount location name
+        :type string
+        :param criteria: A string searched in all relevant object attributes.
+        :type criteria: string
+        """
+        args = [location]
+        if criteria:
+            args.append(criteria)
+
+        params = {
+            'all': True,
+            'raw': False,
+            'sizelimit': 0
+        }
+        params.update(kwargs)
+
+        data = self._request('automountmap_find', args, params)
+        return data['result']
+
+    def automountmap_mod(self, location, automount_map, description=None, **kwargs):
+        """
+        Modify an automount map.
+
+        :params location: Automount location name
+        :type string
+        :params automount_map: Automount map name
+        :type string
+        """
+        args = [
+            location,
+            automount_map
+        ]
+
+        params = {
+            'all': True,
+            'raw': False,
+            'rights': False,
+        }
+
+        if description:
+            params.append(description)
+
+        params.update(kwargs)
+
+        data = self._request('automountmap_mod', args, params)
+        return data
+
+    def automountmap_show(self, location, automount_map, **kwargs):
+        """
+        Display an automount map.
+
+        :params location: Automount location name
+        :type string
+        :params automount_map: Automount map name
+        :type string
+        """
+        args = [
+            location,
+            automount_map
+        ]
+
+        params = {
+            'all': True,
+            'raw': False,
+            'rights': False
+        }
+        params.update(kwargs)
+
+        data = self._request('automountmap_show', args, params)
         return data['result']
