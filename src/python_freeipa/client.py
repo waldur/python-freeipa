@@ -551,13 +551,16 @@ class Client(object):
         data = self._request('automountlocation_find', location, params)
         return data['result']
 
-    def automountlocation_tofiles(self):
+    def automountlocation_tofiles(self, location):
         """
         Generate automount files for a specific location.
 
-
+        :params location: Automount location name
+        :type string
         """
-        pass
+
+        data = self._request('automountlocation_tofiles', location)
+        return data['result']
 
     def automountmap_add(self, location, automount_map, **kwargs):
         """
