@@ -15,6 +15,7 @@ Features
 - Add members to a group.
 - Remove members from a group.
 - Change user password.
+- Add, modify and delete automount locations, maps and keys.
 
 Dependencies
 ============

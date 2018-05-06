@@ -49,6 +49,7 @@ class DuplicateEntry(BadRequest):
     """
     Raised when an entry already exists.
     """
+    message = "Entry already exists."
 
 
 class UnknownOption(BadRequest):
