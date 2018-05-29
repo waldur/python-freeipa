@@ -124,6 +124,8 @@ class Client(object):
         :type last_name: string
         :param full_name: Full name
         :type full_name: string
+        :param display_name: Display name
+        :type display_name: string
         :param noprivate: Don't create user private group
         :type noprivate: bool
         :param mail: Email address
@@ -136,6 +138,8 @@ class Client(object):
         :type preferred_language: string
         :param disabled: Account disabled
         :type disabled: bool
+        :param random_pass: Generate a random user password
+        :type random_pass: bool
         """
         params = {
             'all': True,
@@ -143,6 +147,9 @@ class Client(object):
             'sn': last_name,
             'cn': full_name,
         }
+
+        if display_name:
+            params['displayname'] = display_name
 
         if noprivate:
             params['noprivate'] = noprivate
@@ -161,6 +168,9 @@ class Client(object):
 
         if disabled:
             params['nsaccountlock'] = disabled
+
+        if random_pass:
+            params['random'] = True
 
         params.update(kwargs)
         data = self._request('user_add', username, params)
