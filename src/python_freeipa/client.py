@@ -110,6 +110,27 @@ class Client(object):
         else:
             return result['result']
 
+    def change_password(self, username, new_password, old_password):
+        """
+        Set the password of a user. (Does not expire)
+
+        :param login: User login (username)
+        :type login: string
+        :param password: New password for the user
+        :type password: string
+        :param old_password: Users old password
+        :type old_password: string
+        """
+
+        password_url = '{0}/session/change_password'.format(self._base_url)
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'text/plain'
+        }
+        data = {'new_password': new_password, 'old_password': old_password, 'user':username}
+        response = self._session.post(password_url, headers=headers, data=data, verify=self._verify_ssl)
+        return response
+
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
                  noprivate=False, mail=None, ssh_key=None, job_title=None,
                  preferred_language=None, disabled=False, random_pass=False, **kwargs):
