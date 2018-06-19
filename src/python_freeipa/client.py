@@ -127,8 +127,15 @@ class Client(object):
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'text/plain'
         }
+
         data = {'new_password': new_password, 'old_password': old_password, 'user':username}
         response = self._session.post(password_url, headers=headers, data=data, verify=self._verify_ssl)
+
+        if not response.ok:
+            raise FreeIPAError(message=response.content, code=response.status_code)
+                
+        if response.headers.get('X-IPA-Pwchange-Result', None) != 'ok':
+            raise FreeIPAError(message=response.content, code=response.status_code)
         return response
 
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
