@@ -128,7 +128,7 @@ class Client(object):
             'Accept': 'text/plain'
         }
 
-        data = {'new_password': new_password, 'old_password': old_password, 'user':username}
+        data = {'user': username, 'new_password': new_password, 'old_password': old_password}
         response = self._session.post(password_url, headers=headers, data=data, verify=self._verify_ssl)
 
         if not response.ok:
