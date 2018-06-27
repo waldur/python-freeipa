@@ -600,16 +600,16 @@ class Client(object):
         params = {'all': True}
 
         if description:
-            params['description']=description
+            params['description'] = description
 
         if non_posix:
-            params['nonposix']= non_posix
+            params['nonposix'] = non_posix
 
         if external:
-            params['external']=external
+            params['external'] = external
 
         if no_members:
-            params['no_memebers']=no_members
+            params['no_members'] = no_members
 
         params.update(kwargs)
         data = self._request('group_add', group, params)
@@ -703,7 +703,7 @@ class Client(object):
         data = self._request('group_show', group, params)
         return data['result']
 
-    def group_mod(self, group, description=None, posix=False, external=False, no_members=False, rename=None,  **kwargs):
+    def group_mod(self, group, description=None, posix=False, external=False, no_members=False, rename=None, **kwargs):
         """
         Modify a group.
 
@@ -726,19 +726,19 @@ class Client(object):
             'rights': False,
         }
         if description:
-            params['description']=description
+            params['description'] = description
 
         if posix:
-            params['posix']= posix
+            params['posix'] = posix
 
         if external:
-            params['external']=external
+            params['external'] = external
 
         if no_members:
-            params['no_memebers']=no_members
+            params['no_members'] = no_members
 
         if rename:
-            params['rename']=rename
+            params['rename'] = rename
 
         params.update(kwargs)
         data = self._request('group_mod', group, params)
