@@ -602,7 +602,7 @@ class Client(object):
         if description:
             params['description']=description
 
-        if non_posix
+        if non_posix:
             params['nonposix']= non_posix
 
         if external:
@@ -728,7 +728,7 @@ class Client(object):
         if description:
             params['description']=description
 
-        if non_posix
+        if non_posix:
             params['nonposix']= non_posix
 
         if external:
