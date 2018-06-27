@@ -703,7 +703,7 @@ class Client(object):
         data = self._request('group_show', group, params)
         return data['result']
 
-    def group_mod(self, group, description=None, non_posix=False, external=False, no_members=False, rename=None,  **kwargs):
+    def group_mod(self, group, description=None, posix=False, external=False, no_members=False, rename=None,  **kwargs):
         """
         Modify a group.
 
@@ -711,8 +711,8 @@ class Client(object):
         :type group: string
         :param description: Group description
         :type description: string
-        :param non_posix: Create as non-POSIX group
-        :type non_posix: bool
+        :param posix: change to a POSIX group
+        :type posix: bool
         :param external: Allow adding external non-IPA members from trusted domains
         :type external: bool
         :param no_members: Suppress processing of membership attributes
@@ -728,8 +728,8 @@ class Client(object):
         if description:
             params['description']=description
 
-        if non_posix:
-            params['nonposix']= non_posix
+        if posix:
+            params['posix']= posix
 
         if external:
             params['external']=external
