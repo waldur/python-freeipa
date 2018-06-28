@@ -112,7 +112,12 @@ class Client(object):
 
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
                  noprivate=False, mail=None, ssh_key=None, job_title=None,
-                 preferred_language=None, disabled=False, random_pass=False, **kwargs):
+                 preferred_language=None, disabled=False, random_pass=False, initials=None, home_directory=None,
+                 gecos=None, login_shell=None, user_password=None, street_address=None, city=None, state=None,
+                 postal_code=None, telephone_number=None, mobile_number=None, pager_number=None, fax_number=None,
+                 organization_unit=None, manager=None, car_license=None, user_auth_type=None,
+                 user_class=None, radius_proxy_config=None, radius_proxy_username=None, department_number=None,
+                 employee_number=None, employee_type=None, **kwargs):
         """
         Add a new user. Username corresponds to UID field of user.
 
@@ -140,6 +145,52 @@ class Client(object):
         :type disabled: bool
         :param random_pass: Generate a random user password
         :type random_pass: bool
+        :param initials: Represent initials of user
+        :type initials: string
+        :param home_directory: Home directory field of user
+        :type home_directory: string
+        :param gecos: Gecos field of user
+        :type gecos: string
+        :param login_shell: Login shell field of user
+        :type login_shell: string
+        :param user_password: Prompt to set the user password
+        :type user_password: string
+        :param street_address: Street address field of user
+        :type street_address: string
+        :param city: City field of user
+        :type city: string
+        :param state: State/Province field of user
+        :type state: string
+        :param postal_code: ZIP code field of user
+        :type postal_code: string
+        :param telephone_number: Telephone number field of user
+        :type telephone_number: string or list
+        :param mobile_number: Mobile number field of user
+        :type mobile_number: string or list
+        :param pager_number: Pager number field of user
+        :type pager_number: string or list
+        :param fax_number: Fax number field of user
+        :type fax_number: string or list
+        :param organization_unit: Organization unit of user
+        :type organization_unit: string
+        :param manager: Manager field of user
+        :type manager: string
+        :param car_license: Car license of user
+        :type car_license: string or list
+        :param user_auth_type: Types of supported user authentication. Possible values(password, radius, otp)
+        :type user_auth_type: string or list
+        :param user_class: Category of user
+        :type user_class: string
+        :param radius_proxy_config: RADIUS proxy configuration
+        :type radius_proxy_config: string
+        :param radius_proxy_username: RADIUS proxy username
+        :type radius_proxy_username: string
+        :param department_number: Department number of user
+        :type department_number: string
+        :param employee_number: Employee number of user
+        :type employee_number: string
+        :param employee_type: Employee type of user
+        :type employee_type string
         """
         params = {
             'all': True,
@@ -172,6 +223,75 @@ class Client(object):
         if random_pass:
             params['random'] = True
 
+        if initials:
+            params['initials'] = initials
+
+        if home_directory:
+            params['homedirectory'] = home_directory
+
+        if gecos:
+            params['gecos'] = gecos
+
+        if login_shell:
+            params['loginshell'] = login_shell
+
+        if user_password:
+            params['userpassword'] = user_password
+
+        if street_address:
+            params['street'] = street_address
+
+        if city:
+            params['l'] = city
+
+        if state:
+            params['st'] = state
+
+        if postal_code:
+            params['postalcode'] = postal_code
+
+        if telephone_number:
+            params['telephonenumber'] = telephone_number
+
+        if mobile_number:
+            params['mobile'] = mobile_number
+
+        if pager_number:
+            params['pager'] = pager_number
+
+        if fax_number:
+            params['facsimiletelephonenumber'] = fax_number
+
+        if organization_unit:
+            params['ou'] = organization_unit
+
+        if manager:
+            params['manager'] = manager
+
+        if car_license:
+            params['carlicense'] = car_license
+
+        if user_auth_type:
+            params['ipauserauthtype'] = user_auth_type
+
+        if user_class:
+            params['userclass'] = user_class
+
+        if radius_proxy_config:
+            params['ipatokenradiusconfiglink'] = radius_proxy_config
+
+        if radius_proxy_username:
+            params['ipatokenradiususername'] = radius_proxy_username
+
+        if department_number:
+            params['departmentnumber'] = department_number
+
+        if employee_number:
+            params['employeenumber'] = employee_number
+
+        if employee_type:
+            params['employeetype'] = employee_type
+
         params.update(kwargs)
         data = self._request('user_add', username, params)
         return data['result']
@@ -182,6 +302,7 @@ class Client(object):
 
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: string
+
         """
         params = {
             'all': True,
@@ -229,12 +350,87 @@ class Client(object):
         """
         self._request('user_enable', username)
 
-    def user_mod(self, username, **kwargs):
+    def user_mod(self, username, first_name=None, last_name=None, full_name=None, display_name=None,
+                 noprivate=False, mail=None, ssh_key=None, job_title=None,
+                 preferred_language=None, disabled=False, random_pass=False, initials=None, home_directory=None,
+                 gecos=None, login_shell=None, user_password=None, street_address=None, city=None, state=None,
+                 postal_code=None, telephone_number=None, mobile_number=None, pager_number=None, fax_number=None,
+                 organization_unit=None, manager=None, car_license=None, user_auth_type=None,
+                 user_class=None, radius_proxy_config=None, radius_proxy_username=None, department_number=None,
+                 employee_number=None, employee_type=None, **kwargs):
         """
         Modify a user.
 
         :param username: User login.
         :type username: string
+        :param first_name: First name
+        :type first_name: string
+        :param last_name: Last name
+        :type last_name: string
+        :param full_name: Full name
+        :type full_name: string
+        :param display_name: Display name
+        :type display_name: string
+        :param noprivate: Don't create user private group
+        :type noprivate: bool
+        :param mail: Email address
+        :type mail: string or list
+        :param ssh_key: SSH public key
+        :type ssh_key: string or list
+        :param job_title: Job title
+        :type job_title: string
+        :param preferred_language: Preferred language ISO code
+        :type preferred_language: string
+        :param disabled: Account disabled
+        :type disabled: bool
+        :param random_pass: Generate a random user password
+        :type random_pass: bool
+        :param initials: Represent initials of user
+        :type initials: string
+        :param home_directory: Home directory field of user
+        :type home_directory: string
+        :param gecos: Gecos field of user
+        :type gecos: string
+        :param login_shell: Login shell field of user
+        :type login_shell: string
+        :param user_password: Prompt to set the user password
+        :type user_password: string
+        :param street_address: Street address field of user
+        :type street_address: string
+        :param city: City field of user
+        :type city: string
+        :param state: State/Province field of user
+        :type state: string
+        :param postal_code: ZIP code field of user
+        :type postal_code: string
+        :param telephone_number: Telephone number field of user
+        :type telephone_number: string or list
+        :param mobile_number: Mobile number field of user
+        :type mobile_number: string or list
+        :param pager_number: Pager number field of user
+        :type pager_number: string or list
+        :param fax_number: Fax number field of user
+        :type fax_number: string or list
+        :param organization_unit: Organization unit of user
+        :type organization_unit: string
+        :param manager: Manager field of user
+        :type manager: string
+        :param car_license: Car license of user
+        :type car_license: string or list
+        :param user_auth_type: Types of supported user authentication. Possible values(password, radius, otp)
+        :type user_auth_type: string or list
+        :param user_class: Category of user
+        :type user_class: string
+        :param radius_proxy_config: RADIUS proxy configuration
+        :type radius_proxy_config: string
+        :param radius_proxy_username: RADIUS proxy username
+        :type radius_proxy_username: string
+        :param department_number: Department number of user
+        :type department_number: string
+        :param employee_number: Employee number of user
+        :type employee_number: string
+        :param employee_type: Employee type of user
+        :type employee_type string
         """
         params = {
             'all': False,  # Retrieve and print all attributes from the server.
@@ -242,6 +438,108 @@ class Client(object):
             'raw': False,  # Print entries as stored on the server.
             'rights': False,  # Display the access rights of this entry.
         }
+
+        if first_name:
+            params['givenname'] = first_name
+
+        if last_name:
+            params['sn'] = last_name
+
+        if full_name:
+            params['cn'] = full_name
+
+        if display_name:
+            params['displayname'] = display_name
+
+        if noprivate:
+            params['noprivate'] = noprivate
+
+        if mail:
+            params['mail'] = mail
+
+        if ssh_key:
+            params['ipasshpubkey'] = ssh_key
+
+        if job_title:
+            params['title'] = job_title
+
+        if preferred_language:
+            params['preferredlanguage'] = preferred_language
+
+        if disabled:
+            params['nsaccountlock'] = disabled
+
+        if random_pass:
+            params['random'] = True
+
+        if initials:
+            params['initials'] = initials
+
+        if home_directory:
+            params['homedirectory'] = home_directory
+
+        if gecos:
+            params['gecos'] = gecos
+
+        if login_shell:
+            params['loginshell'] = login_shell
+
+        if user_password:
+            params['userpassword'] = user_password
+
+        if street_address:
+            params['street'] = street_address
+
+        if city:
+            params['l'] = city
+
+        if state:
+            params['st'] = state
+
+        if postal_code:
+            params['postalcode'] = postal_code
+
+        if telephone_number:
+            params['telephonenumber'] = telephone_number
+
+        if mobile_number:
+            params['mobile'] = mobile_number
+
+        if pager_number:
+            params['pager'] = pager_number
+
+        if fax_number:
+            params['facsimiletelephonenumber'] = fax_number
+
+        if organization_unit:
+            params['ou'] = organization_unit
+
+        if manager:
+            params['manager'] = manager
+
+        if car_license:
+            params['carlicense'] = car_license
+
+        if user_auth_type:
+            params['ipauserauthtype'] = user_auth_type
+
+        if user_class:
+            params['userclass'] = user_class
+
+        if radius_proxy_config:
+            params['ipatokenradiusconfiglink'] = radius_proxy_config
+
+        if radius_proxy_username:
+            params['ipatokenradiususername'] = radius_proxy_username
+
+        if department_number:
+            params['departmentnumber'] = department_number
+
+        if employee_number:
+            params['employeenumber'] = employee_number
+
+        if employee_type:
+            params['employeetype'] = employee_type
         params.update(kwargs)
         data = self._request('user_mod', username, params)
         return data['result']
@@ -284,13 +582,35 @@ class Client(object):
         data = self._request('passwd', args=[login, password], params=params)
         return data['result']
 
-    def group_add(self, group, **kwargs):
+    def group_add(self, group, description=None, non_posix=False, external=False, no_members=False, **kwargs):
         """
         Create a new group.
 
         :param group: Group name, it should be alphanumeric and maximum length is 255.
+        :tyoe group: string
+        :param description: Group description
+        :type description: string
+        :param non_posix: Create as non-POSIX group
+        :type non_posix: bool
+        :param external: Allow adding external non-IPA members from trusted domains
+        :type external: bool
+        :param no_members: Suppress processing of membership attributes
+        :type no_members: bool
         """
         params = {'all': True}
+
+        if description:
+            params['description'] = description
+
+        if non_posix:
+            params['nonposix'] = non_posix
+
+        if external:
+            params['external'] = external
+
+        if no_members:
+            params['no_members'] = no_members
+
         params.update(kwargs)
         data = self._request('group_add', group, params)
         return data['result']
@@ -383,18 +703,43 @@ class Client(object):
         data = self._request('group_show', group, params)
         return data['result']
 
-    def group_mod(self, group, **kwargs):
+    def group_mod(self, group, description=None, posix=False, external=False, no_members=False, rename=None, **kwargs):
         """
         Modify a group.
 
         :param group: Group name.
+        :type group: string
+        :param description: Group description
+        :type description: string
+        :param posix: change to a POSIX group
+        :type posix: bool
+        :param external: Allow adding external non-IPA members from trusted domains
+        :type external: bool
+        :param no_members: Suppress processing of membership attributes
+        :type no_members: bool
+        :param rename: Rename the group object
+        :type rename: string
         """
         params = {
             'all': False,
-            'no_members': False,
             'raw': False,
             'rights': False,
         }
+        if description:
+            params['description'] = description
+
+        if posix:
+            params['posix'] = posix
+
+        if external:
+            params['external'] = external
+
+        if no_members:
+            params['no_members'] = no_members
+
+        if rename:
+            params['rename'] = rename
+
         params.update(kwargs)
         data = self._request('group_mod', group, params)
         return data['result']
