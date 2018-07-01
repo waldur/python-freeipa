@@ -1,8 +1,32 @@
 Welcome to FreeIPA client's documentation!
 ===========================================
 
+Features
+--------
+
+- Login to FreeIPA server using username and password.
+- Search for users.
+- Display information about a user.
+- Add, modify and delete a user.
+- Get lockout status of a user account.
+- Enable and disable a user account.
+- Search for groups.
+- Display information about a named group.
+- Add, modify and delete a group.
+- Add members to a group.
+- Remove members from a group.
+- Change user password.
+- Add, modify and delete automount locations, maps and keys.
+
+Installation
+------------
+
+  .. code-block:: bash
+
+    pip install python-freeipa
+
 Example usage
------------------------------
+-------------
 
 .. code-block:: python
 
@@ -12,16 +36,34 @@ Example usage
     user = client.user_add('test3', 'John', 'Doe', 'John Doe', preferred_language='EN')
     print user
 
-python\_freeipa.client module
------------------------------
+Contributing
+------------
+
+The only dependency is Python Requests library (http://docs.python-requests.org/)
+
+See also API documentation: https://ipa.demo1.freeipa.org/ipa/ui/#/p/apibrowser/
+
+Install python-freeipa in development mode along with dependencies:
+
+  .. code-block:: bash
+
+    pip install -e .[tests]
+
+Run tests suite:
+
+  .. code-block:: bash
+
+    python setup.py test
+
+Client module
+-------------
 
 .. automodule:: python_freeipa.client
     :members:
     :undoc-members:
-    :show-inheritance:
 
-python\_freeipa.exceptions module
----------------------------------
+Exceptions module
+-----------------
 
 .. automodule:: python_freeipa.exceptions
     :members:

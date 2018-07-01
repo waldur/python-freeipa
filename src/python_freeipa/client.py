@@ -1,20 +1,25 @@
+"""Lightweight FreeIPA JSON RPC client."""
+
 import json
 import logging
+
 import requests
 
-from .exceptions import (Unauthorized, DuplicateEntry, FreeIPAError)
-from .exceptions import (parse_group_management_error, parse_error)
+from .exceptions import (
+    DuplicateEntry, FreeIPAError, Unauthorized,
+    parse_error, parse_group_management_error
+)
 
 logger = logging.getLogger(__name__)
 
 
 class Client(object):
-    """
-    Lightweight FreeIPA JSON RPC client.
-    """
+    """Lightweight FreeIPA JSON RPC client."""
 
     def __init__(self, host, verify_ssl=True, version=None):
         """
+        Initialize client with connection options.
+
         :param host: hostname to connect to
         :type host: string
         :param verify_ssl: verify SSL certificates for HTTPS requests
@@ -746,9 +751,9 @@ class Client(object):
 
     def automountkey_find(self, location, automount_map, key=None, criteria=None, **kwargs):
         """
-        Search for automount key
+        Search for the automount key.
 
-        :param key:
+        :param key: Automount key name.
         :type key: string
         :param automount_location: Automount location name
         :type automount_location: string
@@ -757,7 +762,6 @@ class Client(object):
         :return:
         :rtype: dict
         """
-
         args = [
             location,
             automount_map
@@ -781,7 +785,7 @@ class Client(object):
 
     def automountkey_add(self, key, mount_info, location, automount_map, **kwargs):
         """
-        Create a new automount key
+        Create a new automount key.
 
         :param key: Automount key name
         :type key: string
@@ -794,7 +798,6 @@ class Client(object):
         :return: automount key data
         :rtype: dict
         """
-
         if self.automountkey_find(key, location, automount_map):
             raise DuplicateEntry()
 
@@ -829,7 +832,6 @@ class Client(object):
         :return: automount key data
         :rtype: dict
         """
-
         args = [
             automount_location,
             automount_map
@@ -913,7 +915,6 @@ class Client(object):
         :param location: Automount location name
         :type location: string
         """
-
         data = self._request('automountlocation_tofiles', location)
         return data['result']
 
