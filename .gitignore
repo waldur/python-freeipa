@@ -1,5 +1,6 @@
 /dist
 /build
+/docs/build
 
 *.egg
 *.egg-info

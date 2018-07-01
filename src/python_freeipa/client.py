@@ -17,7 +17,7 @@ class Client(object):
         """
         :param host: hostname to connect to
         :type host: string
-        :param verify_ssl: verify SSL certificates for HTTPS requests, defaults to True
+        :param verify_ssl: verify SSL certificates for HTTPS requests
         :type verify_ssl: bool
         :param version: default client version, may be overwritten in individual requests
         :type version: string
@@ -36,7 +36,7 @@ class Client(object):
         :type username: string
         :param password: password of the user
         :type password: string
-        :raises Unauthorized:
+        :raises Unauthorized: raised if credentials are invalid.
         """
         login_url = '{0}/session/login_password'.format(self._base_url)
         headers = {
@@ -149,7 +149,7 @@ class Client(object):
         :type initials: string
         :param home_directory: Home directory field of user
         :type home_directory: string
-        :param gecos: Gecos field of user
+        :param gecos: GECOS field is a comma-delimited list used to record general information about the user.
         :type gecos: string
         :param login_shell: Login shell field of user
         :type login_shell: string
@@ -190,7 +190,7 @@ class Client(object):
         :param employee_number: Employee number of user
         :type employee_number: string
         :param employee_type: Employee type of user
-        :type employee_type string
+        :type employee_type: string
         """
         params = {
             'all': True,
@@ -430,7 +430,7 @@ class Client(object):
         :param employee_number: Employee number of user
         :type employee_number: string
         :param employee_type: Employee type of user
-        :type employee_type string
+        :type employee_type: string
         """
         params = {
             'all': False,  # Retrieve and print all attributes from the server.
@@ -748,11 +748,11 @@ class Client(object):
         """
         Search for automount key
 
-        :params key:
+        :param key:
         :type key: string
-        :params automount_location: Automount location name
+        :param automount_location: Automount location name
         :type automount_location: string
-        :params automount_map: Automount map name
+        :param automount_map: Automount map name
         :type automount_map: string
         :return:
         :rtype: dict
@@ -779,19 +779,19 @@ class Client(object):
         data = self._request('automountkey_find', args, params)
         return data['result']
 
-    def automounkey_add(self, key, mount_info, location, automount_map, **kwargs):
+    def automountkey_add(self, key, mount_info, location, automount_map, **kwargs):
         """
         Create a new automount key
 
         :param key: Automount key name
         :type key: string
-        :params mount_info: Mount information
+        :param mount_info: Mount information
         :type mount_info: string
-        :params location: Automount location name
-        :type string
-        :params automount_map: Automount map name
-        :type string
-        :returns: automount key data
+        :param location: Automount location name
+        :type location: string
+        :param automount_map: Automount map name
+        :type automount_map: string
+        :return: automount key data
         :rtype: dict
         """
 
@@ -814,19 +814,19 @@ class Client(object):
         data = self._request('automountkey_add', args, params)
         return data
 
-    def automounkey_mod(self, key, mount_info, automount_location, automount_map):
+    def automountkey_mod(self, key, mount_info, automount_location, automount_map):
         """
         Modify an automount key.
 
         :param key: Automount key name
         :type key: string
-        :params mount_info: Mount information
+        :param mount_info: Mount information
         :type mount_info: string
-        :params automount_location: Automount location name
-        :type string
-        :params automount_map: Automount map name
-        :type string
-        :returns: automount key data
+        :param automount_location: Automount location name
+        :param: type string
+        :param automount_map: Automount map name
+        :type automount_map: string
+        :return: automount key data
         :rtype: dict
         """
 
@@ -910,8 +910,8 @@ class Client(object):
         """
         Generate automount files for a specific location.
 
-        :params location: Automount location name
-        :type string
+        :param location: Automount location name
+        :type location: string
         """
 
         data = self._request('automountlocation_tofiles', location)
@@ -921,10 +921,10 @@ class Client(object):
         """
         Display an automount map.
 
-        :params location: Automount location name
-        :type string
-        :params automount_map: Automount map name
-        :type string
+        :param location: Automount location name
+        :type location: string
+        :param automount_map: Automount map name
+        :type automount_map: string
         """
         args = [
             location,
@@ -944,10 +944,10 @@ class Client(object):
         """
         Delete an automount map.
 
-        :params location: Automount location name
-        :type string
-        :params automount_map: Automount map name
-        :type string
+        :param location: Automount location name
+        :type location: string
+        :param automount_map: Automount map name
+        :type automount_map: string
         """
         args = [location, automount_map]
         params = {'continue': skip_errors}
@@ -959,8 +959,8 @@ class Client(object):
         """
         Find an automount map.
 
-        :params location: Automount location name
-        :type string
+        :param location: Automount location name
+        :type location: string
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: string
         """
@@ -982,10 +982,10 @@ class Client(object):
         """
         Modify an automount map.
 
-        :params location: Automount location name
-        :type string
-        :params automount_map: Automount map name
-        :type string
+        :param location: Automount location name
+        :type location: string
+        :param automount_map: Automount map name
+        :type automount_map: string
         """
         args = [
             location,
@@ -999,7 +999,7 @@ class Client(object):
         }
 
         if description:
-            params.append(description)
+            params['description'] = description
 
         params.update(kwargs)
 
@@ -1010,10 +1010,10 @@ class Client(object):
         """
         Display an automount map.
 
-        :params location: Automount location name
-        :type string
-        :params automount_map: Automount map name
-        :type string
+        :param location: Automount location name
+        :type location: string
+        :param automount_map: Automount map name
+        :type automount_map: string
         """
         args = [
             location,
