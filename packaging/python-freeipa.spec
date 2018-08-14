@@ -35,8 +35,14 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
+* Tue Aug 14 2018 Henry Z. Graham <hgraham@redhat.com> - 0.2.1-1.hzg.el7
+- https://github.com/sirwalrus/python-freeipa/pull/1/commits/5dde963b200178addc21f03f4d37ef886594994e
+
 * Thu Jun 28 2018 Jenkins <jenkins@opennodecloud.com> - 0.2.1-1.el7
 - New upstream release
+
+* Fri May 25 2018 Brian J. Atkisson <brian@atkisson.net> - 0.2.0-1.bja.el7
+- https://github.com/sirwalrus/python-freeipa/commit/1f7d697ee2cd0bbebea49028c82132e61789b24a
 
 * Sun May 6 2018 Jenkins <jenkins@opennodecloud.com> - 0.2.0-1.el7
 - New upstream release
