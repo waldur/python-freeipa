@@ -1051,3 +1051,15 @@ class Client(object):
 
         data = self._request('automountmap_show', args, params)
         return data['result']
+
+    def host_add(self, host, **kwargs):
+        """
+        Create a new host.
+
+        :param host: Host name, it should be alphanumeric and maximum length is 255.
+        :type string
+        """
+        params = {'all': True}
+        params.update(kwargs)
+        data = self._request('host_add', host, params)
+        return data['result']
