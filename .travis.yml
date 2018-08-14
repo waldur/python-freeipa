@@ -1,10 +1,15 @@
 language: python
-python:
-- '2.7'
+matrix:
+  include:
+    - python: 2.7
+      env: TOXENV=py27
+    - python: 3.5
+      env: TOXENV=py35
+    - env: TOXENV=flake8
 install:
-- pip install -e .[tests]
+  - pip install tox
 script:
-- python setup.py test
+  - tox
 deploy:
   provider: pypi
   user: opennode
@@ -12,5 +17,5 @@ deploy:
     secure: mL8MWrPpD9uQa/1atOKxDLNCqwRGBwtT09nQ3VVccHP39ohxw+8LhRxFCdqk4ZlOSntAg0PWMN9OKQ8cWQkisggo0k/Bot3X6rEot/nabLg7sic2FwS8Cmrso/ohoMbnsHcaEfmpeynkDKJiPadMsCmeZ8NBbA/vZ3knw3AEXl9QBiRjkiZCAFgNCUSipOwIzJ2G5ZSXprSwbrAZ2wBPr5OhGi6KeNIBg/KX2i+AsoGOPVdNK4o56rQpbw3BACMAoTUozwJ5kO431rOSgsNh3ds3Ilb4UCJzd3V3yWD7TSyRSjogsaOn1ErgH/hmY/XlqJ/oaIUua5JaWEJV/E5l+12SpbvwAvRyhekQo3hlnRQsUaisWDa4A2YbQO7eUIjpCk7ty1h8uS12T5MEx7WHPyTp3pY1O5El1Mu0OzDdlxA6D+whrGFTRrYQ32TGHBOSdrU8imAvMWw02uVrhRMDhacHJ5KF5PhKlrWywUYqqfvITGLiCvol1RQuUWmZFYQnnhKOU9VNtbkTefFxIEUOejmbrVFYuzLL3zUlFZkvHaIwIkNl852GZFBFshSV7dc/8y/pqfxisZgPGUI3WyiNHeQWatAEw/qfVlbj11Z+pwO4bqi723bOko9SX126fBidX277VFWXm7EQgMTj6RvGQclfIHZx+s1DZ9xdcmD9J80=
   on:
     tags: true
-    distributions: sdist bdist_wheel
     repo: opennode/python-freeipa
+  distributions: "sdist bdist_wheel"

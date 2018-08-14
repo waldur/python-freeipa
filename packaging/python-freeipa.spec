@@ -1,8 +1,13 @@
 Name: python-freeipa
 Summary: Lightweight FreeIPA client
 Group: Development/Libraries
+<<<<<<< HEAD
 Version: 0.2.0
 Release: 1.bja.el7
+=======
+Version: 0.2.1
+Release: 1.el7
+>>>>>>> upstream/develop
 License: MIT
 Url: https://waldur.com
 Source0: python-freeipa-%{version}.tar.gz
@@ -35,8 +40,13 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
+<<<<<<< HEAD
 * Fri May 25 2018 Brian J. Atkisson <brian@atkisson.net> - 0.2.0-1.bja.el7
 - https://github.com/sirwalrus/python-freeipa/commit/1f7d697ee2cd0bbebea49028c82132e61789b24a
+=======
+* Thu Jun 28 2018 Jenkins <jenkins@opennodecloud.com> - 0.2.1-1.el7
+- New upstream release
+>>>>>>> upstream/develop
 
 * Sun May 6 2018 Jenkins <jenkins@opennodecloud.com> - 0.2.0-1.el7
 - New upstream release

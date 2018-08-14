@@ -1,5 +1,6 @@
 /dist
 /build
+/docs/build
 
 *.egg
 *.egg-info
@@ -14,3 +15,5 @@
 /.sublime
 # vim
 *.sw*
+/.pytest_cache
+/.tox
