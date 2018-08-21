@@ -1056,10 +1056,13 @@ class Client(object):
         """
         Create a new host.
 
-        :param host: Host name, it should be alphanumeric and maximum length is 255.
-        :type string
+        :param host: Host name which should be alphanumeric and maximum length is 255
+        :type host: string
         """
-        params = {'all': True}
+        params = {
+            'all': True
+        }
         params.update(kwargs)
+
         data = self._request('host_add', host, params)
         return data['result']
