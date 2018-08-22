@@ -138,7 +138,7 @@ class Client(object):
 
         if not response.ok:
             raise FreeIPAError(message=response.content, code=response.status_code)
-                
+
         if response.headers.get('X-IPA-Pwchange-Result', None) != 'ok':
             raise FreeIPAError(message=response.content, code=response.status_code)
         return response
