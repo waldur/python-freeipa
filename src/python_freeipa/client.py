@@ -582,8 +582,6 @@ class Client(object):
 
         :param username: User login.
         :type username: string
-        :param skip_errors: Continuous mode: Don't stop on errors.
-        :type skip_errors: bool
         """
         return self._request('user_undel', username)
 
