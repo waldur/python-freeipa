@@ -115,6 +115,34 @@ class Client(object):
         else:
             return result['result']
 
+    def change_password(self, username, new_password, old_password):
+        """
+        Set the password of a user. (Does not expire)
+
+        :param login: User login (username)
+        :type login: string
+        :param password: New password for the user
+        :type password: string
+        :param old_password: Users old password
+        :type old_password: string
+        """
+
+        password_url = '{0}/session/change_password'.format(self._base_url)
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'text/plain'
+        }
+
+        data = {'user': username, 'new_password': new_password, 'old_password': old_password}
+        response = self._session.post(password_url, headers=headers, data=data, verify=self._verify_ssl)
+
+        if not response.ok:
+            raise FreeIPAError(message=response.content, code=response.status_code)
+                
+        if response.headers.get('X-IPA-Pwchange-Result', None) != 'ok':
+            raise FreeIPAError(message=response.content, code=response.status_code)
+        return response
+
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
                  noprivate=False, mail=None, ssh_key=None, job_title=None, gid_number=None, uid_number=None,
                  preferred_language=None, disabled=False, random_pass=False, initials=None, home_directory=None,
