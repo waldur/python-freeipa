@@ -35,6 +35,7 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
+
 * Thu Jun 28 2018 Jenkins <jenkins@opennodecloud.com> - 0.2.1-1.el7
 - New upstream release
 

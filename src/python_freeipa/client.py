@@ -116,7 +116,7 @@ class Client(object):
             return result['result']
 
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
-                 noprivate=False, mail=None, ssh_key=None, job_title=None,
+                 noprivate=False, mail=None, ssh_key=None, job_title=None, gid_number=None, uid_number=None,
                  preferred_language=None, disabled=False, random_pass=False, initials=None, home_directory=None,
                  gecos=None, login_shell=None, user_password=None, street_address=None, city=None, state=None,
                  postal_code=None, telephone_number=None, mobile_number=None, pager_number=None, fax_number=None,
@@ -144,6 +144,10 @@ class Client(object):
         :type ssh_key: string or list
         :param job_title: Job title
         :type job_title: string
+        :param gid_number: gidNumber
+        :type gid_number: string
+        :param uid_number: uidNumber
+        :type uid_number: string
         :param preferred_language: Preferred language ISO code
         :type preferred_language: string
         :param disabled: Account disabled
@@ -203,6 +207,12 @@ class Client(object):
             'sn': last_name,
             'cn': full_name,
         }
+
+        if gid_number:
+            params['gidnumber'] = gid_number
+
+        if uid_number:
+            params['uidnumber'] = uid_number
 
         if display_name:
             params['displayname'] = display_name
@@ -565,6 +575,15 @@ class Client(object):
             'preserve': soft_delete,
         }
         return self._request('user_del', username, params)
+
+    def user_undel(self, username):
+        """
+        Undelete a user.
+
+        :param username: User login.
+        :type username: string
+        """
+        return self._request('user_undel', username)
 
     def passwd(self, login, password, current_password=None):
         """
@@ -1029,4 +1048,19 @@ class Client(object):
         params.update(kwargs)
 
         data = self._request('automountmap_show', args, params)
+        return data['result']
+
+    def host_add(self, host, **kwargs):
+        """
+        Create a new host.
+
+        :param host: Host name which should be alphanumeric and maximum length is 255
+        :type host: string
+        """
+        params = {
+            'all': True
+        }
+        params.update(kwargs)
+
+        data = self._request('host_add', host, params)
         return data['result']
