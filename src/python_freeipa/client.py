@@ -7,7 +7,8 @@ import requests
 
 from .exceptions import (
     DuplicateEntry, FreeIPAError, Unauthorized,
-    parse_error, parse_group_management_error
+    parse_error, parse_group_management_error,
+    parse_hostgroup_management_error
 )
 
 logger = logging.getLogger(__name__)
@@ -1091,4 +1092,92 @@ class Client(object):
         params.update(kwargs)
 
         data = self._request('host_add', host, params)
+        return data['result']
+
+    def hostgroup_add(self, hostgroup, description=None, no_members=False, **kwargs):
+        """
+        Create a new host group.
+
+        :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
+        :tyoe hostgroup: string
+        :param description: Host Group description
+        :type description: string
+        :param no_members: Suppress processing of membership attributes
+        :type no_members: bool
+        """
+        params = {'all': True}
+
+        if description:
+            params['description'] = description
+
+        if no_members:
+            params['no_members'] = no_members
+
+        params.update(kwargs)
+        data = self._request('hostgroup_add', hostgroup, params)
+        return data['result']
+
+    def hostgroup_add_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False, **kwargs):
+        """
+        Add members to a hostgroup.
+
+        :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
+        :tyoe hostgroup: string
+        :param no_members: Suppress processing of membership attributes
+        :type no_members: bool
+        :param host: Hosts to add
+        :type host: list or string
+        :param hostgroups: Host group to add
+        type hostgroups: list or string
+        :param skip_errors: Skip processing errors.
+        :type skip_errors: bool
+        """
+        params = {'all': True}
+
+        if no_members:
+            params['no_members'] = no_members
+        
+        if host:
+            params['host'] = host
+        
+        if hostgroups:
+            params['hostgroup'] = hostgroups
+
+        params.update(kwargs)
+        data = self._request('hostgroup_add_member', hostgroup, params)
+        if not skip_errors:
+            parse_hostgroup_management_error(data)
+        return data['result']
+
+    
+    def hostgroup_remove_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False, **kwargs):
+        """
+        Remove members from a hostgroup.
+
+        :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
+        :tyoe hostgroup: string
+        :param no_members: Suppress processing of membership attributes
+        :type no_members: bool
+        :param host: Hosts to remove
+        :type host: list or string
+        :param hostgroups: Host group to remove
+        type hostgroups: list or string
+        :param skip_errors: Skip processing errors.
+        :type skip_errors: bool
+        """
+        params = {'all': True}
+
+        if no_members:
+            params['no_members'] = no_members
+        
+        if host:
+            params['host'] = host
+        
+        if hostgroups:
+            params['hostgroup'] = hostgroups
+
+        params.update(kwargs)
+        data = self._request('hostgroup_remove_member', hostgroup, params)
+        if not skip_errors:
+            parse_hostgroup_management_error(data)
         return data['result']
