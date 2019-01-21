@@ -640,7 +640,7 @@ class Client(object):
         Create a new group.
 
         :param group: Group name, it should be alphanumeric and maximum length is 255.
-        :tyoe group: string
+        :type group: string
         :param description: Group description
         :type description: string
         :param non_posix: Create as non-POSIX group
@@ -1117,18 +1117,19 @@ class Client(object):
         data = self._request('hostgroup_add', hostgroup, params)
         return data['result']
 
-    def hostgroup_add_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False, **kwargs):
+    def hostgroup_add_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False,
+                              **kwargs):
         """
         Add members to a hostgroup.
 
         :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
-        :tyoe hostgroup: string
+        :type hostgroup: string
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         :param host: Hosts to add
         :type host: list or string
         :param hostgroups: Host group to add
-        type hostgroups: list or string
+        :type hostgroups: list or string
         :param skip_errors: Skip processing errors.
         :type skip_errors: bool
         """
@@ -1136,10 +1137,10 @@ class Client(object):
 
         if no_members:
             params['no_members'] = no_members
-        
+
         if host:
             params['host'] = host
-        
+
         if hostgroups:
             params['hostgroup'] = hostgroups
 
@@ -1149,13 +1150,14 @@ class Client(object):
             parse_hostgroup_management_error(data)
         return data['result']
 
-    
-    def hostgroup_remove_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False, **kwargs):
+
+    def hostgroup_remove_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False,
+                                 **kwargs):
         """
         Remove members from a hostgroup.
 
         :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
-        :tyoe hostgroup: string
+        :type hostgroup: string
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         :param host: Hosts to remove
@@ -1169,10 +1171,10 @@ class Client(object):
 
         if no_members:
             params['no_members'] = no_members
-        
+
         if host:
             params['host'] = host
-        
+
         if hostgroups:
             params['hostgroup'] = hostgroups
 

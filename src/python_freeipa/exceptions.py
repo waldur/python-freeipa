@@ -78,6 +78,7 @@ def parse_group_management_error(data):
     if failed['member']['group'] or failed['member']['user']:
         raise ValidationError(failed)
 
+
 def parse_hostgroup_management_error(data):
     """Convert host group management error object to FreeIPA exception class."""
     failed = data['failed']
