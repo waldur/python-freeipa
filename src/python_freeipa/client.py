@@ -1150,7 +1150,6 @@ class Client(object):
             parse_hostgroup_management_error(data)
         return data['result']
 
-
     def hostgroup_remove_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False,
                                  **kwargs):
         """
@@ -1163,7 +1162,7 @@ class Client(object):
         :param host: Hosts to remove
         :type host: list or string
         :param hostgroups: Host group to remove
-        type hostgroups: list or string
+        :type hostgroups: list or string
         :param skip_errors: Skip processing errors.
         :type skip_errors: bool
         """
