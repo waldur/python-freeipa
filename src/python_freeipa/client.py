@@ -846,7 +846,7 @@ class Client(object):
         :return: automount key data
         :rtype: dict
         """
-        if self.automountkey_find(key, location, automount_map):
+        if self.automountkey_find(location, automount_map, key):
             raise DuplicateEntry()
 
         args = [
@@ -953,7 +953,7 @@ class Client(object):
             'rights': False
         }
 
-        data = self._request('automountlocation_find', location, params)
+        data = self._request('automountlocation_show', location, params)
         return data['result']
 
     def automountlocation_tofiles(self, location):
