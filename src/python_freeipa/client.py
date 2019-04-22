@@ -1094,6 +1094,71 @@ class Client(object):
         data = self._request('host_add', host, params)
         return data['result']
 
+    def host_del(self, fqdn, skip_errors=False, updatedns=None):
+        """
+        Delete host from FreeIPA
+
+        :param fqdn: Host name
+        :type: string
+        :param skip_errors: Continuous mode: Don't stop on errors
+        :type: bool
+        :param updatedns: Remove A, AAAA, SSHFP and PTR records of the host(s) managed by IPA DNS
+        :type: bool
+        """
+        params = {
+            "continue": skip_errors
+        }
+
+        if updatedns:
+            params['updatedns'] = updatedns
+
+        data = self._request('host_del', fqdn, params)
+        return data['result']
+
+    def host_find(self, criteria=None, allattr=True, no_members=False, sizelimit=0, raw=False, **kwargs):
+        """
+        Search for hosts.
+
+
+        :param criteria: A string searched in all relevant object attributes.
+        :type: string
+        :param allattr: Retrieve and print all attributes from the server. Affects command output
+        :type: bool
+        :param no_members: Suppress processing of membership attributes
+        :type: bool
+        :param sizelimit: Maximum number of entries returned (0 is unlimited)
+        :type: int
+        :param raw: Print entries as stored on the server. Only affects output format
+        :type: bool
+        """
+        params = {
+            'all': allattr,             # Retrieve and print all attributes from the server. Affects command output
+            'no_members': no_members,   # Suppress processing of membership attributes
+            'sizelimit': sizelimit,     # Maximum number of entries returned (0 is unlimited)
+            'raw': raw                  # Print entries as stored on the server. Only affects output format
+        }
+        params.update(kwargs)
+        return self._request('host_find', criteria, params)
+
+    def host_show(self, fqdn, rights=False, no_members=False, allattr=True, raw=False):
+        """
+        Display information about a host.
+
+        :param fqdn: Host name
+        :type: string
+        :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
+        :type: bool
+        :param no_members: Suppress processing of membership attributes
+        :type: bool
+        :param allattr: Retrieve and print all attributes from the server. Affects command output
+        :type: bool
+        :param raw: Print entries as stored on the server. Only affects output format
+        :type: bool
+        """
+        data = self._request('host_show', fqdn, {'all': allattr, 'rights': rights, 'no_members': no_members,
+                                                 'raw': raw})
+        return data['result']
+
     def hostgroup_add(self, hostgroup, description=None, no_members=False, **kwargs):
         """
         Create a new host group.
@@ -1115,6 +1180,93 @@ class Client(object):
 
         params.update(kwargs)
         data = self._request('hostgroup_add', hostgroup, params)
+        return data['result']
+
+    def hostgroup_del(self, hostgroup_name, skip_errors=False):
+        """
+        Delete a hostgroup
+
+        :param hostgroup_name: Name of hostgroup
+        :type: string
+        :param skip_errors: Continuous mode: Don't stop on errors
+        :type: bool
+        """
+
+        data = self._request('hostgroup_del', hostgroup_name, {'continue': skip_errors})
+        return data['result']
+
+    def hostgroup_find(self, criteria=None, allattr=True, no_members=False, sizelimit=0, raw=False, **kwargs):
+        """
+        Search for hostgroups
+
+        :param criteria: A string searched in all relevant object attributes.
+        :type: string
+        :param allattr: Retrieve and print all attributes from the server. Affects command output
+        :type: bool
+        :param no_members: Suppress processing of membership attributes
+        :type: bool
+        :param sizelimit: Maximum number of entries returned (0 is unlimited)
+        :type: int
+        :param raw: Print entries as stored on the server. Only affects output format
+        :type: bool
+        """
+        params = {
+            'all': allattr,             # Retrieve and print all attributes from the server. Affects command output
+            'no_members': no_members,   # Suppress processing of membership attributes
+            'sizelimit': sizelimit,     # Maximum number of entries returned (0 is unlimited)
+            'raw': raw                  # Print entries as stored on the server. Only affects output format
+        }
+        params.update(kwargs)
+        return self._request('hostgroup_find', criteria, params)
+
+    def hostgroup_show(self, hostgroup, rights=False, no_members=False, allattr=True, raw=False):
+        """
+        Display information about a host.
+
+        :param hostgroup: Hostgroup name
+        :type: string
+        :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
+        :type: bool
+        :param no_members: Suppress processing of membership attributes
+        :type: bool
+        :param allattr: Retrieve and print all attributes from the server. Affects command output
+        :type: bool
+        :param raw: Print entries as stored on the server. Only affects output format
+        :type: bool
+        """
+        data = self._request('hostgroup_show', hostgroup, {'all': allattr, 'rights': rights, 'no_members': no_members,
+                             'raw': raw})
+        return data['result']
+
+    def hostgroup_mod(self, hostgroup, description=None, no_members=False, rights=False, allattr=False, raw=False,
+                      **kwargs):
+        """
+        Modify a hostgroup.
+
+        :param hostgroup: Group name.
+        :type: string
+        :param description: Group description
+        :type: string
+        :param no_members: Suppress processing of membership attributes
+        :type: bool
+        :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
+        :type: bool
+        :param allattr: Retrieve and print all attributes from the server. Affects command output
+        :type: bool
+        :param raw: Print entries as stored on the server. Only affects output format
+        :type: bool
+        """
+        params = {
+            'all': allattr,
+            'raw': raw,
+            'rights': rights,
+            'no_members': no_members
+        }
+        if description:
+            params['description'] = description
+
+        params.update(kwargs)
+        data = self._request('hostgroup_mod', hostgroup, params)
         return data['result']
 
     def hostgroup_add_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False,
