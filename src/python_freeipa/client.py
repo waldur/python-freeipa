@@ -1186,8 +1186,8 @@ class Client(object):
         """
         Delete a hostgroup
 
-        :param hostgroup_name: Name of host-group
-        :type: string - pattern: ^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*$
+        :param hostgroup_name: Name of hostgroup
+        :type: string
         :param skip_errors: Continuous mode: Don't stop on errors
         :type: bool
         """
