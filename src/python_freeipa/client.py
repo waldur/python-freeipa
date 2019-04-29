@@ -1099,11 +1099,11 @@ class Client(object):
         Delete host from FreeIPA
 
         :param fqdn: Host name
-        :type: string
+        :type fqdn: string
         :param skip_errors: Continuous mode: Don't stop on errors
-        :type: bool
+        :type skip_errors: bool
         :param updatedns: Remove A, AAAA, SSHFP and PTR records of the host(s) managed by IPA DNS
-        :type: bool
+        :type updatedns: bool
         """
         params = {
             "continue": skip_errors
@@ -1119,17 +1119,16 @@ class Client(object):
         """
         Search for hosts.
 
-
         :param criteria: A string searched in all relevant object attributes.
-        :type: string
+        :type criteria: string
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type: int
+        :type sizelimit: int
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         params = {
             'all': allattr,             # Retrieve and print all attributes from the server. Affects command output
@@ -1145,15 +1144,15 @@ class Client(object):
         Display information about a host.
 
         :param fqdn: Host name
-        :type: string
+        :type fqdn: string
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
-        :type: bool
+        :type rights: bool
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         data = self._request('host_show', fqdn, {'all': allattr, 'rights': rights, 'no_members': no_members,
                                                  'raw': raw})
@@ -1164,7 +1163,7 @@ class Client(object):
         Create a new host group.
 
         :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
-        :tyoe hostgroup: string
+        :type hostgroup: string
         :param description: Host Group description
         :type description: string
         :param no_members: Suppress processing of membership attributes
@@ -1187,9 +1186,9 @@ class Client(object):
         Delete a hostgroup
 
         :param hostgroup_name: Name of hostgroup
-        :type: string
+        :type hostgroup_name: string
         :param skip_errors: Continuous mode: Don't stop on errors
-        :type: bool
+        :type skip_errors: bool
         """
 
         data = self._request('hostgroup_del', hostgroup_name, {'continue': skip_errors})
@@ -1200,15 +1199,15 @@ class Client(object):
         Search for hostgroups
 
         :param criteria: A string searched in all relevant object attributes.
-        :type: string
+        :type criteria: string
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type: int
+        :type sizelimit: int
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         params = {
             'all': allattr,             # Retrieve and print all attributes from the server. Affects command output
@@ -1224,15 +1223,15 @@ class Client(object):
         Display information about a host.
 
         :param hostgroup: Hostgroup name
-        :type: string
+        :type hostgroup: string
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
-        :type: bool
+        :type rights: bool
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         data = self._request('hostgroup_show', hostgroup, {'all': allattr, 'rights': rights, 'no_members': no_members,
                              'raw': raw})
@@ -1244,17 +1243,17 @@ class Client(object):
         Modify a hostgroup.
 
         :param hostgroup: Group name.
-        :type: string
+        :type hostgroup: string
         :param description: Group description
-        :type: string
+        :type description: string
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
-        :type: bool
+        :type rights: bool
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         params = {
             'all': allattr,
