@@ -1416,3 +1416,75 @@ class Client(object):
         params.update(kwargs)
         data = self._request('dnsrecord_mod', [zone_name, record_name], params)
         return data['result']
+
+    def dnszone_add(self, zone_name, **kwargs):
+        """
+        Create a new DNS zone.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        """
+        params = {'all': True}
+
+        params.update(kwargs)
+        data = self._request('dnszone_add', zone_name, params)
+        return data['result']
+
+    def dnszone_del(self, zone_name, **kwargs):
+        """
+        Delete a DNS zone.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        """
+        params = {}
+
+        params.update(kwargs)
+        self._request('dnszone_del', zone_name, params)
+
+    def dnszone_find(self, criteria=None, **kwargs):
+        """
+        Search for DNS zones.
+
+        :param criteria: A string searched in all relevant object attributes.
+        :type criteria: string
+        """
+        params = {
+            'all': True,
+            'sizelimit': 0
+        }
+        params.update(kwargs)
+        return self._request('dnszone_find', criteria, params)
+
+    def dnszone_show(self, zone_name, **kwargs):
+        """
+        Display information about a DNS zone.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        """
+        params = {
+            'all': True,
+            'raw': False,
+            'rights': False,
+        }
+        params.update(kwargs)
+        data = self._request('dnszone_show', zone_name, params)
+        return data['result']
+
+    def dnszone_mod(self, zone_name, **kwargs):
+        """
+        Modify a DNS zone.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        """
+        params = {
+            'all': False,
+            'raw': False,
+            'rights': False,
+        }
+
+        params.update(kwargs)
+        data = self._request('dnszone_mod', zone_name, params)
+        return data['result']
