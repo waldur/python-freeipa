@@ -1334,3 +1334,85 @@ class Client(object):
         if not skip_errors:
             parse_hostgroup_management_error(data)
         return data['result']
+
+    def dnsrecord_add(self, zone_name, record_name, **kwargs):
+        """
+        Create a new DNS record.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param record_name: DNS record name (e.g., host1)
+        :type record_name: string
+        """
+        params = {'all': True}
+
+        params.update(kwargs)
+        data = self._request('dnsrecord_add', [zone_name, record_name], params)
+        return data['result']
+
+    def dnsrecord_del(self, zone_name, record_name, **kwargs):
+        """
+        Delete a DNS record.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param record_name: DNS record name (e.g., host1)
+        :type record_name: string
+        """
+        params = {}
+
+        params.update(kwargs)
+        self._request('dnsrecord_del', [zone_name, record_name], params)
+
+    def dnsrecord_find(self, zone_name, criteria=None, **kwargs):
+        """
+        Search for DNS records.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param criteria: A string searched in all relevant object attributes.
+        :type criteria: string
+        """
+        params = {
+            'all': True,
+            'sizelimit': 0
+        }
+        params.update(kwargs)
+        return self._request('dnsrecord_find', [zone_name, criteria], params)
+
+    def dnsrecord_show(self, zone_name, record_name, **kwargs):
+        """
+        Display information about a DNS record.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param record_name: DNS record name (e.g., host1)
+        :type record_name: string
+        """
+        params = {
+            'all': True,
+            'raw': False,
+            'rights': False,
+        }
+        params.update(kwargs)
+        data = self._request('dnsrecord_show', [zone_name, record_name], params)
+        return data['result']
+
+    def dnsrecord_mod(self, zone_name, record_name, **kwargs):
+        """
+        Modify a DNS record.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param record_name: DNS record name (e.g., host1)
+        :type record_name: string
+        """
+        params = {
+            'all': False,
+            'raw': False,
+            'rights': False,
+        }
+
+        params.update(kwargs)
+        data = self._request('dnsrecord_mod', [zone_name, record_name], params)
+        return data['result']
