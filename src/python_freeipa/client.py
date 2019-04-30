@@ -120,10 +120,10 @@ class Client(object):
         """
         Set the password of a user. (Does not expire)
 
-        :param login: User login (username)
-        :type login: string
-        :param password: New password for the user
-        :type password: string
+        :param username: User login (username)
+        :type username: string
+        :param new_password: New password for the user
+        :type new_password: string
         :param old_password: Users old password
         :type old_password: string
         """
@@ -803,10 +803,12 @@ class Client(object):
 
         :param key: Automount key name.
         :type key: string
-        :param automount_location: Automount location name
-        :type automount_location: string
+        :param location: Automount location name
+        :type location: string
         :param automount_map: Automount map name
         :type automount_map: string
+        :param criteria: A string searched in all relevant object attributes.
+        :type criteria: string
         :return:
         :rtype: dict
         """
@@ -1099,11 +1101,11 @@ class Client(object):
         Delete host from FreeIPA
 
         :param fqdn: Host name
-        :type: string
+        :type fqdn: string
         :param skip_errors: Continuous mode: Don't stop on errors
-        :type: bool
+        :type skip_errors: bool
         :param updatedns: Remove A, AAAA, SSHFP and PTR records of the host(s) managed by IPA DNS
-        :type: bool
+        :type updatedns: bool
         """
         params = {
             "continue": skip_errors
@@ -1119,17 +1121,16 @@ class Client(object):
         """
         Search for hosts.
 
-
         :param criteria: A string searched in all relevant object attributes.
-        :type: string
+        :type criteria: string
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type: int
+        :type sizelimit: int
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         params = {
             'all': allattr,             # Retrieve and print all attributes from the server. Affects command output
@@ -1145,15 +1146,15 @@ class Client(object):
         Display information about a host.
 
         :param fqdn: Host name
-        :type: string
+        :type fqdn: string
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
-        :type: bool
+        :type rights: bool
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         data = self._request('host_show', fqdn, {'all': allattr, 'rights': rights, 'no_members': no_members,
                                                  'raw': raw})
@@ -1164,7 +1165,7 @@ class Client(object):
         Create a new host group.
 
         :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
-        :tyoe hostgroup: string
+        :type hostgroup: string
         :param description: Host Group description
         :type description: string
         :param no_members: Suppress processing of membership attributes
@@ -1187,9 +1188,9 @@ class Client(object):
         Delete a hostgroup
 
         :param hostgroup_name: Name of hostgroup
-        :type: string
+        :type hostgroup_name: string
         :param skip_errors: Continuous mode: Don't stop on errors
-        :type: bool
+        :type skip_errors: bool
         """
 
         data = self._request('hostgroup_del', hostgroup_name, {'continue': skip_errors})
@@ -1200,15 +1201,15 @@ class Client(object):
         Search for hostgroups
 
         :param criteria: A string searched in all relevant object attributes.
-        :type: string
+        :type criteria: string
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type: int
+        :type sizelimit: int
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         params = {
             'all': allattr,             # Retrieve and print all attributes from the server. Affects command output
@@ -1224,15 +1225,15 @@ class Client(object):
         Display information about a host.
 
         :param hostgroup: Hostgroup name
-        :type: string
+        :type hostgroup: string
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
-        :type: bool
+        :type rights: bool
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         data = self._request('hostgroup_show', hostgroup, {'all': allattr, 'rights': rights, 'no_members': no_members,
                              'raw': raw})
@@ -1244,17 +1245,17 @@ class Client(object):
         Modify a hostgroup.
 
         :param hostgroup: Group name.
-        :type: string
+        :type hostgroup: string
         :param description: Group description
-        :type: string
+        :type description: string
         :param no_members: Suppress processing of membership attributes
-        :type: bool
+        :type no_members: bool
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
-        :type: bool
+        :type rights: bool
         :param allattr: Retrieve and print all attributes from the server. Affects command output
-        :type: bool
+        :type allattr: bool
         :param raw: Print entries as stored on the server. Only affects output format
-        :type: bool
+        :type raw: bool
         """
         params = {
             'all': allattr,
@@ -1333,4 +1334,158 @@ class Client(object):
         data = self._request('hostgroup_remove_member', hostgroup, params)
         if not skip_errors:
             parse_hostgroup_management_error(data)
+        return data['result']
+
+    def dnsrecord_add(self, zone_name, record_name, **kwargs):
+        """
+        Create a new DNS record.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param record_name: DNS record name (e.g., host1)
+        :type record_name: string
+        """
+        params = {'all': True}
+
+        params.update(kwargs)
+        data = self._request('dnsrecord_add', [zone_name, record_name], params)
+        return data['result']
+
+    def dnsrecord_del(self, zone_name, record_name, **kwargs):
+        """
+        Delete a DNS record.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param record_name: DNS record name (e.g., host1)
+        :type record_name: string
+        """
+        params = {}
+
+        params.update(kwargs)
+        self._request('dnsrecord_del', [zone_name, record_name], params)
+
+    def dnsrecord_find(self, zone_name, criteria=None, **kwargs):
+        """
+        Search for DNS records.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param criteria: A string searched in all relevant object attributes.
+        :type criteria: string
+        """
+        params = {
+            'all': True,
+            'sizelimit': 0
+        }
+        params.update(kwargs)
+        return self._request('dnsrecord_find', [zone_name, criteria], params)
+
+    def dnsrecord_show(self, zone_name, record_name, **kwargs):
+        """
+        Display information about a DNS record.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param record_name: DNS record name (e.g., host1)
+        :type record_name: string
+        """
+        params = {
+            'all': True,
+            'raw': False,
+            'rights': False,
+        }
+        params.update(kwargs)
+        data = self._request('dnsrecord_show', [zone_name, record_name], params)
+        return data['result']
+
+    def dnsrecord_mod(self, zone_name, record_name, **kwargs):
+        """
+        Modify a DNS record.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        :param record_name: DNS record name (e.g., host1)
+        :type record_name: string
+        """
+        params = {
+            'all': False,
+            'raw': False,
+            'rights': False,
+        }
+
+        params.update(kwargs)
+        data = self._request('dnsrecord_mod', [zone_name, record_name], params)
+        return data['result']
+
+    def dnszone_add(self, zone_name, **kwargs):
+        """
+        Create a new DNS zone.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        """
+        params = {'all': True}
+
+        params.update(kwargs)
+        data = self._request('dnszone_add', zone_name, params)
+        return data['result']
+
+    def dnszone_del(self, zone_name, **kwargs):
+        """
+        Delete a DNS zone.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        """
+        params = {}
+
+        params.update(kwargs)
+        self._request('dnszone_del', zone_name, params)
+
+    def dnszone_find(self, criteria=None, **kwargs):
+        """
+        Search for DNS zones.
+
+        :param criteria: A string searched in all relevant object attributes.
+        :type criteria: string
+        """
+        params = {
+            'all': True,
+            'sizelimit': 0
+        }
+        params.update(kwargs)
+        return self._request('dnszone_find', criteria, params)
+
+    def dnszone_show(self, zone_name, **kwargs):
+        """
+        Display information about a DNS zone.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        """
+        params = {
+            'all': True,
+            'raw': False,
+            'rights': False,
+        }
+        params.update(kwargs)
+        data = self._request('dnszone_show', zone_name, params)
+        return data['result']
+
+    def dnszone_mod(self, zone_name, **kwargs):
+        """
+        Modify a DNS zone.
+
+        :param zone_name: DNS zone name (e.g., example.com)
+        :type zone_name: string
+        """
+        params = {
+            'all': False,
+            'raw': False,
+            'rights': False,
+        }
+
+        params.update(kwargs)
+        data = self._request('dnszone_mod', zone_name, params)
         return data['result']
