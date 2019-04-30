@@ -120,10 +120,10 @@ class Client(object):
         """
         Set the password of a user. (Does not expire)
 
-        :param login: User login (username)
-        :type login: string
-        :param password: New password for the user
-        :type password: string
+        :param username: User login (username)
+        :type username: string
+        :param new_password: New password for the user
+        :type new_password: string
         :param old_password: Users old password
         :type old_password: string
         """
@@ -803,10 +803,12 @@ class Client(object):
 
         :param key: Automount key name.
         :type key: string
-        :param automount_location: Automount location name
-        :type automount_location: string
+        :param location: Automount location name
+        :type location: string
         :param automount_map: Automount map name
         :type automount_map: string
+        :param criteria: A string searched in all relevant object attributes.
+        :type criteria: string
         :return:
         :rtype: dict
         """
