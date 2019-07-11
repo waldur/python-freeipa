@@ -54,7 +54,7 @@ class Client(object):
         response = self._session.post(login_url, headers=headers, data=data, verify=self._verify_ssl)
 
         if not response.ok:
-            raise Unauthorized(response.content)
+            raise Unauthorized(response.text)
 
         logger.info('Successfully logged in as {0}'.format(username))
 
@@ -107,7 +107,7 @@ class Client(object):
             raise Unauthorized()
 
         if not response.ok:
-            raise FreeIPAError(message=response.content, code=response.status_code)
+            raise FreeIPAError(message=response.text, code=response.status_code)
 
         result = response.json()
         error = result['error']
@@ -138,10 +138,10 @@ class Client(object):
         response = self._session.post(password_url, headers=headers, data=data, verify=self._verify_ssl)
 
         if not response.ok:
-            raise FreeIPAError(message=response.content, code=response.status_code)
+            raise FreeIPAError(message=response.text, code=response.status_code)
 
         if response.headers.get('X-IPA-Pwchange-Result', None) != 'ok':
-            raise FreeIPAError(message=response.content, code=response.status_code)
+            raise FreeIPAError(message=response.text, code=response.status_code)
         return response
 
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
