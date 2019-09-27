@@ -5,6 +5,12 @@ import logging
 
 import requests
 
+try:
+    import requests_kerberos
+except ImportError as e:
+    # Will raise if the user tries to login via Kerberos.
+    requests_kerberos = e
+
 from .exceptions import (
     DuplicateEntry, FreeIPAError, Unauthorized,
     parse_error, parse_group_management_error,
@@ -57,6 +63,34 @@ class Client(object):
             raise Unauthorized(response.text)
 
         logger.info('Successfully logged in as {0}'.format(username))
+
+    def login_kerberos(self):
+        """
+        Login to FreeIPA server using existing Kerberos credentials.
+
+        In order to use this method, the package ```requests_kerberos`` <https://pypi.org/project/requests-kerberos/>`_
+        must be installed. There must already be a Kerberos Ticket-Granting Ticket (TGT) cached in a Kerberos credential
+        cache. Whether a TGT is available can be easily determined by running the klist command. If no TGT is available,
+        then it first must be obtained by running the kinit command, or pointing the ``$KRB5CCNAME`` environment
+        variable to a credential cache with a valid TGT.
+
+        :raises Unauthorized: raised if credentials are invalid.
+        :raises ImportError: raised if the ``requests_kerberos`` module is unavailable.
+        """
+        if isinstance(requests_kerberos, ImportError):
+            raise requests_kerberos
+
+        login_url = '{0}/session/login_kerberos'.format(self._base_url)
+        headers = {
+            'Referer': self._base_url
+        }
+        response = self._session.post(login_url, headers=headers, verify=self._verify_ssl,
+            auth=requests_kerberos.HTTPKerberosAuth())
+
+        if not response.ok:
+            raise Unauthorized(response.text)
+
+        logger.info('Successfully logged using Kerberos credentials.')
 
     def _request(self, method, args=None, params=None):
         """
