@@ -113,7 +113,9 @@ class Client(object):
             'Accept': 'application/json'
         }
 
-        if not isinstance(args, list):
+        if not args:
+            args = []
+        elif not isinstance(args, list):
             args = [args]
 
         if not params:
