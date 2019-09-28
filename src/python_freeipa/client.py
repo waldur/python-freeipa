@@ -29,11 +29,11 @@ class AuthenticatedSession(object):
         Constructs a new authenticated session with optional login arguments.
 
         When the ``__enter__`` method of is invoked, if the parameter ``logged_in`` is False, the class will attempt to
-        login using the specified ``login_arguments`` (e.g. username and password) through :meth:`.Client.login`. If no
-        login arguments is specified, it will attempt a Kerberos login via :meth:`.Client.login_kerberos`.
+        login using the specified ``login_arguments`` (e.g. username and password) through ``Client.login``. If no
+        login arguments is specified, it will attempt a Kerberos login via ``Client.login_kerberos``.
 
         :param client: an instance of a FreeIPA client
-        :type client: :class:`.Client`
+        :type client: ``Client``
         :param login_arguments: arguments to use to login upon enter, possibly empty.
         :param logged_in: True if the instance ``client`` is already logged in.
         :type logged_in: bool
@@ -69,7 +69,7 @@ class AuthenticatedSession(object):
         """
         Tries to perform a login, if necessary, using the login arguments specified at cosntruction.
 
-        This method does not throw, but will store any occurring exception in :meth:`.login_exception`.
+        This method does not throw, but will store any occurring exception in ``login_exception``.
         """
         if not self.logged_in:
             try:
@@ -158,7 +158,7 @@ class Client(object):
             'Referer': self._base_url
         }
         response = self._session.post(login_url, headers=headers, verify=self._verify_ssl,
-            auth=requests_kerberos.HTTPKerberosAuth())
+                                      auth=requests_kerberos.HTTPKerberosAuth())
 
         if not response.ok:
             raise Unauthorized(response.text)
