@@ -67,7 +67,7 @@ class AuthenticatedSession(object):
 
     def __enter__(self):
         """
-        Tries to perform a login, if necessary, using the login arguments specified at cosntruction.
+        Tries to perform a login, if necessary, using the login arguments specified at construction.
 
         This method does not throw, but will store any occurring exception in ``login_exception``.
         """
