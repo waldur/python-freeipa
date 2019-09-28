@@ -24,7 +24,7 @@ class AuthenticatedSession(object):
     """
     Context manager class that automatically logs out upon exit.
     """
-    def __init__(self, client, *login_arguments, logged_in=False):
+    def __init__(self, client, *login_arguments, **kwargs):
         """
         Constructs a new authenticated session with optional login arguments.
 
@@ -40,7 +40,7 @@ class AuthenticatedSession(object):
         """
         self._client = client
         self._login_args = login_arguments
-        self._logged_in = logged_in
+        self._logged_in = kwargs.get('logged_in', False)
         self._login_exception = None
 
     @property
