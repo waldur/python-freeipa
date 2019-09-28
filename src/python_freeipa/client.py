@@ -92,6 +92,12 @@ class Client(object):
 
         logger.info('Successfully logged using Kerberos credentials.')
 
+    def logout(self):
+        """
+        Logs out of the FreeIPA session.
+        """
+        self._request('session_logout')
+
     def _request(self, method, args=None, params=None):
         """
         Make an HTTP request to FreeIPA JSON RPC server.
