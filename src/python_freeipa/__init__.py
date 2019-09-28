@@ -1,1 +1,1 @@
-from .client import Client  # NOQA
+from .client import Client, AuthenticatedSession  # NOQA
