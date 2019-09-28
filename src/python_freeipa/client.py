@@ -20,6 +20,77 @@ from .exceptions import (
 logger = logging.getLogger(__name__)
 
 
+class AuthenticatedSession(object):
+    """
+    Context manager class that automatically logs out upon exit.
+    """
+    def __init__(self, client, *login_arguments, logged_in=False):
+        """
+        Constructs a new authenticated session with optional login arguments.
+
+        When the ``__enter__`` method of is invoked, if the parameter ``logged_in`` is False, the class will attempt to
+        login using the specified ``login_arguments`` (e.g. username and password) through :meth:`.Client.login`. If no
+        login arguments is specified, it will attempt a Kerberos login via :meth:`.Client.login_kerberos`.
+
+        :param client: an instance of a FreeIPA client
+        :type client: :class:`.Client`
+        :param login_arguments: arguments to use to login upon enter, possibly empty.
+        :param logged_in: True if the instance ``client`` is already logged in.
+        :type logged_in: bool
+        """
+        self._client = client
+        self._login_args = login_arguments
+        self._logged_in = logged_in
+        self._login_exception = None
+
+    @property
+    def logged_in(self):
+        """
+        Returns True if and only if the login attempt succeeded.
+        """
+        return self._logged_in
+
+    @property
+    def login_exception(self):
+        """
+        Returns the exception occurred during the login attempt, if any, otherwise None.
+        """
+        return self._login_exception
+
+    def logout(self):
+        """
+        Logs out of the current session, if any is active.
+        """
+        if self.logged_in:
+            self._client.logout()
+            self._logged_in = False
+
+    def __enter__(self):
+        """
+        Tries to perform a login, if necessary, using the login arguments specified at cosntruction.
+
+        This method does not throw, but will store any occurring exception in :meth:`.login_exception`.
+        """
+        if not self.logged_in:
+            try:
+                if len(self._login_args) > 0:
+                    self._client.login(*self._login_args)
+                else:
+                    self._client.login_kerberos()
+                self._logged_in = True
+            except Exception as e:
+                self._login_exception = e
+                self._logged_in = False
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """
+        Logs out of the session, if necessary.
+        """
+        if self.logged_in:
+            self.logout()
+
+
 class Client(object):
     """Lightweight FreeIPA JSON RPC client."""
 
@@ -64,6 +135,8 @@ class Client(object):
 
         logger.info('Successfully logged in as {0}'.format(username))
 
+        return AuthenticatedSession(self, username, password, logged_in=True)
+
     def login_kerberos(self):
         """
         Login to FreeIPA server using existing Kerberos credentials.
@@ -91,6 +164,8 @@ class Client(object):
             raise Unauthorized(response.text)
 
         logger.info('Successfully logged using Kerberos credentials.')
+
+        return AuthenticatedSession(self, logged_in=True)
 
     def logout(self):
         """
