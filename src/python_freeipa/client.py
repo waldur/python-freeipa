@@ -769,16 +769,16 @@ class Client(object):
         """
         params = {'all': True}
 
-        if description:
+        if description is not None:
             params['description'] = description
 
-        if non_posix:
+        if non_posix is not None:
             params['nonposix'] = non_posix
 
-        if external:
+        if external is not None:
             params['external'] = external
 
-        if no_members:
+        if no_members is not None:
             params['no_members'] = no_members
 
         params.update(kwargs)
