@@ -17,6 +17,19 @@ class FreeIPAError(Exception):
         """Serialize exception to string using it's message."""
         return self.message
 
+class PWChangeInvalidPassword(FreeIPAError):
+    """Raised when the current password is not correct while trying to change
+    passwords."""
+
+class PWChangePolicyError(FreeIPAError):
+    """Raised when changing a password but the new password doesn't fit the
+    password policy."""
+
+    # Carry along some extra information about the policy error.
+    def __init__(self, message=None, code=None, policy_error=None):
+        if policy_error:
+            self.policy_error = policy_error
+        super(PWChangePolicyError, self).__init__(message=message, code=code)
 
 class BadRequest(FreeIPAError):
     """General purpose exception class."""

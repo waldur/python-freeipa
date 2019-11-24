@@ -14,6 +14,7 @@ except ImportError as e:
 from .exceptions import (
     DuplicateEntry, FreeIPAError, Unauthorized,
     PasswordExpired, KrbPrincipalExpired, Denied,
+    PWChangeInvalidPassword, PWChangePolicyError,
     InvalidSessionPassword, UserLocked,
     parse_error, parse_group_management_error,
     parse_hostgroup_management_error
@@ -271,8 +272,15 @@ class Client(object):
         if not response.ok:
             raise FreeIPAError(message=response.text, code=response.status_code)
 
-        if response.headers.get('X-IPA-Pwchange-Result', None) != 'ok':
-            raise FreeIPAError(message=response.text, code=response.status_code)
+        pwchange_result = response.headers.get('X-IPA-Pwchange-Result', None)
+        if pwchange_result != 'ok':
+            if pwchange_result == 'invalid-password':
+                raise PWChangeInvalidPassword(message=response.text, code=response.status_code)
+            elif pwchange_result == 'policy-error':
+                policy_error = response.headers.get('X-IPA-Pwchange-Policy-Error', None)
+                raise PWChangePolicyError(message=response.text, code=response.status_code, policy_error=policy_error)
+            else:
+                raise FreeIPAError(message=response.text, code=response.status_code)
         return response
 
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
