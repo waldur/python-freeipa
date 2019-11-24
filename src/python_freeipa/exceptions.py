@@ -17,9 +17,11 @@ class FreeIPAError(Exception):
         """Serialize exception to string using it's message."""
         return self.message
 
+
 class PWChangeInvalidPassword(FreeIPAError):
     """Raised when the current password is not correct while trying to change
     passwords."""
+
 
 class PWChangePolicyError(FreeIPAError):
     """Raised when changing a password but the new password doesn't fit the
@@ -31,6 +33,7 @@ class PWChangePolicyError(FreeIPAError):
             self.policy_error = policy_error
         super(PWChangePolicyError, self).__init__(message=message, code=code)
 
+
 class BadRequest(FreeIPAError):
     """General purpose exception class."""
 
@@ -40,24 +43,30 @@ class Unauthorized(BadRequest):
 
     message = 'Unauthorized: bad credentials.'
 
+
 class PasswordExpired(Unauthorized):
     """Raised when logging in with an expired password."""
 
     message = 'PasswordExpired: password expired.'
 
+
 class KrbPrincipalExpired(Unauthorized):
     """Raised when Kerberos Principal is expired."""
+
 
 class Denied(Unauthorized):
     """Raised on ACI authorization error."""
 
+
 class InvalidSessionPassword(Unauthorized):
     """Raised when IPA cannot obtain a TGT for a principal."""
+
 
 class UserLocked(Unauthorized):
     """Raised when a user account is locked."""
 
     message = 'UserLocked: user account is locked.'
+
 
 class NotFound(BadRequest):
     """Raised when an entry is not found."""

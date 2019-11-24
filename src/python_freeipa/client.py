@@ -12,12 +12,10 @@ except ImportError as e:
     requests_kerberos = e
 
 from .exceptions import (
-    DuplicateEntry, FreeIPAError, Unauthorized,
-    PasswordExpired, KrbPrincipalExpired, Denied,
-    PWChangeInvalidPassword, PWChangePolicyError,
-    InvalidSessionPassword, UserLocked,
-    parse_error, parse_group_management_error,
-    parse_hostgroup_management_error
+    Denied, DuplicateEntry, FreeIPAError, InvalidSessionPassword,
+    KrbPrincipalExpired, PWChangeInvalidPassword, PWChangePolicyError,
+    PasswordExpired, Unauthorized, UserLocked, parse_error,
+    parse_group_management_error, parse_hostgroup_management_error
 )
 
 logger = logging.getLogger(__name__)
