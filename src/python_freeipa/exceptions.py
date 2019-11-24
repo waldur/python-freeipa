@@ -18,6 +18,22 @@ class FreeIPAError(Exception):
         return self.message
 
 
+class PWChangeInvalidPassword(FreeIPAError):
+    """Raised when the current password is not correct while trying to change
+    passwords."""
+
+
+class PWChangePolicyError(FreeIPAError):
+    """Raised when changing a password but the new password doesn't fit the
+    password policy."""
+
+    # Carry along some extra information about the policy error.
+    def __init__(self, message=None, code=None, policy_error=None):
+        if policy_error:
+            self.policy_error = policy_error
+        super(PWChangePolicyError, self).__init__(message=message, code=code)
+
+
 class BadRequest(FreeIPAError):
     """General purpose exception class."""
 
@@ -26,6 +42,30 @@ class Unauthorized(BadRequest):
     """Raised when invalid credentials are provided."""
 
     message = 'Unauthorized: bad credentials.'
+
+
+class PasswordExpired(Unauthorized):
+    """Raised when logging in with an expired password."""
+
+    message = 'PasswordExpired: password expired.'
+
+
+class KrbPrincipalExpired(Unauthorized):
+    """Raised when Kerberos Principal is expired."""
+
+
+class Denied(Unauthorized):
+    """Raised on ACI authorization error."""
+
+
+class InvalidSessionPassword(Unauthorized):
+    """Raised when IPA cannot obtain a TGT for a principal."""
+
+
+class UserLocked(Unauthorized):
+    """Raised when a user account is locked."""
+
+    message = 'UserLocked: user account is locked.'
 
 
 class NotFound(BadRequest):
@@ -55,6 +95,11 @@ class UnknownOption(BadRequest):
 
 
 error_codes = {
+    1201: InvalidSessionPassword,
+    1202: PasswordExpired,
+    1203: KrbPrincipalExpired,
+    1204: UserLocked,
+    2100: Denied,
     3005: UnknownOption,
     3009: ValidationError,
     4001: NotFound,
