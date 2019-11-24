@@ -12,9 +12,10 @@ except ImportError as e:
     requests_kerberos = e
 
 from .exceptions import (
-    DuplicateEntry, FreeIPAError, Unauthorized,
-    parse_error, parse_group_management_error,
-    parse_hostgroup_management_error
+    Denied, DuplicateEntry, FreeIPAError, InvalidSessionPassword,
+    KrbPrincipalExpired, PWChangeInvalidPassword, PWChangePolicyError,
+    PasswordExpired, Unauthorized, UserLocked, parse_error,
+    parse_group_management_error, parse_hostgroup_management_error
 )
 
 logger = logging.getLogger(__name__)
@@ -131,6 +132,18 @@ class Client(object):
         response = self._session.post(login_url, headers=headers, data=data, verify=self._verify_ssl)
 
         if not response.ok:
+            reason = response.headers.get('X-IPA-Rejection-Reason', None)
+            if reason:
+                if reason == 'password-expired':
+                    raise PasswordExpired()
+                elif reason == 'krbprincipal-expired':
+                    raise KrbPrincipalExpired()
+                elif reason == 'denied':
+                    raise Denied()
+                elif reason == 'invalid-password':
+                    raise InvalidSessionPassword()
+                elif reason == 'user-locked':
+                    raise UserLocked()
             raise Unauthorized(response.text)
 
         logger.info('Successfully logged in as {0}'.format(username))
@@ -257,8 +270,15 @@ class Client(object):
         if not response.ok:
             raise FreeIPAError(message=response.text, code=response.status_code)
 
-        if response.headers.get('X-IPA-Pwchange-Result', None) != 'ok':
-            raise FreeIPAError(message=response.text, code=response.status_code)
+        pwchange_result = response.headers.get('X-IPA-Pwchange-Result', None)
+        if pwchange_result != 'ok':
+            if pwchange_result == 'invalid-password':
+                raise PWChangeInvalidPassword(message=response.text, code=response.status_code)
+            elif pwchange_result == 'policy-error':
+                policy_error = response.headers.get('X-IPA-Pwchange-Policy-Error', None)
+                raise PWChangePolicyError(message=response.text, code=response.status_code, policy_error=policy_error)
+            else:
+                raise FreeIPAError(message=response.text, code=response.status_code)
         return response
 
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
