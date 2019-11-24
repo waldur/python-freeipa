@@ -13,6 +13,8 @@ except ImportError as e:
 
 from .exceptions import (
     DuplicateEntry, FreeIPAError, Unauthorized,
+    PasswordExpired, KrbPrincipalExpired, Denied,
+    InvalidSessionPassword, UserLocked,
     parse_error, parse_group_management_error,
     parse_hostgroup_management_error
 )
@@ -131,6 +133,18 @@ class Client(object):
         response = self._session.post(login_url, headers=headers, data=data, verify=self._verify_ssl)
 
         if not response.ok:
+            reason = response.headers.get('X-IPA-Rejection-Reason', None)
+            if reason:
+                if reason == 'password-expired':
+                    raise PasswordExpired()
+                elif reason == 'krbprincipal-expired':
+                    raise KrbPrincipalExpired()
+                elif reason == 'denied':
+                    raise Denied()
+                elif reason == 'invalid-password':
+                    raise InvalidSessionPassword()
+                elif reason == 'user-locked':
+                    raise UserLocked()
             raise Unauthorized(response.text)
 
         logger.info('Successfully logged in as {0}'.format(username))
