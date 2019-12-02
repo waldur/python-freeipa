@@ -15,7 +15,7 @@ class FreeIPAError(Exception):
 
     def __str__(self):
         """Serialize exception to string using it's message."""
-        return self.message
+        return str(self.message)
 
 
 class PWChangeInvalidPassword(FreeIPAError):
