@@ -15,7 +15,6 @@ from .exceptions import (
     Denied, DuplicateEntry, FreeIPAError, InvalidSessionPassword,
     KrbPrincipalExpired, PWChangeInvalidPassword, PWChangePolicyError,
     PasswordExpired, Unauthorized, UserLocked, parse_error,
-    parse_group_management_error, parse_hostgroup_management_error
 )
 
 logger = logging.getLogger(__name__)
@@ -186,7 +185,7 @@ class Client(object):
         """
         self._request('session_logout')
 
-    def _request(self, method, args=None, params=None):
+    def _request(self, method, args=None, params=None, skip_errors=False):
         """
         Make an HTTP request to FreeIPA JSON RPC server.
 
@@ -196,6 +195,8 @@ class Client(object):
         :type args: list or string
         :param params: optional named parameters
         :type params: dict
+        :param skip_errors: Continuous mode: Don't stop on errors.
+        :type skip_errors: bool
         :return: parsed response from the request
         :rtype: dict
         :raises FreeIPAError: if the response code is not OK
@@ -244,7 +245,14 @@ class Client(object):
         if error:
             parse_error(error)
         else:
-            return result['result']
+            data = result['result']
+            if 'failed' in data:
+                if not skip_errors:
+                    raise FreeIPAError(message=data['failed'])
+                else:
+                    return data['result']
+            else:
+                return data
 
     def change_password(self, username, new_password, old_password):
         """
@@ -835,9 +843,7 @@ class Client(object):
             'group': groups,
         }
         params.update(kwargs)
-        data = self._request('group_add_member', group, params)
-        if not skip_errors:
-            parse_group_management_error(data)
+        data = self._request('group_add_member', group, params, skip_errors=skip_errors)
         return data['result']
 
     def group_remove_member(self, group, users=None, groups=None, skip_errors=False, **kwargs):
@@ -860,9 +866,7 @@ class Client(object):
             'group': groups,
         }
         params.update(kwargs)
-        data = self._request('group_remove_member', group, params)
-        if not skip_errors:
-            parse_group_management_error(data)
+        data = self._request('group_remove_member', group, params, skip_errors=skip_errors)
         return data['result']
 
     def group_find(self, criteria=None, **kwargs):
@@ -1435,9 +1439,7 @@ class Client(object):
             params['hostgroup'] = hostgroups
 
         params.update(kwargs)
-        data = self._request('hostgroup_add_member', hostgroup, params)
-        if not skip_errors:
-            parse_hostgroup_management_error(data)
+        data = self._request('hostgroup_add_member', hostgroup, params, skip_errors=skip_errors)
         return data['result']
 
     def hostgroup_remove_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False,
@@ -1468,9 +1470,7 @@ class Client(object):
             params['hostgroup'] = hostgroups
 
         params.update(kwargs)
-        data = self._request('hostgroup_remove_member', hostgroup, params)
-        if not skip_errors:
-            parse_hostgroup_management_error(data)
+        data = self._request('hostgroup_remove_member', hostgroup, params, skip_errors=skip_errors)
         return data['result']
 
     def dnsrecord_add(self, zone_name, record_name, **kwargs):
