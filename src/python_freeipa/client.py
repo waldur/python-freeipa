@@ -11,16 +11,17 @@ except ImportError as e:
     # Will raise if the user tries to login via Kerberos.
     requests_kerberos = e
 
-from .exceptions import (
-    Denied, DuplicateEntry, FreeIPAError, InvalidSessionPassword,
-    KrbPrincipalExpired, PWChangeInvalidPassword, PWChangePolicyError,
-    PasswordExpired, Unauthorized, UserLocked, parse_error,
-    parse_group_management_error, parse_hostgroup_management_error
-)
+from python_freeipa.exceptions import Denied
+from python_freeipa.exceptions import FreeIPAError
+from python_freeipa.exceptions import InvalidSessionPassword
+from python_freeipa.exceptions import KrbPrincipalExpired
+from python_freeipa.exceptions import PWChangeInvalidPassword
+from python_freeipa.exceptions import PWChangePolicyError
+from python_freeipa.exceptions import PasswordExpired
+from python_freeipa.exceptions import Unauthorized
+from python_freeipa.exceptions import UserLocked
+from python_freeipa.exceptions import parse_error
 
-from .meta_api import MetaAPI
-
-logger = logging.getLogger(__name__)
 
 
 class AuthenticatedSession(object):
@@ -94,11 +95,11 @@ class AuthenticatedSession(object):
             self.logout()
 
 
-class Client(MetaAPI):
+
+class Client(object):
     """Lightweight FreeIPA JSON RPC client."""
 
-    def __init__(self, host, verify_ssl=True, version='2.231'):
-        super().__init__()
+    def __init__(self, host, verify_ssl=True, version=None):
         """
         Initialize client with connection options.
 
@@ -114,6 +115,11 @@ class Client(MetaAPI):
         self._verify_ssl = verify_ssl
         self._version = version
         self._session = requests.Session()
+        self._log = logging.getLogger(__name__)
+
+    @property
+    def log(self):
+        return self._log
 
     def login(self, username, password):
         """
@@ -149,7 +155,7 @@ class Client(MetaAPI):
                     raise UserLocked()
             raise Unauthorized(response.text)
 
-        logger.info('Successfully logged in as {0}'.format(username))
+        self.log.info('Successfully logged in as {0}'.format(username))
 
         return AuthenticatedSession(self, username, password, logged_in=True)
 
@@ -179,7 +185,7 @@ class Client(MetaAPI):
         if not response.ok:
             raise Unauthorized(response.text)
 
-        logger.info('Successfully logged using Kerberos credentials.')
+        self.log.info('Successfully logged using Kerberos credentials.')
 
         return AuthenticatedSession(self, logged_in=True)
 
@@ -226,7 +232,7 @@ class Client(MetaAPI):
             'params': [args, params]
         }
 
-        logger.debug('Making {method} request to {url} with arguments {args} and params {params}'.format(
+        self.log.debug('Making {method} request to {url} with arguments {args} and params {params}'.format(
             method=method, url=session_url, args=args, params=params))
 
         response = self._session.post(

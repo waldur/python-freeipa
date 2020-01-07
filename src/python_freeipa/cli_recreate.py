@@ -1,7 +1,5 @@
 import argparse
-import builtins
 import json
-import keyword
 import logging
 import sys
 
@@ -65,25 +63,18 @@ class MetaAPICreator:
         self._json_spec = json_spec
         return self._json_spec
 
-    def append(self, data, base_indent=None):
-        if not base_indent:
+    def append(self, line, base_indent=None):
+        if not line:
+            base_indent = ''
+        elif not base_indent:
             base_indent = ''
         else:
             base_indent = '    ' * base_indent
-        self.meta_api.append('{0}{1}'.format(base_indent, data))
+        self.meta_api.append('{0}{1}'.format(base_indent, line.rstrip()))
 
     @staticmethod
     def _name_mapping(name, _type):
-        try:
-            getattr(builtins, name)
-            return '{0}_{1}'.format(_type, name)
-        except AttributeError:
-            pass
-        if name in keyword.kwlist:
-            return '{0}_{1}'.format(_type, name)
-        elif name == 'method':
-            return '{0}_{1}'.format(_type, name)
-        return name
+        return '{0}_{1}'.format(_type, name)
 
     def _json_spec_from_file(self):
         try:
@@ -97,17 +88,19 @@ class MetaAPICreator:
         raise NotImplementedError
 
     def _class_header(self):
-        self.append('class MetaAPI:')
-        self.append('    def __init__(self):')
-        self.append('        pass')
+        self.append('from python_freeipa.client import Client')
         self.append('')
-        self.append('    def _request(self, method, args=None, params=None):')
-        self.append('        raise NotImplementedError')
+        self.append('')
+        self.append('class ClientMeta(Client):')
+        self.append('    version = \'{0}\''.format(self.json_spec['result']['messages'][0]['data']['server_version']))
+        self.append('')
+        self.append('    def __init__(self, host, verify_ssl=True):')
+        self.append('        super().__init__(host=host, verify_ssl=verify_ssl, version=self.version)')
 
     def _func_add(self, command, spec):
         self.append('')
         self.append('def {0}('.format(command), 1)
-        self.append('    self,'.format(command), 1)
+        self.append('    self,'.format(command), 2)
         self.log.info("adding function {0}".format(command))
 
         args_body, args_options = self.func_add_args(spec['takes_args'])
@@ -120,18 +113,18 @@ class MetaAPICreator:
                 head_later.append(i['head'])
             else:
                 for line in i['head']:
-                    self.append(line, 2)
+                    self.append(line, 3)
 
         for i in opts_options:
             if i['default_value']:
                 head_later.append(i['head'])
             else:
                 for line in i['head']:
-                    self.append(line, 2)
+                    self.append(line, 3)
 
         for i in head_later:
             for line in i:
-                self.append(line, 2)
+                self.append(line, 3)
         self.append('):'.format(command), 1)
 
         self.append('"""{0}'.format(spec['doc']), 2)
@@ -155,7 +148,7 @@ class MetaAPICreator:
             for line in i['body']:
                 self.append(line, 2)
 
-        self.append('', 2)
+        self.append('')
         self.append('return self._request(method, _args, _params)', 2)
 
     def func_add_args(self, specs):
@@ -185,7 +178,7 @@ class MetaAPICreator:
 
     def func_add_arg_head(self, spec, result):
         arg_name = spec['name']
-        mapped_arg_name = self._name_mapping(arg_name, 'opt')
+        mapped_arg_name = self._name_mapping(arg_name, 'a')
         if 'default' in spec:
             result['default_value'] = True
             if isinstance(spec['default'], str):
@@ -199,16 +192,17 @@ class MetaAPICreator:
         else:
             result['default_value'] = True
             result['head'].append("{0}=None,".format(mapped_arg_name))
-        self.func_add_arg_doc(arg_name, spec, result)
+        self.func_add_arg_doc(arg_name, spec, result, 'a')
         self.func_add_arg_body(arg_name, spec, result)
 
-    def func_add_arg_doc(self, arg_name, spec, result):
-        mapped_arg_name = self._name_mapping(arg_name, 'opt')
+    def func_add_arg_doc(self, arg_name, spec, result, _prefix):
+        mapped_arg_name = self._name_mapping(arg_name, _prefix)
         result['doc'].append(':param {0}: {1}'.format(mapped_arg_name, spec['doc']))
-        result['doc'].append(':type {0}: {1}'.format(mapped_arg_name, spec['class']))
+        result['doc'].append(':type  {0}: {1}'.format(mapped_arg_name, spec['class']))
 
     def func_add_arg_body(self, arg_name, spec, result):
-        result['body'].append('_args.append({0})'.format(arg_name))
+        mapped_arg_name = self._name_mapping(arg_name, 'a')
+        result['body'].append('_args.append({0})'.format(mapped_arg_name))
 
     def func_add_options(self, specs):
         options = list()
@@ -237,7 +231,7 @@ class MetaAPICreator:
 
     def func_add_option_head(self, spec, result):
         arg_name = spec['name']
-        mapped_arg_name = self._name_mapping(arg_name, 'opt')
+        mapped_arg_name = self._name_mapping(arg_name, 'o')
         if arg_name == 'all':
             result['default_value'] = True
             result['head'].append("{0}=True,".format(mapped_arg_name))
@@ -254,12 +248,12 @@ class MetaAPICreator:
         else:
             result['default_value'] = True
             result['head'].append("{0}=None,".format(mapped_arg_name))
-        self.func_add_arg_doc(arg_name, spec, result)
+        self.func_add_arg_doc(arg_name, spec, result, 'o')
         self.func_add_option_body(arg_name, spec, result)
 
 
     def func_add_option_body(self, arg_name, spec, result):
-        mapped_arg_name = self._name_mapping(arg_name, 'opt')
+        mapped_arg_name = self._name_mapping(arg_name, 'o')
         if spec['required']:
             result['body'].append("_params['{0}'] = {1}".format(arg_name, mapped_arg_name))
         else:

@@ -1,1 +1,4 @@
-from .client import Client, AuthenticatedSession  # NOQA
+from python_freeipa.client import AuthenticatedSession
+from python_freeipa.client import Client
+from python_freeipa.client_legacy import ClientLegacy
+from python_freeipa.client_meta import ClientMeta
