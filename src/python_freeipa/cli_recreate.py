@@ -10,11 +10,11 @@ def main():
     source_group = parser.add_mutually_exclusive_group(required=True)
 
     source_group.add_argument(
-        "--source_json", dest="source_json", action="store", default=None,
+        "--source-json", dest="source_json", action="store", default=None,
         help="Full path to json document, describing the API")
 
     source_group.add_argument(
-        "--source_url", dest="source_url", action="store", default=None,
+        "--source-url", dest="source_url", action="store", default=None,
         help="fqdn of ipa server, to fetch the API from, requires kerberos ticket to be present")
 
     parsed_args = parser.parse_args()
