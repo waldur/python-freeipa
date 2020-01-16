@@ -2,7 +2,7 @@ import json
 import responses
 import unittest
 
-from python_freeipa.client import Client
+from python_freeipa import ClientLegacy as Client
 
 
 class UsersTest(unittest.TestCase):
