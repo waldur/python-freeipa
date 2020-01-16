@@ -10,7 +10,7 @@ class ClientLegacy(Client):
     """Lightweight FreeIPA JSON RPC client."""
 
     def __init__(self, host, verify_ssl=True, version=None):
-        super().__init__(host=host, verify_ssl=verify_ssl, version=version)
+        super(ClientLegacy, self).__init__(host=host, verify_ssl=verify_ssl, version=version)
 
 
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
