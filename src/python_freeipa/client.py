@@ -23,7 +23,6 @@ from python_freeipa.exceptions import UserLocked
 from python_freeipa.exceptions import parse_error
 
 
-
 class AuthenticatedSession(object):
     """
     Context manager class that automatically logs out upon exit.
@@ -93,7 +92,6 @@ class AuthenticatedSession(object):
         """
         if self.logged_in:
             self.logout()
-
 
 
 class Client(object):
@@ -255,7 +253,6 @@ class Client(object):
         else:
             return result['result']
 
-
     def change_password(self, username, new_password, old_password):
         """
         Set the password of a user. (Does not expire)
@@ -290,4 +287,3 @@ class Client(object):
             else:
                 raise FreeIPAError(message=response.text, code=response.status_code)
         return response
-

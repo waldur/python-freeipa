@@ -5,13 +5,11 @@ from python_freeipa.exceptions import parse_group_management_error
 from python_freeipa.exceptions import parse_hostgroup_management_error
 
 
-
 class ClientLegacy(Client):
     """Lightweight FreeIPA JSON RPC client."""
 
     def __init__(self, host, verify_ssl=True, version=None):
         super(ClientLegacy, self).__init__(host=host, verify_ssl=verify_ssl, version=version)
-
 
     def user_add(self, username, first_name, last_name, full_name, display_name=None,
                  noprivate=False, mail=None, ssh_key=None, job_title=None, gid_number=None, uid_number=None,

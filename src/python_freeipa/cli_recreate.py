@@ -4,7 +4,6 @@ import logging
 import sys
 
 
-
 def main():
     parser = argparse.ArgumentParser(description="Recreate API Commands from JSON api spec")
 
@@ -265,7 +264,6 @@ class MetaAPICreator:
             result['head'].append("{0}=None,".format(mapped_arg_name))
         self.func_add_arg_doc(arg_name, spec, result, 'o')
         self.func_add_option_body(arg_name, spec, result)
-
 
     def func_add_option_body(self, arg_name, spec, result):
         mapped_arg_name = self._name_mapping(arg_name, 'o')
