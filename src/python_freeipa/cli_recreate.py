@@ -95,7 +95,7 @@ class MetaAPICreator:
         self.append('    version = \'{0}\''.format(self.json_spec['result']['messages'][0]['data']['server_version']))
         self.append('')
         self.append('    def __init__(self, host, verify_ssl=True):')
-        self.append('        super().__init__(host=host, verify_ssl=verify_ssl, version=self.version)')
+        self.append('        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version)')
 
     def _func_add(self, command, spec):
         self.append('')
@@ -125,6 +125,7 @@ class MetaAPICreator:
         for i in head_later:
             for line in i:
                 self.append(line, 3)
+
         self.append('):'.format(command), 1)
 
         self.append('"""{0}'.format(spec['doc']), 2)
@@ -170,8 +171,6 @@ class MetaAPICreator:
         result['default_value'] = False
         if not isinstance(spec, dict):
             self.log.warning("found arg spec, that is not a dictionary, adding *args")
-            result['head'].append("*args,")
-            result['body'].append("_args += args")
             return result
         self.func_add_arg_head(spec, result)
         return result
@@ -198,7 +197,23 @@ class MetaAPICreator:
     def func_add_arg_doc(self, arg_name, spec, result, _prefix):
         mapped_arg_name = self._name_mapping(arg_name, _prefix)
         result['doc'].append(':param {0}: {1}'.format(mapped_arg_name, spec['doc']))
-        result['doc'].append(':type  {0}: {1}'.format(mapped_arg_name, spec['class']))
+        _class = spec['class']
+        if _class == 'Flag':
+            _class = 'bool'
+        elif _class == 'Dict':
+            _class = 'dict'
+        elif _class == 'Int':
+            _class = 'int, min value {0}, max value {1}'.format(
+                spec['minvalue'],
+                spec['maxvalue']
+            )
+        elif _class == "IntEnum":
+            _class = 'int, valid values {0}'.format(spec['cli_metavar'])
+        elif _class == 'Str':
+            _class = 'str'
+        elif _class == "StrEnum":
+            _class = 'str, valid values {0}'.format(spec['cli_metavar'])
+        result['doc'].append(':type  {0}: {1}'.format(mapped_arg_name, _class))
 
     def func_add_arg_body(self, arg_name, spec, result):
         mapped_arg_name = self._name_mapping(arg_name, 'a')

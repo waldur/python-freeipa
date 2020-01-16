@@ -5,7 +5,7 @@ class ClientMeta(Client):
     version = '2.231'
 
     def __init__(self, host, verify_ssl=True):
-        super().__init__(host=host, verify_ssl=verify_ssl, version=self.version)
+        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version)
 
     def aci_add(
             self,
@@ -28,35 +28,35 @@ class ClientMeta(Client):
         """
     Create new ACI.
         :param a_aciname: ACI name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_attrs: Attributes
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_filter: Legal LDAP filter (e.g. ou=Engineering)
-        :type  o_filter: Str
+        :type  o_filter: str
         :param o_group: User group ACI grants access to
-        :type  o_group: Str
+        :type  o_group: str
         :param o_memberof: Member of a group
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_permission: Permission ACI grants access to
-        :type  o_permission: Str
+        :type  o_permission: str
         :param o_permissions: Permissions to grant(read, write, add, delete, all)
-        :type  o_permissions: Str
+        :type  o_permissions: str
         :param o_subtree: Subtree to apply ACI to
-        :type  o_subtree: Str
+        :type  o_subtree: str
         :param o_targetgroup: Group to apply ACI to
-        :type  o_targetgroup: Str
+        :type  o_targetgroup: str
         :param o_aciprefix: Prefix used to distinguish ACI types (permission, delegation, selfservice, none)
-        :type  o_aciprefix: StrEnum
+        :type  o_aciprefix: str, valid values ['permission', 'delegation', 'selfservice', 'none']
         :param o_type: type of IPA object (user, group, host, hostgroup, service, netgroup)
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['user', 'group', 'host', 'service', 'hostgroup', 'netgroup', 'dnsrecord']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_selfaci: Apply ACI to your own entry (self)
-        :type  o_selfaci: Flag
+        :type  o_selfaci: bool
         :param o_test: Test the ACI syntax but don't write anything
-        :type  o_test: Flag
+        :type  o_test: bool
         """
         method = 'aci_add'
 
@@ -99,9 +99,9 @@ class ClientMeta(Client):
         """
     Delete ACI.
         :param a_aciname: ACI name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_aciprefix: Prefix used to distinguish ACI types (permission, delegation, selfservice, none)
-        :type  o_aciprefix: StrEnum
+        :type  o_aciprefix: str, valid values ['permission', 'delegation', 'selfservice', 'none']
         """
         method = 'aci_del'
 
@@ -151,37 +151,37 @@ class ClientMeta(Client):
     have ipausers as a memberof. There may be other ACIs that apply to
     members of that group indirectly.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_selfaci: Apply ACI to your own entry (self)
         :type  o_selfaci: Bool
         :param o_attrs: Attributes
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_filter: Legal LDAP filter (e.g. ou=Engineering)
-        :type  o_filter: Str
+        :type  o_filter: str
         :param o_group: User group ACI grants access to
-        :type  o_group: Str
+        :type  o_group: str
         :param o_memberof: Member of a group
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_aciname: ACI name
-        :type  o_aciname: Str
+        :type  o_aciname: str
         :param o_permission: Permission ACI grants access to
-        :type  o_permission: Str
+        :type  o_permission: str
         :param o_permissions: Permissions to grant(read, write, add, delete, all)
-        :type  o_permissions: Str
+        :type  o_permissions: str
         :param o_subtree: Subtree to apply ACI to
-        :type  o_subtree: Str
+        :type  o_subtree: str
         :param o_targetgroup: Group to apply ACI to
-        :type  o_targetgroup: Str
+        :type  o_targetgroup: str
         :param o_aciprefix: Prefix used to distinguish ACI types (permission, delegation, selfservice, none)
-        :type  o_aciprefix: StrEnum
+        :type  o_aciprefix: str, valid values ['permission', 'delegation', 'selfservice', 'none']
         :param o_type: type of IPA object (user, group, host, hostgroup, service, netgroup)
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['user', 'group', 'host', 'service', 'hostgroup', 'netgroup', 'dnsrecord']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'aci_find'
 
@@ -240,33 +240,33 @@ class ClientMeta(Client):
         """
     Modify ACI.
         :param a_aciname: ACI name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_attrs: Attributes
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_filter: Legal LDAP filter (e.g. ou=Engineering)
-        :type  o_filter: Str
+        :type  o_filter: str
         :param o_group: User group ACI grants access to
-        :type  o_group: Str
+        :type  o_group: str
         :param o_memberof: Member of a group
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_permission: Permission ACI grants access to
-        :type  o_permission: Str
+        :type  o_permission: str
         :param o_permissions: Permissions to grant(read, write, add, delete, all)
-        :type  o_permissions: Str
+        :type  o_permissions: str
         :param o_subtree: Subtree to apply ACI to
-        :type  o_subtree: Str
+        :type  o_subtree: str
         :param o_targetgroup: Group to apply ACI to
-        :type  o_targetgroup: Str
+        :type  o_targetgroup: str
         :param o_aciprefix: Prefix used to distinguish ACI types (permission, delegation, selfservice, none)
-        :type  o_aciprefix: StrEnum
+        :type  o_aciprefix: str, valid values ['permission', 'delegation', 'selfservice', 'none']
         :param o_type: type of IPA object (user, group, host, hostgroup, service, netgroup)
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['user', 'group', 'host', 'service', 'hostgroup', 'netgroup', 'dnsrecord']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_selfaci: Apply ACI to your own entry (self)
-        :type  o_selfaci: Flag
+        :type  o_selfaci: bool
         """
         method = 'aci_mod'
 
@@ -321,35 +321,35 @@ class ClientMeta(Client):
         """
     Rename an ACI.
         :param a_aciname: ACI name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_attrs: Attributes
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_filter: Legal LDAP filter (e.g. ou=Engineering)
-        :type  o_filter: Str
+        :type  o_filter: str
         :param o_group: User group ACI grants access to
-        :type  o_group: Str
+        :type  o_group: str
         :param o_memberof: Member of a group
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_newname: New ACI name
-        :type  o_newname: Str
+        :type  o_newname: str
         :param o_permission: Permission ACI grants access to
-        :type  o_permission: Str
+        :type  o_permission: str
         :param o_permissions: Permissions to grant(read, write, add, delete, all)
-        :type  o_permissions: Str
+        :type  o_permissions: str
         :param o_subtree: Subtree to apply ACI to
-        :type  o_subtree: Str
+        :type  o_subtree: str
         :param o_targetgroup: Group to apply ACI to
-        :type  o_targetgroup: Str
+        :type  o_targetgroup: str
         :param o_aciprefix: Prefix used to distinguish ACI types (permission, delegation, selfservice, none)
-        :type  o_aciprefix: StrEnum
+        :type  o_aciprefix: str, valid values ['permission', 'delegation', 'selfservice', 'none']
         :param o_type: type of IPA object (user, group, host, hostgroup, service, netgroup)
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['user', 'group', 'host', 'service', 'hostgroup', 'netgroup', 'dnsrecord']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_selfaci: Apply ACI to your own entry (self)
-        :type  o_selfaci: Flag
+        :type  o_selfaci: bool
         """
         method = 'aci_rename'
 
@@ -395,15 +395,15 @@ class ClientMeta(Client):
         """
     Display a single ACI given an ACI name.
         :param a_aciname: ACI name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_location: Location of the ACI
         :type  o_location: DNParam
         :param o_aciprefix: Prefix used to distinguish ACI types (permission, delegation, selfservice, none)
-        :type  o_aciprefix: StrEnum
+        :type  o_aciprefix: str, valid values ['permission', 'delegation', 'selfservice', 'none']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'aci_show'
 
@@ -445,21 +445,21 @@ class ClientMeta(Client):
         """
     Add an automember rule.
         :param a_cn: Automember Rule
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this auto member rule
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automember_add'
 
@@ -493,21 +493,21 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Add conditions to an automember rule.
         :param a_cn: Automember Rule
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_key: Attribute to filter via regex. For example fqdn for a host, or manager for a user
-        :type  o_key: Str
+        :type  o_key: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this auto member rule
-        :type  o_description: Str
+        :type  o_description: str
         :param o_automemberexclusiveregex: Exclusive Regex
-        :type  o_automemberexclusiveregex: Str
+        :type  o_automemberexclusiveregex: str
         :param o_automemberinclusiveregex: Inclusive Regex
-        :type  o_automemberinclusiveregex: Str
+        :type  o_automemberinclusiveregex: str
         """
         method = 'automember_add_condition'
 
@@ -538,13 +538,13 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Remove default (fallback) group for all unmatched entries.
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this auto member rule
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automember_default_group_remove'
 
@@ -570,15 +570,15 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Set default (fallback) group for all unmatched entries.
         :param o_automemberdefaultgroup: Default (fallback) group for entries to land
-        :type  o_automemberdefaultgroup: Str
+        :type  o_automemberdefaultgroup: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this auto member rule
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automember_default_group_set'
 
@@ -603,11 +603,11 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Display information about the default (fallback) automember groups.
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'automember_default_group_show'
 
@@ -628,9 +628,9 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Delete an automember rule.
         :param a_cn: Automember Rule
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         """
         method = 'automember_del'
 
@@ -654,17 +654,17 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Search for automember rules.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("automember-rule")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this auto member rule
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automember_find'
 
@@ -696,19 +696,19 @@ For multi-valued attributes, the command replaces the values already present.
     Search for orphan automember rules. The command might need to be run as
     a privileged user user to get all orphan rules.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("automember-rule")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_remove: Remove orphan automember rules
-        :type  o_remove: Flag
+        :type  o_remove: bool
         :param o_description: A description of this auto member rule
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automember_find_orphans'
 
@@ -743,26 +743,26 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Modify an automember rule.
         :param a_cn: Automember Rule
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: A description of this auto member rule
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automember_mod'
 
@@ -796,17 +796,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Rebuild auto membership.
         :param o_hosts: Rebuild membership for specified hosts
-        :type  o_hosts: Str
+        :type  o_hosts: str
         :param o_users: Rebuild membership for specified users
-        :type  o_users: Str
+        :type  o_users: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_wait: Don't wait for rebuilding membership
-        :type  o_no_wait: Flag
+        :type  o_no_wait: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'automember_rebuild'
 
@@ -840,21 +840,21 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Remove conditions from an automember rule.
         :param a_cn: Automember Rule
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_key: Attribute to filter via regex. For example fqdn for a host, or manager for a user
-        :type  o_key: Str
+        :type  o_key: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this auto member rule
-        :type  o_description: Str
+        :type  o_description: str
         :param o_automemberexclusiveregex: Exclusive Regex
-        :type  o_automemberexclusiveregex: Str
+        :type  o_automemberexclusiveregex: str
         :param o_automemberinclusiveregex: Inclusive Regex
-        :type  o_automemberinclusiveregex: Str
+        :type  o_automemberinclusiveregex: str
         """
         method = 'automember_remove_condition'
 
@@ -885,13 +885,13 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Display information about an automember rule.
         :param a_cn: Automember Rule
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_type: Grouping to which the rule applies
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['group', 'hostgroup']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'automember_show'
 
@@ -920,17 +920,17 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_automountmapautomountmapname: Automount map name.
         :type  a_automountmapautomountmapname: IA5Str
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_automountinformation: Mount information
         :type  o_automountinformation: IA5Str
         :param o_automountkey: Automount key name.
@@ -966,13 +966,13 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_automountmapautomountmapname: Automount map name.
         :type  a_automountmapautomountmapname: IA5Str
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param o_automountinformation: Mount information
         :type  o_automountinformation: IA5Str
         :param o_automountkey: Automount key name.
         :type  o_automountkey: IA5Str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'automountkey_del'
 
@@ -1004,17 +1004,17 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_automountmapautomountmapname: Automount map name.
         :type  a_automountmapautomountmapname: IA5Str
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_automountinformation: Mount information
         :type  o_automountinformation: IA5Str
         :param o_automountkey: Automount key name.
@@ -1060,26 +1060,26 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_automountmapautomountmapname: Automount map name.
         :type  a_automountmapautomountmapname: IA5Str
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param o_newautomountinformation: New mount information
         :type  o_newautomountinformation: IA5Str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the automount key object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_automountinformation: Mount information
         :type  o_automountinformation: IA5Str
         :param o_automountkey: Automount key name.
@@ -1125,17 +1125,17 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_automountmapautomountmapname: Automount map name.
         :type  a_automountmapautomountmapname: IA5Str
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param o_automountinformation: Mount information
         :type  o_automountinformation: IA5Str
         :param o_automountkey: Automount key name.
         :type  o_automountkey: IA5Str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'automountkey_show'
 
@@ -1163,17 +1163,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new automount location.
         :param a_cn: Automount location name.
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'automountlocation_add'
 
@@ -1197,9 +1197,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an automount location.
         :param a_cn: Automount location name.
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'automountlocation_del'
 
@@ -1223,19 +1223,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for an automount location.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("location")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_cn: Automount location name.
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'automountlocation_find'
 
@@ -1265,13 +1265,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display an automount location.
         :param a_cn: Automount location name.
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'automountlocation_show'
 
@@ -1291,7 +1291,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Generate automount files for a specific location.
         :param a_cn: Automount location name.
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'automountlocation_tofiles'
 
@@ -1314,21 +1314,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new automount map.
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param a_automountmapname: Automount map name.
         :type  a_automountmapname: IA5Str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automountmap_add'
 
@@ -1362,25 +1362,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new indirect mount point.
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param a_automountmapname: Automount map name.
         :type  a_automountmapname: IA5Str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_key: Mount point
-        :type  o_key: Str
+        :type  o_key: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_parentmap: Name of parent automount map (default: auto.master).
-        :type  o_parentmap: Str
+        :type  o_parentmap: str
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automountmap_add_indirect'
 
@@ -1411,11 +1411,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an automount map.
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param a_automountmapname: Automount map name.
         :type  a_automountmapname: IA5Str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'automountmap_del'
 
@@ -1442,23 +1442,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for an automount map.
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("map")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_automountmapname: Automount map name.
         :type  o_automountmapname: IA5Str
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automountmap_find'
 
@@ -1496,26 +1496,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify an automount map.
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param a_automountmapname: Automount map name.
         :type  a_automountmapname: IA5Str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'automountmap_mod'
 
@@ -1548,15 +1548,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display an automount map.
         :param a_automountlocationcn: Automount location name.
-        :type  a_automountlocationcn: Str
+        :type  a_automountlocationcn: str
         :param a_automountmapname: Automount map name.
         :type  a_automountmapname: IA5Str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'automountmap_show'
 
@@ -1577,7 +1577,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_methods: Nested Methods to execute
-        :type  a_methods: Dict
+        :type  a_methods: dict
         """
         method = 'batch'
 
@@ -1601,23 +1601,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a CA.
         :param a_cn: Name for referencing the CA
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_chain: Include certificate chain in output
-        :type  o_chain: Flag
+        :type  o_chain: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipacasubjectdn: Subject Distinguished Name
         :type  o_ipacasubjectdn: DNParam
         :param o_description: Description of the purpose of the CA
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'ca_add'
 
@@ -1645,9 +1645,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a CA.
         :param a_cn: Name for referencing the CA
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'ca_del'
 
@@ -1665,7 +1665,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable a CA.
         :param a_cn: Name for referencing the CA
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'ca_disable'
 
@@ -1682,7 +1682,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Enable a CA.
         :param a_cn: Name for referencing the CA
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'ca_enable'
 
@@ -1709,27 +1709,27 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for CAs.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipacaissuerdn: Issuer Distinguished Name
         :type  o_ipacaissuerdn: DNParam
         :param o_ipacasubjectdn: Subject Distinguished Name
         :type  o_ipacasubjectdn: DNParam
         :param o_description: Description of the purpose of the CA
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipacaid: Dogtag Authority ID
-        :type  o_ipacaid: Str
+        :type  o_ipacaid: str
         :param o_cn: Name for referencing the CA
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'ca_find'
 
@@ -1786,26 +1786,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify CA configuration.
         :param a_cn: Name for referencing the CA
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the Certificate Authority object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: Description of the purpose of the CA
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'ca_mod'
 
@@ -1839,15 +1839,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display the properties of a CA.
         :param a_cn: Name for referencing the CA
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_chain: Include certificate chain in output
-        :type  o_chain: Flag
+        :type  o_chain: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'ca_show'
 
@@ -1880,33 +1880,33 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipacacategory: CA category the ACL applies to
-        :type  o_ipacacategory: StrEnum
+        :type  o_ipacacategory: str, valid values ['all']
         :param o_hostcategory: Host category the ACL applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_ipacertprofilecategory: Profile category the ACL applies to
-        :type  o_ipacertprofilecategory: StrEnum
+        :type  o_ipacertprofilecategory: str, valid values ['all']
         :param o_servicecategory: Service category the ACL applies to
-        :type  o_servicecategory: StrEnum
+        :type  o_servicecategory: str, valid values ['all']
         :param o_usercategory: User category the ACL applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'caacl_add'
 
@@ -1948,15 +1948,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add CAs to a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ca: Certificate Authorities to add
-        :type  o_ca: Str
+        :type  o_ca: str
         """
         method = 'caacl_add_ca'
 
@@ -1983,17 +1983,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add target hosts and hostgroups to a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'caacl_add_host'
 
@@ -2021,15 +2021,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add profiles to a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_certprofile: Certificate Profiles to add
-        :type  o_certprofile: Str
+        :type  o_certprofile: str
         """
         method = 'caacl_add_profile'
 
@@ -2055,15 +2055,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add services to a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_service: services to add
-        :type  o_service: Str
+        :type  o_service: str
         """
         method = 'caacl_add_service'
 
@@ -2090,17 +2090,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add users and groups to a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'caacl_add_user'
 
@@ -2125,9 +2125,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'caacl_del'
 
@@ -2145,7 +2145,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'caacl_disable'
 
@@ -2162,7 +2162,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Enable a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'caacl_enable'
 
@@ -2193,35 +2193,35 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for CA ACLs.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: ACL name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_ipacacategory: CA category the ACL applies to
-        :type  o_ipacacategory: StrEnum
+        :type  o_ipacacategory: str, valid values ['all']
         :param o_hostcategory: Host category the ACL applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_ipacertprofilecategory: Profile category the ACL applies to
-        :type  o_ipacertprofilecategory: StrEnum
+        :type  o_ipacertprofilecategory: str, valid values ['all']
         :param o_servicecategory: Service category the ACL applies to
-        :type  o_servicecategory: StrEnum
+        :type  o_servicecategory: str, valid values ['all']
         :param o_usercategory: User category the ACL applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'caacl_find'
 
@@ -2277,38 +2277,38 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipacacategory: CA category the ACL applies to
-        :type  o_ipacacategory: StrEnum
+        :type  o_ipacacategory: str, valid values ['all']
         :param o_hostcategory: Host category the ACL applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_ipacertprofilecategory: Profile category the ACL applies to
-        :type  o_ipacertprofilecategory: StrEnum
+        :type  o_ipacertprofilecategory: str, valid values ['all']
         :param o_servicecategory: Service category the ACL applies to
-        :type  o_servicecategory: StrEnum
+        :type  o_servicecategory: str, valid values ['all']
         :param o_usercategory: User category the ACL applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'caacl_mod'
 
@@ -2353,15 +2353,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove CAs from a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ca: Certificate Authorities to remove
-        :type  o_ca: Str
+        :type  o_ca: str
         """
         method = 'caacl_remove_ca'
 
@@ -2388,17 +2388,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove target hosts and hostgroups from a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'caacl_remove_host'
 
@@ -2426,15 +2426,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove profiles from a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_certprofile: Certificate Profiles to remove
-        :type  o_certprofile: Str
+        :type  o_certprofile: str
         """
         method = 'caacl_remove_profile'
 
@@ -2460,15 +2460,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove services from a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_service: services to remove
-        :type  o_service: Str
+        :type  o_service: str
         """
         method = 'caacl_remove_service'
 
@@ -2495,17 +2495,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove users and groups from a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'caacl_remove_user'
 
@@ -2533,15 +2533,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display the properties of a CA ACL.
         :param a_cn: ACL name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'caacl_show'
 
@@ -2590,7 +2590,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for existing certificates.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_issuedon_from: Issued on from this date (YYYY-mm-dd)
         :type  o_issuedon_from: DateTime
         :param o_issuedon_to: Issued on to this date (YYYY-mm-dd)
@@ -2608,45 +2608,45 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_validnotbefore_to: Valid not before to this date (YYYY-mm-dd)
         :type  o_validnotbefore_to: DateTime
         :param o_max_serial_number: maximum serial number
-        :type  o_max_serial_number: Int
+        :type  o_max_serial_number: int, min value 0, max value 2147483647
         :param o_min_serial_number: minimum serial number
-        :type  o_min_serial_number: Int
+        :type  o_min_serial_number: int, min value 0, max value 2147483647
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_no_service: Search for certificates without these owner services.
         :type  o_no_service: Principal
         :param o_service: Search for certificates with these owner services.
         :type  o_service: Principal
         :param o_cacn: Name of issuing CA
-        :type  o_cacn: Str
+        :type  o_cacn: str
         :param o_host: Search for certificates with these owner hosts.
-        :type  o_host: Str
+        :type  o_host: str
         :param o_no_host: Search for certificates without these owner hosts.
-        :type  o_no_host: Str
+        :type  o_no_host: str
         :param o_no_user: Search for certificates without these owner users.
-        :type  o_no_user: Str
+        :type  o_no_user: str
         :param o_subject: Subject
-        :type  o_subject: Str
+        :type  o_subject: str
         :param o_user: Search for certificates with these owner users.
-        :type  o_user: Str
+        :type  o_user: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_exactly: match the common name exactly
-        :type  o_exactly: Flag
+        :type  o_exactly: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("certificate")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_certificate: Base-64 encoded certificate.
         :type  o_certificate: Certificate
         :param o_issuer: Issuer DN
         :type  o_issuer: DNParam
         :param o_revocation_reason: Reason for revoking the certificate (0-10). Type "ipa help cert" for revocation reason details.
-        :type  o_revocation_reason: Int
+        :type  o_revocation_reason: int, min value 0, max value 10
         """
         method = 'cert_find'
 
@@ -2717,9 +2717,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Take a revoked certificate off hold.
         :param a_serial_number: Serial number in decimal or if prefixed with 0x in hexadecimal
-        :type  a_serial_number: Int
+        :type  a_serial_number: int, min value -2147483648, max value 2147483647
         :param o_cacn: Name of issuing CA
-        :type  o_cacn: Str
+        :type  o_cacn: str
         """
         method = 'cert_remove_hold'
 
@@ -2750,19 +2750,19 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_principal: Principal for this certificate (e.g. HTTP/test.example.com)
         :type  o_principal: Principal
         :param o_add: automatically add the principal if it doesn't exist (service principals only)
-        :type  o_add: Flag
+        :type  o_add: bool
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_chain: Include certificate chain in output
-        :type  o_chain: Flag
+        :type  o_chain: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_cacn: Name of issuing CA
-        :type  o_cacn: Str
+        :type  o_cacn: str
         :param o_profile_id: Certificate Profile to use
-        :type  o_profile_id: Str
+        :type  o_profile_id: str
         :param o_request_type: <request_type>
-        :type  o_request_type: Str
+        :type  o_request_type: str
         """
         method = 'cert_request'
 
@@ -2791,11 +2791,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Revoke a certificate.
         :param a_serial_number: Serial number in decimal or if prefixed with 0x in hexadecimal
-        :type  a_serial_number: Int
+        :type  a_serial_number: int, min value -2147483648, max value 2147483647
         :param o_revocation_reason: Reason for revoking the certificate (0-10). Type "ipa help cert" for revocation reason details.
-        :type  o_revocation_reason: Int
+        :type  o_revocation_reason: int, min value 0, max value 10
         :param o_cacn: Name of issuing CA
-        :type  o_cacn: Str
+        :type  o_cacn: str
         """
         method = 'cert_revoke'
 
@@ -2821,19 +2821,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Retrieve an existing certificate.
         :param a_serial_number: Serial number in decimal or if prefixed with 0x in hexadecimal
-        :type  a_serial_number: Int
+        :type  a_serial_number: int, min value -2147483648, max value 2147483647
         :param o_out: File to store the certificate in.
-        :type  o_out: Str
+        :type  o_out: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_chain: Include certificate chain in output
-        :type  o_chain: Flag
+        :type  o_chain: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_cacn: Name of issuing CA
-        :type  o_cacn: Str
+        :type  o_cacn: str
         """
         method = 'cert_show'
 
@@ -2861,13 +2861,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Check the status of a certificate signing request.
         :param a_request_id: Request id
-        :type  a_request_id: Int
+        :type  a_request_id: int, min value -2147483648, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_cacn: Name of issuing CA
-        :type  o_cacn: Str
+        :type  o_cacn: str
         """
         method = 'cert_status'
 
@@ -2897,9 +2897,9 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_certificate: Base-64 encoded user certificate
         :type  a_certificate: Certificate
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'certmap_match'
 
@@ -2925,19 +2925,19 @@ For multi-valued attributes, the command replaces the values already present.
         """Modify Certificate Identity Mapping configuration.
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipacertmappromptusername: Prompt for the username when multiple identities are mapped to a certificate
         :type  o_ipacertmappromptusername: Bool
         """
@@ -2968,11 +2968,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show the current Certificate Identity Mapping configuration.
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'certmapconfig_show'
 
@@ -3001,29 +3001,29 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new Certificate Identity Mapping Rule.
         :param a_cn: Certificate Identity Mapping Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_associateddomain: Domain where the user entry will be searched
         :type  o_associateddomain: DNSNameParam
         :param o_ipacertmappriority: Priority of the rule (higher number means lower priority
-        :type  o_ipacertmappriority: Int
+        :type  o_ipacertmappriority: int, min value 0, max value 2147483647
         :param o_description: Certificate Identity Mapping Rule description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipacertmapmaprule: Rule used to map the certificate with a user entry
-        :type  o_ipacertmapmaprule: Str
+        :type  o_ipacertmapmaprule: str
         :param o_ipacertmapmatchrule: Rule used to check if a certificate can be used for authentication
-        :type  o_ipacertmapmatchrule: Str
+        :type  o_ipacertmapmatchrule: str
         :param o_ipaenabledflag: Enabled
-        :type  o_ipaenabledflag: Flag
+        :type  o_ipaenabledflag: bool
         """
         method = 'certmaprule_add'
 
@@ -3059,9 +3059,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a Certificate Identity Mapping Rule.
         :param a_cn: Certificate Identity Mapping Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'certmaprule_del'
 
@@ -3079,7 +3079,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable a Certificate Identity Mapping Rule.
         :param a_cn: Certificate Identity Mapping Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'certmaprule_disable'
 
@@ -3096,7 +3096,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Enable a Certificate Identity Mapping Rule.
         :param a_cn: Certificate Identity Mapping Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'certmaprule_enable'
 
@@ -3125,31 +3125,31 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for Certificate Identity Mapping Rules.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("rulename")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_associateddomain: Domain where the user entry will be searched
         :type  o_associateddomain: DNSNameParam
         :param o_ipacertmappriority: Priority of the rule (higher number means lower priority
-        :type  o_ipacertmappriority: Int
+        :type  o_ipacertmappriority: int, min value 0, max value 2147483647
         :param o_description: Certificate Identity Mapping Rule description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipacertmapmaprule: Rule used to map the certificate with a user entry
-        :type  o_ipacertmapmaprule: Str
+        :type  o_ipacertmapmaprule: str
         :param o_ipacertmapmatchrule: Rule used to check if a certificate can be used for authentication
-        :type  o_ipacertmapmatchrule: Str
+        :type  o_ipacertmapmatchrule: str
         :param o_cn: Certificate Identity Mapping Rule name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'certmaprule_find'
 
@@ -3200,34 +3200,34 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a Certificate Identity Mapping Rule.
         :param a_cn: Certificate Identity Mapping Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_associateddomain: Domain where the user entry will be searched
         :type  o_associateddomain: DNSNameParam
         :param o_ipacertmappriority: Priority of the rule (higher number means lower priority
-        :type  o_ipacertmappriority: Int
+        :type  o_ipacertmappriority: int, min value 0, max value 2147483647
         :param o_description: Certificate Identity Mapping Rule description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipacertmapmaprule: Rule used to map the certificate with a user entry
-        :type  o_ipacertmapmaprule: Str
+        :type  o_ipacertmapmaprule: str
         :param o_ipacertmapmatchrule: Rule used to check if a certificate can be used for authentication
-        :type  o_ipacertmapmatchrule: Str
+        :type  o_ipacertmapmatchrule: str
         :param o_ipaenabledflag: Enabled
-        :type  o_ipaenabledflag: Flag
+        :type  o_ipaenabledflag: bool
         """
         method = 'certmaprule_mod'
 
@@ -3268,13 +3268,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a Certificate Identity Mapping Rule.
         :param a_cn: Certificate Identity Mapping Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'certmaprule_show'
 
@@ -3295,9 +3295,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a Certificate Profile.
         :param a_cn: Profile ID for referring to this profile
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'certprofile_del'
 
@@ -3323,23 +3323,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for Certificate Profiles.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("id")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipacertprofilestoreissued: Whether to store certs issued using this profile
         :type  o_ipacertprofilestoreissued: Bool
         :param o_description: Brief description of this profile
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Profile ID for referring to this profile
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'certprofile_find'
 
@@ -3375,17 +3375,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Import a Certificate Profile.
         :param a_cn: Profile ID for referring to this profile
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_file: Filename of a raw profile. The XML format is not supported.
-        :type  o_file: Str
+        :type  o_file: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipacertprofilestoreissued: Whether to store certs issued using this profile
         :type  o_ipacertprofilestoreissued: Bool
         :param o_description: Brief description of this profile
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'certprofile_import'
 
@@ -3416,28 +3416,28 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify Certificate Profile configuration.
         :param a_cn: Profile ID for referring to this profile
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_file: File containing profile configuration
-        :type  o_file: Str
+        :type  o_file: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipacertprofilestoreissued: Whether to store certs issued using this profile
         :type  o_ipacertprofilestoreissued: Bool
         :param o_description: Brief description of this profile
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'certprofile_mod'
 
@@ -3473,15 +3473,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display the properties of a Certificate Profile.
         :param a_cn: Profile ID for referring to this profile
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_out: Write profile configuration to file
-        :type  o_out: Str
+        :type  o_out: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'certprofile_show'
 
@@ -3506,13 +3506,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for classes.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'class_find'
 
@@ -3535,11 +3535,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a class.
         :param a_full_name: Full name
-        :type  a_full_name: Str
+        :type  a_full_name: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'class_show'
 
@@ -3560,11 +3560,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_full_name: Full name
-        :type  a_full_name: Str
+        :type  a_full_name: str
         :param o_kw: <kw>
-        :type  o_kw: Dict
+        :type  o_kw: dict
         :param o_params: <params>
-        :type  o_params: Str
+        :type  o_params: str
         """
         method = 'command_defaults'
 
@@ -3588,13 +3588,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for commands.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'command_find'
 
@@ -3617,11 +3617,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a command.
         :param a_full_name: Full name
-        :type  a_full_name: Str
+        :type  a_full_name: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'command_show'
 
@@ -3679,21 +3679,21 @@ For multi-valued attributes, the command replaces the values already present.
         """Modify configuration options.
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_ca_renewal_master_server: Renewal master for IPA certificate authority
-        :type  o_ca_renewal_master_server: Str
+        :type  o_ca_renewal_master_server: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipamigrationenabled: Enable migration mode
         :type  o_ipamigrationenabled: Bool
         :param o_ipagroupsearchfields: A comma-separated list of fields to search in when searching for groups
@@ -3703,35 +3703,35 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipausersearchfields: A comma-separated list of fields to search in when searching for users
         :type  o_ipausersearchfields: IA5Str
         :param o_ipamaxusernamelength: Maximum username length
-        :type  o_ipamaxusernamelength: Int
+        :type  o_ipamaxusernamelength: int, min value 1, max value 255
         :param o_ipapwdexpadvnotify: Number of days's notice of impending password expiration
-        :type  o_ipapwdexpadvnotify: Int
+        :type  o_ipapwdexpadvnotify: int, min value 0, max value 2147483647
         :param o_ipasearchrecordslimit: Maximum number of records to search (-1 or 0 is unlimited)
-        :type  o_ipasearchrecordslimit: Int
+        :type  o_ipasearchrecordslimit: int, min value -2147483648, max value 2147483647
         :param o_ipasearchtimelimit: Maximum amount of time (seconds) for a search (-1 or 0 is unlimited)
-        :type  o_ipasearchtimelimit: Int
+        :type  o_ipasearchtimelimit: int, min value -1, max value 2147483647
         :param o_ipadefaultprimarygroup: Default group for new users
-        :type  o_ipadefaultprimarygroup: Str
+        :type  o_ipadefaultprimarygroup: str
         :param o_ipadefaultloginshell: Default shell for new users
-        :type  o_ipadefaultloginshell: Str
+        :type  o_ipadefaultloginshell: str
         :param o_ipadomainresolutionorder: colon-separated list of domains used for short name qualification
-        :type  o_ipadomainresolutionorder: Str
+        :type  o_ipadomainresolutionorder: str
         :param o_ipadefaultemaildomain: Default e-mail domain
-        :type  o_ipadefaultemaildomain: Str
+        :type  o_ipadefaultemaildomain: str
         :param o_ipagroupobjectclasses: Default group objectclasses (comma-separated list)
-        :type  o_ipagroupobjectclasses: Str
+        :type  o_ipagroupobjectclasses: str
         :param o_ipaselinuxusermapdefault: Default SELinux user when no match is found in SELinux map rule
-        :type  o_ipaselinuxusermapdefault: Str
+        :type  o_ipaselinuxusermapdefault: str
         :param o_ipaselinuxusermaporder: Order in increasing priority of SELinux users, delimited by $
-        :type  o_ipaselinuxusermaporder: Str
+        :type  o_ipaselinuxusermaporder: str
         :param o_ipauserobjectclasses: Default user objectclasses (comma-separated list)
-        :type  o_ipauserobjectclasses: Str
+        :type  o_ipauserobjectclasses: str
         :param o_ipaconfigstring: Extra hashes to generate in password plug-in
-        :type  o_ipaconfigstring: StrEnum
+        :type  o_ipaconfigstring: str, valid values ['AllowNThash', 'KDC:Disable Last Success', 'KDC:Disable Lockout', 'KDC:Disable Default Preauth for SPNs']
         :param o_ipakrbauthzdata: Default types of PAC supported for services
-        :type  o_ipakrbauthzdata: StrEnum
+        :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'nfs:NONE']
         :param o_ipauserauthtype: Default types of supported user authentication
-        :type  o_ipauserauthtype: StrEnum
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'disabled']
         """
         method = 'config_mod'
 
@@ -3798,11 +3798,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show the current configuration.
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'config_show'
 
@@ -3827,21 +3827,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: <cn>
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_krbpwdpolicyreference: <krbpwdpolicyreference>
         :type  o_krbpwdpolicyreference: DNParam
         :param o_cospriority: <cospriority>
-        :type  o_cospriority: Int
+        :type  o_cospriority: int, min value 0, max value 2147483647
         """
         method = 'cosentry_add'
 
@@ -3867,9 +3867,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: <cn>
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'cosentry_del'
 
@@ -3895,23 +3895,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("cn")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_krbpwdpolicyreference: <krbpwdpolicyreference>
         :type  o_krbpwdpolicyreference: DNParam
         :param o_cospriority: <cospriority>
-        :type  o_cospriority: Int
+        :type  o_cospriority: int, min value 0, max value 2147483647
         :param o_cn: <cn>
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'cosentry_find'
 
@@ -3950,26 +3950,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: <cn>
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_krbpwdpolicyreference: <krbpwdpolicyreference>
         :type  o_krbpwdpolicyreference: DNParam
         :param o_cospriority: <cospriority>
-        :type  o_cospriority: Int
+        :type  o_cospriority: int, min value 0, max value 2147483647
         """
         method = 'cosentry_mod'
 
@@ -4002,13 +4002,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: <cn>
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'cosentry_show'
 
@@ -4034,19 +4034,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new delegation.
         :param a_aciname: Delegation name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_attrs: Attributes to which the delegation applies
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_group: User group ACI grants access to
-        :type  o_group: Str
+        :type  o_group: str
         :param o_memberof: User group to apply delegation to
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_permissions: Permissions to grant (read, write). Default is write.
-        :type  o_permissions: Str
+        :type  o_permissions: str
         """
         method = 'delegation_add'
 
@@ -4070,7 +4070,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a delegation.
         :param a_aciname: Delegation name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         """
         method = 'delegation_del'
 
@@ -4095,23 +4095,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for delegations.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_attrs: Attributes to which the delegation applies
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_group: User group ACI grants access to
-        :type  o_group: Str
+        :type  o_group: str
         :param o_memberof: User group to apply delegation to
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_aciname: Delegation name
-        :type  o_aciname: Str
+        :type  o_aciname: str
         :param o_permissions: Permissions to grant (read, write). Default is write.
-        :type  o_permissions: Str
+        :type  o_permissions: str
         """
         method = 'delegation_find'
 
@@ -4148,19 +4148,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a delegation.
         :param a_aciname: Delegation name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_attrs: Attributes to which the delegation applies
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_group: User group ACI grants access to
-        :type  o_group: Str
+        :type  o_group: str
         :param o_memberof: User group to apply delegation to
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_permissions: Permissions to grant (read, write). Default is write.
-        :type  o_permissions: Str
+        :type  o_permissions: str
         """
         method = 'delegation_mod'
 
@@ -4189,11 +4189,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a delegation.
         :param a_aciname: Delegation name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'delegation_show'
 
@@ -4226,7 +4226,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Resolve a host name in DNS. (Deprecated)
         :param a_hostname: Hostname (FQDN)
-        :type  a_hostname: Str
+        :type  a_hostname: str
         """
         method = 'dns_resolve'
 
@@ -4245,11 +4245,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Update location and IPA server DNS records
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_dry_run: Do not update records only return expected records
-        :type  o_dry_run: Flag
+        :type  o_dry_run: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'dns_update_system_records'
 
@@ -4279,29 +4279,29 @@ For multi-valued attributes, the command replaces the values already present.
         """Modify global DNS configuration.
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_idnsallowsyncptr: Allow synchronization of forward (A, AAAA) and reverse (PTR) records
         :type  o_idnsallowsyncptr: Bool
         :param o_ipadnsversion: IPA DNS version
-        :type  o_ipadnsversion: Int
+        :type  o_ipadnsversion: int, min value -2147483648, max value 2147483647
         :param o_idnszonerefresh: An interval between regular polls of the name server for new DNS zones
-        :type  o_idnszonerefresh: Int
+        :type  o_idnszonerefresh: int, min value 0, max value 2147483647
         :param o_idnsforwarders: Global forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_idnsforwardpolicy: Global forwarding policy. Set to "none" to disable any configured global forwarders.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         """
         method = 'dnsconfig_mod'
 
@@ -4338,11 +4338,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show the current global DNS configuration.
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'dnsconfig_show'
 
@@ -4372,22 +4372,22 @@ For multi-valued attributes, the command replaces the values already present.
         :type  a_idnsname: DNSNameParam
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_name_from_ip: IP network to create reverse zone name from
-        :type  o_name_from_ip: Str
+        :type  o_name_from_ip: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_skip_overlap_check: Force DNS zone creation even if it will overlap with an existing zone.
-        :type  o_skip_overlap_check: Flag
+        :type  o_skip_overlap_check: bool
         :param o_idnsforwarders: Per-zone forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_idnsforwardpolicy: Per-zone conditional forwarding policy. Set to "none" to disable forwarding to global forwarder for this zone. In that case, conditional zone forwarders are disregarded.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         """
         method = 'dnsforwardzone_add'
 
@@ -4437,7 +4437,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'dnsforwardzone_del'
 
@@ -4499,27 +4499,27 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for DNS forward zones.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_name_from_ip: IP network to create reverse zone name from
-        :type  o_name_from_ip: Str
+        :type  o_name_from_ip: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_idnszoneactive: Is zone active?
         :type  o_idnszoneactive: Bool
         :param o_idnsname: Zone name (FQDN)
         :type  o_idnsname: DNSNameParam
         :param o_idnsforwarders: Per-zone forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_idnsforwardpolicy: Per-zone conditional forwarding policy. Set to "none" to disable forwarding to global forwarder for this zone. In that case, conditional zone forwarders are disregarded.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         """
         method = 'dnsforwardzone_find'
 
@@ -4566,25 +4566,25 @@ For multi-valued attributes, the command replaces the values already present.
         :type  a_idnsname: DNSNameParam
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_name_from_ip: IP network to create reverse zone name from
-        :type  o_name_from_ip: Str
+        :type  o_name_from_ip: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_idnsforwarders: Per-zone forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_idnsforwardpolicy: Per-zone conditional forwarding policy. Set to "none" to disable forwarding to global forwarder for this zone. In that case, conditional zone forwarders are disregarded.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         """
         method = 'dnsforwardzone_mod'
 
@@ -4638,11 +4638,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'dnsforwardzone_show'
 
@@ -4793,111 +4793,111 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_loc_part_v_precision: LOC Vertical Precision
         :type  o_loc_part_v_precision: Decimal
         :param o_afsdb_part_subtype: AFSDB Subtype
-        :type  o_afsdb_part_subtype: Int
+        :type  o_afsdb_part_subtype: int, min value 0, max value 65535
         :param o_cert_part_algorithm: CERT Algorithm
-        :type  o_cert_part_algorithm: Int
+        :type  o_cert_part_algorithm: int, min value 0, max value 255
         :param o_cert_part_key_tag: CERT Key Tag
-        :type  o_cert_part_key_tag: Int
+        :type  o_cert_part_key_tag: int, min value 0, max value 65535
         :param o_cert_part_type: CERT Certificate Type
-        :type  o_cert_part_type: Int
+        :type  o_cert_part_type: int, min value 0, max value 65535
         :param o_dlv_part_algorithm: DLV Algorithm
-        :type  o_dlv_part_algorithm: Int
+        :type  o_dlv_part_algorithm: int, min value 0, max value 255
         :param o_dlv_part_digest_type: DLV Digest Type
-        :type  o_dlv_part_digest_type: Int
+        :type  o_dlv_part_digest_type: int, min value 0, max value 255
         :param o_dlv_part_key_tag: DLV Key Tag
-        :type  o_dlv_part_key_tag: Int
+        :type  o_dlv_part_key_tag: int, min value 0, max value 65535
         :param o_ds_part_algorithm: DS Algorithm
-        :type  o_ds_part_algorithm: Int
+        :type  o_ds_part_algorithm: int, min value 0, max value 255
         :param o_ds_part_digest_type: DS Digest Type
-        :type  o_ds_part_digest_type: Int
+        :type  o_ds_part_digest_type: int, min value 0, max value 255
         :param o_ds_part_key_tag: DS Key Tag
-        :type  o_ds_part_key_tag: Int
+        :type  o_ds_part_key_tag: int, min value 0, max value 65535
         :param o_kx_part_preference: Preference given to this exchanger. Lower values are more preferred
-        :type  o_kx_part_preference: Int
+        :type  o_kx_part_preference: int, min value 0, max value 65535
         :param o_loc_part_lat_deg: LOC Degrees Latitude
-        :type  o_loc_part_lat_deg: Int
+        :type  o_loc_part_lat_deg: int, min value 0, max value 90
         :param o_loc_part_lat_min: LOC Minutes Latitude
-        :type  o_loc_part_lat_min: Int
+        :type  o_loc_part_lat_min: int, min value 0, max value 59
         :param o_loc_part_lon_deg: LOC Degrees Longitude
-        :type  o_loc_part_lon_deg: Int
+        :type  o_loc_part_lon_deg: int, min value 0, max value 180
         :param o_loc_part_lon_min: LOC Minutes Longitude
-        :type  o_loc_part_lon_min: Int
+        :type  o_loc_part_lon_min: int, min value 0, max value 59
         :param o_mx_part_preference: Preference given to this exchanger. Lower values are more preferred
-        :type  o_mx_part_preference: Int
+        :type  o_mx_part_preference: int, min value 0, max value 65535
         :param o_naptr_part_order: NAPTR Order
-        :type  o_naptr_part_order: Int
+        :type  o_naptr_part_order: int, min value 0, max value 65535
         :param o_naptr_part_preference: NAPTR Preference
-        :type  o_naptr_part_preference: Int
+        :type  o_naptr_part_preference: int, min value 0, max value 65535
         :param o_srv_part_port: SRV Port
-        :type  o_srv_part_port: Int
+        :type  o_srv_part_port: int, min value 0, max value 65535
         :param o_srv_part_priority: Lower number means higher priority. Clients will attempt to contact the server with the lowest-numbered priority they can reach.
-        :type  o_srv_part_priority: Int
+        :type  o_srv_part_priority: int, min value 0, max value 65535
         :param o_srv_part_weight: Relative weight for entries with the same priority.
-        :type  o_srv_part_weight: Int
+        :type  o_srv_part_weight: int, min value 0, max value 65535
         :param o_sshfp_part_algorithm: SSHFP Algorithm
-        :type  o_sshfp_part_algorithm: Int
+        :type  o_sshfp_part_algorithm: int, min value 0, max value 255
         :param o_sshfp_part_fp_type: SSHFP Fingerprint Type
-        :type  o_sshfp_part_fp_type: Int
+        :type  o_sshfp_part_fp_type: int, min value 0, max value 255
         :param o_tlsa_part_cert_usage: TLSA Certificate Usage
-        :type  o_tlsa_part_cert_usage: Int
+        :type  o_tlsa_part_cert_usage: int, min value 0, max value 255
         :param o_tlsa_part_matching_type: TLSA Matching Type
-        :type  o_tlsa_part_matching_type: Int
+        :type  o_tlsa_part_matching_type: int, min value 0, max value 255
         :param o_tlsa_part_selector: TLSA Selector
-        :type  o_tlsa_part_selector: Int
+        :type  o_tlsa_part_selector: int, min value 0, max value 255
         :param o_uri_part_priority: Lower number means higher priority. Clients will attempt to contact the URI with the lowest-numbered priority they can reach.
-        :type  o_uri_part_priority: Int
+        :type  o_uri_part_priority: int, min value 0, max value 65535
         :param o_uri_part_weight: Relative weight for entries with the same priority.
-        :type  o_uri_part_weight: Int
+        :type  o_uri_part_weight: int, min value 0, max value 65535
         :param o_a6_part_data: A6 Record data
-        :type  o_a6_part_data: Str
+        :type  o_a6_part_data: str
         :param o_a_part_ip_address: A IP Address
-        :type  o_a_part_ip_address: Str
+        :type  o_a_part_ip_address: str
         :param o_aaaa_part_ip_address: AAAA IP Address
-        :type  o_aaaa_part_ip_address: Str
+        :type  o_aaaa_part_ip_address: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_cert_part_certificate_or_crl: CERT Certificate/CRL
-        :type  o_cert_part_certificate_or_crl: Str
+        :type  o_cert_part_certificate_or_crl: str
         :param o_dlv_part_digest: DLV Digest
-        :type  o_dlv_part_digest: Str
+        :type  o_dlv_part_digest: str
         :param o_ds_part_digest: DS Digest
-        :type  o_ds_part_digest: Str
+        :type  o_ds_part_digest: str
         :param o_naptr_part_flags: NAPTR Flags
-        :type  o_naptr_part_flags: Str
+        :type  o_naptr_part_flags: str
         :param o_naptr_part_regexp: NAPTR Regular Expression
-        :type  o_naptr_part_regexp: Str
+        :type  o_naptr_part_regexp: str
         :param o_naptr_part_replacement: NAPTR Replacement
-        :type  o_naptr_part_replacement: Str
+        :type  o_naptr_part_replacement: str
         :param o_naptr_part_service: NAPTR Service
-        :type  o_naptr_part_service: Str
+        :type  o_naptr_part_service: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_sshfp_part_fingerprint: SSHFP Fingerprint
-        :type  o_sshfp_part_fingerprint: Str
+        :type  o_sshfp_part_fingerprint: str
         :param o_tlsa_part_cert_association_data: TLSA Certificate Association Data
-        :type  o_tlsa_part_cert_association_data: Str
+        :type  o_tlsa_part_cert_association_data: str
         :param o_txt_part_data: TXT Text Data
-        :type  o_txt_part_data: Str
+        :type  o_txt_part_data: str
         :param o_uri_part_target: Target Uniform Resource Identifier according to RFC 3986
-        :type  o_uri_part_target: Str
+        :type  o_uri_part_target: str
         :param o_loc_part_lon_dir: LOC Direction Longitude
-        :type  o_loc_part_lon_dir: StrEnum
+        :type  o_loc_part_lon_dir: str, valid values ['E', 'W']
         :param o_loc_part_lat_dir: LOC Direction Latitude
-        :type  o_loc_part_lat_dir: StrEnum
+        :type  o_loc_part_lat_dir: str, valid values ['N', 'S']
         :param o_a_extra_create_reverse: Create reverse record for this IP Address
-        :type  o_a_extra_create_reverse: Flag
+        :type  o_a_extra_create_reverse: bool
         :param o_aaaa_extra_create_reverse: Create reverse record for this IP Address
-        :type  o_aaaa_extra_create_reverse: Flag
+        :type  o_aaaa_extra_create_reverse: bool
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_force: force NS record creation even if its hostname is not in DNS
-        :type  o_force: Flag
+        :type  o_force: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_structured: Parse all raw DNS records and return them in a structured way
-        :type  o_structured: Flag
+        :type  o_structured: bool
         :param o_a6record: Raw A6 records
         :type  o_a6record: A6Record
         :param o_aaaarecord: Raw AAAA records
@@ -4925,7 +4925,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipseckeyrecord: Raw IPSECKEY records
         :type  o_ipseckeyrecord: IPSECKEYRecord
         :param o_dnsttl: Time to live
-        :type  o_dnsttl: Int
+        :type  o_dnsttl: int, min value -2147483648, max value 2147483647
         :param o_keyrecord: Raw KEY records
         :type  o_keyrecord: KEYRecord
         :param o_kxrecord: Raw KX records
@@ -4955,7 +4955,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_sshfprecord: Raw SSHFP records
         :type  o_sshfprecord: SSHFPRecord
         :param o_dnsclass: <dnsclass>
-        :type  o_dnsclass: StrEnum
+        :type  o_dnsclass: str, valid values ['IN', 'CS', 'CH', 'HS']
         :param o_tlsarecord: Raw TLSA records
         :type  o_tlsarecord: TLSARecord
         :param o_txtrecord: Raw TXT records
@@ -5211,11 +5211,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: Record name
         :type  a_idnsname: DNSNameParam
         :param o_del_all: Delete all associated records
-        :type  o_del_all: Flag
+        :type  o_del_all: bool
         :param o_raw: <raw>
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_structured: Parse all raw DNS records and return them in a structured way
-        :type  o_structured: Flag
+        :type  o_structured: bool
         :param o_a6record: Raw A6 records
         :type  o_a6record: A6Record
         :param o_aaaarecord: Raw AAAA records
@@ -5243,7 +5243,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipseckeyrecord: Raw IPSECKEY records
         :type  o_ipseckeyrecord: IPSECKEYRecord
         :param o_dnsttl: Time to live
-        :type  o_dnsttl: Int
+        :type  o_dnsttl: int, min value -2147483648, max value 2147483647
         :param o_keyrecord: Raw KEY records
         :type  o_keyrecord: KEYRecord
         :param o_kxrecord: Raw KX records
@@ -5273,7 +5273,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_sshfprecord: Raw SSHFP records
         :type  o_sshfprecord: SSHFPRecord
         :param o_dnsclass: <dnsclass>
-        :type  o_dnsclass: StrEnum
+        :type  o_dnsclass: str, valid values ['IN', 'CS', 'CH', 'HS']
         :param o_tlsarecord: Raw TLSA records
         :type  o_tlsarecord: TLSARecord
         :param o_txtrecord: Raw TXT records
@@ -5371,7 +5371,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: Record name
         :type  a_idnsname: DNSNameParam
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'dnsrecord_delentry'
 
@@ -5432,19 +5432,19 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_dnszoneidnsname: Zone name (FQDN)
         :type  a_dnszoneidnsname: DNSNameParam
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_structured: Parse all raw DNS records and return them in a structured way
-        :type  o_structured: Flag
+        :type  o_structured: bool
         :param o_a6record: Raw A6 records
         :type  o_a6record: A6Record
         :param o_aaaarecord: Raw AAAA records
@@ -5474,7 +5474,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipseckeyrecord: Raw IPSECKEY records
         :type  o_ipseckeyrecord: IPSECKEYRecord
         :param o_dnsttl: Time to live
-        :type  o_dnsttl: Int
+        :type  o_dnsttl: int, min value -2147483648, max value 2147483647
         :param o_keyrecord: Raw KEY records
         :type  o_keyrecord: KEYRecord
         :param o_kxrecord: Raw KX records
@@ -5504,7 +5504,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_sshfprecord: Raw SSHFP records
         :type  o_sshfprecord: SSHFPRecord
         :param o_dnsclass: <dnsclass>
-        :type  o_dnsclass: StrEnum
+        :type  o_dnsclass: str, valid values ['IN', 'CS', 'CH', 'HS']
         :param o_tlsarecord: Raw TLSA records
         :type  o_tlsarecord: TLSARecord
         :param o_txtrecord: Raw TXT records
@@ -5736,110 +5736,110 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_loc_part_v_precision: LOC Vertical Precision
         :type  o_loc_part_v_precision: Decimal
         :param o_afsdb_part_subtype: AFSDB Subtype
-        :type  o_afsdb_part_subtype: Int
+        :type  o_afsdb_part_subtype: int, min value 0, max value 65535
         :param o_cert_part_algorithm: CERT Algorithm
-        :type  o_cert_part_algorithm: Int
+        :type  o_cert_part_algorithm: int, min value 0, max value 255
         :param o_cert_part_key_tag: CERT Key Tag
-        :type  o_cert_part_key_tag: Int
+        :type  o_cert_part_key_tag: int, min value 0, max value 65535
         :param o_cert_part_type: CERT Certificate Type
-        :type  o_cert_part_type: Int
+        :type  o_cert_part_type: int, min value 0, max value 65535
         :param o_dlv_part_algorithm: DLV Algorithm
-        :type  o_dlv_part_algorithm: Int
+        :type  o_dlv_part_algorithm: int, min value 0, max value 255
         :param o_dlv_part_digest_type: DLV Digest Type
-        :type  o_dlv_part_digest_type: Int
+        :type  o_dlv_part_digest_type: int, min value 0, max value 255
         :param o_dlv_part_key_tag: DLV Key Tag
-        :type  o_dlv_part_key_tag: Int
+        :type  o_dlv_part_key_tag: int, min value 0, max value 65535
         :param o_ds_part_algorithm: DS Algorithm
-        :type  o_ds_part_algorithm: Int
+        :type  o_ds_part_algorithm: int, min value 0, max value 255
         :param o_ds_part_digest_type: DS Digest Type
-        :type  o_ds_part_digest_type: Int
+        :type  o_ds_part_digest_type: int, min value 0, max value 255
         :param o_ds_part_key_tag: DS Key Tag
-        :type  o_ds_part_key_tag: Int
+        :type  o_ds_part_key_tag: int, min value 0, max value 65535
         :param o_kx_part_preference: Preference given to this exchanger. Lower values are more preferred
-        :type  o_kx_part_preference: Int
+        :type  o_kx_part_preference: int, min value 0, max value 65535
         :param o_loc_part_lat_deg: LOC Degrees Latitude
-        :type  o_loc_part_lat_deg: Int
+        :type  o_loc_part_lat_deg: int, min value 0, max value 90
         :param o_loc_part_lat_min: LOC Minutes Latitude
-        :type  o_loc_part_lat_min: Int
+        :type  o_loc_part_lat_min: int, min value 0, max value 59
         :param o_loc_part_lon_deg: LOC Degrees Longitude
-        :type  o_loc_part_lon_deg: Int
+        :type  o_loc_part_lon_deg: int, min value 0, max value 180
         :param o_loc_part_lon_min: LOC Minutes Longitude
-        :type  o_loc_part_lon_min: Int
+        :type  o_loc_part_lon_min: int, min value 0, max value 59
         :param o_mx_part_preference: Preference given to this exchanger. Lower values are more preferred
-        :type  o_mx_part_preference: Int
+        :type  o_mx_part_preference: int, min value 0, max value 65535
         :param o_naptr_part_order: NAPTR Order
-        :type  o_naptr_part_order: Int
+        :type  o_naptr_part_order: int, min value 0, max value 65535
         :param o_naptr_part_preference: NAPTR Preference
-        :type  o_naptr_part_preference: Int
+        :type  o_naptr_part_preference: int, min value 0, max value 65535
         :param o_srv_part_port: SRV Port
-        :type  o_srv_part_port: Int
+        :type  o_srv_part_port: int, min value 0, max value 65535
         :param o_srv_part_priority: Lower number means higher priority. Clients will attempt to contact the server with the lowest-numbered priority they can reach.
-        :type  o_srv_part_priority: Int
+        :type  o_srv_part_priority: int, min value 0, max value 65535
         :param o_srv_part_weight: Relative weight for entries with the same priority.
-        :type  o_srv_part_weight: Int
+        :type  o_srv_part_weight: int, min value 0, max value 65535
         :param o_sshfp_part_algorithm: SSHFP Algorithm
-        :type  o_sshfp_part_algorithm: Int
+        :type  o_sshfp_part_algorithm: int, min value 0, max value 255
         :param o_sshfp_part_fp_type: SSHFP Fingerprint Type
-        :type  o_sshfp_part_fp_type: Int
+        :type  o_sshfp_part_fp_type: int, min value 0, max value 255
         :param o_tlsa_part_cert_usage: TLSA Certificate Usage
-        :type  o_tlsa_part_cert_usage: Int
+        :type  o_tlsa_part_cert_usage: int, min value 0, max value 255
         :param o_tlsa_part_matching_type: TLSA Matching Type
-        :type  o_tlsa_part_matching_type: Int
+        :type  o_tlsa_part_matching_type: int, min value 0, max value 255
         :param o_tlsa_part_selector: TLSA Selector
-        :type  o_tlsa_part_selector: Int
+        :type  o_tlsa_part_selector: int, min value 0, max value 255
         :param o_uri_part_priority: Lower number means higher priority. Clients will attempt to contact the URI with the lowest-numbered priority they can reach.
-        :type  o_uri_part_priority: Int
+        :type  o_uri_part_priority: int, min value 0, max value 65535
         :param o_uri_part_weight: Relative weight for entries with the same priority.
-        :type  o_uri_part_weight: Int
+        :type  o_uri_part_weight: int, min value 0, max value 65535
         :param o_a6_part_data: A6 Record data
-        :type  o_a6_part_data: Str
+        :type  o_a6_part_data: str
         :param o_a_part_ip_address: A IP Address
-        :type  o_a_part_ip_address: Str
+        :type  o_a_part_ip_address: str
         :param o_aaaa_part_ip_address: AAAA IP Address
-        :type  o_aaaa_part_ip_address: Str
+        :type  o_aaaa_part_ip_address: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_cert_part_certificate_or_crl: CERT Certificate/CRL
-        :type  o_cert_part_certificate_or_crl: Str
+        :type  o_cert_part_certificate_or_crl: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_dlv_part_digest: DLV Digest
-        :type  o_dlv_part_digest: Str
+        :type  o_dlv_part_digest: str
         :param o_ds_part_digest: DS Digest
-        :type  o_ds_part_digest: Str
+        :type  o_ds_part_digest: str
         :param o_naptr_part_flags: NAPTR Flags
-        :type  o_naptr_part_flags: Str
+        :type  o_naptr_part_flags: str
         :param o_naptr_part_regexp: NAPTR Regular Expression
-        :type  o_naptr_part_regexp: Str
+        :type  o_naptr_part_regexp: str
         :param o_naptr_part_replacement: NAPTR Replacement
-        :type  o_naptr_part_replacement: Str
+        :type  o_naptr_part_replacement: str
         :param o_naptr_part_service: NAPTR Service
-        :type  o_naptr_part_service: Str
+        :type  o_naptr_part_service: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_sshfp_part_fingerprint: SSHFP Fingerprint
-        :type  o_sshfp_part_fingerprint: Str
+        :type  o_sshfp_part_fingerprint: str
         :param o_tlsa_part_cert_association_data: TLSA Certificate Association Data
-        :type  o_tlsa_part_cert_association_data: Str
+        :type  o_tlsa_part_cert_association_data: str
         :param o_txt_part_data: TXT Text Data
-        :type  o_txt_part_data: Str
+        :type  o_txt_part_data: str
         :param o_uri_part_target: Target Uniform Resource Identifier according to RFC 3986
-        :type  o_uri_part_target: Str
+        :type  o_uri_part_target: str
         :param o_loc_part_lon_dir: LOC Direction Longitude
-        :type  o_loc_part_lon_dir: StrEnum
+        :type  o_loc_part_lon_dir: str, valid values ['E', 'W']
         :param o_loc_part_lat_dir: LOC Direction Latitude
-        :type  o_loc_part_lat_dir: StrEnum
+        :type  o_loc_part_lat_dir: str, valid values ['N', 'S']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_structured: Parse all raw DNS records and return them in a structured way
-        :type  o_structured: Flag
+        :type  o_structured: bool
         :param o_a6record: Raw A6 records
         :type  o_a6record: A6Record
         :param o_aaaarecord: Raw AAAA records
@@ -5867,7 +5867,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipseckeyrecord: Raw IPSECKEY records
         :type  o_ipseckeyrecord: IPSECKEYRecord
         :param o_dnsttl: Time to live
-        :type  o_dnsttl: Int
+        :type  o_dnsttl: int, min value -2147483648, max value 2147483647
         :param o_keyrecord: Raw KEY records
         :type  o_keyrecord: KEYRecord
         :param o_kxrecord: Raw KX records
@@ -5897,7 +5897,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_sshfprecord: Raw SSHFP records
         :type  o_sshfprecord: SSHFPRecord
         :param o_dnsclass: <dnsclass>
-        :type  o_dnsclass: StrEnum
+        :type  o_dnsclass: str, valid values ['IN', 'CS', 'CH', 'HS']
         :param o_tlsarecord: Raw TLSA records
         :type  o_tlsarecord: TLSARecord
         :param o_txtrecord: Raw TXT records
@@ -6122,13 +6122,13 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: Record name
         :type  a_idnsname: DNSNameParam
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_structured: Parse all raw DNS records and return them in a structured way
-        :type  o_structured: Flag
+        :type  o_structured: bool
         """
         method = 'dnsrecord_show'
 
@@ -6151,9 +6151,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_name: <name>
-        :type  a_name: Str
+        :type  a_name: str
         :param a_value: <value>
-        :type  a_value: Str
+        :type  a_value: str
         """
         method = 'dnsrecord_split_parts'
 
@@ -6180,25 +6180,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for DNS servers.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("hostname")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_idnssoamname: SOA mname (authoritative server) override
         :type  o_idnssoamname: DNSNameParam
         :param o_idnsforwarders: Per-server forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_idnsserverid: DNS Server name
-        :type  o_idnsserverid: Str
+        :type  o_idnsserverid: str
         :param o_idnsforwardpolicy: Per-server conditional forwarding policy. Set to "none" to disable forwarding to global forwarder for this zone. In that case, conditional zone forwarders are disregarded.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         """
         method = 'dnsserver_find'
 
@@ -6240,28 +6240,28 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify DNS server configuration
         :param a_idnsserverid: DNS Server name
-        :type  a_idnsserverid: Str
+        :type  a_idnsserverid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_idnssoamname: SOA mname (authoritative server) override
         :type  o_idnssoamname: DNSNameParam
         :param o_idnsforwarders: Per-server forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_idnsforwardpolicy: Per-server conditional forwarding policy. Set to "none" to disable forwarding to global forwarder for this zone. In that case, conditional zone forwarders are disregarded.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         """
         method = 'dnsserver_mod'
 
@@ -6296,13 +6296,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display configuration of a DNS server.
         :param a_idnsserverid: DNS Server name
-        :type  a_idnsserverid: Str
+        :type  a_idnsserverid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'dnsserver_show'
 
@@ -6353,24 +6353,24 @@ For multi-valued attributes, the command replaces the values already present.
         :type  a_idnsname: DNSNameParam
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_ip_address: <ip_address>
-        :type  o_ip_address: Str
+        :type  o_ip_address: str
         :param o_name_from_ip: IP network to create reverse zone name from
-        :type  o_name_from_ip: Str
+        :type  o_name_from_ip: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_force: Force DNS zone creation even if nameserver is not resolvable. (Deprecated)
-        :type  o_force: Flag
+        :type  o_force: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_skip_nameserver_check: Force DNS zone creation even if nameserver is not resolvable.
-        :type  o_skip_nameserver_check: Flag
+        :type  o_skip_nameserver_check: bool
         :param o_skip_overlap_check: Force DNS zone creation even if it will overlap with an existing zone.
-        :type  o_skip_overlap_check: Flag
+        :type  o_skip_overlap_check: bool
         :param o_idnsallowsyncptr: Allow synchronization of forward (A, AAAA) and reverse (PTR) records in the zone
         :type  o_idnsallowsyncptr: Bool
         :param o_idnssecinlinesigning: Allow inline DNSSEC signing of records in the zone
@@ -6378,37 +6378,37 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_idnssoamname: Authoritative nameserver domain name
         :type  o_idnssoamname: DNSNameParam
         :param o_dnsdefaultttl: Time to live for records without explicit TTL definition
-        :type  o_dnsdefaultttl: Int
+        :type  o_dnsdefaultttl: int, min value 0, max value 2147483647
         :param o_dnsttl: Time to live for records at zone apex
-        :type  o_dnsttl: Int
+        :type  o_dnsttl: int, min value 0, max value 2147483647
         :param o_idnsforwarders: Per-zone forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_nsec3paramrecord: NSEC3PARAM record for zone in format: hash_algorithm flags iterations salt
-        :type  o_nsec3paramrecord: Str
+        :type  o_nsec3paramrecord: str
         :param o_dnsclass: <dnsclass>
-        :type  o_dnsclass: StrEnum
+        :type  o_dnsclass: str, valid values ['IN', 'CS', 'CH', 'HS']
         :param o_idnsforwardpolicy: Per-zone conditional forwarding policy. Set to "none" to disable forwarding to global forwarder for this zone. In that case, conditional zone forwarders are disregarded.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         :param o_idnsallowdynupdate: Allow dynamic updates.
         :type  o_idnsallowdynupdate: Bool
         :param o_idnssoarname: Administrator e-mail address
         :type  o_idnssoarname: DNSNameParam
         :param o_idnssoaexpire: SOA record expire time
-        :type  o_idnssoaexpire: Int
+        :type  o_idnssoaexpire: int, min value 0, max value 2147483647
         :param o_idnssoaminimum: How long should negative responses be cached
-        :type  o_idnssoaminimum: Int
+        :type  o_idnssoaminimum: int, min value 0, max value 2147483647
         :param o_idnssoarefresh: SOA record refresh time
-        :type  o_idnssoarefresh: Int
+        :type  o_idnssoarefresh: int, min value 0, max value 2147483647
         :param o_idnssoaretry: SOA record retry time
-        :type  o_idnssoaretry: Int
+        :type  o_idnssoaretry: int, min value 0, max value 2147483647
         :param o_idnssoaserial: SOA record serial number
-        :type  o_idnssoaserial: Int
+        :type  o_idnssoaserial: int, min value 1, max value 4294967295
         :param o_idnsallowquery: Semicolon separated list of IP addresses or networks which are allowed to issue queries
-        :type  o_idnsallowquery: Str
+        :type  o_idnsallowquery: str
         :param o_idnsallowtransfer: Semicolon separated list of IP addresses or networks which are allowed to transfer the zone
-        :type  o_idnsallowtransfer: Str
+        :type  o_idnsallowtransfer: str
         :param o_idnsupdatepolicy: BIND update policy
-        :type  o_idnsupdatepolicy: Str
+        :type  o_idnsupdatepolicy: str
         """
         method = 'dnszone_add'
 
@@ -6490,7 +6490,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'dnszone_del'
 
@@ -6570,21 +6570,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for DNS zones (SOA records).
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_name_from_ip: IP network to create reverse zone name from
-        :type  o_name_from_ip: Str
+        :type  o_name_from_ip: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_forward_only: Search for forward zones only
-        :type  o_forward_only: Flag
+        :type  o_forward_only: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_idnsallowsyncptr: Allow synchronization of forward (A, AAAA) and reverse (PTR) records in the zone
         :type  o_idnsallowsyncptr: Bool
         :param o_idnssecinlinesigning: Allow inline DNSSEC signing of records in the zone
@@ -6600,33 +6600,33 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_idnssoamname: Authoritative nameserver domain name
         :type  o_idnssoamname: DNSNameParam
         :param o_dnsdefaultttl: Time to live for records without explicit TTL definition
-        :type  o_dnsdefaultttl: Int
+        :type  o_dnsdefaultttl: int, min value 0, max value 2147483647
         :param o_idnssoaexpire: SOA record expire time
-        :type  o_idnssoaexpire: Int
+        :type  o_idnssoaexpire: int, min value 0, max value 2147483647
         :param o_idnssoaminimum: How long should negative responses be cached
-        :type  o_idnssoaminimum: Int
+        :type  o_idnssoaminimum: int, min value 0, max value 2147483647
         :param o_idnssoarefresh: SOA record refresh time
-        :type  o_idnssoarefresh: Int
+        :type  o_idnssoarefresh: int, min value 0, max value 2147483647
         :param o_idnssoaretry: SOA record retry time
-        :type  o_idnssoaretry: Int
+        :type  o_idnssoaretry: int, min value 0, max value 2147483647
         :param o_idnssoaserial: SOA record serial number
-        :type  o_idnssoaserial: Int
+        :type  o_idnssoaserial: int, min value 1, max value 4294967295
         :param o_dnsttl: Time to live for records at zone apex
-        :type  o_dnsttl: Int
+        :type  o_dnsttl: int, min value 0, max value 2147483647
         :param o_idnsallowquery: Semicolon separated list of IP addresses or networks which are allowed to issue queries
-        :type  o_idnsallowquery: Str
+        :type  o_idnsallowquery: str
         :param o_idnsallowtransfer: Semicolon separated list of IP addresses or networks which are allowed to transfer the zone
-        :type  o_idnsallowtransfer: Str
+        :type  o_idnsallowtransfer: str
         :param o_idnsforwarders: Per-zone forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_nsec3paramrecord: NSEC3PARAM record for zone in format: hash_algorithm flags iterations salt
-        :type  o_nsec3paramrecord: Str
+        :type  o_nsec3paramrecord: str
         :param o_idnsupdatepolicy: BIND update policy
-        :type  o_idnsupdatepolicy: Str
+        :type  o_idnsupdatepolicy: str
         :param o_dnsclass: <dnsclass>
-        :type  o_dnsclass: StrEnum
+        :type  o_dnsclass: str, valid values ['IN', 'CS', 'CH', 'HS']
         :param o_idnsforwardpolicy: Per-zone conditional forwarding policy. Set to "none" to disable forwarding to global forwarder for this zone. In that case, conditional zone forwarders are disregarded.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         """
         method = 'dnszone_find'
 
@@ -6726,23 +6726,23 @@ For multi-valued attributes, the command replaces the values already present.
         :type  a_idnsname: DNSNameParam
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_name_from_ip: IP network to create reverse zone name from
-        :type  o_name_from_ip: Str
+        :type  o_name_from_ip: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_force: Force nameserver change even if nameserver not in DNS
-        :type  o_force: Flag
+        :type  o_force: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_idnsallowsyncptr: Allow synchronization of forward (A, AAAA) and reverse (PTR) records in the zone
         :type  o_idnsallowsyncptr: Bool
         :param o_idnssecinlinesigning: Allow inline DNSSEC signing of records in the zone
@@ -6754,33 +6754,33 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_idnssoamname: Authoritative nameserver domain name
         :type  o_idnssoamname: DNSNameParam
         :param o_dnsdefaultttl: Time to live for records without explicit TTL definition
-        :type  o_dnsdefaultttl: Int
+        :type  o_dnsdefaultttl: int, min value 0, max value 2147483647
         :param o_idnssoaexpire: SOA record expire time
-        :type  o_idnssoaexpire: Int
+        :type  o_idnssoaexpire: int, min value 0, max value 2147483647
         :param o_idnssoaminimum: How long should negative responses be cached
-        :type  o_idnssoaminimum: Int
+        :type  o_idnssoaminimum: int, min value 0, max value 2147483647
         :param o_idnssoarefresh: SOA record refresh time
-        :type  o_idnssoarefresh: Int
+        :type  o_idnssoarefresh: int, min value 0, max value 2147483647
         :param o_idnssoaretry: SOA record retry time
-        :type  o_idnssoaretry: Int
+        :type  o_idnssoaretry: int, min value 0, max value 2147483647
         :param o_idnssoaserial: SOA record serial number
-        :type  o_idnssoaserial: Int
+        :type  o_idnssoaserial: int, min value 1, max value 4294967295
         :param o_dnsttl: Time to live for records at zone apex
-        :type  o_dnsttl: Int
+        :type  o_dnsttl: int, min value 0, max value 2147483647
         :param o_idnsallowquery: Semicolon separated list of IP addresses or networks which are allowed to issue queries
-        :type  o_idnsallowquery: Str
+        :type  o_idnsallowquery: str
         :param o_idnsallowtransfer: Semicolon separated list of IP addresses or networks which are allowed to transfer the zone
-        :type  o_idnsallowtransfer: Str
+        :type  o_idnsallowtransfer: str
         :param o_idnsforwarders: Per-zone forwarders. A custom port can be specified for each forwarder using a standard format "IP_ADDRESS port PORT"
-        :type  o_idnsforwarders: Str
+        :type  o_idnsforwarders: str
         :param o_nsec3paramrecord: NSEC3PARAM record for zone in format: hash_algorithm flags iterations salt
-        :type  o_nsec3paramrecord: Str
+        :type  o_nsec3paramrecord: str
         :param o_idnsupdatepolicy: BIND update policy
-        :type  o_idnsupdatepolicy: Str
+        :type  o_idnsupdatepolicy: str
         :param o_dnsclass: <dnsclass>
-        :type  o_dnsclass: StrEnum
+        :type  o_dnsclass: str, valid values ['IN', 'CS', 'CH', 'HS']
         :param o_idnsforwardpolicy: Per-zone conditional forwarding policy. Set to "none" to disable forwarding to global forwarder for this zone. In that case, conditional zone forwarders are disregarded.
-        :type  o_idnsforwardpolicy: StrEnum
+        :type  o_idnsforwardpolicy: str, valid values ['only', 'first', 'none']
         """
         method = 'dnszone_mod'
 
@@ -6869,11 +6869,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'dnszone_show'
 
@@ -6906,7 +6906,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Change current Domain Level.
         :param a_ipadomainlevel: Domain Level
-        :type  a_ipadomainlevel: Int
+        :type  a_ipadomainlevel: int, min value 0, max value 2147483647
         """
         method = 'domainlevel_set'
 
@@ -6919,20 +6919,18 @@ For multi-valued attributes, the command replaces the values already present.
 
     def env(
             self,
-            *args,
             o_all=True,
             o_server=False,
     ):
         """Show environment variables.
         :param o_all: retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_server: Forward to server instead of running locally
-        :type  o_server: Flag
+        :type  o_server: bool
         """
         method = 'env'
 
         _args = list()
-        _args += args
 
         _params = dict()
         _params['all'] = o_all
@@ -6956,27 +6954,27 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new group.
         :param a_cn: Group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_external: Allow adding external non-IPA members from trusted domains
-        :type  o_external: Flag
+        :type  o_external: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_nonposix: Create as a non-POSIX group
-        :type  o_nonposix: Flag
+        :type  o_nonposix: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_gidnumber: GID (use this option to set it manually)
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_description: Group description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'group_add'
 
@@ -7012,19 +7010,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to a group.
         :param a_cn: Group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_ipaexternalmember: Members of a trusted domain in DOM\name or name@domain form
-        :type  o_ipaexternalmember: Str
+        :type  o_ipaexternalmember: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'group_add_member'
 
@@ -7051,9 +7049,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete group.
         :param a_cn: Group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'group_del'
 
@@ -7071,7 +7069,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Detach a managed group from a user.
         :param a_cn: Group name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'group_detach'
 
@@ -7115,61 +7113,61 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for groups.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_group: Search for groups with these member groups.
-        :type  o_group: Str
+        :type  o_group: str
         :param o_in_group: Search for groups with these member of groups.
-        :type  o_in_group: Str
+        :type  o_in_group: str
         :param o_in_hbacrule: Search for groups with these member of HBAC rules.
-        :type  o_in_hbacrule: Str
+        :type  o_in_hbacrule: str
         :param o_in_netgroup: Search for groups with these member of netgroups.
-        :type  o_in_netgroup: Str
+        :type  o_in_netgroup: str
         :param o_in_role: Search for groups with these member of roles.
-        :type  o_in_role: Str
+        :type  o_in_role: str
         :param o_in_sudorule: Search for groups with these member of sudo rules.
-        :type  o_in_sudorule: Str
+        :type  o_in_sudorule: str
         :param o_no_group: Search for groups without these member groups.
-        :type  o_no_group: Str
+        :type  o_no_group: str
         :param o_no_user: Search for groups without these member users.
-        :type  o_no_user: Str
+        :type  o_no_user: str
         :param o_not_in_group: Search for groups without these member of groups.
-        :type  o_not_in_group: Str
+        :type  o_not_in_group: str
         :param o_not_in_hbacrule: Search for groups without these member of HBAC rules.
-        :type  o_not_in_hbacrule: Str
+        :type  o_not_in_hbacrule: str
         :param o_not_in_netgroup: Search for groups without these member of netgroups.
-        :type  o_not_in_netgroup: Str
+        :type  o_not_in_netgroup: str
         :param o_not_in_role: Search for groups without these member of roles.
-        :type  o_not_in_role: Str
+        :type  o_not_in_role: str
         :param o_not_in_sudorule: Search for groups without these member of sudo rules.
-        :type  o_not_in_sudorule: Str
+        :type  o_not_in_sudorule: str
         :param o_user: Search for groups with these member users.
-        :type  o_user: Str
+        :type  o_user: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_external: search for groups with support of external non-IPA members from trusted domains
-        :type  o_external: Flag
+        :type  o_external: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_nonposix: search for non-POSIX groups
-        :type  o_nonposix: Flag
+        :type  o_nonposix: bool
         :param o_pkey_only: Results should contain primary key attribute only ("group-name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_posix: search for POSIX groups
-        :type  o_posix: Flag
+        :type  o_posix: bool
         :param o_private: search for private groups
-        :type  o_private: Flag
+        :type  o_private: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_gidnumber: GID (use this option to set it manually)
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_description: Group description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Group name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'group_find'
 
@@ -7245,34 +7243,34 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a group.
         :param a_cn: Group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the group object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_external: change to support external non-IPA members from trusted domains
-        :type  o_external: Flag
+        :type  o_external: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_posix: change to a POSIX group
-        :type  o_posix: Flag
+        :type  o_posix: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_gidnumber: GID (use this option to set it manually)
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_description: Group description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'group_mod'
 
@@ -7313,19 +7311,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove members from a group.
         :param a_cn: Group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_ipaexternalmember: Members of a trusted domain in DOM\name or name@domain form
-        :type  o_ipaexternalmember: Str
+        :type  o_ipaexternalmember: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'group_remove_member'
 
@@ -7355,15 +7353,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a named group.
         :param a_cn: Group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'group_show'
 
@@ -7397,35 +7395,35 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_servicecategory: Service category the rule applies to
-        :type  o_servicecategory: StrEnum
+        :type  o_servicecategory: str, valid values ['all']
         :param o_sourcehostcategory: Source host category the rule applies to
-        :type  o_sourcehostcategory: StrEnum
+        :type  o_sourcehostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         :param o_accessruletype: Rule type (allow)
-        :type  o_accessruletype: StrEnum
+        :type  o_accessruletype: str, valid values ['allow', 'deny']
         """
         method = 'hbacrule_add'
 
@@ -7469,17 +7467,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add target hosts and hostgroups to an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'hbacrule_add_host'
 
@@ -7508,17 +7506,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add services to an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hbacsvcgroup: HBAC service groups to add
-        :type  o_hbacsvcgroup: Str
+        :type  o_hbacsvcgroup: str
         :param o_hbacsvc: HBAC services to add
-        :type  o_hbacsvc: Str
+        :type  o_hbacsvc: str
         """
         method = 'hbacrule_add_service'
 
@@ -7547,17 +7545,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'hbacrule_add_sourcehost'
 
@@ -7586,17 +7584,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add users and groups to an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'hbacrule_add_user'
 
@@ -7621,9 +7619,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'hbacrule_del'
 
@@ -7641,7 +7639,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'hbacrule_disable'
 
@@ -7658,7 +7656,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Enable an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'hbacrule_enable'
 
@@ -7690,37 +7688,37 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for HBAC rules.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_cn: Rule name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_servicecategory: Service category the rule applies to
-        :type  o_servicecategory: StrEnum
+        :type  o_servicecategory: str, valid values ['all']
         :param o_sourcehostcategory: Source host category the rule applies to
-        :type  o_sourcehostcategory: StrEnum
+        :type  o_sourcehostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         :param o_accessruletype: Rule type (allow)
-        :type  o_accessruletype: StrEnum
+        :type  o_accessruletype: str, valid values ['allow', 'deny']
         """
         method = 'hbacrule_find'
 
@@ -7780,42 +7778,42 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the HBAC rule object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_servicecategory: Service category the rule applies to
-        :type  o_servicecategory: StrEnum
+        :type  o_servicecategory: str, valid values ['all']
         :param o_sourcehostcategory: Source host category the rule applies to
-        :type  o_sourcehostcategory: StrEnum
+        :type  o_sourcehostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         :param o_accessruletype: Rule type (allow)
-        :type  o_accessruletype: StrEnum
+        :type  o_accessruletype: str, valid values ['allow', 'deny']
         """
         method = 'hbacrule_mod'
 
@@ -7865,17 +7863,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove target hosts and hostgroups from an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'hbacrule_remove_host'
 
@@ -7904,17 +7902,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove service and service groups from an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hbacsvcgroup: HBAC service groups to remove
-        :type  o_hbacsvcgroup: Str
+        :type  o_hbacsvcgroup: str
         :param o_hbacsvc: HBAC services to remove
-        :type  o_hbacsvc: Str
+        :type  o_hbacsvc: str
         """
         method = 'hbacrule_remove_service'
 
@@ -7943,17 +7941,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'hbacrule_remove_sourcehost'
 
@@ -7982,17 +7980,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove users and groups from an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'hbacrule_remove_user'
 
@@ -8020,15 +8018,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display the properties of an HBAC rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'hbacrule_show'
 
@@ -8055,21 +8053,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new HBAC service.
         :param a_cn: HBAC service
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: HBAC service description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'hbacsvc_add'
 
@@ -8096,9 +8094,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an existing HBAC service.
         :param a_cn: HBAC service
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'hbacsvc_del'
 
@@ -8124,23 +8122,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for HBAC services.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("service")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: HBAC service description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: HBAC service
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'hbacsvc_find'
 
@@ -8178,26 +8176,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify an HBAC service.
         :param a_cn: HBAC service
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: HBAC service description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'hbacsvc_mod'
 
@@ -8230,15 +8228,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about an HBAC service.
         :param a_cn: HBAC service
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'hbacsvc_show'
 
@@ -8265,21 +8263,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new HBAC service group.
         :param a_cn: Service group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: HBAC service group description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'hbacsvcgroup_add'
 
@@ -8309,15 +8307,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to an HBAC service group.
         :param a_cn: Service group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hbacsvc: HBAC services to add
-        :type  o_hbacsvc: Str
+        :type  o_hbacsvc: str
         """
         method = 'hbacsvcgroup_add_member'
 
@@ -8340,9 +8338,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an HBAC service group.
         :param a_cn: Service group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'hbacsvcgroup_del'
 
@@ -8368,23 +8366,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for an HBAC service group.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: HBAC service group description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Service group name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'hbacsvcgroup_find'
 
@@ -8422,26 +8420,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify an HBAC service group.
         :param a_cn: Service group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: HBAC service group description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'hbacsvcgroup_mod'
 
@@ -8474,15 +8472,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove members from an HBAC service group.
         :param a_cn: Service group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hbacsvc: HBAC services to remove
-        :type  o_hbacsvc: Str
+        :type  o_hbacsvc: str
         """
         method = 'hbacsvcgroup_remove_member'
 
@@ -8508,15 +8506,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about an HBAC service group.
         :param a_cn: Service group name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'hbacsvcgroup_show'
 
@@ -8545,23 +8543,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Simulate use of Host-based access controls
         :param o_sizelimit: Maximum number of rules to process when no --rules is specified
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_targethost: Target host
-        :type  o_targethost: Str
+        :type  o_targethost: str
         :param o_rules: Rules to test. If not specified, --enabled is assumed
-        :type  o_rules: Str
+        :type  o_rules: str
         :param o_service: Service
-        :type  o_service: Str
+        :type  o_service: str
         :param o_sourcehost: Source host
-        :type  o_sourcehost: Str
+        :type  o_sourcehost: str
         :param o_user: User name
-        :type  o_user: Str
+        :type  o_user: str
         :param o_disabled: Include all disabled IPA rules into test
-        :type  o_disabled: Flag
+        :type  o_disabled: bool
         :param o_enabled: Include all enabled IPA rules into test [default]
-        :type  o_enabled: Flag
+        :type  o_enabled: bool
         :param o_nodetail: Hide details which rules are matched, not matched, or invalid
-        :type  o_nodetail: Flag
+        :type  o_nodetail: bool
         """
         method = 'hbactest'
 
@@ -8616,7 +8614,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_ipakrbokasdelegate: Client credentials may be delegated to the service
         :type  o_ipakrbokasdelegate: Bool
         :param o_ipakrboktoauthasdelegate: The service is allowed to authenticate on behalf of a client
@@ -8625,48 +8623,48 @@ For multi-valued attributes, the command replaces the values already present.
         :type  o_ipakrbrequirespreauth: Bool
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_ip_address: Add the host to DNS with this IP address
-        :type  o_ip_address: Str
+        :type  o_ip_address: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_force: force host name even if not in DNS
-        :type  o_force: Flag
+        :type  o_force: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_no_reverse: skip reverse DNS detection
-        :type  o_no_reverse: Flag
+        :type  o_no_reverse: bool
         :param o_random: Generate a random password to be used in bulk enrollment
-        :type  o_random: Flag
+        :type  o_random: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded host certificate
         :type  o_usercertificate: Certificate
         :param o_krbprincipalauthind: Defines a whitelist for Authentication Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use 'radius' to allow RADIUS-based 2FA authentications. Other values may be used for custom configurations.
-        :type  o_krbprincipalauthind: Str
+        :type  o_krbprincipalauthind: str
         :param o_userclass: Host category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_description: A description of this host
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipaassignedidview: Assigned ID View
-        :type  o_ipaassignedidview: Str
+        :type  o_ipaassignedidview: str
         :param o_l: Host locality (e.g. "Baltimore, MD")
-        :type  o_l: Str
+        :type  o_l: str
         :param o_nshostlocation: Host location (e.g. "Lab 2")
-        :type  o_nshostlocation: Str
+        :type  o_nshostlocation: str
         :param o_macaddress: Hardware MAC address(es) on this host
-        :type  o_macaddress: Str
+        :type  o_macaddress: str
         :param o_nsosversion: Host operating system and version (e.g. "Fedora 9")
-        :type  o_nsosversion: Str
+        :type  o_nsosversion: str
         :param o_userpassword: Password used in bulk enrollment
-        :type  o_userpassword: Str
+        :type  o_userpassword: str
         :param o_nshardwareplatform: Host hardware platform (e.g. "Lenovo T61")
-        :type  o_nshardwareplatform: Str
+        :type  o_nshardwareplatform: str
         :param o_ipasshpubkey: SSH public key
-        :type  o_ipasshpubkey: Str
+        :type  o_ipasshpubkey: str
         """
         method = 'host_add'
 
@@ -8730,13 +8728,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add certificates to host entry
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded host certificate
         :type  o_usercertificate: Certificate
         """
@@ -8763,15 +8761,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add hosts that can manage this host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'host_add_managedby'
 
@@ -8797,15 +8795,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add new principal alias to host entry
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param a_krbprincipalname: Principal alias
         :type  a_krbprincipalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'host_add_principal'
 
@@ -8833,21 +8831,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Allow users, groups, hosts or host groups to create a keytab of this host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'host_allow_create_keytab'
 
@@ -8882,21 +8880,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Allow users, groups, hosts or host groups to retrieve a keytab of this host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'host_allow_retrieve_keytab'
 
@@ -8926,11 +8924,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         :param o_updatedns: Remove A, AAAA, SSHFP and PTR records of the host(s) managed by IPA DNS
-        :type  o_updatedns: Flag
+        :type  o_updatedns: bool
         """
         method = 'host_del'
 
@@ -8950,7 +8948,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable the Kerberos key, SSL certificate and all services of a host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         """
         method = 'host_disable'
 
@@ -8974,21 +8972,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disallow users, groups, hosts or host groups to create a keytab of this host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'host_disallow_create_keytab'
 
@@ -9023,21 +9021,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disallow users, groups, hosts or host groups to retrieve a keytab of this host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'host_disallow_retrieve_keytab'
 
@@ -9099,75 +9097,75 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for hosts.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_enroll_by_user: Search for hosts with these enrolled by users.
-        :type  o_enroll_by_user: Str
+        :type  o_enroll_by_user: str
         :param o_in_hbacrule: Search for hosts with these member of HBAC rules.
-        :type  o_in_hbacrule: Str
+        :type  o_in_hbacrule: str
         :param o_in_hostgroup: Search for hosts with these member of host groups.
-        :type  o_in_hostgroup: Str
+        :type  o_in_hostgroup: str
         :param o_in_netgroup: Search for hosts with these member of netgroups.
-        :type  o_in_netgroup: Str
+        :type  o_in_netgroup: str
         :param o_in_role: Search for hosts with these member of roles.
-        :type  o_in_role: Str
+        :type  o_in_role: str
         :param o_in_sudorule: Search for hosts with these member of sudo rules.
-        :type  o_in_sudorule: Str
+        :type  o_in_sudorule: str
         :param o_man_by_host: Search for hosts with these managed by hosts.
-        :type  o_man_by_host: Str
+        :type  o_man_by_host: str
         :param o_man_host: Search for hosts with these managing hosts.
-        :type  o_man_host: Str
+        :type  o_man_host: str
         :param o_not_enroll_by_user: Search for hosts without these enrolled by users.
-        :type  o_not_enroll_by_user: Str
+        :type  o_not_enroll_by_user: str
         :param o_not_in_hbacrule: Search for hosts without these member of HBAC rules.
-        :type  o_not_in_hbacrule: Str
+        :type  o_not_in_hbacrule: str
         :param o_not_in_hostgroup: Search for hosts without these member of host groups.
-        :type  o_not_in_hostgroup: Str
+        :type  o_not_in_hostgroup: str
         :param o_not_in_netgroup: Search for hosts without these member of netgroups.
-        :type  o_not_in_netgroup: Str
+        :type  o_not_in_netgroup: str
         :param o_not_in_role: Search for hosts without these member of roles.
-        :type  o_not_in_role: Str
+        :type  o_not_in_role: str
         :param o_not_in_sudorule: Search for hosts without these member of sudo rules.
-        :type  o_not_in_sudorule: Str
+        :type  o_not_in_sudorule: str
         :param o_not_man_by_host: Search for hosts without these managed by hosts.
-        :type  o_not_man_by_host: Str
+        :type  o_not_man_by_host: str
         :param o_not_man_host: Search for hosts without these managing hosts.
-        :type  o_not_man_host: Str
+        :type  o_not_man_host: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("hostname")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded host certificate
         :type  o_usercertificate: Certificate
         :param o_krbprincipalauthind: Defines a whitelist for Authentication Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use 'radius' to allow RADIUS-based 2FA authentications. Other values may be used for custom configurations.
-        :type  o_krbprincipalauthind: Str
+        :type  o_krbprincipalauthind: str
         :param o_userclass: Host category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_description: A description of this host
-        :type  o_description: Str
+        :type  o_description: str
         :param o_fqdn: Host name
-        :type  o_fqdn: Str
+        :type  o_fqdn: str
         :param o_ipaassignedidview: Assigned ID View
-        :type  o_ipaassignedidview: Str
+        :type  o_ipaassignedidview: str
         :param o_l: Host locality (e.g. "Baltimore, MD")
-        :type  o_l: Str
+        :type  o_l: str
         :param o_nshostlocation: Host location (e.g. "Lab 2")
-        :type  o_nshostlocation: Str
+        :type  o_nshostlocation: str
         :param o_macaddress: Hardware MAC address(es) on this host
-        :type  o_macaddress: Str
+        :type  o_macaddress: str
         :param o_nsosversion: Host operating system and version (e.g. "Fedora 9")
-        :type  o_nsosversion: Str
+        :type  o_nsosversion: str
         :param o_userpassword: Password used in bulk enrollment
-        :type  o_userpassword: Str
+        :type  o_userpassword: str
         :param o_nshardwareplatform: Host hardware platform (e.g. "Lenovo T61")
-        :type  o_nshardwareplatform: Str
+        :type  o_nshardwareplatform: str
         """
         method = 'host_find'
 
@@ -9274,7 +9272,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify information about a host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_ipakrbokasdelegate: Client credentials may be delegated to the service
         :type  o_ipakrbokasdelegate: Bool
         :param o_ipakrboktoauthasdelegate: The service is allowed to authenticate on behalf of a client
@@ -9283,51 +9281,51 @@ For multi-valued attributes, the command replaces the values already present.
         :type  o_ipakrbrequirespreauth: Bool
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_random: Generate a random password to be used in bulk enrollment
-        :type  o_random: Flag
+        :type  o_random: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_updatedns: Update DNS entries
-        :type  o_updatedns: Flag
+        :type  o_updatedns: bool
         :param o_usercertificate: Base-64 encoded host certificate
         :type  o_usercertificate: Certificate
         :param o_krbprincipalname: Principal alias
         :type  o_krbprincipalname: Principal
         :param o_krbprincipalauthind: Defines a whitelist for Authentication Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use 'radius' to allow RADIUS-based 2FA authentications. Other values may be used for custom configurations.
-        :type  o_krbprincipalauthind: Str
+        :type  o_krbprincipalauthind: str
         :param o_userclass: Host category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_description: A description of this host
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipaassignedidview: Assigned ID View
-        :type  o_ipaassignedidview: Str
+        :type  o_ipaassignedidview: str
         :param o_l: Host locality (e.g. "Baltimore, MD")
-        :type  o_l: Str
+        :type  o_l: str
         :param o_nshostlocation: Host location (e.g. "Lab 2")
-        :type  o_nshostlocation: Str
+        :type  o_nshostlocation: str
         :param o_macaddress: Hardware MAC address(es) on this host
-        :type  o_macaddress: Str
+        :type  o_macaddress: str
         :param o_nsosversion: Host operating system and version (e.g. "Fedora 9")
-        :type  o_nsosversion: Str
+        :type  o_nsosversion: str
         :param o_userpassword: Password used in bulk enrollment
-        :type  o_userpassword: Str
+        :type  o_userpassword: str
         :param o_nshardwareplatform: Host hardware platform (e.g. "Lenovo T61")
-        :type  o_nshardwareplatform: Str
+        :type  o_nshardwareplatform: str
         :param o_ipasshpubkey: SSH public key
-        :type  o_ipasshpubkey: Str
+        :type  o_ipasshpubkey: str
         """
         method = 'host_mod'
 
@@ -9394,13 +9392,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove certificates from host entry
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded host certificate
         :type  o_usercertificate: Certificate
         """
@@ -9427,15 +9425,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove hosts that can manage this host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'host_remove_managedby'
 
@@ -9461,15 +9459,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove principal alias from a host entry
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param a_krbprincipalname: Principal alias
         :type  a_krbprincipalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'host_remove_principal'
 
@@ -9495,17 +9493,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a host.
         :param a_fqdn: Host name
-        :type  a_fqdn: Str
+        :type  a_fqdn: str
         :param o_out: file to store certificate in
-        :type  o_out: Str
+        :type  o_out: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'host_show'
 
@@ -9534,21 +9532,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new hostgroup.
         :param a_cn: Name of host-group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this host-group
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'hostgroup_add'
 
@@ -9579,17 +9577,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to a hostgroup.
         :param a_cn: Name of host-group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'hostgroup_add_member'
 
@@ -9614,9 +9612,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a hostgroup.
         :param a_cn: Name of host-group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'hostgroup_del'
 
@@ -9654,47 +9652,47 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for hostgroups.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_hostgroup: Search for host groups with these member host groups.
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: Search for host groups with these member hosts.
-        :type  o_host: Str
+        :type  o_host: str
         :param o_in_hbacrule: Search for host groups with these member of HBAC rules.
-        :type  o_in_hbacrule: Str
+        :type  o_in_hbacrule: str
         :param o_in_hostgroup: Search for host groups with these member of host groups.
-        :type  o_in_hostgroup: Str
+        :type  o_in_hostgroup: str
         :param o_in_netgroup: Search for host groups with these member of netgroups.
-        :type  o_in_netgroup: Str
+        :type  o_in_netgroup: str
         :param o_in_sudorule: Search for host groups with these member of sudo rules.
-        :type  o_in_sudorule: Str
+        :type  o_in_sudorule: str
         :param o_no_hostgroup: Search for host groups without these member host groups.
-        :type  o_no_hostgroup: Str
+        :type  o_no_hostgroup: str
         :param o_no_host: Search for host groups without these member hosts.
-        :type  o_no_host: Str
+        :type  o_no_host: str
         :param o_not_in_hbacrule: Search for host groups without these member of HBAC rules.
-        :type  o_not_in_hbacrule: Str
+        :type  o_not_in_hbacrule: str
         :param o_not_in_hostgroup: Search for host groups without these member of host groups.
-        :type  o_not_in_hostgroup: Str
+        :type  o_not_in_hostgroup: str
         :param o_not_in_netgroup: Search for host groups without these member of netgroups.
-        :type  o_not_in_netgroup: Str
+        :type  o_not_in_netgroup: str
         :param o_not_in_sudorule: Search for host groups without these member of sudo rules.
-        :type  o_not_in_sudorule: Str
+        :type  o_not_in_sudorule: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("hostgroup-name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this host-group
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Name of host-group
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'hostgroup_find'
 
@@ -9756,26 +9754,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a hostgroup.
         :param a_cn: Name of host-group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: A description of this host-group
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'hostgroup_mod'
 
@@ -9809,17 +9807,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove members from a hostgroup.
         :param a_cn: Name of host-group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'hostgroup_remove_member'
 
@@ -9847,15 +9845,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a hostgroup.
         :param a_cn: Name of host-group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'hostgroup_show'
 
@@ -9898,27 +9896,27 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new Group ID override.
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Group name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'idoverridegroup_add'
 
@@ -9953,13 +9951,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an Group ID override.
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         """
         method = 'idoverridegroup_del'
 
@@ -9991,29 +9989,29 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for an Group ID override.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_pkey_only: Results should contain primary key attribute only ("anchor")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_ipaanchoruuid: Anchor to override
-        :type  o_ipaanchoruuid: Str
+        :type  o_ipaanchoruuid: str
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Group name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'idoverridegroup_find'
 
@@ -10061,34 +10059,34 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify an Group ID override.
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the Group ID override object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Group name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'idoverridegroup_mod'
 
@@ -10130,17 +10128,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about an Group ID override.
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'idoverridegroup_show'
 
@@ -10179,41 +10177,41 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new User ID override.
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_ipaoriginaluid: <ipaoriginaluid>
-        :type  o_ipaoriginaluid: Str
+        :type  o_ipaoriginaluid: str
         :param o_uid: User login
-        :type  o_uid: Str
+        :type  o_uid: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         :param o_ipasshpubkey: SSH public key
-        :type  o_ipasshpubkey: Str
+        :type  o_ipasshpubkey: str
         """
         method = 'idoverrideuser_add'
 
@@ -10264,15 +10262,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add one or more certificates to the idoverrideuser entry
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
@@ -10300,13 +10298,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an User ID override.
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         """
         method = 'idoverrideuser_del'
 
@@ -10343,39 +10341,39 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for an User ID override.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_pkey_only: Results should contain primary key attribute only ("anchor")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_ipaanchoruuid: Anchor to override
-        :type  o_ipaanchoruuid: Str
+        :type  o_ipaanchoruuid: str
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_ipaoriginaluid: <ipaoriginaluid>
-        :type  o_ipaoriginaluid: Str
+        :type  o_ipaoriginaluid: str
         :param o_uid: User login
-        :type  o_uid: Str
+        :type  o_uid: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         """
         method = 'idoverrideuser_find'
 
@@ -10440,48 +10438,48 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify an User ID override.
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the User ID override object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_ipaoriginaluid: <ipaoriginaluid>
-        :type  o_ipaoriginaluid: Str
+        :type  o_ipaoriginaluid: str
         :param o_uid: User login
-        :type  o_uid: Str
+        :type  o_uid: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         :param o_ipasshpubkey: SSH public key
-        :type  o_ipasshpubkey: Str
+        :type  o_ipasshpubkey: str
         """
         method = 'idoverrideuser_mod'
 
@@ -10537,15 +10535,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove one or more certificates to the idoverrideuser entry
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
@@ -10575,17 +10573,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about an User ID override.
         :param a_idviewcn: ID View Name
-        :type  a_idviewcn: Str
+        :type  a_idviewcn: str
         :param a_ipaanchoruuid: Anchor to override
-        :type  a_ipaanchoruuid: Str
+        :type  a_ipaanchoruuid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_fallback_to_ldap: Allow falling back to AD DC LDAP when resolving AD trusted objects. For two-way trusts only.
-        :type  o_fallback_to_ldap: Flag
+        :type  o_fallback_to_ldap: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'idoverrideuser_show'
 
@@ -10650,31 +10648,31 @@ IDs,cn=Distributed Numeric Assignment Plugin,cn=plugins,cn=config' has to be
 modified to match the new range.
 =======
         :param a_cn: Range name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_ipanttrusteddomainname: Name of the trusted domain
-        :type  o_ipanttrusteddomainname: Str
+        :type  o_ipanttrusteddomainname: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipabaseid: First Posix ID of the range
-        :type  o_ipabaseid: Int
+        :type  o_ipabaseid: int, min value -2147483648, max value 2147483647
         :param o_ipaidrangesize: Number of IDs in the range
-        :type  o_ipaidrangesize: Int
+        :type  o_ipaidrangesize: int, min value -2147483648, max value 2147483647
         :param o_ipabaserid: First RID of the corresponding RID range
-        :type  o_ipabaserid: Int
+        :type  o_ipabaserid: int, min value -2147483648, max value 2147483647
         :param o_ipasecondarybaserid: First RID of the secondary RID range
-        :type  o_ipasecondarybaserid: Int
+        :type  o_ipasecondarybaserid: int, min value -2147483648, max value 2147483647
         :param o_ipanttrusteddomainsid: Domain SID of the trusted domain
-        :type  o_ipanttrusteddomainsid: Str
+        :type  o_ipanttrusteddomainsid: str
         :param o_iparangetype: ID range type, one of ipa-ad-trust, ipa-ad-trust-posix, ipa-local
-        :type  o_iparangetype: StrEnum
+        :type  o_iparangetype: str, valid values ['ipa-ad-trust', 'ipa-ad-trust-posix', 'ipa-local']
         """
         method = 'idrange_add'
 
@@ -10710,9 +10708,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an ID range.
         :param a_cn: Range name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'idrange_del'
 
@@ -10742,31 +10740,31 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for ranges.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipabaseid: First Posix ID of the range
-        :type  o_ipabaseid: Int
+        :type  o_ipabaseid: int, min value -2147483648, max value 2147483647
         :param o_ipaidrangesize: Number of IDs in the range
-        :type  o_ipaidrangesize: Int
+        :type  o_ipaidrangesize: int, min value -2147483648, max value 2147483647
         :param o_ipabaserid: First RID of the corresponding RID range
-        :type  o_ipabaserid: Int
+        :type  o_ipabaserid: int, min value -2147483648, max value 2147483647
         :param o_ipasecondarybaserid: First RID of the secondary RID range
-        :type  o_ipasecondarybaserid: Int
+        :type  o_ipasecondarybaserid: int, min value -2147483648, max value 2147483647
         :param o_ipanttrusteddomainsid: Domain SID of the trusted domain
-        :type  o_ipanttrusteddomainsid: Str
+        :type  o_ipanttrusteddomainsid: str
         :param o_cn: Range name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_iparangetype: ID range type, one of ipa-ad-trust, ipa-ad-trust-posix, ipa-local
-        :type  o_iparangetype: StrEnum
+        :type  o_iparangetype: str, valid values ['ipa-ad-trust', 'ipa-ad-trust-posix', 'ipa-local']
         """
         method = 'idrange_find'
 
@@ -10830,34 +10828,34 @@ IDs,cn=Distributed Numeric Assignment Plugin,cn=plugins,cn=config' has to be
 modified to match the new range.
 =======
         :param a_cn: Range name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_ipanttrusteddomainname: Name of the trusted domain
-        :type  o_ipanttrusteddomainname: Str
+        :type  o_ipanttrusteddomainname: str
         :param o_ipanttrusteddomainsid: Domain SID of the trusted domain
-        :type  o_ipanttrusteddomainsid: Str
+        :type  o_ipanttrusteddomainsid: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipabaseid: First Posix ID of the range
-        :type  o_ipabaseid: Int
+        :type  o_ipabaseid: int, min value -2147483648, max value 2147483647
         :param o_ipaidrangesize: Number of IDs in the range
-        :type  o_ipaidrangesize: Int
+        :type  o_ipaidrangesize: int, min value -2147483648, max value 2147483647
         :param o_ipabaserid: First RID of the corresponding RID range
-        :type  o_ipabaserid: Int
+        :type  o_ipabaserid: int, min value -2147483648, max value 2147483647
         :param o_ipasecondarybaserid: First RID of the secondary RID range
-        :type  o_ipasecondarybaserid: Int
+        :type  o_ipasecondarybaserid: int, min value -2147483648, max value 2147483647
         """
         method = 'idrange_mod'
 
@@ -10898,13 +10896,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a range.
         :param a_cn: Range name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'idrange_show'
 
@@ -10930,21 +10928,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new ID View.
         :param a_cn: ID View Name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipadomainresolutionorder: colon-separated list of domains used for short name qualification
-        :type  o_ipadomainresolutionorder: Str
+        :type  o_ipadomainresolutionorder: str
         """
         method = 'idview_add'
 
@@ -10973,11 +10971,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Applies ID View to specified hosts or current members of specified hostgroups. If any other ID View is applied to the host, it is overridden.
         :param a_cn: ID View Name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_hostgroup: Hostgroups to whose hosts apply the ID View to. Please note that view is not applied automatically to any hosts added to the hostgroup after running the idview-apply command.
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: Hosts to apply the ID View to
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'idview_apply'
 
@@ -10999,9 +10997,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an ID View.
         :param a_cn: ID View Name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'idview_del'
 
@@ -11026,21 +11024,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for an ID View.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: ID View Name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'idview_find'
 
@@ -11078,28 +11076,28 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify an ID View.
         :param a_cn: ID View Name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the ID View object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipadomainresolutionorder: colon-separated list of domains used for short name qualification
-        :type  o_ipadomainresolutionorder: Str
+        :type  o_ipadomainresolutionorder: str
         """
         method = 'idview_mod'
 
@@ -11135,15 +11133,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about an ID View.
         :param a_cn: ID View Name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_show_hosts: Enumerate all the hosts the view applies to.
-        :type  o_show_hosts: Flag
+        :type  o_show_hosts: bool
         """
         method = 'idview_show'
 
@@ -11166,9 +11164,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Clears ID View from specified hosts or current members of specified hostgroups.
         :param o_hostgroup: Hostgroups whose hosts should have ID Views cleared. Note that view is not cleared automatically from any host added to the hostgroup after running idview-unapply command.
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: Hosts to clear (any) ID View from.
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'idview_unapply'
 
@@ -11191,13 +11189,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Join an IPA domain
         :param a_cn: The hostname to register as
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_nsosversion: Operating System and version of the host (e.g. Fedora 9)
-        :type  o_nsosversion: Str
+        :type  o_nsosversion: str
         :param o_nshardwareplatform: Hardware platform of the host (e.g. Lenovo T61)
-        :type  o_nshardwareplatform: Str
+        :type  o_nshardwareplatform: str
         :param o_realm: The IPA realm
-        :type  o_realm: Str
+        :type  o_realm: str
         """
         method = 'join'
 
@@ -11224,15 +11222,15 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Export plugin meta-data for the webUI.
         :param a_methodname: Name of method to export
-        :type  a_methodname: Str
+        :type  a_methodname: str
         :param a_objname: Name of object to export
-        :type  a_objname: Str
+        :type  a_objname: str
         :param o_command: Name of command to export
-        :type  o_command: Str
+        :type  o_command: str
         :param o_method: Name of method to export
-        :type  o_method: Str
+        :type  o_method: str
         :param o_object: Name of object to export
-        :type  o_object: Str
+        :type  o_object: str
         """
         method = 'json_metadata'
 
@@ -11277,26 +11275,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify Kerberos ticket policy.
         :param a_uid: Manage ticket policy for specific user
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_krbmaxticketlife: Maximum ticket life (seconds)
-        :type  o_krbmaxticketlife: Int
+        :type  o_krbmaxticketlife: int, min value 1, max value 2147483647
         :param o_krbmaxrenewableage: Maximum renewable age (seconds)
-        :type  o_krbmaxrenewableage: Int
+        :type  o_krbmaxrenewableage: int, min value 1, max value 2147483647
         """
         method = 'krbtpolicy_mod'
 
@@ -11328,11 +11326,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Reset Kerberos ticket policy to the default values.
         :param a_uid: Manage ticket policy for specific user
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'krbtpolicy_reset'
 
@@ -11354,13 +11352,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display the current Kerberos ticket policy.
         :param a_uid: Manage ticket policy for specific user
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'krbtpolicy_show'
 
@@ -11388,16 +11386,16 @@ For multi-valued attributes, the command replaces the values already present.
         :type  a_idnsname: DNSNameParam
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: IPA Location description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'location_add'
 
@@ -11425,7 +11423,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: IPA location name
         :type  a_idnsname: DNSNameParam
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'location_del'
 
@@ -11450,21 +11448,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for IPA locations.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_idnsname: IPA location name
         :type  o_idnsname: DNSNameParam
         :param o_description: IPA Location description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'location_find'
 
@@ -11503,21 +11501,21 @@ For multi-valued attributes, the command replaces the values already present.
         :type  a_idnsname: DNSNameParam
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: IPA Location description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'location_mod'
 
@@ -11550,11 +11548,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_idnsname: IPA location name
         :type  a_idnsname: DNSNameParam
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'location_show'
 
@@ -11596,11 +11594,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_bindpw: bind password
         :type  a_bindpw: Password
         :param a_ldapuri: LDAP URI of DS server to migrate from
-        :type  a_ldapuri: Str
+        :type  a_ldapuri: str
         :param o_basedn: Base DN on remote LDAP server
         :type  o_basedn: DNParam
         :param o_cacertfile: Load CA certificate of LDAP server from FILE
-        :type  o_cacertfile: Str
+        :type  o_cacertfile: str
         :param o_use_def_group: Add migrated users without a group to a default group (default: true)
         :type  o_use_def_group: Bool
         :param o_binddn: Bind DN
@@ -11610,31 +11608,31 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_usercontainer: DN of container for users in DS relative to base DN
         :type  o_usercontainer: DNParam
         :param o_continue: Continuous operation mode. Errors are reported but the process continues
-        :type  o_continue: Flag
+        :type  o_continue: bool
         :param o_groupoverwritegid: When migrating a group already existing in IPA domain overwrite the group GID and report as success
-        :type  o_groupoverwritegid: Flag
+        :type  o_groupoverwritegid: bool
         :param o_compat: Allows migration despite the usage of compat plugin
-        :type  o_compat: Flag
+        :type  o_compat: bool
         :param o_exclude_groups: groups to exclude from migration
-        :type  o_exclude_groups: Str
+        :type  o_exclude_groups: str
         :param o_exclude_users: users to exclude from migration
-        :type  o_exclude_users: Str
+        :type  o_exclude_users: str
         :param o_groupignoreattribute: Attributes to be ignored for group entries in DS
-        :type  o_groupignoreattribute: Str
+        :type  o_groupignoreattribute: str
         :param o_groupignoreobjectclass: Objectclasses to be ignored for group entries in DS
-        :type  o_groupignoreobjectclass: Str
+        :type  o_groupignoreobjectclass: str
         :param o_groupobjectclass: Objectclasses used to search for group entries in DS
-        :type  o_groupobjectclass: Str
+        :type  o_groupobjectclass: str
         :param o_userignoreattribute: Attributes to be ignored for user entries in DS
-        :type  o_userignoreattribute: Str
+        :type  o_userignoreattribute: str
         :param o_userignoreobjectclass: Objectclasses to be ignored for user entries in DS
-        :type  o_userignoreobjectclass: Str
+        :type  o_userignoreobjectclass: str
         :param o_userobjectclass: Objectclasses used to search for user entries in DS
-        :type  o_userobjectclass: Str
+        :type  o_userobjectclass: str
         :param o_schema: The schema used on the LDAP server. Supported values are RFC2307 and RFC2307bis. The default is RFC2307bis
-        :type  o_schema: StrEnum
+        :type  o_schema: str, valid values ['RFC2307bis', 'RFC2307']
         :param o_scope: LDAP search scope for users and groups: base, onelevel, or subtree. Defaults to onelevel
-        :type  o_scope: StrEnum
+        :type  o_scope: str, valid values ['base', 'onelevel', 'subtree']
         """
         method = 'migrate_ds'
 
@@ -11694,29 +11692,29 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new netgroup.
         :param a_cn: Netgroup name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Netgroup description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_nisdomainname: NIS domain name
-        :type  o_nisdomainname: Str
+        :type  o_nisdomainname: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'netgroup_add'
 
@@ -11758,23 +11756,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to a netgroup.
         :param a_cn: Netgroup name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         :param o_netgroup: netgroups to add
-        :type  o_netgroup: Str
+        :type  o_netgroup: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'netgroup_add_member'
 
@@ -11805,9 +11803,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a netgroup.
         :param a_cn: Netgroup name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'netgroup_del'
 
@@ -11852,61 +11850,61 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for a netgroup.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_group: Search for netgroups with these member groups.
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: Search for netgroups with these member host groups.
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: Search for netgroups with these member hosts.
-        :type  o_host: Str
+        :type  o_host: str
         :param o_in_netgroup: Search for netgroups with these member of netgroups.
-        :type  o_in_netgroup: Str
+        :type  o_in_netgroup: str
         :param o_netgroup: Search for netgroups with these member netgroups.
-        :type  o_netgroup: Str
+        :type  o_netgroup: str
         :param o_no_group: Search for netgroups without these member groups.
-        :type  o_no_group: Str
+        :type  o_no_group: str
         :param o_no_hostgroup: Search for netgroups without these member host groups.
-        :type  o_no_hostgroup: Str
+        :type  o_no_hostgroup: str
         :param o_no_host: Search for netgroups without these member hosts.
-        :type  o_no_host: Str
+        :type  o_no_host: str
         :param o_no_netgroup: Search for netgroups without these member netgroups.
-        :type  o_no_netgroup: Str
+        :type  o_no_netgroup: str
         :param o_no_user: Search for netgroups without these member users.
-        :type  o_no_user: Str
+        :type  o_no_user: str
         :param o_not_in_netgroup: Search for netgroups without these member of netgroups.
-        :type  o_not_in_netgroup: Str
+        :type  o_not_in_netgroup: str
         :param o_user: Search for netgroups with these member users.
-        :type  o_user: Str
+        :type  o_user: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_managed: search for managed groups
-        :type  o_managed: Flag
+        :type  o_managed: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_private: <private>
-        :type  o_private: Flag
+        :type  o_private: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Netgroup description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_cn: Netgroup name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_nisdomainname: NIS domain name
-        :type  o_nisdomainname: Str
+        :type  o_nisdomainname: str
         :param o_ipauniqueid: IPA unique ID
-        :type  o_ipauniqueid: Str
+        :type  o_ipauniqueid: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'netgroup_find'
 
@@ -11984,34 +11982,34 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a netgroup.
         :param a_cn: Netgroup name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: Netgroup description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_nisdomainname: NIS domain name
-        :type  o_nisdomainname: Str
+        :type  o_nisdomainname: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'netgroup_mod'
 
@@ -12056,23 +12054,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove members from a netgroup.
         :param a_cn: Netgroup name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         :param o_netgroup: netgroups to remove
-        :type  o_netgroup: Str
+        :type  o_netgroup: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'netgroup_remove_member'
 
@@ -12106,15 +12104,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a netgroup.
         :param a_cn: Netgroup name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'netgroup_show'
 
@@ -12145,27 +12143,27 @@ For multi-valued attributes, the command replaces the values already present.
         """Modify OTP configuration options.
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipatokenhotpauthwindow: HOTP authentication skip-ahead
-        :type  o_ipatokenhotpauthwindow: Int
+        :type  o_ipatokenhotpauthwindow: int, min value 1, max value 2147483647
         :param o_ipatokenhotpsyncwindow: HOTP synchronization skip-ahead
-        :type  o_ipatokenhotpsyncwindow: Int
+        :type  o_ipatokenhotpsyncwindow: int, min value 1, max value 2147483647
         :param o_ipatokentotpauthwindow: TOTP authentication time variance (seconds)
-        :type  o_ipatokentotpauthwindow: Int
+        :type  o_ipatokentotpauthwindow: int, min value 5, max value 2147483647
         :param o_ipatokentotpsyncwindow: TOTP synchronization time variance (seconds)
-        :type  o_ipatokentotpsyncwindow: Int
+        :type  o_ipatokentotpsyncwindow: int, min value 5, max value 2147483647
         """
         method = 'otpconfig_mod'
 
@@ -12200,11 +12198,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show the current OTP configuration.
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'otpconfig_show'
 
@@ -12245,25 +12243,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new OTP token.
         :param a_ipatokenuniqueid: Unique ID
-        :type  a_ipatokenuniqueid: Str
+        :type  a_ipatokenuniqueid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_no_qrcode: Do not display QR code
-        :type  o_no_qrcode: Flag
+        :type  o_no_qrcode: bool
         :param o_qrcode: (deprecated)
-        :type  o_qrcode: Flag
+        :type  o_qrcode: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_type: Type of the token
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['totp', 'hotp', 'TOTP', 'HOTP']
         :param o_ipatokendisabled: Mark the token as disabled (default: false)
         :type  o_ipatokendisabled: Bool
         :param o_ipatokennotafter: Last date/time the token can be used
@@ -12271,27 +12269,27 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipatokennotbefore: First date/time the token can be used
         :type  o_ipatokennotbefore: DateTime
         :param o_description: Token description (informational only)
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipatokenmodel: Token model (informational only)
-        :type  o_ipatokenmodel: Str
+        :type  o_ipatokenmodel: str
         :param o_ipatokenowner: Assigned user of the token (default: self)
-        :type  o_ipatokenowner: Str
+        :type  o_ipatokenowner: str
         :param o_ipatokenserial: Token serial (informational only)
-        :type  o_ipatokenserial: Str
+        :type  o_ipatokenserial: str
         :param o_ipatokenvendor: Token vendor name (informational only)
-        :type  o_ipatokenvendor: Str
+        :type  o_ipatokenvendor: str
         :param o_ipatokenhotpcounter: Initial counter for the HOTP token
-        :type  o_ipatokenhotpcounter: Int
+        :type  o_ipatokenhotpcounter: int, min value 0, max value 2147483647
         :param o_ipatokentotptimestep: Length of TOTP token code validity
-        :type  o_ipatokentotptimestep: Int
+        :type  o_ipatokentotptimestep: int, min value 5, max value 2147483647
         :param o_ipatokentotpclockoffset: TOTP token / FreeIPA server time difference
-        :type  o_ipatokentotpclockoffset: Int
+        :type  o_ipatokentotpclockoffset: int, min value -2147483648, max value 2147483647
         :param o_ipatokenotpdigits: Number of digits each token code will have
-        :type  o_ipatokenotpdigits: IntEnum
+        :type  o_ipatokenotpdigits: int, valid values ['6', '8']
         :param o_ipatokenotpkey: Token secret (Base32; default: random)
         :type  o_ipatokenotpkey: OTPTokenKey
         :param o_ipatokenotpalgorithm: Token hash algorithm
-        :type  o_ipatokenotpalgorithm: StrEnum
+        :type  o_ipatokenotpalgorithm: str, valid values ['sha1', 'sha256', 'sha384', 'sha512']
         """
         method = 'otptoken_add'
 
@@ -12352,15 +12350,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add users that can manage this token.
         :param a_ipatokenuniqueid: Unique ID
-        :type  a_ipatokenuniqueid: Str
+        :type  a_ipatokenuniqueid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'otptoken_add_managedby'
 
@@ -12383,9 +12381,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete an OTP token.
         :param a_ipatokenuniqueid: Unique ID
-        :type  a_ipatokenuniqueid: Str
+        :type  a_ipatokenuniqueid: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'otptoken_del'
 
@@ -12424,21 +12422,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for OTP token.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_type: Type of the token
-        :type  o_type: StrEnum
+        :type  o_type: str, valid values ['totp', 'hotp', 'TOTP', 'HOTP']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("id")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipatokendisabled: Mark the token as disabled (default: false)
         :type  o_ipatokendisabled: Bool
         :param o_ipatokennotafter: Last date/time the token can be used
@@ -12446,27 +12444,27 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipatokennotbefore: First date/time the token can be used
         :type  o_ipatokennotbefore: DateTime
         :param o_ipatokenhotpcounter: Initial counter for the HOTP token
-        :type  o_ipatokenhotpcounter: Int
+        :type  o_ipatokenhotpcounter: int, min value 0, max value 2147483647
         :param o_ipatokentotptimestep: Length of TOTP token code validity
-        :type  o_ipatokentotptimestep: Int
+        :type  o_ipatokentotptimestep: int, min value 5, max value 2147483647
         :param o_ipatokentotpclockoffset: TOTP token / FreeIPA server time difference
-        :type  o_ipatokentotpclockoffset: Int
+        :type  o_ipatokentotpclockoffset: int, min value -2147483648, max value 2147483647
         :param o_ipatokenotpdigits: Number of digits each token code will have
-        :type  o_ipatokenotpdigits: IntEnum
+        :type  o_ipatokenotpdigits: int, valid values ['6', '8']
         :param o_description: Token description (informational only)
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipatokenuniqueid: Unique ID
-        :type  o_ipatokenuniqueid: Str
+        :type  o_ipatokenuniqueid: str
         :param o_ipatokenmodel: Token model (informational only)
-        :type  o_ipatokenmodel: Str
+        :type  o_ipatokenmodel: str
         :param o_ipatokenowner: Assigned user of the token (default: self)
-        :type  o_ipatokenowner: Str
+        :type  o_ipatokenowner: str
         :param o_ipatokenserial: Token serial (informational only)
-        :type  o_ipatokenserial: Str
+        :type  o_ipatokenserial: str
         :param o_ipatokenvendor: Token vendor name (informational only)
-        :type  o_ipatokenvendor: Str
+        :type  o_ipatokenvendor: str
         :param o_ipatokenotpalgorithm: Token hash algorithm
-        :type  o_ipatokenotpalgorithm: StrEnum
+        :type  o_ipatokenotpalgorithm: str, valid values ['sha1', 'sha256', 'sha384', 'sha512']
         """
         method = 'otptoken_find'
 
@@ -12538,26 +12536,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a OTP token.
         :param a_ipatokenuniqueid: Unique ID
-        :type  a_ipatokenuniqueid: Str
+        :type  a_ipatokenuniqueid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the OTP token object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipatokendisabled: Mark the token as disabled (default: false)
         :type  o_ipatokendisabled: Bool
         :param o_ipatokennotafter: Last date/time the token can be used
@@ -12565,15 +12563,15 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipatokennotbefore: First date/time the token can be used
         :type  o_ipatokennotbefore: DateTime
         :param o_description: Token description (informational only)
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipatokenmodel: Token model (informational only)
-        :type  o_ipatokenmodel: Str
+        :type  o_ipatokenmodel: str
         :param o_ipatokenowner: Assigned user of the token (default: self)
-        :type  o_ipatokenowner: Str
+        :type  o_ipatokenowner: str
         :param o_ipatokenserial: Token serial (informational only)
-        :type  o_ipatokenserial: Str
+        :type  o_ipatokenserial: str
         :param o_ipatokenvendor: Token vendor name (informational only)
-        :type  o_ipatokenvendor: Str
+        :type  o_ipatokenvendor: str
         """
         method = 'otptoken_mod'
 
@@ -12622,15 +12620,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove users that can manage this token.
         :param a_ipatokenuniqueid: Unique ID
-        :type  a_ipatokenuniqueid: Str
+        :type  a_ipatokenuniqueid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'otptoken_remove_managedby'
 
@@ -12656,15 +12654,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about an OTP token.
         :param a_ipatokenuniqueid: Unique ID
-        :type  a_ipatokenuniqueid: Str
+        :type  a_ipatokenuniqueid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'otptoken_show'
 
@@ -12689,15 +12687,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for command outputs.
         :param a_commandfull_name: Full name
-        :type  a_commandfull_name: Str
+        :type  a_commandfull_name: str
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'output_find'
 
@@ -12722,13 +12720,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a command output.
         :param a_commandfull_name: Full name
-        :type  a_commandfull_name: Str
+        :type  a_commandfull_name: str
         :param a_name: Name
-        :type  a_name: Str
+        :type  a_name: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'output_show'
 
@@ -12752,15 +12750,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search command parameters.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param a_metaobjectfull_name: Full name
-        :type  a_metaobjectfull_name: Str
+        :type  a_metaobjectfull_name: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'param_find'
 
@@ -12785,13 +12783,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a command parameter.
         :param a_metaobjectfull_name: Full name
-        :type  a_metaobjectfull_name: Str
+        :type  a_metaobjectfull_name: str
         :param a_name: Name
-        :type  a_name: Str
+        :type  a_name: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'param_show'
 
@@ -12861,29 +12859,29 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new permission.
         :param a_cn: Permission name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_attrs: All attributes to which the permission applies
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_filter: Deprecated; use extratargetfilter
-        :type  o_filter: Str
+        :type  o_filter: str
         :param o_extratargetfilter: Extra target filter
-        :type  o_extratargetfilter: Str
+        :type  o_extratargetfilter: str
         :param o_permissions: Deprecated; use ipapermright
-        :type  o_permissions: Str
+        :type  o_permissions: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_subtree: Deprecated; use ipapermlocation
-        :type  o_subtree: Str
+        :type  o_subtree: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipapermtarget: Optional DN to apply the permission to (must be in the subtree, but may not yet exist)
         :type  o_ipapermtarget: DNParam
         :param o_ipapermtargetfrom: Optional DN subtree from where an entry can be moved (must be in the subtree, but may not yet exist)
@@ -12891,19 +12889,19 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipapermtargetto: Optional DN subtree where an entry can be moved to (must be in the subtree, but may not yet exist)
         :type  o_ipapermtargetto: DNParam
         :param o_ipapermtargetfilter: All target filters, including those implied by type and memberof
-        :type  o_ipapermtargetfilter: Str
+        :type  o_ipapermtargetfilter: str
         :param o_ipapermbindruletype: Bind rule type
-        :type  o_ipapermbindruletype: StrEnum
+        :type  o_ipapermbindruletype: str, valid values ['permission', 'all', 'anonymous']
         :param o_memberof: Target members of a group (sets memberOf targetfilter)
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_targetgroup: User group to apply permissions to (sets target)
-        :type  o_targetgroup: Str
+        :type  o_targetgroup: str
         :param o_type: Type of IPA object (sets subtree and objectClass targetfilter)
-        :type  o_type: Str
+        :type  o_type: str
         :param o_ipapermlocation: Subtree to apply permissions to
         :type  o_ipapermlocation: DNOrURL
         :param o_ipapermright: Rights to grant (read, search, compare, write, add, delete, all)
-        :type  o_ipapermright: StrEnum
+        :type  o_ipapermright: str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
         """
         method = 'permission_add'
 
@@ -12960,15 +12958,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to a permission.
         :param a_cn: Permission name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_privilege: privileges to add
-        :type  o_privilege: Str
+        :type  o_privilege: str
         """
         method = 'permission_add_member'
 
@@ -12994,15 +12992,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a system permission without an ACI (internal command)
         :param a_cn: Permission name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_ipapermissiontype: Permission flags
-        :type  o_ipapermissiontype: Str
+        :type  o_ipapermissiontype: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'permission_add_noaci'
 
@@ -13025,11 +13023,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a permission.
         :param a_cn: Permission name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         :param o_force: force delete of SYSTEM permissions
-        :type  o_force: Flag
+        :type  o_force: bool
         """
         method = 'permission_del'
 
@@ -13073,35 +13071,35 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for permissions.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_attrs: All attributes to which the permission applies
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_filter: Deprecated; use extratargetfilter
-        :type  o_filter: Str
+        :type  o_filter: str
         :param o_extratargetfilter: Extra target filter
-        :type  o_extratargetfilter: Str
+        :type  o_extratargetfilter: str
         :param o_memberof: Target members of a group (sets memberOf targetfilter)
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_permissions: Deprecated; use ipapermright
-        :type  o_permissions: Str
+        :type  o_permissions: str
         :param o_subtree: Deprecated; use ipapermlocation
-        :type  o_subtree: Str
+        :type  o_subtree: str
         :param o_targetgroup: User group to apply permissions to (sets target)
-        :type  o_targetgroup: Str
+        :type  o_targetgroup: str
         :param o_type: Type of IPA object (sets subtree and objectClass targetfilter)
-        :type  o_type: Str
+        :type  o_type: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipapermlocation: Subtree to apply permissions to
         :type  o_ipapermlocation: DNOrURL
         :param o_ipapermtarget: Optional DN to apply the permission to (must be in the subtree, but may not yet exist)
@@ -13111,19 +13109,19 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipapermtargetto: Optional DN subtree where an entry can be moved to (must be in the subtree, but may not yet exist)
         :type  o_ipapermtargetto: DNParam
         :param o_ipapermdefaultattr: Attributes to which the permission applies by default
-        :type  o_ipapermdefaultattr: Str
+        :type  o_ipapermdefaultattr: str
         :param o_ipapermexcludedattr: User-specified attributes to which the permission explicitly does not apply
-        :type  o_ipapermexcludedattr: Str
+        :type  o_ipapermexcludedattr: str
         :param o_ipapermincludedattr: User-specified attributes to which the permission applies
-        :type  o_ipapermincludedattr: Str
+        :type  o_ipapermincludedattr: str
         :param o_cn: Permission name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_ipapermtargetfilter: All target filters, including those implied by type and memberof
-        :type  o_ipapermtargetfilter: Str
+        :type  o_ipapermtargetfilter: str
         :param o_ipapermbindruletype: Bind rule type
-        :type  o_ipapermbindruletype: StrEnum
+        :type  o_ipapermbindruletype: str, valid values ['permission', 'all', 'anonymous']
         :param o_ipapermright: Rights to grant (read, search, compare, write, add, delete, all)
-        :type  o_ipapermright: StrEnum
+        :type  o_ipapermright: str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
         """
         method = 'permission_find'
 
@@ -13212,42 +13210,42 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a permission.
         :param a_cn: Permission name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_attrs: All attributes to which the permission applies
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_filter: Deprecated; use extratargetfilter
-        :type  o_filter: Str
+        :type  o_filter: str
         :param o_extratargetfilter: Extra target filter
-        :type  o_extratargetfilter: Str
+        :type  o_extratargetfilter: str
         :param o_memberof: Target members of a group (sets memberOf targetfilter)
-        :type  o_memberof: Str
+        :type  o_memberof: str
         :param o_permissions: Deprecated; use ipapermright
-        :type  o_permissions: Str
+        :type  o_permissions: str
         :param o_rename: Rename the permission object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_subtree: Deprecated; use ipapermlocation
-        :type  o_subtree: Str
+        :type  o_subtree: str
         :param o_targetgroup: User group to apply permissions to (sets target)
-        :type  o_targetgroup: Str
+        :type  o_targetgroup: str
         :param o_type: Type of IPA object (sets subtree and objectClass targetfilter)
-        :type  o_type: Str
+        :type  o_type: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipapermlocation: Subtree to apply permissions to
         :type  o_ipapermlocation: DNOrURL
         :param o_ipapermtarget: Optional DN to apply the permission to (must be in the subtree, but may not yet exist)
@@ -13257,15 +13255,15 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_ipapermtargetto: Optional DN subtree where an entry can be moved to (must be in the subtree, but may not yet exist)
         :type  o_ipapermtargetto: DNParam
         :param o_ipapermexcludedattr: User-specified attributes to which the permission explicitly does not apply
-        :type  o_ipapermexcludedattr: Str
+        :type  o_ipapermexcludedattr: str
         :param o_ipapermincludedattr: User-specified attributes to which the permission applies
-        :type  o_ipapermincludedattr: Str
+        :type  o_ipapermincludedattr: str
         :param o_ipapermtargetfilter: All target filters, including those implied by type and memberof
-        :type  o_ipapermtargetfilter: Str
+        :type  o_ipapermtargetfilter: str
         :param o_ipapermbindruletype: Bind rule type
-        :type  o_ipapermbindruletype: StrEnum
+        :type  o_ipapermbindruletype: str, valid values ['permission', 'all', 'anonymous']
         :param o_ipapermright: Rights to grant (read, search, compare, write, add, delete, all)
-        :type  o_ipapermright: StrEnum
+        :type  o_ipapermright: str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
         """
         method = 'permission_mod'
 
@@ -13332,15 +13330,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove members from a permission.
         :param a_cn: Permission name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_privilege: privileges to remove
-        :type  o_privilege: Str
+        :type  o_privilege: str
         """
         method = 'permission_remove_member'
 
@@ -13366,15 +13364,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a permission.
         :param a_cn: Permission name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'permission_show'
 
@@ -13414,19 +13412,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Report PKINIT status on the IPA masters
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_status: Whether PKINIT is enabled or disabled
-        :type  o_status: StrEnum
+        :type  o_status: str, valid values ['enabled', 'disabled']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_server_server: IPA server hostname
-        :type  o_server_server: Str
+        :type  o_server_server: str
         """
         method = 'pkinit_status'
 
@@ -13454,9 +13452,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show all loaded plugins.
         :param o_all: retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_server: Forward to server instead of running locally
-        :type  o_server: Flag
+        :type  o_server: bool
         """
         method = 'plugins'
 
@@ -13481,21 +13479,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new privilege.
         :param a_cn: Privilege name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Privilege description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'privilege_add'
 
@@ -13525,15 +13523,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to a privilege.
         :param a_cn: Privilege name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_role: roles to add
-        :type  o_role: Str
+        :type  o_role: str
         """
         method = 'privilege_add_member'
 
@@ -13559,15 +13557,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add permissions to a privilege.
         :param a_cn: Privilege name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_permission: permissions
-        :type  o_permission: Str
+        :type  o_permission: str
         """
         method = 'privilege_add_permission'
 
@@ -13590,9 +13588,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a privilege.
         :param a_cn: Privilege name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'privilege_del'
 
@@ -13618,23 +13616,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for privileges.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Privilege description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Privilege name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'privilege_find'
 
@@ -13673,28 +13671,28 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a privilege.
         :param a_cn: Privilege name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the privilege object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: Privilege description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'privilege_mod'
 
@@ -13730,15 +13728,15 @@ For multi-valued attributes, the command replaces the values already present.
         """
     Remove members from a privilege
         :param a_cn: Privilege name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_role: roles to remove
-        :type  o_role: Str
+        :type  o_role: str
         """
         method = 'privilege_remove_member'
 
@@ -13764,15 +13762,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove permissions from a privilege.
         :param a_cn: Privilege name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_permission: permissions
-        :type  o_permission: Str
+        :type  o_permission: str
         """
         method = 'privilege_remove_permission'
 
@@ -13798,15 +13796,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a privilege.
         :param a_cn: Privilege name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'privilege_show'
 
@@ -13840,35 +13838,35 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new group password policy.
         :param a_cn: Manage password policy for specific group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_cospriority: Priority of the policy (higher number means lower priority
-        :type  o_cospriority: Int
+        :type  o_cospriority: int, min value 0, max value 2147483647
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_krbpwdfailurecountinterval: Period after which failure count will be reset (seconds)
-        :type  o_krbpwdfailurecountinterval: Int
+        :type  o_krbpwdfailurecountinterval: int, min value 0, max value 2147483647
         :param o_krbpwdhistorylength: Password history size
-        :type  o_krbpwdhistorylength: Int
+        :type  o_krbpwdhistorylength: int, min value 0, max value 2147483647
         :param o_krbpwdlockoutduration: Period for which lockout is enforced (seconds)
-        :type  o_krbpwdlockoutduration: Int
+        :type  o_krbpwdlockoutduration: int, min value 0, max value 2147483647
         :param o_krbpwdmaxfailure: Consecutive failures before lockout
-        :type  o_krbpwdmaxfailure: Int
+        :type  o_krbpwdmaxfailure: int, min value 0, max value 2147483647
         :param o_krbmaxpwdlife: Maximum password lifetime (in days)
-        :type  o_krbmaxpwdlife: Int
+        :type  o_krbmaxpwdlife: int, min value 0, max value 20000
         :param o_krbpwdmindiffchars: Minimum number of character classes
-        :type  o_krbpwdmindiffchars: Int
+        :type  o_krbpwdmindiffchars: int, min value 0, max value 5
         :param o_krbpwdminlength: Minimum length of password
-        :type  o_krbpwdminlength: Int
+        :type  o_krbpwdminlength: int, min value 0, max value 2147483647
         :param o_krbminpwdlife: Minimum password lifetime (in hours)
-        :type  o_krbminpwdlife: Int
+        :type  o_krbminpwdlife: int, min value 0, max value 2147483647
         """
         method = 'pwpolicy_add'
 
@@ -13909,9 +13907,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a group password policy.
         :param a_cn: Manage password policy for specific group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'pwpolicy_del'
 
@@ -13944,37 +13942,37 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for group password policies.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_cospriority: Priority of the policy (higher number means lower priority
-        :type  o_cospriority: Int
+        :type  o_cospriority: int, min value 0, max value 2147483647
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("group")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_krbpwdfailurecountinterval: Period after which failure count will be reset (seconds)
-        :type  o_krbpwdfailurecountinterval: Int
+        :type  o_krbpwdfailurecountinterval: int, min value 0, max value 2147483647
         :param o_krbpwdhistorylength: Password history size
-        :type  o_krbpwdhistorylength: Int
+        :type  o_krbpwdhistorylength: int, min value 0, max value 2147483647
         :param o_krbpwdlockoutduration: Period for which lockout is enforced (seconds)
-        :type  o_krbpwdlockoutduration: Int
+        :type  o_krbpwdlockoutduration: int, min value 0, max value 2147483647
         :param o_krbpwdmaxfailure: Consecutive failures before lockout
-        :type  o_krbpwdmaxfailure: Int
+        :type  o_krbpwdmaxfailure: int, min value 0, max value 2147483647
         :param o_krbmaxpwdlife: Maximum password lifetime (in days)
-        :type  o_krbmaxpwdlife: Int
+        :type  o_krbmaxpwdlife: int, min value 0, max value 20000
         :param o_krbpwdmindiffchars: Minimum number of character classes
-        :type  o_krbpwdmindiffchars: Int
+        :type  o_krbpwdmindiffchars: int, min value 0, max value 5
         :param o_krbpwdminlength: Minimum length of password
-        :type  o_krbpwdminlength: Int
+        :type  o_krbpwdminlength: int, min value 0, max value 2147483647
         :param o_krbminpwdlife: Minimum password lifetime (in hours)
-        :type  o_krbminpwdlife: Int
+        :type  o_krbminpwdlife: int, min value 0, max value 2147483647
         :param o_cn: Manage password policy for specific group
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'pwpolicy_find'
 
@@ -14034,40 +14032,40 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a group password policy.
         :param a_cn: Manage password policy for specific group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_cospriority: Priority of the policy (higher number means lower priority
-        :type  o_cospriority: Int
+        :type  o_cospriority: int, min value 0, max value 2147483647
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_krbpwdfailurecountinterval: Period after which failure count will be reset (seconds)
-        :type  o_krbpwdfailurecountinterval: Int
+        :type  o_krbpwdfailurecountinterval: int, min value 0, max value 2147483647
         :param o_krbpwdhistorylength: Password history size
-        :type  o_krbpwdhistorylength: Int
+        :type  o_krbpwdhistorylength: int, min value 0, max value 2147483647
         :param o_krbpwdlockoutduration: Period for which lockout is enforced (seconds)
-        :type  o_krbpwdlockoutduration: Int
+        :type  o_krbpwdlockoutduration: int, min value 0, max value 2147483647
         :param o_krbpwdmaxfailure: Consecutive failures before lockout
-        :type  o_krbpwdmaxfailure: Int
+        :type  o_krbpwdmaxfailure: int, min value 0, max value 2147483647
         :param o_krbmaxpwdlife: Maximum password lifetime (in days)
-        :type  o_krbmaxpwdlife: Int
+        :type  o_krbmaxpwdlife: int, min value 0, max value 20000
         :param o_krbpwdmindiffchars: Minimum number of character classes
-        :type  o_krbpwdmindiffchars: Int
+        :type  o_krbpwdmindiffchars: int, min value 0, max value 5
         :param o_krbpwdminlength: Minimum length of password
-        :type  o_krbpwdminlength: Int
+        :type  o_krbpwdminlength: int, min value 0, max value 2147483647
         :param o_krbminpwdlife: Minimum password lifetime (in hours)
-        :type  o_krbminpwdlife: Int
+        :type  o_krbminpwdlife: int, min value 0, max value 2147483647
         """
         method = 'pwpolicy_mod'
 
@@ -14115,15 +14113,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about password policy.
         :param a_cn: Manage password policy for specific group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_user: Display effective policy for a specific user
-        :type  o_user: Str
+        :type  o_user: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'pwpolicy_show'
 
@@ -14155,29 +14153,29 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new RADIUS proxy server.
         :param a_cn: RADIUS proxy server name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipatokenradiusretries: The number of times to retry authentication
-        :type  o_ipatokenradiusretries: Int
+        :type  o_ipatokenradiusretries: int, min value 0, max value 10
         :param o_ipatokenradiustimeout: The total timeout across all retries (in seconds)
-        :type  o_ipatokenradiustimeout: Int
+        :type  o_ipatokenradiustimeout: int, min value 1, max value 2147483647
         :param o_ipatokenradiussecret: The secret used to encrypt data
         :type  o_ipatokenradiussecret: Password
         :param o_description: A description of this RADIUS proxy server
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipatokenradiusserver: The hostname or IP (with or without port)
-        :type  o_ipatokenradiusserver: Str
+        :type  o_ipatokenradiusserver: str
         :param o_ipatokenusermapattribute: The username attribute on the user object
-        :type  o_ipatokenusermapattribute: Str
+        :type  o_ipatokenusermapattribute: str
         """
         method = 'radiusproxy_add'
 
@@ -14211,9 +14209,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a RADIUS proxy server.
         :param a_cn: RADIUS proxy server name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'radiusproxy_del'
 
@@ -14243,31 +14241,31 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for RADIUS proxy servers.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipatokenradiusretries: The number of times to retry authentication
-        :type  o_ipatokenradiusretries: Int
+        :type  o_ipatokenradiusretries: int, min value 0, max value 10
         :param o_ipatokenradiustimeout: The total timeout across all retries (in seconds)
-        :type  o_ipatokenradiustimeout: Int
+        :type  o_ipatokenradiustimeout: int, min value 1, max value 2147483647
         :param o_ipatokenradiussecret: The secret used to encrypt data
         :type  o_ipatokenradiussecret: Password
         :param o_description: A description of this RADIUS proxy server
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: RADIUS proxy server name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_ipatokenradiusserver: The hostname or IP (with or without port)
-        :type  o_ipatokenradiusserver: Str
+        :type  o_ipatokenradiusserver: str
         :param o_ipatokenusermapattribute: The username attribute on the user object
-        :type  o_ipatokenusermapattribute: Str
+        :type  o_ipatokenusermapattribute: str
         """
         method = 'radiusproxy_find'
 
@@ -14319,36 +14317,36 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a RADIUS proxy server.
         :param a_cn: RADIUS proxy server name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the RADIUS proxy server object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipatokenradiusretries: The number of times to retry authentication
-        :type  o_ipatokenradiusretries: Int
+        :type  o_ipatokenradiusretries: int, min value 0, max value 10
         :param o_ipatokenradiustimeout: The total timeout across all retries (in seconds)
-        :type  o_ipatokenradiustimeout: Int
+        :type  o_ipatokenradiustimeout: int, min value 1, max value 2147483647
         :param o_ipatokenradiussecret: The secret used to encrypt data
         :type  o_ipatokenradiussecret: Password
         :param o_description: A description of this RADIUS proxy server
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipatokenradiusserver: The hostname or IP (with or without port)
-        :type  o_ipatokenradiusserver: Str
+        :type  o_ipatokenradiusserver: str
         :param o_ipatokenusermapattribute: The username attribute on the user object
-        :type  o_ipatokenusermapattribute: Str
+        :type  o_ipatokenusermapattribute: str
         """
         method = 'radiusproxy_mod'
 
@@ -14391,13 +14389,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a RADIUS proxy server.
         :param a_cn: RADIUS proxy server name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'radiusproxy_show'
 
@@ -14427,27 +14425,27 @@ For multi-valued attributes, the command replaces the values already present.
         """Modify realm domains.
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_force: Force adding domain even if not in DNS
-        :type  o_force: Flag
+        :type  o_force: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_add_domain: Add domain
-        :type  o_add_domain: Str
+        :type  o_add_domain: str
         :param o_del_domain: Delete domain
-        :type  o_del_domain: Str
+        :type  o_del_domain: str
         :param o_associateddomain: Domain
-        :type  o_associateddomain: Str
+        :type  o_associateddomain: str
         """
         method = 'realmdomains_mod'
 
@@ -14481,11 +14479,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display the list of realm domains.
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'realmdomains_show'
 
@@ -14510,21 +14508,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new role.
         :param a_cn: Role name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this role-group
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'role_add'
 
@@ -14558,23 +14556,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to a role.
         :param a_cn: Role name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         :param o_service: services to add
-        :type  o_service: Str
+        :type  o_service: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'role_add_member'
 
@@ -14608,15 +14606,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add privileges to a role.
         :param a_cn: Role name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_privilege: privileges
-        :type  o_privilege: Str
+        :type  o_privilege: str
         """
         method = 'role_add_privilege'
 
@@ -14639,9 +14637,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a role.
         :param a_cn: Role name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'role_del'
 
@@ -14667,23 +14665,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for roles.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this role-group
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Role name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'role_find'
 
@@ -14722,28 +14720,28 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a role.
         :param a_cn: Role name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the role object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: A description of this role-group
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'role_mod'
 
@@ -14782,23 +14780,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove members from a role.
         :param a_cn: Role name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         :param o_service: services to remove
-        :type  o_service: Str
+        :type  o_service: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'role_remove_member'
 
@@ -14832,15 +14830,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove privileges from a role.
         :param a_cn: Role name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_privilege: privileges
-        :type  o_privilege: Str
+        :type  o_privilege: str
         """
         method = 'role_remove_privilege'
 
@@ -14866,15 +14864,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a role.
         :param a_cn: Role name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'role_show'
 
@@ -14895,7 +14893,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param o_known_fingerprints: Fingerprint of schema cached by client
-        :type  o_known_fingerprints: Str
+        :type  o_known_fingerprints: str
         """
         method = 'schema'
 
@@ -14917,15 +14915,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new self-service permission.
         :param a_aciname: Self-service name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_attrs: Attributes to which the permission applies.
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_permissions: Permissions to grant (read, write). Default is write.
-        :type  o_permissions: Str
+        :type  o_permissions: str
         """
         method = 'selfservice_add'
 
@@ -14947,7 +14945,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a self-service permission.
         :param a_aciname: Self-service name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         """
         method = 'selfservice_del'
 
@@ -14970,19 +14968,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for a self-service permission.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_attrs: Attributes to which the permission applies.
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_aciname: Self-service name
-        :type  o_aciname: Str
+        :type  o_aciname: str
         :param o_permissions: Permissions to grant (read, write). Default is write.
-        :type  o_permissions: Str
+        :type  o_permissions: str
         """
         method = 'selfservice_find'
 
@@ -15013,15 +15011,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a self-service permission.
         :param a_aciname: Self-service name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_attrs: Attributes to which the permission applies.
-        :type  o_attrs: Str
+        :type  o_attrs: str
         :param o_permissions: Permissions to grant (read, write). Default is write.
-        :type  o_permissions: Str
+        :type  o_permissions: str
         """
         method = 'selfservice_mod'
 
@@ -15046,11 +15044,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a self-service permission.
         :param a_aciname: Self-service name
-        :type  a_aciname: Str
+        :type  a_aciname: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'selfservice_show'
 
@@ -15080,31 +15078,31 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new SELinux User Map.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_seealso: HBAC Rule that defines the users, groups and hostgroups
-        :type  o_seealso: Str
+        :type  o_seealso: str
         :param o_ipaselinuxuser: SELinux User
-        :type  o_ipaselinuxuser: Str
+        :type  o_ipaselinuxuser: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'selinuxusermap_add'
 
@@ -15144,17 +15142,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add target hosts and hostgroups to an SELinux User Map rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'selinuxusermap_add_host'
 
@@ -15183,17 +15181,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add users and groups to an SELinux User Map rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'selinuxusermap_add_user'
 
@@ -15218,9 +15216,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a SELinux User Map.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'selinuxusermap_del'
 
@@ -15238,7 +15236,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable an SELinux User Map rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'selinuxusermap_disable'
 
@@ -15255,7 +15253,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Enable an SELinux User Map rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'selinuxusermap_enable'
 
@@ -15285,33 +15283,33 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for SELinux User Maps.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_seealso: HBAC Rule that defines the users, groups and hostgroups
-        :type  o_seealso: Str
+        :type  o_seealso: str
         :param o_cn: Rule name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_ipaselinuxuser: SELinux User
-        :type  o_ipaselinuxuser: Str
+        :type  o_ipaselinuxuser: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'selinuxusermap_find'
 
@@ -15364,36 +15362,36 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a SELinux User Map.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_seealso: HBAC Rule that defines the users, groups and hostgroups
-        :type  o_seealso: Str
+        :type  o_seealso: str
         :param o_ipaselinuxuser: SELinux User
-        :type  o_ipaselinuxuser: Str
+        :type  o_ipaselinuxuser: str
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'selinuxusermap_mod'
 
@@ -15437,17 +15435,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove target hosts and hostgroups from an SELinux User Map rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'selinuxusermap_remove_host'
 
@@ -15476,17 +15474,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove users and groups from an SELinux User Map rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'selinuxusermap_remove_user'
 
@@ -15514,15 +15512,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display the properties of a SELinux User Map rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'selinuxusermap_show'
 
@@ -15544,9 +15542,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Check connection to remote IPA server.
         :param a_remote_cn: Remote IPA server hostname
-        :type  a_remote_cn: Str
+        :type  a_remote_cn: str
         :param a_cn: IPA server hostname
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'server_conncheck'
 
@@ -15568,15 +15566,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete IPA server.
         :param a_cn: IPA server hostname
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         :param o_force: Force server removal even if it does not exist
-        :type  o_force: Flag
+        :type  o_force: bool
         :param o_ignore_last_of_role: Skip a check whether the last CA master or DNS server is removed
-        :type  o_ignore_last_of_role: Flag
+        :type  o_ignore_last_of_role: bool
         :param o_ignore_topology_disconnect: Ignore topology connectivity problems after removal
-        :type  o_ignore_topology_disconnect: Flag
+        :type  o_ignore_topology_disconnect: bool
         """
         method = 'server_del'
 
@@ -15614,35 +15612,35 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for IPA servers.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_in_location: Search for servers with these ipa locations.
         :type  o_in_location: DNSNameParam
         :param o_not_in_location: Search for servers without these ipa locations.
         :type  o_not_in_location: DNSNameParam
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_no_topologysuffix: Search for servers without these managed suffixes.
-        :type  o_no_topologysuffix: Str
+        :type  o_no_topologysuffix: str
         :param o_servrole: Search for servers with these enabled roles.
-        :type  o_servrole: Str
+        :type  o_servrole: str
         :param o_topologysuffix: Search for servers with these managed suffixes.
-        :type  o_topologysuffix: Str
+        :type  o_topologysuffix: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipamaxdomainlevel: Maximum domain level
-        :type  o_ipamaxdomainlevel: Int
+        :type  o_ipamaxdomainlevel: int, min value -2147483648, max value 2147483647
         :param o_ipamindomainlevel: Minimum domain level
-        :type  o_ipamindomainlevel: Int
+        :type  o_ipamindomainlevel: int, min value -2147483648, max value 2147483647
         :param o_cn: IPA server hostname
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'server_find'
 
@@ -15693,28 +15691,28 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify information about an IPA server.
         :param a_cn: IPA server hostname
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipalocation_location: Server location
         :type  o_ipalocation_location: DNSNameParam
         :param o_ipaserviceweight: Weight for server services
-        :type  o_ipaserviceweight: Int
+        :type  o_ipaserviceweight: int, min value 0, max value 65535
         """
         method = 'server_mod'
 
@@ -15753,23 +15751,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Find a server role on a server(s)
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_role_servrole: IPA server role name
-        :type  o_role_servrole: Str
+        :type  o_role_servrole: str
         :param o_status: Status of the role
-        :type  o_status: StrEnum
+        :type  o_status: str, valid values ['enabled', 'configured', 'hidden', 'absent']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_include_master: Include IPA master entries
-        :type  o_include_master: Flag
+        :type  o_include_master: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_server_server: IPA server hostname
-        :type  o_server_server: Str
+        :type  o_server_server: str
         """
         method = 'server_role_find'
 
@@ -15802,13 +15800,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show role status on a server
         :param a_role_servrole: IPA server role name
-        :type  a_role_servrole: Str
+        :type  a_role_servrole: str
         :param a_server_server: IPA server hostname
-        :type  a_server_server: Str
+        :type  a_server_server: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'server_role_show'
 
@@ -15832,15 +15830,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show IPA server.
         :param a_cn: IPA server hostname
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'server_show'
 
@@ -15862,9 +15860,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Set enabled/hidden state of a server.
         :param a_cn: IPA server hostname
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_state: Server state
-        :type  o_state: StrEnum
+        :type  o_state: str, valid values ['enabled', 'hidden']
         """
         method = 'server_state'
 
@@ -15903,24 +15901,24 @@ For multi-valued attributes, the command replaces the values already present.
         :type  o_ipakrbrequirespreauth: Bool
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_force: force principal name even if not in DNS
-        :type  o_force: Flag
+        :type  o_force: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded service certificate
         :type  o_usercertificate: Certificate
         :param o_krbprincipalauthind: Defines a whitelist for Authentication Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use 'radius' to allow RADIUS-based 2FA authentications. Other values may be used for custom configurations.
-        :type  o_krbprincipalauthind: Str
+        :type  o_krbprincipalauthind: str
         :param o_ipakrbauthzdata: Override default list of supported PAC types. Use 'NONE' to disable PAC support for this service, e.g. this might be necessary for NFS services.
-        :type  o_ipakrbauthzdata: StrEnum
+        :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
         """
         method = 'service_add'
 
@@ -15963,11 +15961,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded service certificate
         :type  o_usercertificate: Certificate
         """
@@ -15996,13 +15994,13 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'service_add_host'
 
@@ -16032,11 +16030,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbprincipalname: Service principal alias
         :type  a_krbprincipalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'service_add_principal'
 
@@ -16066,19 +16064,19 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'service_allow_create_keytab'
 
@@ -16115,19 +16113,19 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'service_allow_retrieve_keytab'
 
@@ -16158,7 +16156,7 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'service_del'
 
@@ -16202,19 +16200,19 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'service_disallow_create_keytab'
 
@@ -16251,19 +16249,19 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'service_disallow_retrieve_keytab'
 
@@ -16303,31 +16301,31 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for IPA services.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_man_by_host: Search for services with these managed by hosts.
-        :type  o_man_by_host: Str
+        :type  o_man_by_host: str
         :param o_not_man_by_host: Search for services without these managed by hosts.
-        :type  o_not_man_by_host: Str
+        :type  o_not_man_by_host: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("canonical-principal")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_krbcanonicalname: Service principal
         :type  o_krbcanonicalname: Principal
         :param o_krbprincipalname: Service principal alias
         :type  o_krbprincipalname: Principal
         :param o_krbprincipalauthind: Defines a whitelist for Authentication Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use 'radius' to allow RADIUS-based 2FA authentications. Other values may be used for custom configurations.
-        :type  o_krbprincipalauthind: Str
+        :type  o_krbprincipalauthind: str
         :param o_ipakrbauthzdata: Override default list of supported PAC types. Use 'NONE' to disable PAC support for this service, e.g. this might be necessary for NFS services.
-        :type  o_ipakrbauthzdata: StrEnum
+        :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
         """
         method = 'service_find'
 
@@ -16388,29 +16386,29 @@ For multi-valued attributes, the command replaces the values already present.
         :type  o_ipakrbrequirespreauth: Bool
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_usercertificate: Base-64 encoded service certificate
         :type  o_usercertificate: Certificate
         :param o_krbprincipalname: Service principal alias
         :type  o_krbprincipalname: Principal
         :param o_krbprincipalauthind: Defines a whitelist for Authentication Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use 'radius' to allow RADIUS-based 2FA authentications. Other values may be used for custom configurations.
-        :type  o_krbprincipalauthind: Str
+        :type  o_krbprincipalauthind: str
         :param o_ipakrbauthzdata: Override default list of supported PAC types. Use 'NONE' to disable PAC support for this service, e.g. this might be necessary for NFS services.
-        :type  o_ipakrbauthzdata: StrEnum
+        :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
         """
         method = 'service_mod'
 
@@ -16457,11 +16455,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded service certificate
         :type  o_usercertificate: Certificate
         """
@@ -16490,13 +16488,13 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'service_remove_host'
 
@@ -16526,11 +16524,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbprincipalname: Service principal alias
         :type  a_krbprincipalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'service_remove_principal'
 
@@ -16558,15 +16556,15 @@ For multi-valued attributes, the command replaces the values already present.
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         :param o_out: file to store certificate in
-        :type  o_out: Str
+        :type  o_out: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'service_show'
 
@@ -16594,19 +16592,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new service delegation rule.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'servicedelegationrule_add'
 
@@ -16634,15 +16632,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add member to a named service delegation rule.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_principal: principal to add
-        :type  o_principal: Str
+        :type  o_principal: str
         """
         method = 'servicedelegationrule_add_member'
 
@@ -16668,15 +16666,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add target to a named service delegation rule.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_servicedelegationtarget: service delegation targets to add
-        :type  o_servicedelegationtarget: Str
+        :type  o_servicedelegationtarget: str
         """
         method = 'servicedelegationrule_add_target'
 
@@ -16699,9 +16697,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete service delegation.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'servicedelegationrule_del'
 
@@ -16726,21 +16724,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for service delegations rule.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("delegation-name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_cn: Delegation name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'servicedelegationrule_find'
 
@@ -16772,15 +16770,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove member from a named service delegation rule.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_principal: principal to remove
-        :type  o_principal: Str
+        :type  o_principal: str
         """
         method = 'servicedelegationrule_remove_member'
 
@@ -16806,15 +16804,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove target from a named service delegation rule.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_servicedelegationtarget: service delegation targets to remove
-        :type  o_servicedelegationtarget: Str
+        :type  o_servicedelegationtarget: str
         """
         method = 'servicedelegationrule_remove_target'
 
@@ -16840,15 +16838,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a named service delegation rule.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'servicedelegationrule_show'
 
@@ -16873,17 +16871,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create a new service delegation target.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'servicedelegationtarget_add'
 
@@ -16909,13 +16907,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add member to a named service delegation target.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_principal: principal to add
-        :type  o_principal: Str
+        :type  o_principal: str
         """
         method = 'servicedelegationtarget_add_member'
 
@@ -16937,9 +16935,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete service delegation target.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'servicedelegationtarget_del'
 
@@ -16963,19 +16961,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for service delegation target.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("delegation-name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_cn: Delegation name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'servicedelegationtarget_find'
 
@@ -17005,13 +17003,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove member from a named service delegation target.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_principal: principal to remove
-        :type  o_principal: Str
+        :type  o_principal: str
         """
         method = 'servicedelegationtarget_remove_member'
 
@@ -17035,13 +17033,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a named service delegation target.
         :param a_cn: Delegation name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'servicedelegationtarget_show'
 
@@ -17091,13 +17089,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Activate a stage user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'stageuser_activate'
 
@@ -17161,23 +17159,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new stage user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_from_delete: Create Stage user in from a delete user
         :type  o_from_delete: Bool
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_random: Generate a random user password
-        :type  o_random: Flag
+        :type  o_random: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         :param o_krbpasswordexpiration: User password expiration
@@ -17185,73 +17183,73 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_krbprincipalexpiration: Kerberos principal expiration
         :type  o_krbprincipalexpiration: DateTime
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number (system will assign one if not provided)
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_userpassword: Prompt to set the user password
         :type  o_userpassword: Password
         :param o_carlicense: Car License
-        :type  o_carlicense: Str
+        :type  o_carlicense: str
         :param o_l: City
-        :type  o_l: Str
+        :type  o_l: str
         :param o_userclass: User category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_departmentnumber: Department Number
-        :type  o_departmentnumber: Str
+        :type  o_departmentnumber: str
         :param o_mail: Email address
-        :type  o_mail: Str
+        :type  o_mail: str
         :param o_employeenumber: Employee Number
-        :type  o_employeenumber: Str
+        :type  o_employeenumber: str
         :param o_employeetype: Employee Type
-        :type  o_employeetype: Str
+        :type  o_employeetype: str
         :param o_facsimiletelephonenumber: Fax Number
-        :type  o_facsimiletelephonenumber: Str
+        :type  o_facsimiletelephonenumber: str
         :param o_givenname: First name
-        :type  o_givenname: Str
+        :type  o_givenname: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_sn: Last name
-        :type  o_sn: Str
+        :type  o_sn: str
         :param o_manager: Manager
-        :type  o_manager: Str
+        :type  o_manager: str
         :param o_mobile: Mobile Telephone Number
-        :type  o_mobile: Str
+        :type  o_mobile: str
         :param o_ou: Org. Unit
-        :type  o_ou: Str
+        :type  o_ou: str
         :param o_pager: Pager Number
-        :type  o_pager: Str
+        :type  o_pager: str
         :param o_telephonenumber: Telephone Number
-        :type  o_telephonenumber: Str
+        :type  o_telephonenumber: str
         :param o_postalcode: ZIP
-        :type  o_postalcode: Str
+        :type  o_postalcode: str
         :param o_preferredlanguage: Preferred Language
-        :type  o_preferredlanguage: Str
+        :type  o_preferredlanguage: str
         :param o_ipatokenradiusconfiglink: RADIUS proxy configuration
-        :type  o_ipatokenradiusconfiglink: Str
+        :type  o_ipatokenradiusconfiglink: str
         :param o_ipatokenradiususername: RADIUS proxy username
-        :type  o_ipatokenradiususername: Str
+        :type  o_ipatokenradiususername: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         :param o_ipasshpubkey: SSH public key
-        :type  o_ipasshpubkey: Str
+        :type  o_ipasshpubkey: str
         :param o_st: State/Province
-        :type  o_st: Str
+        :type  o_st: str
         :param o_street: Street address
-        :type  o_street: Str
+        :type  o_street: str
         :param o_title: Job Title
-        :type  o_title: Str
+        :type  o_title: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: StrEnum
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         :param o_krbprincipalname: Principal alias
         :type  o_krbprincipalname: Principal
         :param o_cn: Full name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_displayname: Display name
-        :type  o_displayname: Str
+        :type  o_displayname: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_initials: Initials
-        :type  o_initials: Str
+        :type  o_initials: str
         """
         method = 'stageuser_add'
 
@@ -17354,13 +17352,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add one or more certificates to the stageuser entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
@@ -17390,9 +17388,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add one or more certificate mappings to the stage user entry.
         :param a_ipacertmapdata: Certificate mapping data
-        :type  a_ipacertmapdata: Str
+        :type  a_ipacertmapdata: str
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_certificate: Base-64 encoded user certificate
         :type  o_certificate: Certificate
         :param o_issuer: Issuer of the certificate
@@ -17400,11 +17398,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_subject: Subject of the certificate
         :type  o_subject: DNParam
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'stageuser_add_certmapdata'
 
@@ -17435,15 +17433,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a manager to the stage user entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'stageuser_add_manager'
 
@@ -17469,15 +17467,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add new principal alias to the stageuser entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param a_krbprincipalname: Principal alias
         :type  a_krbprincipalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'stageuser_add_principal'
 
@@ -17499,9 +17497,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a stage user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'stageuser_del'
 
@@ -17572,39 +17570,39 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for stage users.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_in_group: Search for stage users with these member of groups.
-        :type  o_in_group: Str
+        :type  o_in_group: str
         :param o_in_hbacrule: Search for stage users with these member of HBAC rules.
-        :type  o_in_hbacrule: Str
+        :type  o_in_hbacrule: str
         :param o_in_netgroup: Search for stage users with these member of netgroups.
-        :type  o_in_netgroup: Str
+        :type  o_in_netgroup: str
         :param o_in_role: Search for stage users with these member of roles.
-        :type  o_in_role: Str
+        :type  o_in_role: str
         :param o_in_sudorule: Search for stage users with these member of sudo rules.
-        :type  o_in_sudorule: Str
+        :type  o_in_sudorule: str
         :param o_not_in_group: Search for stage users without these member of groups.
-        :type  o_not_in_group: Str
+        :type  o_not_in_group: str
         :param o_not_in_hbacrule: Search for stage users without these member of HBAC rules.
-        :type  o_not_in_hbacrule: Str
+        :type  o_not_in_hbacrule: str
         :param o_not_in_netgroup: Search for stage users without these member of netgroups.
-        :type  o_not_in_netgroup: Str
+        :type  o_not_in_netgroup: str
         :param o_not_in_role: Search for stage users without these member of roles.
-        :type  o_not_in_role: Str
+        :type  o_not_in_role: str
         :param o_not_in_sudorule: Search for stage users without these member of sudo rules.
-        :type  o_not_in_sudorule: Str
+        :type  o_not_in_sudorule: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("login")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         :param o_krbpasswordexpiration: User password expiration
@@ -17612,73 +17610,73 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_krbprincipalexpiration: Kerberos principal expiration
         :type  o_krbprincipalexpiration: DateTime
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number (system will assign one if not provided)
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_userpassword: Prompt to set the user password
         :type  o_userpassword: Password
         :param o_krbprincipalname: Principal alias
         :type  o_krbprincipalname: Principal
         :param o_carlicense: Car License
-        :type  o_carlicense: Str
+        :type  o_carlicense: str
         :param o_l: City
-        :type  o_l: Str
+        :type  o_l: str
         :param o_userclass: User category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_cn: Full name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_departmentnumber: Department Number
-        :type  o_departmentnumber: Str
+        :type  o_departmentnumber: str
         :param o_displayname: Display name
-        :type  o_displayname: Str
+        :type  o_displayname: str
         :param o_mail: Email address
-        :type  o_mail: Str
+        :type  o_mail: str
         :param o_employeenumber: Employee Number
-        :type  o_employeenumber: Str
+        :type  o_employeenumber: str
         :param o_employeetype: Employee Type
-        :type  o_employeetype: Str
+        :type  o_employeetype: str
         :param o_facsimiletelephonenumber: Fax Number
-        :type  o_facsimiletelephonenumber: Str
+        :type  o_facsimiletelephonenumber: str
         :param o_givenname: First name
-        :type  o_givenname: Str
+        :type  o_givenname: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_initials: Initials
-        :type  o_initials: Str
+        :type  o_initials: str
         :param o_sn: Last name
-        :type  o_sn: Str
+        :type  o_sn: str
         :param o_uid: User login
-        :type  o_uid: Str
+        :type  o_uid: str
         :param o_manager: Manager
-        :type  o_manager: Str
+        :type  o_manager: str
         :param o_mobile: Mobile Telephone Number
-        :type  o_mobile: Str
+        :type  o_mobile: str
         :param o_ou: Org. Unit
-        :type  o_ou: Str
+        :type  o_ou: str
         :param o_pager: Pager Number
-        :type  o_pager: Str
+        :type  o_pager: str
         :param o_telephonenumber: Telephone Number
-        :type  o_telephonenumber: Str
+        :type  o_telephonenumber: str
         :param o_postalcode: ZIP
-        :type  o_postalcode: Str
+        :type  o_postalcode: str
         :param o_preferredlanguage: Preferred Language
-        :type  o_preferredlanguage: Str
+        :type  o_preferredlanguage: str
         :param o_ipatokenradiusconfiglink: RADIUS proxy configuration
-        :type  o_ipatokenradiusconfiglink: Str
+        :type  o_ipatokenradiusconfiglink: str
         :param o_ipatokenradiususername: RADIUS proxy username
-        :type  o_ipatokenradiususername: Str
+        :type  o_ipatokenradiususername: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         :param o_st: State/Province
-        :type  o_st: Str
+        :type  o_st: str
         :param o_street: Street address
-        :type  o_street: Str
+        :type  o_street: str
         :param o_title: Job Title
-        :type  o_title: Str
+        :type  o_title: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: StrEnum
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         """
         method = 'stageuser_find'
 
@@ -17844,28 +17842,28 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a stage user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the stage user object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_random: Generate a random user password
-        :type  o_random: Flag
+        :type  o_random: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         :param o_krbpasswordexpiration: User password expiration
@@ -17873,73 +17871,73 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_krbprincipalexpiration: Kerberos principal expiration
         :type  o_krbprincipalexpiration: DateTime
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number (system will assign one if not provided)
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_userpassword: Prompt to set the user password
         :type  o_userpassword: Password
         :param o_krbprincipalname: Principal alias
         :type  o_krbprincipalname: Principal
         :param o_carlicense: Car License
-        :type  o_carlicense: Str
+        :type  o_carlicense: str
         :param o_l: City
-        :type  o_l: Str
+        :type  o_l: str
         :param o_userclass: User category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_cn: Full name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_departmentnumber: Department Number
-        :type  o_departmentnumber: Str
+        :type  o_departmentnumber: str
         :param o_displayname: Display name
-        :type  o_displayname: Str
+        :type  o_displayname: str
         :param o_mail: Email address
-        :type  o_mail: Str
+        :type  o_mail: str
         :param o_employeenumber: Employee Number
-        :type  o_employeenumber: Str
+        :type  o_employeenumber: str
         :param o_employeetype: Employee Type
-        :type  o_employeetype: Str
+        :type  o_employeetype: str
         :param o_facsimiletelephonenumber: Fax Number
-        :type  o_facsimiletelephonenumber: Str
+        :type  o_facsimiletelephonenumber: str
         :param o_givenname: First name
-        :type  o_givenname: Str
+        :type  o_givenname: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_initials: Initials
-        :type  o_initials: Str
+        :type  o_initials: str
         :param o_sn: Last name
-        :type  o_sn: Str
+        :type  o_sn: str
         :param o_manager: Manager
-        :type  o_manager: Str
+        :type  o_manager: str
         :param o_mobile: Mobile Telephone Number
-        :type  o_mobile: Str
+        :type  o_mobile: str
         :param o_ou: Org. Unit
-        :type  o_ou: Str
+        :type  o_ou: str
         :param o_pager: Pager Number
-        :type  o_pager: Str
+        :type  o_pager: str
         :param o_telephonenumber: Telephone Number
-        :type  o_telephonenumber: Str
+        :type  o_telephonenumber: str
         :param o_postalcode: ZIP
-        :type  o_postalcode: Str
+        :type  o_postalcode: str
         :param o_preferredlanguage: Preferred Language
-        :type  o_preferredlanguage: Str
+        :type  o_preferredlanguage: str
         :param o_ipatokenradiusconfiglink: RADIUS proxy configuration
-        :type  o_ipatokenradiusconfiglink: Str
+        :type  o_ipatokenradiusconfiglink: str
         :param o_ipatokenradiususername: RADIUS proxy username
-        :type  o_ipatokenradiususername: Str
+        :type  o_ipatokenradiususername: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         :param o_ipasshpubkey: SSH public key
-        :type  o_ipasshpubkey: Str
+        :type  o_ipasshpubkey: str
         :param o_st: State/Province
-        :type  o_st: Str
+        :type  o_st: str
         :param o_street: Street address
-        :type  o_street: Str
+        :type  o_street: str
         :param o_title: Job Title
-        :type  o_title: Str
+        :type  o_title: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: StrEnum
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         """
         method = 'stageuser_mod'
 
@@ -18048,13 +18046,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove one or more certificates to the stageuser entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
@@ -18084,9 +18082,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove one or more certificate mappings from the stage user entry.
         :param a_ipacertmapdata: Certificate mapping data
-        :type  a_ipacertmapdata: Str
+        :type  a_ipacertmapdata: str
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_certificate: Base-64 encoded user certificate
         :type  o_certificate: Certificate
         :param o_issuer: Issuer of the certificate
@@ -18094,11 +18092,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_subject: Subject of the certificate
         :type  o_subject: DNParam
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'stageuser_remove_certmapdata'
 
@@ -18129,15 +18127,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove a manager to the stage user entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'stageuser_remove_manager'
 
@@ -18163,15 +18161,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove principal alias from the stageuser entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param a_krbprincipalname: Principal alias
         :type  a_krbprincipalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'stageuser_remove_principal'
 
@@ -18196,15 +18194,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a stage user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'stageuser_show'
 
@@ -18231,21 +18229,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create new Sudo Command.
         :param a_sudocmd: Sudo Command
-        :type  a_sudocmd: Str
+        :type  a_sudocmd: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: A description of this command
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'sudocmd_add'
 
@@ -18272,9 +18270,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete Sudo Command.
         :param a_sudocmd: Sudo Command
-        :type  a_sudocmd: Str
+        :type  a_sudocmd: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'sudocmd_del'
 
@@ -18300,23 +18298,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for Sudo Commands.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("command")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_sudocmd: Sudo Command
-        :type  o_sudocmd: Str
+        :type  o_sudocmd: str
         :param o_description: A description of this command
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'sudocmd_find'
 
@@ -18354,26 +18352,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify Sudo Command.
         :param a_sudocmd: Sudo Command
-        :type  a_sudocmd: Str
+        :type  a_sudocmd: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: A description of this command
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'sudocmd_mod'
 
@@ -18406,15 +18404,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display Sudo Command.
         :param a_sudocmd: Sudo Command
-        :type  a_sudocmd: Str
+        :type  a_sudocmd: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'sudocmd_show'
 
@@ -18441,21 +18439,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create new Sudo Command Group.
         :param a_cn: Sudo Command Group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Group description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'sudocmdgroup_add'
 
@@ -18485,15 +18483,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to Sudo Command Group.
         :param a_cn: Sudo Command Group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_sudocmd: sudo commands to add
-        :type  o_sudocmd: Str
+        :type  o_sudocmd: str
         """
         method = 'sudocmdgroup_add_member'
 
@@ -18516,9 +18514,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete Sudo Command Group.
         :param a_cn: Sudo Command Group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'sudocmdgroup_del'
 
@@ -18544,23 +18542,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for Sudo Command Groups.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("sudocmdgroup-name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_description: Group description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Sudo Command Group
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'sudocmdgroup_find'
 
@@ -18598,26 +18596,26 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify Sudo Command Group.
         :param a_cn: Sudo Command Group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_description: Group description
-        :type  o_description: Str
+        :type  o_description: str
         """
         method = 'sudocmdgroup_mod'
 
@@ -18650,15 +18648,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove members from Sudo Command Group.
         :param a_cn: Sudo Command Group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_sudocmd: sudo commands to remove
-        :type  o_sudocmd: Str
+        :type  o_sudocmd: str
         """
         method = 'sudocmdgroup_remove_member'
 
@@ -18684,15 +18682,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display Sudo Command Group.
         :param a_cn: Sudo Command Group
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'sudocmdgroup_show'
 
@@ -18730,43 +18728,43 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Create new Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_sudoorder: integer to order the Sudo rules
-        :type  o_sudoorder: Int
+        :type  o_sudoorder: int, min value 0, max value 2147483647
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_externaluser: External User the rule applies to (sudorule-find only)
-        :type  o_externaluser: Str
+        :type  o_externaluser: str
         :param o_ipasudorunasextgroup: External Group the commands can run as (sudorule-find only)
-        :type  o_ipasudorunasextgroup: Str
+        :type  o_ipasudorunasextgroup: str
         :param o_ipasudorunasextuser: External User the commands can run as (sudorule-find only)
-        :type  o_ipasudorunasextuser: Str
+        :type  o_ipasudorunasextuser: str
         :param o_cmdcategory: Command category the rule applies to
-        :type  o_cmdcategory: StrEnum
+        :type  o_cmdcategory: str, valid values ['all']
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_ipasudorunasgroupcategory: RunAs Group category the rule applies to
-        :type  o_ipasudorunasgroupcategory: StrEnum
+        :type  o_ipasudorunasgroupcategory: str, valid values ['all']
         :param o_ipasudorunasusercategory: RunAs User category the rule applies to
-        :type  o_ipasudorunasusercategory: StrEnum
+        :type  o_ipasudorunasusercategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'sudorule_add'
 
@@ -18819,17 +18817,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add commands and sudo command groups affected by Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_sudocmdgroup: sudo command groups to add
-        :type  o_sudocmdgroup: Str
+        :type  o_sudocmdgroup: str
         :param o_sudocmd: sudo commands to add
-        :type  o_sudocmd: Str
+        :type  o_sudocmd: str
         """
         method = 'sudorule_add_allow_command'
 
@@ -18858,17 +18856,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add commands and sudo command groups affected by Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_sudocmdgroup: sudo command groups to add
-        :type  o_sudocmdgroup: Str
+        :type  o_sudocmdgroup: str
         :param o_sudocmd: sudo commands to add
-        :type  o_sudocmd: Str
+        :type  o_sudocmd: str
         """
         method = 'sudorule_add_deny_command'
 
@@ -18898,19 +18896,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add hosts and hostgroups affected by Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_hostmask: host masks of allowed hosts
-        :type  o_hostmask: Str
+        :type  o_hostmask: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to add
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to add
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'sudorule_add_host'
 
@@ -18940,15 +18938,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add an option to the Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_ipasudoopt: Sudo Option
-        :type  o_ipasudoopt: Str
+        :type  o_ipasudoopt: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'sudorule_add_option'
 
@@ -18973,15 +18971,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add group for Sudo to execute as.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         """
         method = 'sudorule_add_runasgroup'
 
@@ -19008,17 +19006,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add users and groups for Sudo to execute as.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'sudorule_add_runasuser'
 
@@ -19047,17 +19045,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add users and groups affected by Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'sudorule_add_user'
 
@@ -19082,9 +19080,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'sudorule_del'
 
@@ -19102,7 +19100,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable a Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'sudorule_disable'
 
@@ -19119,7 +19117,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Enable a Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'sudorule_enable'
 
@@ -19155,45 +19153,45 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for Sudo Rule.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("sudorule-name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_sudoorder: integer to order the Sudo rules
-        :type  o_sudoorder: Int
+        :type  o_sudoorder: int, min value 0, max value 2147483647
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_externaluser: External User the rule applies to (sudorule-find only)
-        :type  o_externaluser: Str
+        :type  o_externaluser: str
         :param o_ipasudorunasextgroup: External Group the commands can run as (sudorule-find only)
-        :type  o_ipasudorunasextgroup: Str
+        :type  o_ipasudorunasextgroup: str
         :param o_ipasudorunasextuser: External User the commands can run as (sudorule-find only)
-        :type  o_ipasudorunasextuser: Str
+        :type  o_ipasudorunasextuser: str
         :param o_cn: Rule name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_cmdcategory: Command category the rule applies to
-        :type  o_cmdcategory: StrEnum
+        :type  o_cmdcategory: str, valid values ['all']
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_ipasudorunasgroupcategory: RunAs Group category the rule applies to
-        :type  o_ipasudorunasgroupcategory: StrEnum
+        :type  o_ipasudorunasgroupcategory: str, valid values ['all']
         :param o_ipasudorunasusercategory: RunAs User category the rule applies to
-        :type  o_ipasudorunasusercategory: StrEnum
+        :type  o_ipasudorunasusercategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'sudorule_find'
 
@@ -19265,50 +19263,50 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the sudo rule object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipaenabledflag: Enabled
         :type  o_ipaenabledflag: Bool
         :param o_sudoorder: integer to order the Sudo rules
-        :type  o_sudoorder: Int
+        :type  o_sudoorder: int, min value 0, max value 2147483647
         :param o_description: Description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_externalhost: External host
-        :type  o_externalhost: Str
+        :type  o_externalhost: str
         :param o_externaluser: External User the rule applies to (sudorule-find only)
-        :type  o_externaluser: Str
+        :type  o_externaluser: str
         :param o_ipasudorunasextgroup: External Group the commands can run as (sudorule-find only)
-        :type  o_ipasudorunasextgroup: Str
+        :type  o_ipasudorunasextgroup: str
         :param o_ipasudorunasextuser: External User the commands can run as (sudorule-find only)
-        :type  o_ipasudorunasextuser: Str
+        :type  o_ipasudorunasextuser: str
         :param o_cmdcategory: Command category the rule applies to
-        :type  o_cmdcategory: StrEnum
+        :type  o_cmdcategory: str, valid values ['all']
         :param o_hostcategory: Host category the rule applies to
-        :type  o_hostcategory: StrEnum
+        :type  o_hostcategory: str, valid values ['all']
         :param o_ipasudorunasgroupcategory: RunAs Group category the rule applies to
-        :type  o_ipasudorunasgroupcategory: StrEnum
+        :type  o_ipasudorunasgroupcategory: str, valid values ['all']
         :param o_ipasudorunasusercategory: RunAs User category the rule applies to
-        :type  o_ipasudorunasusercategory: StrEnum
+        :type  o_ipasudorunasusercategory: str, valid values ['all']
         :param o_usercategory: User category the rule applies to
-        :type  o_usercategory: StrEnum
+        :type  o_usercategory: str, valid values ['all']
         """
         method = 'sudorule_mod'
 
@@ -19366,17 +19364,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove commands and sudo command groups affected by Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_sudocmdgroup: sudo command groups to remove
-        :type  o_sudocmdgroup: Str
+        :type  o_sudocmdgroup: str
         :param o_sudocmd: sudo commands to remove
-        :type  o_sudocmd: Str
+        :type  o_sudocmd: str
         """
         method = 'sudorule_remove_allow_command'
 
@@ -19405,17 +19403,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove commands and sudo command groups affected by Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_sudocmdgroup: sudo command groups to remove
-        :type  o_sudocmdgroup: Str
+        :type  o_sudocmdgroup: str
         :param o_sudocmd: sudo commands to remove
-        :type  o_sudocmd: Str
+        :type  o_sudocmd: str
         """
         method = 'sudorule_remove_deny_command'
 
@@ -19445,19 +19443,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove hosts and hostgroups affected by Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_hostmask: host masks of allowed hosts
-        :type  o_hostmask: Str
+        :type  o_hostmask: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_hostgroup: host groups to remove
-        :type  o_hostgroup: Str
+        :type  o_hostgroup: str
         :param o_host: hosts to remove
-        :type  o_host: Str
+        :type  o_host: str
         """
         method = 'sudorule_remove_host'
 
@@ -19487,15 +19485,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove an option from Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_ipasudoopt: Sudo Option
-        :type  o_ipasudoopt: Str
+        :type  o_ipasudoopt: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'sudorule_remove_option'
 
@@ -19520,15 +19518,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove group for Sudo to execute as.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         """
         method = 'sudorule_remove_runasgroup'
 
@@ -19555,17 +19553,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove users and groups for Sudo to execute as.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'sudorule_remove_runasuser'
 
@@ -19594,17 +19592,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove users and groups affected by Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'sudorule_remove_user'
 
@@ -19632,15 +19630,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display Sudo Rule.
         :param a_cn: Rule name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'sudorule_show'
 
@@ -19664,13 +19662,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for help topics.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'topic_find'
 
@@ -19693,11 +19691,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a help topic.
         :param a_full_name: Full name
-        :type  a_full_name: Str
+        :type  a_full_name: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'topic_show'
 
@@ -19729,35 +19727,35 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new segment.
         :param a_topologysuffixcn: Suffix name
-        :type  a_topologysuffixcn: Str
+        :type  a_topologysuffixcn: str
         :param a_cn: Arbitrary string identifying the segment
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_nsds5replicatimeout: Number of seconds outbound LDAP operations waits for a response from the remote replica before timing out and failing
-        :type  o_nsds5replicatimeout: Int
+        :type  o_nsds5replicatimeout: int, min value 0, max value 2147483647
         :param o_iparepltoposegmentleftnode: Left replication node - an IPA server
-        :type  o_iparepltoposegmentleftnode: Str
+        :type  o_iparepltoposegmentleftnode: str
         :param o_nsds5replicatedattributelist: Attributes that are not replicated to a consumer server during a fractional update. E.g., `(objectclass=*) $ EXCLUDE accountlockout memberof
-        :type  o_nsds5replicatedattributelist: Str
+        :type  o_nsds5replicatedattributelist: str
         :param o_nsds5replicatedattributelisttotal: Attributes that are not replicated to a consumer server during a total update. E.g. (objectclass=*) $ EXCLUDE accountlockout
-        :type  o_nsds5replicatedattributelisttotal: Str
+        :type  o_nsds5replicatedattributelisttotal: str
         :param o_iparepltoposegmentrightnode: Right replication node - an IPA server
-        :type  o_iparepltoposegmentrightnode: Str
+        :type  o_iparepltoposegmentrightnode: str
         :param o_nsds5replicastripattrs: A space separated list of attributes which are removed from replication updates.
-        :type  o_nsds5replicastripattrs: Str
+        :type  o_nsds5replicastripattrs: str
         :param o_nsds5replicaenabled: Whether a replication agreement is active, meaning whether replication is occurring per that agreement
-        :type  o_nsds5replicaenabled: StrEnum
+        :type  o_nsds5replicaenabled: str, valid values ['on', 'off']
         :param o_iparepltoposegmentdirection: Direction of replication between left and right replication node
-        :type  o_iparepltoposegmentdirection: StrEnum
+        :type  o_iparepltoposegmentdirection: str, valid values ['both', 'left-right', 'right-left']
         """
         method = 'topologysegment_add'
 
@@ -19796,11 +19794,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a segment.
         :param a_topologysuffixcn: Suffix name
-        :type  a_topologysuffixcn: Str
+        :type  a_topologysuffixcn: str
         :param a_cn: Arbitrary string identifying the segment
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'topologysegment_del'
 
@@ -19834,37 +19832,37 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for topology segments.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param a_topologysuffixcn: Suffix name
-        :type  a_topologysuffixcn: Str
+        :type  a_topologysuffixcn: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_nsds5replicatimeout: Number of seconds outbound LDAP operations waits for a response from the remote replica before timing out and failing
-        :type  o_nsds5replicatimeout: Int
+        :type  o_nsds5replicatimeout: int, min value 0, max value 2147483647
         :param o_iparepltoposegmentleftnode: Left replication node - an IPA server
-        :type  o_iparepltoposegmentleftnode: Str
+        :type  o_iparepltoposegmentleftnode: str
         :param o_cn: Arbitrary string identifying the segment
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_nsds5replicatedattributelist: Attributes that are not replicated to a consumer server during a fractional update. E.g., `(objectclass=*) $ EXCLUDE accountlockout memberof
-        :type  o_nsds5replicatedattributelist: Str
+        :type  o_nsds5replicatedattributelist: str
         :param o_nsds5replicatedattributelisttotal: Attributes that are not replicated to a consumer server during a total update. E.g. (objectclass=*) $ EXCLUDE accountlockout
-        :type  o_nsds5replicatedattributelisttotal: Str
+        :type  o_nsds5replicatedattributelisttotal: str
         :param o_iparepltoposegmentrightnode: Right replication node - an IPA server
-        :type  o_iparepltoposegmentrightnode: Str
+        :type  o_iparepltoposegmentrightnode: str
         :param o_nsds5replicastripattrs: A space separated list of attributes which are removed from replication updates.
-        :type  o_nsds5replicastripattrs: Str
+        :type  o_nsds5replicastripattrs: str
         :param o_iparepltoposegmentdirection: Direction of replication between left and right replication node
-        :type  o_iparepltoposegmentdirection: StrEnum
+        :type  o_iparepltoposegmentdirection: str, valid values ['both', 'left-right', 'right-left']
         :param o_nsds5replicaenabled: Whether a replication agreement is active, meaning whether replication is occurring per that agreement
-        :type  o_nsds5replicaenabled: StrEnum
+        :type  o_nsds5replicaenabled: str, valid values ['on', 'off']
         """
         method = 'topologysegment_find'
 
@@ -19920,34 +19918,34 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a segment.
         :param a_topologysuffixcn: Suffix name
-        :type  a_topologysuffixcn: Str
+        :type  a_topologysuffixcn: str
         :param a_cn: Arbitrary string identifying the segment
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_nsds5replicatimeout: Number of seconds outbound LDAP operations waits for a response from the remote replica before timing out and failing
-        :type  o_nsds5replicatimeout: Int
+        :type  o_nsds5replicatimeout: int, min value 0, max value 2147483647
         :param o_nsds5replicatedattributelist: Attributes that are not replicated to a consumer server during a fractional update. E.g., `(objectclass=*) $ EXCLUDE accountlockout memberof
-        :type  o_nsds5replicatedattributelist: Str
+        :type  o_nsds5replicatedattributelist: str
         :param o_nsds5replicatedattributelisttotal: Attributes that are not replicated to a consumer server during a total update. E.g. (objectclass=*) $ EXCLUDE accountlockout
-        :type  o_nsds5replicatedattributelisttotal: Str
+        :type  o_nsds5replicatedattributelisttotal: str
         :param o_nsds5replicastripattrs: A space separated list of attributes which are removed from replication updates.
-        :type  o_nsds5replicastripattrs: Str
+        :type  o_nsds5replicastripattrs: str
         :param o_nsds5replicaenabled: Whether a replication agreement is active, meaning whether replication is occurring per that agreement
-        :type  o_nsds5replicaenabled: StrEnum
+        :type  o_nsds5replicaenabled: str, valid values ['on', 'off']
         """
         method = 'topologysegment_mod'
 
@@ -19988,15 +19986,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Request a full re-initialization of the node retrieving data from the other node.
         :param a_topologysuffixcn: Suffix name
-        :type  a_topologysuffixcn: Str
+        :type  a_topologysuffixcn: str
         :param a_cn: Arbitrary string identifying the segment
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_left: Initialize left node
-        :type  o_left: Flag
+        :type  o_left: bool
         :param o_right: Initialize right node
-        :type  o_right: Flag
+        :type  o_right: bool
         :param o_stop: Stop already started refresh of chosen node(s)
-        :type  o_stop: Flag
+        :type  o_stop: bool
         """
         method = 'topologysegment_reinitialize'
 
@@ -20024,15 +20022,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display a segment.
         :param a_topologysuffixcn: Suffix name
-        :type  a_topologysuffixcn: Str
+        :type  a_topologysuffixcn: str
         :param a_cn: Arbitrary string identifying the segment
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'topologysegment_show'
 
@@ -20058,17 +20056,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new topology suffix to be managed.
         :param a_cn: Suffix name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_iparepltopoconfroot: Managed LDAP suffix DN
         :type  o_iparepltopoconfroot: DNParam
         """
@@ -20095,9 +20093,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a topology suffix.
         :param a_cn: Suffix name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'topologysuffix_del'
 
@@ -20122,21 +20120,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for topology suffixes.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_iparepltopoconfroot: Managed LDAP suffix DN
         :type  o_iparepltopoconfroot: DNParam
         :param o_cn: Suffix name
-        :type  o_cn: Str
+        :type  o_cn: str
         """
         method = 'topologysuffix_find'
 
@@ -20172,22 +20170,22 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a topology suffix.
         :param a_cn: Suffix name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_iparepltopoconfroot: Managed LDAP suffix DN
         :type  o_iparepltopoconfroot: DNParam
         """
@@ -20220,13 +20218,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show managed suffix.
         :param a_cn: Suffix name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'topologysuffix_show'
 
@@ -20253,7 +20251,7 @@ Checks done:
   2. check if servers don't have more than the recommended number of
      replication agreements
         :param a_cn: Suffix name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'topologysuffix_verify'
 
@@ -20300,37 +20298,37 @@ or with automatic detection of the range type, and you want to configure a
 different range type, you may need to delete first the ID range using
 ipa idrange-del before retrying the command with the desired range type.
         :param a_cn: Realm name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_external: Establish external trust to a domain in another forest. The trust is not transitive beyond the domain.
         :type  o_external: Bool
         :param o_bidirectional: Establish bi-directional trust. By default trust is inbound one-way only.
         :type  o_bidirectional: Bool
         :param o_base_id: First Posix ID of the range reserved for the trusted domain
-        :type  o_base_id: Int
+        :type  o_base_id: int, min value -2147483648, max value 2147483647
         :param o_range_size: Size of the ID range reserved for the trusted domain
-        :type  o_range_size: Int
+        :type  o_range_size: int, min value -2147483648, max value 2147483647
         :param o_realm_passwd: Active Directory domain administrator's password
         :type  o_realm_passwd: Password
         :param o_trust_secret: Shared secret for the trust
         :type  o_trust_secret: Password
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_realm_admin: Active Directory domain administrator
-        :type  o_realm_admin: Str
+        :type  o_realm_admin: str
         :param o_realm_server: Domain controller for the Active Directory domain (optional)
-        :type  o_realm_server: Str
+        :type  o_realm_server: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_range_type: Type of trusted domain ID range, one of ipa-ad-trust, ipa-ad-trust-posix
-        :type  o_range_type: StrEnum
+        :type  o_range_type: str, valid values ['ipa-ad-trust', 'ipa-ad-trust-posix']
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_trust_type: Trust type (ad for Active Directory, default)
-        :type  o_trust_type: StrEnum
+        :type  o_trust_type: str, valid values ['ad']
         """
         method = 'trust_add'
 
@@ -20373,9 +20371,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a trust.
         :param a_cn: Realm name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'trust_del'
 
@@ -20399,19 +20397,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Refresh list of the domains associated with the trust
         :param a_cn: Realm name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_realm_passwd: Active Directory domain administrator's password
         :type  o_realm_passwd: Password
         :param o_realm_admin: Active Directory domain administrator
-        :type  o_realm_admin: Str
+        :type  o_realm_admin: str
         :param o_realm_server: Domain controller for the Active Directory domain (optional)
-        :type  o_realm_server: Str
+        :type  o_realm_server: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'trust_fetch_domains'
 
@@ -20447,27 +20445,27 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for trusts.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("realm")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_ipantflatname: Domain NetBIOS name
-        :type  o_ipantflatname: Str
+        :type  o_ipantflatname: str
         :param o_cn: Realm name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_ipanttrusteddomainsid: Domain Security Identifier
-        :type  o_ipanttrusteddomainsid: Str
+        :type  o_ipanttrusteddomainsid: str
         :param o_ipantsidblacklistincoming: SID blacklist incoming
-        :type  o_ipantsidblacklistincoming: Str
+        :type  o_ipantsidblacklistincoming: str
         :param o_ipantsidblacklistoutgoing: SID blacklist outgoing
-        :type  o_ipantsidblacklistoutgoing: Str
+        :type  o_ipantsidblacklistoutgoing: str
         """
         method = 'trust_find'
 
@@ -20515,28 +20513,28 @@ For multi-valued attributes, the command replaces the values already present.
     Currently only the default option to modify the LDAP attributes is
     available. More specific options will be added in coming releases.
         :param a_cn: Realm name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_ipantsidblacklistincoming: SID blacklist incoming
-        :type  o_ipantsidblacklistincoming: Str
+        :type  o_ipantsidblacklistincoming: str
         :param o_ipantsidblacklistoutgoing: SID blacklist outgoing
-        :type  o_ipantsidblacklistoutgoing: Str
+        :type  o_ipantsidblacklistoutgoing: str
         :param o_ipantadditionalsuffixes: UPN suffixes
-        :type  o_ipantadditionalsuffixes: Str
+        :type  o_ipantadditionalsuffixes: str
         """
         method = 'trust_mod'
 
@@ -20570,11 +20568,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Resolve security identifiers of users and groups in trusted domains
         :param o_sids: Security Identifiers (SIDs)
-        :type  o_sids: Str
+        :type  o_sids: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'trust_resolve'
 
@@ -20596,13 +20594,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a trust.
         :param a_cn: Realm name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'trust_show'
 
@@ -20630,23 +20628,23 @@ For multi-valued attributes, the command replaces the values already present.
         """Modify global trust configuration.
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_trust_type: Trust type (ad for Active Directory, default)
-        :type  o_trust_type: StrEnum
+        :type  o_trust_type: str, valid values ['ad']
         :param o_ipantfallbackprimarygroup: Fallback primary group
-        :type  o_ipantfallbackprimarygroup: Str
+        :type  o_ipantfallbackprimarygroup: str
         """
         method = 'trustconfig_mod'
 
@@ -20677,13 +20675,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show global trust configuration.
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_trust_type: Trust type (ad for Active Directory, default)
-        :type  o_trust_type: StrEnum
+        :type  o_trust_type: str, valid values ['ad']
         """
         method = 'trustconfig_show'
 
@@ -20711,25 +20709,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Allow access from the trusted domain
         :param a_trustcn: Realm name
-        :type  a_trustcn: Str
+        :type  a_trustcn: str
         :param a_cn: Domain name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_trust_type: Trust type (ad for Active Directory, default)
-        :type  o_trust_type: StrEnum
+        :type  o_trust_type: str, valid values ['ad']
         :param o_ipantflatname: Domain NetBIOS name
-        :type  o_ipantflatname: Str
+        :type  o_ipantflatname: str
         :param o_ipanttrusteddomainsid: Domain Security Identifier
-        :type  o_ipanttrusteddomainsid: Str
+        :type  o_ipanttrusteddomainsid: str
         """
         method = 'trustdomain_add'
 
@@ -20760,11 +20758,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove information about the domain associated with the trust.
         :param a_trustcn: Realm name
-        :type  a_trustcn: Str
+        :type  a_trustcn: str
         :param a_cn: Domain name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'trustdomain_del'
 
@@ -20784,9 +20782,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable use of IPA resources by the domain of the trust
         :param a_trustcn: Realm name
-        :type  a_trustcn: Str
+        :type  a_trustcn: str
         :param a_cn: Domain name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'trustdomain_disable'
 
@@ -20805,9 +20803,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Allow use of IPA resources by the domain of the trust
         :param a_trustcn: Realm name
-        :type  a_trustcn: Str
+        :type  a_trustcn: str
         :param a_cn: Domain name
-        :type  a_cn: Str
+        :type  a_cn: str
         """
         method = 'trustdomain_enable'
 
@@ -20834,25 +20832,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search domains of the trust
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param a_trustcn: Realm name
-        :type  a_trustcn: Str
+        :type  a_trustcn: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_pkey_only: Results should contain primary key attribute only ("domain")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_cn: Domain name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_ipantflatname: Domain NetBIOS name
-        :type  o_ipantflatname: Str
+        :type  o_ipantflatname: str
         :param o_ipanttrusteddomainsid: Domain Security Identifier
-        :type  o_ipanttrusteddomainsid: Str
+        :type  o_ipanttrusteddomainsid: str
         """
         method = 'trustdomain_find'
 
@@ -20894,30 +20892,30 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify trustdomain of the trust
         :param a_trustcn: Realm name
-        :type  a_trustcn: Str
+        :type  a_trustcn: str
         :param a_cn: Domain name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_trust_type: Trust type (ad for Active Directory, default)
-        :type  o_trust_type: StrEnum
+        :type  o_trust_type: str, valid values ['ad']
         :param o_ipantflatname: Domain NetBIOS name
-        :type  o_ipantflatname: Str
+        :type  o_ipantflatname: str
         :param o_ipanttrusteddomainsid: Domain Security Identifier
-        :type  o_ipanttrusteddomainsid: Str
+        :type  o_ipanttrusteddomainsid: str
         """
         method = 'trustdomain_mod'
 
@@ -20994,23 +20992,23 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a new user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_noprivate: Don't create user private group
-        :type  o_noprivate: Flag
+        :type  o_noprivate: bool
         :param o_random: Generate a random user password
-        :type  o_random: Flag
+        :type  o_random: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_nsaccountlock: Account disabled
         :type  o_nsaccountlock: Bool
         :param o_usercertificate: Base-64 encoded user certificate
@@ -21020,73 +21018,73 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_krbprincipalexpiration: Kerberos principal expiration
         :type  o_krbprincipalexpiration: DateTime
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number (system will assign one if not provided)
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_userpassword: Prompt to set the user password
         :type  o_userpassword: Password
         :param o_carlicense: Car License
-        :type  o_carlicense: Str
+        :type  o_carlicense: str
         :param o_l: City
-        :type  o_l: Str
+        :type  o_l: str
         :param o_userclass: User category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_departmentnumber: Department Number
-        :type  o_departmentnumber: Str
+        :type  o_departmentnumber: str
         :param o_mail: Email address
-        :type  o_mail: Str
+        :type  o_mail: str
         :param o_employeenumber: Employee Number
-        :type  o_employeenumber: Str
+        :type  o_employeenumber: str
         :param o_employeetype: Employee Type
-        :type  o_employeetype: Str
+        :type  o_employeetype: str
         :param o_facsimiletelephonenumber: Fax Number
-        :type  o_facsimiletelephonenumber: Str
+        :type  o_facsimiletelephonenumber: str
         :param o_givenname: First name
-        :type  o_givenname: Str
+        :type  o_givenname: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_sn: Last name
-        :type  o_sn: Str
+        :type  o_sn: str
         :param o_manager: Manager
-        :type  o_manager: Str
+        :type  o_manager: str
         :param o_mobile: Mobile Telephone Number
-        :type  o_mobile: Str
+        :type  o_mobile: str
         :param o_ou: Org. Unit
-        :type  o_ou: Str
+        :type  o_ou: str
         :param o_pager: Pager Number
-        :type  o_pager: Str
+        :type  o_pager: str
         :param o_telephonenumber: Telephone Number
-        :type  o_telephonenumber: Str
+        :type  o_telephonenumber: str
         :param o_postalcode: ZIP
-        :type  o_postalcode: Str
+        :type  o_postalcode: str
         :param o_preferredlanguage: Preferred Language
-        :type  o_preferredlanguage: Str
+        :type  o_preferredlanguage: str
         :param o_ipatokenradiusconfiglink: RADIUS proxy configuration
-        :type  o_ipatokenradiusconfiglink: Str
+        :type  o_ipatokenradiusconfiglink: str
         :param o_ipatokenradiususername: RADIUS proxy username
-        :type  o_ipatokenradiususername: Str
+        :type  o_ipatokenradiususername: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         :param o_ipasshpubkey: SSH public key
-        :type  o_ipasshpubkey: Str
+        :type  o_ipasshpubkey: str
         :param o_st: State/Province
-        :type  o_st: Str
+        :type  o_st: str
         :param o_street: Street address
-        :type  o_street: Str
+        :type  o_street: str
         :param o_title: Job Title
-        :type  o_title: Str
+        :type  o_title: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: StrEnum
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         :param o_krbprincipalname: Principal alias
         :type  o_krbprincipalname: Principal
         :param o_cn: Full name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_displayname: Display name
-        :type  o_displayname: Str
+        :type  o_displayname: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_initials: Initials
-        :type  o_initials: Str
+        :type  o_initials: str
         """
         method = 'user_add'
 
@@ -21190,13 +21188,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add one or more certificates to the user entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
@@ -21226,9 +21224,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add one or more certificate mappings to the user entry.
         :param a_ipacertmapdata: Certificate mapping data
-        :type  a_ipacertmapdata: Str
+        :type  a_ipacertmapdata: str
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_certificate: Base-64 encoded user certificate
         :type  o_certificate: Certificate
         :param o_issuer: Issuer of the certificate
@@ -21236,11 +21234,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_subject: Subject of the certificate
         :type  o_subject: DNParam
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'user_add_certmapdata'
 
@@ -21271,15 +21269,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add a manager to the user entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'user_add_manager'
 
@@ -21305,15 +21303,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add new principal alias to the user entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param a_krbprincipalname: Principal alias
         :type  a_krbprincipalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'user_add_principal'
 
@@ -21336,11 +21334,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_preserve: <preserve>
         :type  o_preserve: Bool
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'user_del'
 
@@ -21360,7 +21358,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Disable a user account.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         """
         method = 'user_disable'
 
@@ -21377,7 +21375,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Enable a user account.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         """
         method = 'user_enable'
 
@@ -21450,43 +21448,43 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for users.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_preserved: Preserved user
         :type  o_preserved: Bool
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_in_group: Search for users with these member of groups.
-        :type  o_in_group: Str
+        :type  o_in_group: str
         :param o_in_hbacrule: Search for users with these member of HBAC rules.
-        :type  o_in_hbacrule: Str
+        :type  o_in_hbacrule: str
         :param o_in_netgroup: Search for users with these member of netgroups.
-        :type  o_in_netgroup: Str
+        :type  o_in_netgroup: str
         :param o_in_role: Search for users with these member of roles.
-        :type  o_in_role: Str
+        :type  o_in_role: str
         :param o_in_sudorule: Search for users with these member of sudo rules.
-        :type  o_in_sudorule: Str
+        :type  o_in_sudorule: str
         :param o_not_in_group: Search for users without these member of groups.
-        :type  o_not_in_group: Str
+        :type  o_not_in_group: str
         :param o_not_in_hbacrule: Search for users without these member of HBAC rules.
-        :type  o_not_in_hbacrule: Str
+        :type  o_not_in_hbacrule: str
         :param o_not_in_netgroup: Search for users without these member of netgroups.
-        :type  o_not_in_netgroup: Str
+        :type  o_not_in_netgroup: str
         :param o_not_in_role: Search for users without these member of roles.
-        :type  o_not_in_role: Str
+        :type  o_not_in_role: str
         :param o_not_in_sudorule: Search for users without these member of sudo rules.
-        :type  o_not_in_sudorule: Str
+        :type  o_not_in_sudorule: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("login")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_whoami: Display user record for current Kerberos principal
-        :type  o_whoami: Flag
+        :type  o_whoami: bool
         :param o_nsaccountlock: Account disabled
         :type  o_nsaccountlock: Bool
         :param o_usercertificate: Base-64 encoded user certificate
@@ -21496,73 +21494,73 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_krbprincipalexpiration: Kerberos principal expiration
         :type  o_krbprincipalexpiration: DateTime
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number (system will assign one if not provided)
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_userpassword: Prompt to set the user password
         :type  o_userpassword: Password
         :param o_krbprincipalname: Principal alias
         :type  o_krbprincipalname: Principal
         :param o_carlicense: Car License
-        :type  o_carlicense: Str
+        :type  o_carlicense: str
         :param o_l: City
-        :type  o_l: Str
+        :type  o_l: str
         :param o_userclass: User category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_cn: Full name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_departmentnumber: Department Number
-        :type  o_departmentnumber: Str
+        :type  o_departmentnumber: str
         :param o_displayname: Display name
-        :type  o_displayname: Str
+        :type  o_displayname: str
         :param o_mail: Email address
-        :type  o_mail: Str
+        :type  o_mail: str
         :param o_employeenumber: Employee Number
-        :type  o_employeenumber: Str
+        :type  o_employeenumber: str
         :param o_employeetype: Employee Type
-        :type  o_employeetype: Str
+        :type  o_employeetype: str
         :param o_facsimiletelephonenumber: Fax Number
-        :type  o_facsimiletelephonenumber: Str
+        :type  o_facsimiletelephonenumber: str
         :param o_givenname: First name
-        :type  o_givenname: Str
+        :type  o_givenname: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_initials: Initials
-        :type  o_initials: Str
+        :type  o_initials: str
         :param o_sn: Last name
-        :type  o_sn: Str
+        :type  o_sn: str
         :param o_uid: User login
-        :type  o_uid: Str
+        :type  o_uid: str
         :param o_manager: Manager
-        :type  o_manager: Str
+        :type  o_manager: str
         :param o_mobile: Mobile Telephone Number
-        :type  o_mobile: Str
+        :type  o_mobile: str
         :param o_ou: Org. Unit
-        :type  o_ou: Str
+        :type  o_ou: str
         :param o_pager: Pager Number
-        :type  o_pager: Str
+        :type  o_pager: str
         :param o_telephonenumber: Telephone Number
-        :type  o_telephonenumber: Str
+        :type  o_telephonenumber: str
         :param o_postalcode: ZIP
-        :type  o_postalcode: Str
+        :type  o_postalcode: str
         :param o_preferredlanguage: Preferred Language
-        :type  o_preferredlanguage: Str
+        :type  o_preferredlanguage: str
         :param o_ipatokenradiusconfiglink: RADIUS proxy configuration
-        :type  o_ipatokenradiusconfiglink: Str
+        :type  o_ipatokenradiusconfiglink: str
         :param o_ipatokenradiususername: RADIUS proxy username
-        :type  o_ipatokenradiususername: Str
+        :type  o_ipatokenradiususername: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         :param o_st: State/Province
-        :type  o_st: Str
+        :type  o_st: str
         :param o_street: Street address
-        :type  o_street: Str
+        :type  o_street: str
         :param o_title: Job Title
-        :type  o_title: Str
+        :type  o_title: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: StrEnum
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         """
         method = 'user_find'
 
@@ -21734,28 +21732,28 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Modify a user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_rename: Rename the user object
-        :type  o_rename: Str
+        :type  o_rename: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_random: Generate a random user password
-        :type  o_random: Flag
+        :type  o_random: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_nsaccountlock: Account disabled
         :type  o_nsaccountlock: Bool
         :param o_usercertificate: Base-64 encoded user certificate
@@ -21765,73 +21763,73 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_krbprincipalexpiration: Kerberos principal expiration
         :type  o_krbprincipalexpiration: DateTime
         :param o_gidnumber: Group ID Number
-        :type  o_gidnumber: Int
+        :type  o_gidnumber: int, min value 1, max value 2147483647
         :param o_uidnumber: User ID Number (system will assign one if not provided)
-        :type  o_uidnumber: Int
+        :type  o_uidnumber: int, min value 1, max value 2147483647
         :param o_userpassword: Prompt to set the user password
         :type  o_userpassword: Password
         :param o_krbprincipalname: Principal alias
         :type  o_krbprincipalname: Principal
         :param o_carlicense: Car License
-        :type  o_carlicense: Str
+        :type  o_carlicense: str
         :param o_l: City
-        :type  o_l: Str
+        :type  o_l: str
         :param o_userclass: User category (semantics placed on this attribute are for local interpretation)
-        :type  o_userclass: Str
+        :type  o_userclass: str
         :param o_cn: Full name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_departmentnumber: Department Number
-        :type  o_departmentnumber: Str
+        :type  o_departmentnumber: str
         :param o_displayname: Display name
-        :type  o_displayname: Str
+        :type  o_displayname: str
         :param o_mail: Email address
-        :type  o_mail: Str
+        :type  o_mail: str
         :param o_employeenumber: Employee Number
-        :type  o_employeenumber: Str
+        :type  o_employeenumber: str
         :param o_employeetype: Employee Type
-        :type  o_employeetype: Str
+        :type  o_employeetype: str
         :param o_facsimiletelephonenumber: Fax Number
-        :type  o_facsimiletelephonenumber: Str
+        :type  o_facsimiletelephonenumber: str
         :param o_givenname: First name
-        :type  o_givenname: Str
+        :type  o_givenname: str
         :param o_gecos: GECOS
-        :type  o_gecos: Str
+        :type  o_gecos: str
         :param o_homedirectory: Home directory
-        :type  o_homedirectory: Str
+        :type  o_homedirectory: str
         :param o_initials: Initials
-        :type  o_initials: Str
+        :type  o_initials: str
         :param o_sn: Last name
-        :type  o_sn: Str
+        :type  o_sn: str
         :param o_manager: Manager
-        :type  o_manager: Str
+        :type  o_manager: str
         :param o_mobile: Mobile Telephone Number
-        :type  o_mobile: Str
+        :type  o_mobile: str
         :param o_ou: Org. Unit
-        :type  o_ou: Str
+        :type  o_ou: str
         :param o_pager: Pager Number
-        :type  o_pager: Str
+        :type  o_pager: str
         :param o_telephonenumber: Telephone Number
-        :type  o_telephonenumber: Str
+        :type  o_telephonenumber: str
         :param o_postalcode: ZIP
-        :type  o_postalcode: Str
+        :type  o_postalcode: str
         :param o_preferredlanguage: Preferred Language
-        :type  o_preferredlanguage: Str
+        :type  o_preferredlanguage: str
         :param o_ipatokenradiusconfiglink: RADIUS proxy configuration
-        :type  o_ipatokenradiusconfiglink: Str
+        :type  o_ipatokenradiusconfiglink: str
         :param o_ipatokenradiususername: RADIUS proxy username
-        :type  o_ipatokenradiususername: Str
+        :type  o_ipatokenradiususername: str
         :param o_loginshell: Login shell
-        :type  o_loginshell: Str
+        :type  o_loginshell: str
         :param o_ipasshpubkey: SSH public key
-        :type  o_ipasshpubkey: Str
+        :type  o_ipasshpubkey: str
         :param o_st: State/Province
-        :type  o_st: Str
+        :type  o_st: str
         :param o_street: Street address
-        :type  o_street: Str
+        :type  o_street: str
         :param o_title: Job Title
-        :type  o_title: Str
+        :type  o_title: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: StrEnum
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         """
         method = 'user_mod'
 
@@ -21942,13 +21940,13 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove one or more certificates to the user entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
@@ -21978,9 +21976,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove one or more certificate mappings from the user entry.
         :param a_ipacertmapdata: Certificate mapping data
-        :type  a_ipacertmapdata: Str
+        :type  a_ipacertmapdata: str
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_certificate: Base-64 encoded user certificate
         :type  o_certificate: Certificate
         :param o_issuer: Issuer of the certificate
@@ -21988,11 +21986,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_subject: Subject of the certificate
         :type  o_subject: DNParam
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'user_remove_certmapdata'
 
@@ -22023,15 +22021,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove a manager to the user entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'user_remove_manager'
 
@@ -22057,15 +22055,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove principal alias from the user entry
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param a_krbprincipalname: Principal alias
         :type  a_krbprincipalname: Principal
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'user_remove_principal'
 
@@ -22091,17 +22089,17 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a user.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_out: file to store certificate in
-        :type  o_out: Str
+        :type  o_out: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         """
         method = 'user_show'
 
@@ -22125,9 +22123,9 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Move deleted user into staged area
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         """
         method = 'user_stage'
 
@@ -22167,11 +22165,11 @@ For multi-valued attributes, the command replaces the values already present.
     login attempt is older than the lockouttime of the password policy. This
     means that the user may attempt a login again.
         :param a_useruid: User login
-        :type  a_useruid: Str
+        :type  a_useruid: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'user_status'
 
@@ -22190,7 +22188,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Undelete a delete user account.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         """
         method = 'user_undel'
 
@@ -22213,7 +22211,7 @@ For multi-valued attributes, the command replaces the values already present.
     policy. A locked account is a temporary condition and may be unlocked by
     an administrator.
         :param a_uid: User login
-        :type  a_uid: Str
+        :type  a_uid: str
         """
         method = 'user_unlock'
 
@@ -22242,33 +22240,33 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_ipavaultpublickey: Vault public key
         :type  o_ipavaultpublickey: Bytes
         :param o_ipavaultsalt: Vault salt
         :type  o_ipavaultsalt: Bytes
         :param o_description: Vault description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipavaulttype: Vault type
-        :type  o_ipavaulttype: StrEnum
+        :type  o_ipavaulttype: str, valid values ['standard', 'symmetric', 'asymmetric']
         """
         method = 'vault_add_internal'
 
@@ -22315,25 +22313,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add members to a vault.
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_services: services to add
-        :type  o_services: Str
+        :type  o_services: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'vault_add_member'
 
@@ -22374,25 +22372,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Add owners to a vault.
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_services: services to add
-        :type  o_services: Str
+        :type  o_services: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'vault_add_owner'
 
@@ -22432,7 +22430,7 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_nonce: Nonce
         :type  o_nonce: Bytes
         :param o_session_key: Session key wrapped with transport certificate
@@ -22442,13 +22440,13 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         """
         method = 'vault_archive_internal'
 
@@ -22480,15 +22478,15 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Delete a vault.
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         """
         method = 'vault_del'
 
@@ -22526,35 +22524,35 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Search for vaults.
         :param a_criteria: A string searched in all relevant object attributes
-        :type  a_criteria: Str
+        :type  a_criteria: str
         :param o_sizelimit: Maximum number of entries returned (0 is unlimited)
-        :type  o_sizelimit: Int
+        :type  o_sizelimit: int, min value 0, max value 2147483647
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
-        :type  o_timelimit: Int
+        :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_pkey_only: Results should contain primary key attribute only ("name")
-        :type  o_pkey_only: Flag
+        :type  o_pkey_only: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_services: List all service vaults
-        :type  o_services: Flag
+        :type  o_services: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_users: List all user vaults
-        :type  o_users: Flag
+        :type  o_users: bool
         :param o_description: Vault description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_cn: Vault name
-        :type  o_cn: Str
+        :type  o_cn: str
         :param o_ipavaulttype: Vault type
-        :type  o_ipavaulttype: StrEnum
+        :type  o_ipavaulttype: str, valid values ['standard', 'symmetric', 'asymmetric']
         """
         method = 'vault_find'
 
@@ -22610,38 +22608,38 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_addattr: Add an attribute/value pair. Format is attr=value. The attribute
 must be part of the schema.
-        :type  o_addattr: Str
+        :type  o_addattr: str
         :param o_delattr: Delete an attribute/value pair. The option will be evaluated
 last, after all sets and adds.
-        :type  o_delattr: Str
+        :type  o_delattr: str
         :param o_setattr: Set an attribute to a name/value pair. Format is attr=value.
 For multi-valued attributes, the command replaces the values already present.
-        :type  o_setattr: Str
+        :type  o_setattr: str
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_ipavaultpublickey: Vault public key
         :type  o_ipavaultpublickey: Bytes
         :param o_ipavaultsalt: Vault salt
         :type  o_ipavaultsalt: Bytes
         :param o_description: Vault description
-        :type  o_description: Str
+        :type  o_description: str
         :param o_ipavaulttype: Vault type
-        :type  o_ipavaulttype: StrEnum
+        :type  o_ipavaulttype: str, valid values ['standard', 'symmetric', 'asymmetric']
         """
         method = 'vault_mod_internal'
 
@@ -22691,25 +22689,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove members from a vault.
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_services: services to remove
-        :type  o_services: Str
+        :type  o_services: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'vault_remove_member'
 
@@ -22750,25 +22748,25 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Remove owners from a vault.
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_services: services to remove
-        :type  o_services: Str
+        :type  o_services: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'vault_remove_owner'
 
@@ -22806,19 +22804,19 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """None
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_session_key: Session key wrapped with transport certificate
         :type  o_session_key: Bytes
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         """
         method = 'vault_retrieve_internal'
 
@@ -22851,21 +22849,21 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Display information about a vault.
         :param a_cn: Vault name
-        :type  a_cn: Str
+        :type  a_cn: str
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         """
         method = 'vault_show'
 
@@ -22894,11 +22892,11 @@ For multi-valued attributes, the command replaces the values already present.
     ):
         """Show vault configuration.
         :param o_transport_out: Output file to store the transport certificate
-        :type  o_transport_out: Str
+        :type  o_transport_out: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         """
         method = 'vaultconfig_show'
 
@@ -22928,21 +22926,21 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_group: groups to add
-        :type  o_group: Str
+        :type  o_group: str
         :param o_services: services to add
-        :type  o_services: Str
+        :type  o_services: str
         :param o_user: users to add
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'vaultcontainer_add_owner'
 
@@ -22978,11 +22976,11 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_continue: Continuous mode: Don't stop on errors.
-        :type  o_continue: Flag
+        :type  o_continue: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         """
         method = 'vaultcontainer_del'
 
@@ -23015,21 +23013,21 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         :param o_group: groups to remove
-        :type  o_group: Str
+        :type  o_group: str
         :param o_services: services to remove
-        :type  o_services: Str
+        :type  o_services: str
         :param o_user: users to remove
-        :type  o_user: Str
+        :type  o_user: str
         """
         method = 'vaultcontainer_remove_owner'
 
@@ -23068,17 +23066,17 @@ For multi-valued attributes, the command replaces the values already present.
         :param o_service: Service name of the service vault
         :type  o_service: Principal
         :param o_username: Username of the user vault
-        :type  o_username: Str
+        :type  o_username: str
         :param o_all: Retrieve and print all attributes from the server. Affects command output.
-        :type  o_all: Flag
+        :type  o_all: bool
         :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: Flag
+        :type  o_no_members: bool
         :param o_raw: Print entries as stored on the server. Only affects output format.
-        :type  o_raw: Flag
+        :type  o_raw: bool
         :param o_rights: Display the access rights of this entry (requires --all). See ipa man page for details.
-        :type  o_rights: Flag
+        :type  o_rights: bool
         :param o_shared: Shared vault
-        :type  o_shared: Flag
+        :type  o_shared: bool
         """
         method = 'vaultcontainer_show'
 
