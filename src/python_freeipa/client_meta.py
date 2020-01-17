@@ -64,29 +64,29 @@ class ClientMeta(Client):
         _args.append(a_aciname)
 
         _params = dict()
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_filter:
+        if o_filter is not None:
             _params['filter'] = o_filter
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
-        if o_permission:
+        if o_permission is not None:
             _params['permission'] = o_permission
         _params['permissions'] = o_permissions
-        if o_subtree:
+        if o_subtree is not None:
             _params['subtree'] = o_subtree
-        if o_targetgroup:
+        if o_targetgroup is not None:
             _params['targetgroup'] = o_targetgroup
         _params['aciprefix'] = o_aciprefix
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_selfaci:
+        if o_selfaci is not None:
             _params['selfaci'] = o_selfaci
-        if o_test:
+        if o_test is not None:
             _params['test'] = o_test
 
         return self._request(method, _args, _params)
@@ -189,32 +189,32 @@ class ClientMeta(Client):
         _args.append(a_criteria)
 
         _params = dict()
-        if o_selfaci:
+        if o_selfaci is not None:
             _params['selfaci'] = o_selfaci
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_filter:
+        if o_filter is not None:
             _params['filter'] = o_filter
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
-        if o_aciname:
+        if o_aciname is not None:
             _params['aciname'] = o_aciname
-        if o_permission:
+        if o_permission is not None:
             _params['permission'] = o_permission
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
-        if o_subtree:
+        if o_subtree is not None:
             _params['subtree'] = o_subtree
-        if o_targetgroup:
+        if o_targetgroup is not None:
             _params['targetgroup'] = o_targetgroup
-        if o_aciprefix:
+        if o_aciprefix is not None:
             _params['aciprefix'] = o_aciprefix
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
 
@@ -274,28 +274,28 @@ class ClientMeta(Client):
         _args.append(a_aciname)
 
         _params = dict()
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_filter:
+        if o_filter is not None:
             _params['filter'] = o_filter
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
-        if o_permission:
+        if o_permission is not None:
             _params['permission'] = o_permission
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
-        if o_subtree:
+        if o_subtree is not None:
             _params['subtree'] = o_subtree
-        if o_targetgroup:
+        if o_targetgroup is not None:
             _params['targetgroup'] = o_targetgroup
         _params['aciprefix'] = o_aciprefix
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_selfaci:
+        if o_selfaci is not None:
             _params['selfaci'] = o_selfaci
 
         return self._request(method, _args, _params)
@@ -357,29 +357,29 @@ class ClientMeta(Client):
         _args.append(a_aciname)
 
         _params = dict()
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_filter:
+        if o_filter is not None:
             _params['filter'] = o_filter
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
         _params['newname'] = o_newname
-        if o_permission:
+        if o_permission is not None:
             _params['permission'] = o_permission
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
-        if o_subtree:
+        if o_subtree is not None:
             _params['subtree'] = o_subtree
-        if o_targetgroup:
+        if o_targetgroup is not None:
             _params['targetgroup'] = o_targetgroup
         _params['aciprefix'] = o_aciprefix
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_selfaci:
+        if o_selfaci is not None:
             _params['selfaci'] = o_selfaci
 
         return self._request(method, _args, _params)
@@ -411,7 +411,7 @@ class ClientMeta(Client):
         _args.append(a_aciname)
 
         _params = dict()
-        if o_location:
+        if o_location is not None:
             _params['location'] = o_location
         _params['aciprefix'] = o_aciprefix
         _params['all'] = o_all
@@ -467,14 +467,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -519,11 +519,11 @@ For multi-valued attributes, the command replaces the values already present.
         _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_automemberexclusiveregex:
+        if o_automemberexclusiveregex is not None:
             _params['automemberexclusiveregex'] = o_automemberexclusiveregex
-        if o_automemberinclusiveregex:
+        if o_automemberinclusiveregex is not None:
             _params['automemberinclusiveregex'] = o_automemberinclusiveregex
 
         return self._request(method, _args, _params)
@@ -554,7 +554,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -589,7 +589,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -674,10 +674,10 @@ For multi-valued attributes, the command replaces the values already present.
         _params = dict()
         _params['type'] = o_type
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -718,12 +718,12 @@ For multi-valued attributes, the command replaces the values already present.
         _params = dict()
         _params['type'] = o_type
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_remove:
+        if o_remove is not None:
             _params['remove'] = o_remove
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -770,17 +770,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -813,14 +813,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_hosts:
+        if o_hosts is not None:
             _params['hosts'] = o_hosts
-        if o_users:
+        if o_users is not None:
             _params['users'] = o_users
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
         _params['all'] = o_all
-        if o_no_wait:
+        if o_no_wait is not None:
             _params['no_wait'] = o_no_wait
         _params['raw'] = o_raw
 
@@ -866,11 +866,11 @@ For multi-valued attributes, the command replaces the values already present.
         _params['type'] = o_type
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_automemberexclusiveregex:
+        if o_automemberexclusiveregex is not None:
             _params['automemberexclusiveregex'] = o_automemberexclusiveregex
-        if o_automemberinclusiveregex:
+        if o_automemberinclusiveregex is not None:
             _params['automemberinclusiveregex'] = o_automemberinclusiveregex
 
         return self._request(method, _args, _params)
@@ -943,9 +943,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_automountlocationcn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -981,7 +981,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_automountlocationcn)
 
         _params = dict()
-        if o_automountinformation:
+        if o_automountinformation is not None:
             _params['automountinformation'] = o_automountinformation
         _params['automountkey'] = o_automountkey
         _params['continue'] = o_continue
@@ -1028,15 +1028,15 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_automountinformation:
+        if o_automountinformation is not None:
             _params['automountinformation'] = o_automountinformation
-        if o_automountkey:
+        if o_automountkey is not None:
             _params['automountkey'] = o_automountkey
 
         return self._request(method, _args, _params)
@@ -1092,20 +1092,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_automountlocationcn)
 
         _params = dict()
-        if o_newautomountinformation:
+        if o_newautomountinformation is not None:
             _params['newautomountinformation'] = o_newautomountinformation
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_automountinformation:
+        if o_automountinformation is not None:
             _params['automountinformation'] = o_automountinformation
         _params['automountkey'] = o_automountkey
 
@@ -1144,7 +1144,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_automountlocationcn)
 
         _params = dict()
-        if o_automountinformation:
+        if o_automountinformation is not None:
             _params['automountinformation'] = o_automountinformation
         _params['automountkey'] = o_automountkey
         _params['all'] = o_all
@@ -1181,9 +1181,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -1243,15 +1243,15 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -1337,13 +1337,13 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_automountmapname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -1389,16 +1389,16 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_automountmapname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
         _params['key'] = o_key
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_parentmap:
+        if o_parentmap is not None:
             _params['parentmap'] = o_parentmap
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -1467,17 +1467,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_automountmapname:
+        if o_automountmapname is not None:
             _params['automountmapname'] = o_automountmapname
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -1524,16 +1524,16 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_automountmapname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -1625,15 +1625,15 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['chain'] = o_chain
         _params['raw'] = o_raw
         _params['ipacasubjectdn'] = o_ipacasubjectdn
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -1737,23 +1737,23 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipacaissuerdn:
+        if o_ipacaissuerdn is not None:
             _params['ipacaissuerdn'] = o_ipacaissuerdn
-        if o_ipacasubjectdn:
+        if o_ipacasubjectdn is not None:
             _params['ipacasubjectdn'] = o_ipacasubjectdn
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipacaid:
+        if o_ipacaid is not None:
             _params['ipacaid'] = o_ipacaid
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -1813,18 +1813,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -1914,26 +1914,26 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipacacategory:
+        if o_ipacacategory is not None:
             _params['ipacacategory'] = o_ipacacategory
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_ipacertprofilecategory:
+        if o_ipacertprofilecategory is not None:
             _params['ipacertprofilecategory'] = o_ipacertprofilecategory
-        if o_servicecategory:
+        if o_servicecategory is not None:
             _params['servicecategory'] = o_servicecategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -1967,7 +1967,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_ca:
+        if o_ca is not None:
             _params['ca'] = o_ca
 
         return self._request(method, _args, _params)
@@ -2004,9 +2004,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -2040,7 +2040,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_certprofile:
+        if o_certprofile is not None:
             _params['certprofile'] = o_certprofile
 
         return self._request(method, _args, _params)
@@ -2074,7 +2074,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
 
         return self._request(method, _args, _params)
@@ -2111,9 +2111,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -2229,30 +2229,30 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_ipacacategory:
+        if o_ipacacategory is not None:
             _params['ipacacategory'] = o_ipacacategory
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_ipacertprofilecategory:
+        if o_ipacertprofilecategory is not None:
             _params['ipacertprofilecategory'] = o_ipacertprofilecategory
-        if o_servicecategory:
+        if o_servicecategory is not None:
             _params['servicecategory'] = o_servicecategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -2316,29 +2316,29 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipacacategory:
+        if o_ipacacategory is not None:
             _params['ipacacategory'] = o_ipacacategory
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_ipacertprofilecategory:
+        if o_ipacertprofilecategory is not None:
             _params['ipacertprofilecategory'] = o_ipacertprofilecategory
-        if o_servicecategory:
+        if o_servicecategory is not None:
             _params['servicecategory'] = o_servicecategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -2372,7 +2372,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_ca:
+        if o_ca is not None:
             _params['ca'] = o_ca
 
         return self._request(method, _args, _params)
@@ -2409,9 +2409,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -2445,7 +2445,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_certprofile:
+        if o_certprofile is not None:
             _params['certprofile'] = o_certprofile
 
         return self._request(method, _args, _params)
@@ -2479,7 +2479,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
 
         return self._request(method, _args, _params)
@@ -2516,9 +2516,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -2654,58 +2654,58 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_issuedon_from:
+        if o_issuedon_from is not None:
             _params['issuedon_from'] = o_issuedon_from
-        if o_issuedon_to:
+        if o_issuedon_to is not None:
             _params['issuedon_to'] = o_issuedon_to
-        if o_revokedon_from:
+        if o_revokedon_from is not None:
             _params['revokedon_from'] = o_revokedon_from
-        if o_revokedon_to:
+        if o_revokedon_to is not None:
             _params['revokedon_to'] = o_revokedon_to
-        if o_validnotafter_from:
+        if o_validnotafter_from is not None:
             _params['validnotafter_from'] = o_validnotafter_from
-        if o_validnotafter_to:
+        if o_validnotafter_to is not None:
             _params['validnotafter_to'] = o_validnotafter_to
-        if o_validnotbefore_from:
+        if o_validnotbefore_from is not None:
             _params['validnotbefore_from'] = o_validnotbefore_from
-        if o_validnotbefore_to:
+        if o_validnotbefore_to is not None:
             _params['validnotbefore_to'] = o_validnotbefore_to
-        if o_max_serial_number:
+        if o_max_serial_number is not None:
             _params['max_serial_number'] = o_max_serial_number
-        if o_min_serial_number:
+        if o_min_serial_number is not None:
             _params['min_serial_number'] = o_min_serial_number
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_no_service:
+        if o_no_service is not None:
             _params['no_service'] = o_no_service
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_cacn:
+        if o_cacn is not None:
             _params['cacn'] = o_cacn
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_no_host:
+        if o_no_host is not None:
             _params['no_host'] = o_no_host
-        if o_no_user:
+        if o_no_user is not None:
             _params['no_user'] = o_no_user
-        if o_subject:
+        if o_subject is not None:
             _params['subject'] = o_subject
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
         _params['all'] = o_all
-        if o_exactly:
+        if o_exactly is not None:
             _params['exactly'] = o_exactly
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_certificate:
+        if o_certificate is not None:
             _params['certificate'] = o_certificate
-        if o_issuer:
+        if o_issuer is not None:
             _params['issuer'] = o_issuer
-        if o_revocation_reason:
+        if o_revocation_reason is not None:
             _params['revocation_reason'] = o_revocation_reason
 
         return self._request(method, _args, _params)
@@ -2727,7 +2727,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_serial_number)
 
         _params = dict()
-        if o_cacn:
+        if o_cacn is not None:
             _params['cacn'] = o_cacn
 
         return self._request(method, _args, _params)
@@ -2775,9 +2775,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['chain'] = o_chain
         _params['raw'] = o_raw
-        if o_cacn:
+        if o_cacn is not None:
             _params['cacn'] = o_cacn
-        if o_profile_id:
+        if o_profile_id is not None:
             _params['profile_id'] = o_profile_id
         _params['request_type'] = o_request_type
 
@@ -2804,7 +2804,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['revocation_reason'] = o_revocation_reason
-        if o_cacn:
+        if o_cacn is not None:
             _params['cacn'] = o_cacn
 
         return self._request(method, _args, _params)
@@ -2841,13 +2841,13 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_serial_number)
 
         _params = dict()
-        if o_out:
+        if o_out is not None:
             _params['out'] = o_out
         _params['all'] = o_all
         _params['chain'] = o_chain
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_cacn:
+        if o_cacn is not None:
             _params['cacn'] = o_cacn
 
         return self._request(method, _args, _params)
@@ -2877,7 +2877,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params = dict()
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_cacn:
+        if o_cacn is not None:
             _params['cacn'] = o_cacn
 
         return self._request(method, _args, _params)
@@ -2946,16 +2946,16 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipacertmappromptusername:
+        if o_ipacertmappromptusername is not None:
             _params['ipacertmappromptusername'] = o_ipacertmappromptusername
 
         return self._request(method, _args, _params)
@@ -3031,23 +3031,23 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_associateddomain:
+        if o_associateddomain is not None:
             _params['associateddomain'] = o_associateddomain
-        if o_ipacertmappriority:
+        if o_ipacertmappriority is not None:
             _params['ipacertmappriority'] = o_ipacertmappriority
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipacertmapmaprule:
+        if o_ipacertmapmaprule is not None:
             _params['ipacertmapmaprule'] = o_ipacertmapmaprule
-        if o_ipacertmapmatchrule:
+        if o_ipacertmapmatchrule is not None:
             _params['ipacertmapmatchrule'] = o_ipacertmapmatchrule
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
 
         return self._request(method, _args, _params)
@@ -3157,27 +3157,27 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_associateddomain:
+        if o_associateddomain is not None:
             _params['associateddomain'] = o_associateddomain
-        if o_ipacertmappriority:
+        if o_ipacertmappriority is not None:
             _params['ipacertmappriority'] = o_ipacertmappriority
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipacertmapmaprule:
+        if o_ipacertmapmaprule is not None:
             _params['ipacertmapmaprule'] = o_ipacertmapmaprule
-        if o_ipacertmapmatchrule:
+        if o_ipacertmapmatchrule is not None:
             _params['ipacertmapmatchrule'] = o_ipacertmapmatchrule
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -3235,26 +3235,26 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_associateddomain:
+        if o_associateddomain is not None:
             _params['associateddomain'] = o_associateddomain
-        if o_ipacertmappriority:
+        if o_ipacertmappriority is not None:
             _params['ipacertmappriority'] = o_ipacertmappriority
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipacertmapmaprule:
+        if o_ipacertmapmaprule is not None:
             _params['ipacertmapmaprule'] = o_ipacertmapmaprule
-        if o_ipacertmapmatchrule:
+        if o_ipacertmapmatchrule is not None:
             _params['ipacertmapmatchrule'] = o_ipacertmapmatchrule
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
 
         return self._request(method, _args, _params)
@@ -3347,19 +3347,19 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipacertprofilestoreissued:
+        if o_ipacertprofilestoreissued is not None:
             _params['ipacertprofilestoreissued'] = o_ipacertprofilestoreissued
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -3445,20 +3445,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_file:
+        if o_file is not None:
             _params['file'] = o_file
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipacertprofilestoreissued:
+        if o_ipacertprofilestoreissued is not None:
             _params['ipacertprofilestoreissued'] = o_ipacertprofilestoreissued
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -3489,7 +3489,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_out:
+        if o_out is not None:
             _params['out'] = o_out
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -3521,7 +3521,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
 
@@ -3572,9 +3572,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_full_name)
 
         _params = dict()
-        if o_kw:
+        if o_kw is not None:
             _params['kw'] = o_kw
-        if o_params:
+        if o_params is not None:
             _params['params'] = o_params
 
         return self._request(method, _args, _params)
@@ -3603,7 +3603,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
 
@@ -3738,54 +3738,54 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_ca_renewal_master_server:
+        if o_ca_renewal_master_server is not None:
             _params['ca_renewal_master_server'] = o_ca_renewal_master_server
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipamigrationenabled:
+        if o_ipamigrationenabled is not None:
             _params['ipamigrationenabled'] = o_ipamigrationenabled
-        if o_ipagroupsearchfields:
+        if o_ipagroupsearchfields is not None:
             _params['ipagroupsearchfields'] = o_ipagroupsearchfields
-        if o_ipahomesrootdir:
+        if o_ipahomesrootdir is not None:
             _params['ipahomesrootdir'] = o_ipahomesrootdir
-        if o_ipausersearchfields:
+        if o_ipausersearchfields is not None:
             _params['ipausersearchfields'] = o_ipausersearchfields
-        if o_ipamaxusernamelength:
+        if o_ipamaxusernamelength is not None:
             _params['ipamaxusernamelength'] = o_ipamaxusernamelength
-        if o_ipapwdexpadvnotify:
+        if o_ipapwdexpadvnotify is not None:
             _params['ipapwdexpadvnotify'] = o_ipapwdexpadvnotify
-        if o_ipasearchrecordslimit:
+        if o_ipasearchrecordslimit is not None:
             _params['ipasearchrecordslimit'] = o_ipasearchrecordslimit
-        if o_ipasearchtimelimit:
+        if o_ipasearchtimelimit is not None:
             _params['ipasearchtimelimit'] = o_ipasearchtimelimit
-        if o_ipadefaultprimarygroup:
+        if o_ipadefaultprimarygroup is not None:
             _params['ipadefaultprimarygroup'] = o_ipadefaultprimarygroup
-        if o_ipadefaultloginshell:
+        if o_ipadefaultloginshell is not None:
             _params['ipadefaultloginshell'] = o_ipadefaultloginshell
-        if o_ipadomainresolutionorder:
+        if o_ipadomainresolutionorder is not None:
             _params['ipadomainresolutionorder'] = o_ipadomainresolutionorder
-        if o_ipadefaultemaildomain:
+        if o_ipadefaultemaildomain is not None:
             _params['ipadefaultemaildomain'] = o_ipadefaultemaildomain
-        if o_ipagroupobjectclasses:
+        if o_ipagroupobjectclasses is not None:
             _params['ipagroupobjectclasses'] = o_ipagroupobjectclasses
-        if o_ipaselinuxusermapdefault:
+        if o_ipaselinuxusermapdefault is not None:
             _params['ipaselinuxusermapdefault'] = o_ipaselinuxusermapdefault
-        if o_ipaselinuxusermaporder:
+        if o_ipaselinuxusermaporder is not None:
             _params['ipaselinuxusermaporder'] = o_ipaselinuxusermaporder
-        if o_ipauserobjectclasses:
+        if o_ipauserobjectclasses is not None:
             _params['ipauserobjectclasses'] = o_ipauserobjectclasses
-        if o_ipaconfigstring:
+        if o_ipaconfigstring is not None:
             _params['ipaconfigstring'] = o_ipaconfigstring
-        if o_ipakrbauthzdata:
+        if o_ipakrbauthzdata is not None:
             _params['ipakrbauthzdata'] = o_ipakrbauthzdata
-        if o_ipauserauthtype:
+        if o_ipauserauthtype is not None:
             _params['ipauserauthtype'] = o_ipauserauthtype
 
         return self._request(method, _args, _params)
@@ -3849,9 +3849,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -3919,19 +3919,19 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_krbpwdpolicyreference:
+        if o_krbpwdpolicyreference is not None:
             _params['krbpwdpolicyreference'] = o_krbpwdpolicyreference
-        if o_cospriority:
+        if o_cospriority is not None:
             _params['cospriority'] = o_cospriority
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -3977,18 +3977,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_krbpwdpolicyreference:
+        if o_krbpwdpolicyreference is not None:
             _params['krbpwdpolicyreference'] = o_krbpwdpolicyreference
-        if o_cospriority:
+        if o_cospriority is not None:
             _params['cospriority'] = o_cospriority
 
         return self._request(method, _args, _params)
@@ -4059,7 +4059,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['attrs'] = o_attrs
         _params['group'] = o_group
         _params['memberof'] = o_memberof
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
 
         return self._request(method, _args, _params)
@@ -4120,18 +4120,18 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
-        if o_aciname:
+        if o_aciname is not None:
             _params['aciname'] = o_aciname
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
 
         return self._request(method, _args, _params)
@@ -4170,13 +4170,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params = dict()
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
 
         return self._request(method, _args, _params)
@@ -4308,24 +4308,24 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_idnsallowsyncptr:
+        if o_idnsallowsyncptr is not None:
             _params['idnsallowsyncptr'] = o_idnsallowsyncptr
-        if o_ipadnsversion:
+        if o_ipadnsversion is not None:
             _params['ipadnsversion'] = o_ipadnsversion
-        if o_idnszonerefresh:
+        if o_idnszonerefresh is not None:
             _params['idnszonerefresh'] = o_idnszonerefresh
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
 
         return self._request(method, _args, _params)
@@ -4395,18 +4395,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_name_from_ip:
+        if o_name_from_ip is not None:
             _params['name_from_ip'] = o_name_from_ip
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['skip_overlap_check'] = o_skip_overlap_check
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
 
         return self._request(method, _args, _params)
@@ -4527,23 +4527,23 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_name_from_ip:
+        if o_name_from_ip is not None:
             _params['name_from_ip'] = o_name_from_ip
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_idnszoneactive:
+        if o_idnszoneactive is not None:
             _params['idnszoneactive'] = o_idnszoneactive
-        if o_idnsname:
+        if o_idnsname is not None:
             _params['idnsname'] = o_idnsname
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
 
         return self._request(method, _args, _params)
@@ -4592,20 +4592,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_name_from_ip:
+        if o_name_from_ip is not None:
             _params['name_from_ip'] = o_name_from_ip
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
 
         return self._request(method, _args, _params)
@@ -4970,197 +4970,197 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsname)
 
         _params = dict()
-        if o_afsdb_part_hostname:
+        if o_afsdb_part_hostname is not None:
             _params['afsdb_part_hostname'] = o_afsdb_part_hostname
-        if o_cname_part_hostname:
+        if o_cname_part_hostname is not None:
             _params['cname_part_hostname'] = o_cname_part_hostname
-        if o_dname_part_target:
+        if o_dname_part_target is not None:
             _params['dname_part_target'] = o_dname_part_target
-        if o_kx_part_exchanger:
+        if o_kx_part_exchanger is not None:
             _params['kx_part_exchanger'] = o_kx_part_exchanger
-        if o_mx_part_exchanger:
+        if o_mx_part_exchanger is not None:
             _params['mx_part_exchanger'] = o_mx_part_exchanger
-        if o_ns_part_hostname:
+        if o_ns_part_hostname is not None:
             _params['ns_part_hostname'] = o_ns_part_hostname
-        if o_ptr_part_hostname:
+        if o_ptr_part_hostname is not None:
             _params['ptr_part_hostname'] = o_ptr_part_hostname
-        if o_srv_part_target:
+        if o_srv_part_target is not None:
             _params['srv_part_target'] = o_srv_part_target
-        if o_loc_part_altitude:
+        if o_loc_part_altitude is not None:
             _params['loc_part_altitude'] = o_loc_part_altitude
-        if o_loc_part_h_precision:
+        if o_loc_part_h_precision is not None:
             _params['loc_part_h_precision'] = o_loc_part_h_precision
-        if o_loc_part_lat_sec:
+        if o_loc_part_lat_sec is not None:
             _params['loc_part_lat_sec'] = o_loc_part_lat_sec
-        if o_loc_part_lon_sec:
+        if o_loc_part_lon_sec is not None:
             _params['loc_part_lon_sec'] = o_loc_part_lon_sec
-        if o_loc_part_size:
+        if o_loc_part_size is not None:
             _params['loc_part_size'] = o_loc_part_size
-        if o_loc_part_v_precision:
+        if o_loc_part_v_precision is not None:
             _params['loc_part_v_precision'] = o_loc_part_v_precision
-        if o_afsdb_part_subtype:
+        if o_afsdb_part_subtype is not None:
             _params['afsdb_part_subtype'] = o_afsdb_part_subtype
-        if o_cert_part_algorithm:
+        if o_cert_part_algorithm is not None:
             _params['cert_part_algorithm'] = o_cert_part_algorithm
-        if o_cert_part_key_tag:
+        if o_cert_part_key_tag is not None:
             _params['cert_part_key_tag'] = o_cert_part_key_tag
-        if o_cert_part_type:
+        if o_cert_part_type is not None:
             _params['cert_part_type'] = o_cert_part_type
-        if o_dlv_part_algorithm:
+        if o_dlv_part_algorithm is not None:
             _params['dlv_part_algorithm'] = o_dlv_part_algorithm
-        if o_dlv_part_digest_type:
+        if o_dlv_part_digest_type is not None:
             _params['dlv_part_digest_type'] = o_dlv_part_digest_type
-        if o_dlv_part_key_tag:
+        if o_dlv_part_key_tag is not None:
             _params['dlv_part_key_tag'] = o_dlv_part_key_tag
-        if o_ds_part_algorithm:
+        if o_ds_part_algorithm is not None:
             _params['ds_part_algorithm'] = o_ds_part_algorithm
-        if o_ds_part_digest_type:
+        if o_ds_part_digest_type is not None:
             _params['ds_part_digest_type'] = o_ds_part_digest_type
-        if o_ds_part_key_tag:
+        if o_ds_part_key_tag is not None:
             _params['ds_part_key_tag'] = o_ds_part_key_tag
-        if o_kx_part_preference:
+        if o_kx_part_preference is not None:
             _params['kx_part_preference'] = o_kx_part_preference
-        if o_loc_part_lat_deg:
+        if o_loc_part_lat_deg is not None:
             _params['loc_part_lat_deg'] = o_loc_part_lat_deg
-        if o_loc_part_lat_min:
+        if o_loc_part_lat_min is not None:
             _params['loc_part_lat_min'] = o_loc_part_lat_min
-        if o_loc_part_lon_deg:
+        if o_loc_part_lon_deg is not None:
             _params['loc_part_lon_deg'] = o_loc_part_lon_deg
-        if o_loc_part_lon_min:
+        if o_loc_part_lon_min is not None:
             _params['loc_part_lon_min'] = o_loc_part_lon_min
-        if o_mx_part_preference:
+        if o_mx_part_preference is not None:
             _params['mx_part_preference'] = o_mx_part_preference
-        if o_naptr_part_order:
+        if o_naptr_part_order is not None:
             _params['naptr_part_order'] = o_naptr_part_order
-        if o_naptr_part_preference:
+        if o_naptr_part_preference is not None:
             _params['naptr_part_preference'] = o_naptr_part_preference
-        if o_srv_part_port:
+        if o_srv_part_port is not None:
             _params['srv_part_port'] = o_srv_part_port
-        if o_srv_part_priority:
+        if o_srv_part_priority is not None:
             _params['srv_part_priority'] = o_srv_part_priority
-        if o_srv_part_weight:
+        if o_srv_part_weight is not None:
             _params['srv_part_weight'] = o_srv_part_weight
-        if o_sshfp_part_algorithm:
+        if o_sshfp_part_algorithm is not None:
             _params['sshfp_part_algorithm'] = o_sshfp_part_algorithm
-        if o_sshfp_part_fp_type:
+        if o_sshfp_part_fp_type is not None:
             _params['sshfp_part_fp_type'] = o_sshfp_part_fp_type
-        if o_tlsa_part_cert_usage:
+        if o_tlsa_part_cert_usage is not None:
             _params['tlsa_part_cert_usage'] = o_tlsa_part_cert_usage
-        if o_tlsa_part_matching_type:
+        if o_tlsa_part_matching_type is not None:
             _params['tlsa_part_matching_type'] = o_tlsa_part_matching_type
-        if o_tlsa_part_selector:
+        if o_tlsa_part_selector is not None:
             _params['tlsa_part_selector'] = o_tlsa_part_selector
-        if o_uri_part_priority:
+        if o_uri_part_priority is not None:
             _params['uri_part_priority'] = o_uri_part_priority
-        if o_uri_part_weight:
+        if o_uri_part_weight is not None:
             _params['uri_part_weight'] = o_uri_part_weight
-        if o_a6_part_data:
+        if o_a6_part_data is not None:
             _params['a6_part_data'] = o_a6_part_data
-        if o_a_part_ip_address:
+        if o_a_part_ip_address is not None:
             _params['a_part_ip_address'] = o_a_part_ip_address
-        if o_aaaa_part_ip_address:
+        if o_aaaa_part_ip_address is not None:
             _params['aaaa_part_ip_address'] = o_aaaa_part_ip_address
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_cert_part_certificate_or_crl:
+        if o_cert_part_certificate_or_crl is not None:
             _params['cert_part_certificate_or_crl'] = o_cert_part_certificate_or_crl
-        if o_dlv_part_digest:
+        if o_dlv_part_digest is not None:
             _params['dlv_part_digest'] = o_dlv_part_digest
-        if o_ds_part_digest:
+        if o_ds_part_digest is not None:
             _params['ds_part_digest'] = o_ds_part_digest
-        if o_naptr_part_flags:
+        if o_naptr_part_flags is not None:
             _params['naptr_part_flags'] = o_naptr_part_flags
-        if o_naptr_part_regexp:
+        if o_naptr_part_regexp is not None:
             _params['naptr_part_regexp'] = o_naptr_part_regexp
-        if o_naptr_part_replacement:
+        if o_naptr_part_replacement is not None:
             _params['naptr_part_replacement'] = o_naptr_part_replacement
-        if o_naptr_part_service:
+        if o_naptr_part_service is not None:
             _params['naptr_part_service'] = o_naptr_part_service
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
-        if o_sshfp_part_fingerprint:
+        if o_sshfp_part_fingerprint is not None:
             _params['sshfp_part_fingerprint'] = o_sshfp_part_fingerprint
-        if o_tlsa_part_cert_association_data:
+        if o_tlsa_part_cert_association_data is not None:
             _params['tlsa_part_cert_association_data'] = o_tlsa_part_cert_association_data
-        if o_txt_part_data:
+        if o_txt_part_data is not None:
             _params['txt_part_data'] = o_txt_part_data
-        if o_uri_part_target:
+        if o_uri_part_target is not None:
             _params['uri_part_target'] = o_uri_part_target
-        if o_loc_part_lon_dir:
+        if o_loc_part_lon_dir is not None:
             _params['loc_part_lon_dir'] = o_loc_part_lon_dir
-        if o_loc_part_lat_dir:
+        if o_loc_part_lat_dir is not None:
             _params['loc_part_lat_dir'] = o_loc_part_lat_dir
-        if o_a_extra_create_reverse:
+        if o_a_extra_create_reverse is not None:
             _params['a_extra_create_reverse'] = o_a_extra_create_reverse
-        if o_aaaa_extra_create_reverse:
+        if o_aaaa_extra_create_reverse is not None:
             _params['aaaa_extra_create_reverse'] = o_aaaa_extra_create_reverse
         _params['all'] = o_all
         _params['force'] = o_force
         _params['raw'] = o_raw
         _params['structured'] = o_structured
-        if o_a6record:
+        if o_a6record is not None:
             _params['a6record'] = o_a6record
-        if o_aaaarecord:
+        if o_aaaarecord is not None:
             _params['aaaarecord'] = o_aaaarecord
-        if o_afsdbrecord:
+        if o_afsdbrecord is not None:
             _params['afsdbrecord'] = o_afsdbrecord
-        if o_aplrecord:
+        if o_aplrecord is not None:
             _params['aplrecord'] = o_aplrecord
-        if o_arecord:
+        if o_arecord is not None:
             _params['arecord'] = o_arecord
-        if o_certrecord:
+        if o_certrecord is not None:
             _params['certrecord'] = o_certrecord
-        if o_cnamerecord:
+        if o_cnamerecord is not None:
             _params['cnamerecord'] = o_cnamerecord
-        if o_dhcidrecord:
+        if o_dhcidrecord is not None:
             _params['dhcidrecord'] = o_dhcidrecord
-        if o_dlvrecord:
+        if o_dlvrecord is not None:
             _params['dlvrecord'] = o_dlvrecord
-        if o_dnamerecord:
+        if o_dnamerecord is not None:
             _params['dnamerecord'] = o_dnamerecord
-        if o_dsrecord:
+        if o_dsrecord is not None:
             _params['dsrecord'] = o_dsrecord
-        if o_hiprecord:
+        if o_hiprecord is not None:
             _params['hiprecord'] = o_hiprecord
-        if o_ipseckeyrecord:
+        if o_ipseckeyrecord is not None:
             _params['ipseckeyrecord'] = o_ipseckeyrecord
-        if o_dnsttl:
+        if o_dnsttl is not None:
             _params['dnsttl'] = o_dnsttl
-        if o_keyrecord:
+        if o_keyrecord is not None:
             _params['keyrecord'] = o_keyrecord
-        if o_kxrecord:
+        if o_kxrecord is not None:
             _params['kxrecord'] = o_kxrecord
-        if o_locrecord:
+        if o_locrecord is not None:
             _params['locrecord'] = o_locrecord
-        if o_mxrecord:
+        if o_mxrecord is not None:
             _params['mxrecord'] = o_mxrecord
-        if o_naptrrecord:
+        if o_naptrrecord is not None:
             _params['naptrrecord'] = o_naptrrecord
-        if o_nsecrecord:
+        if o_nsecrecord is not None:
             _params['nsecrecord'] = o_nsecrecord
-        if o_nsrecord:
+        if o_nsrecord is not None:
             _params['nsrecord'] = o_nsrecord
-        if o_ptrrecord:
+        if o_ptrrecord is not None:
             _params['ptrrecord'] = o_ptrrecord
-        if o_rprecord:
+        if o_rprecord is not None:
             _params['rprecord'] = o_rprecord
-        if o_rrsigrecord:
+        if o_rrsigrecord is not None:
             _params['rrsigrecord'] = o_rrsigrecord
-        if o_sigrecord:
+        if o_sigrecord is not None:
             _params['sigrecord'] = o_sigrecord
-        if o_spfrecord:
+        if o_spfrecord is not None:
             _params['spfrecord'] = o_spfrecord
-        if o_srvrecord:
+        if o_srvrecord is not None:
             _params['srvrecord'] = o_srvrecord
-        if o_sshfprecord:
+        if o_sshfprecord is not None:
             _params['sshfprecord'] = o_sshfprecord
-        if o_dnsclass:
+        if o_dnsclass is not None:
             _params['dnsclass'] = o_dnsclass
-        if o_tlsarecord:
+        if o_tlsarecord is not None:
             _params['tlsarecord'] = o_tlsarecord
-        if o_txtrecord:
+        if o_txtrecord is not None:
             _params['txtrecord'] = o_txtrecord
-        if o_urirecord:
+        if o_urirecord is not None:
             _params['urirecord'] = o_urirecord
 
         return self._request(method, _args, _params)
@@ -5291,69 +5291,69 @@ For multi-valued attributes, the command replaces the values already present.
         _params['del_all'] = o_del_all
         _params['raw'] = o_raw
         _params['structured'] = o_structured
-        if o_a6record:
+        if o_a6record is not None:
             _params['a6record'] = o_a6record
-        if o_aaaarecord:
+        if o_aaaarecord is not None:
             _params['aaaarecord'] = o_aaaarecord
-        if o_afsdbrecord:
+        if o_afsdbrecord is not None:
             _params['afsdbrecord'] = o_afsdbrecord
-        if o_aplrecord:
+        if o_aplrecord is not None:
             _params['aplrecord'] = o_aplrecord
-        if o_arecord:
+        if o_arecord is not None:
             _params['arecord'] = o_arecord
-        if o_certrecord:
+        if o_certrecord is not None:
             _params['certrecord'] = o_certrecord
-        if o_cnamerecord:
+        if o_cnamerecord is not None:
             _params['cnamerecord'] = o_cnamerecord
-        if o_dhcidrecord:
+        if o_dhcidrecord is not None:
             _params['dhcidrecord'] = o_dhcidrecord
-        if o_dlvrecord:
+        if o_dlvrecord is not None:
             _params['dlvrecord'] = o_dlvrecord
-        if o_dnamerecord:
+        if o_dnamerecord is not None:
             _params['dnamerecord'] = o_dnamerecord
-        if o_dsrecord:
+        if o_dsrecord is not None:
             _params['dsrecord'] = o_dsrecord
-        if o_hiprecord:
+        if o_hiprecord is not None:
             _params['hiprecord'] = o_hiprecord
-        if o_ipseckeyrecord:
+        if o_ipseckeyrecord is not None:
             _params['ipseckeyrecord'] = o_ipseckeyrecord
-        if o_dnsttl:
+        if o_dnsttl is not None:
             _params['dnsttl'] = o_dnsttl
-        if o_keyrecord:
+        if o_keyrecord is not None:
             _params['keyrecord'] = o_keyrecord
-        if o_kxrecord:
+        if o_kxrecord is not None:
             _params['kxrecord'] = o_kxrecord
-        if o_locrecord:
+        if o_locrecord is not None:
             _params['locrecord'] = o_locrecord
-        if o_mxrecord:
+        if o_mxrecord is not None:
             _params['mxrecord'] = o_mxrecord
-        if o_naptrrecord:
+        if o_naptrrecord is not None:
             _params['naptrrecord'] = o_naptrrecord
-        if o_nsecrecord:
+        if o_nsecrecord is not None:
             _params['nsecrecord'] = o_nsecrecord
-        if o_nsrecord:
+        if o_nsrecord is not None:
             _params['nsrecord'] = o_nsrecord
-        if o_ptrrecord:
+        if o_ptrrecord is not None:
             _params['ptrrecord'] = o_ptrrecord
-        if o_rprecord:
+        if o_rprecord is not None:
             _params['rprecord'] = o_rprecord
-        if o_rrsigrecord:
+        if o_rrsigrecord is not None:
             _params['rrsigrecord'] = o_rrsigrecord
-        if o_sigrecord:
+        if o_sigrecord is not None:
             _params['sigrecord'] = o_sigrecord
-        if o_spfrecord:
+        if o_spfrecord is not None:
             _params['spfrecord'] = o_spfrecord
-        if o_srvrecord:
+        if o_srvrecord is not None:
             _params['srvrecord'] = o_srvrecord
-        if o_sshfprecord:
+        if o_sshfprecord is not None:
             _params['sshfprecord'] = o_sshfprecord
-        if o_dnsclass:
+        if o_dnsclass is not None:
             _params['dnsclass'] = o_dnsclass
-        if o_tlsarecord:
+        if o_tlsarecord is not None:
             _params['tlsarecord'] = o_tlsarecord
-        if o_txtrecord:
+        if o_txtrecord is not None:
             _params['txtrecord'] = o_txtrecord
-        if o_urirecord:
+        if o_urirecord is not None:
             _params['urirecord'] = o_urirecord
 
         return self._request(method, _args, _params)
@@ -5519,80 +5519,80 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
         _params['structured'] = o_structured
-        if o_a6record:
+        if o_a6record is not None:
             _params['a6record'] = o_a6record
-        if o_aaaarecord:
+        if o_aaaarecord is not None:
             _params['aaaarecord'] = o_aaaarecord
-        if o_afsdbrecord:
+        if o_afsdbrecord is not None:
             _params['afsdbrecord'] = o_afsdbrecord
-        if o_aplrecord:
+        if o_aplrecord is not None:
             _params['aplrecord'] = o_aplrecord
-        if o_arecord:
+        if o_arecord is not None:
             _params['arecord'] = o_arecord
-        if o_certrecord:
+        if o_certrecord is not None:
             _params['certrecord'] = o_certrecord
-        if o_cnamerecord:
+        if o_cnamerecord is not None:
             _params['cnamerecord'] = o_cnamerecord
-        if o_dhcidrecord:
+        if o_dhcidrecord is not None:
             _params['dhcidrecord'] = o_dhcidrecord
-        if o_dlvrecord:
+        if o_dlvrecord is not None:
             _params['dlvrecord'] = o_dlvrecord
-        if o_dnamerecord:
+        if o_dnamerecord is not None:
             _params['dnamerecord'] = o_dnamerecord
-        if o_idnsname:
+        if o_idnsname is not None:
             _params['idnsname'] = o_idnsname
-        if o_dsrecord:
+        if o_dsrecord is not None:
             _params['dsrecord'] = o_dsrecord
-        if o_hiprecord:
+        if o_hiprecord is not None:
             _params['hiprecord'] = o_hiprecord
-        if o_ipseckeyrecord:
+        if o_ipseckeyrecord is not None:
             _params['ipseckeyrecord'] = o_ipseckeyrecord
-        if o_dnsttl:
+        if o_dnsttl is not None:
             _params['dnsttl'] = o_dnsttl
-        if o_keyrecord:
+        if o_keyrecord is not None:
             _params['keyrecord'] = o_keyrecord
-        if o_kxrecord:
+        if o_kxrecord is not None:
             _params['kxrecord'] = o_kxrecord
-        if o_locrecord:
+        if o_locrecord is not None:
             _params['locrecord'] = o_locrecord
-        if o_mxrecord:
+        if o_mxrecord is not None:
             _params['mxrecord'] = o_mxrecord
-        if o_naptrrecord:
+        if o_naptrrecord is not None:
             _params['naptrrecord'] = o_naptrrecord
-        if o_nsecrecord:
+        if o_nsecrecord is not None:
             _params['nsecrecord'] = o_nsecrecord
-        if o_nsrecord:
+        if o_nsrecord is not None:
             _params['nsrecord'] = o_nsrecord
-        if o_ptrrecord:
+        if o_ptrrecord is not None:
             _params['ptrrecord'] = o_ptrrecord
-        if o_rprecord:
+        if o_rprecord is not None:
             _params['rprecord'] = o_rprecord
-        if o_rrsigrecord:
+        if o_rrsigrecord is not None:
             _params['rrsigrecord'] = o_rrsigrecord
-        if o_sigrecord:
+        if o_sigrecord is not None:
             _params['sigrecord'] = o_sigrecord
-        if o_spfrecord:
+        if o_spfrecord is not None:
             _params['spfrecord'] = o_spfrecord
-        if o_srvrecord:
+        if o_srvrecord is not None:
             _params['srvrecord'] = o_srvrecord
-        if o_sshfprecord:
+        if o_sshfprecord is not None:
             _params['sshfprecord'] = o_sshfprecord
-        if o_dnsclass:
+        if o_dnsclass is not None:
             _params['dnsclass'] = o_dnsclass
-        if o_tlsarecord:
+        if o_tlsarecord is not None:
             _params['tlsarecord'] = o_tlsarecord
-        if o_txtrecord:
+        if o_txtrecord is not None:
             _params['txtrecord'] = o_txtrecord
-        if o_urirecord:
+        if o_urirecord is not None:
             _params['urirecord'] = o_urirecord
 
         return self._request(method, _args, _params)
@@ -5912,197 +5912,197 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsname)
 
         _params = dict()
-        if o_afsdb_part_hostname:
+        if o_afsdb_part_hostname is not None:
             _params['afsdb_part_hostname'] = o_afsdb_part_hostname
-        if o_cname_part_hostname:
+        if o_cname_part_hostname is not None:
             _params['cname_part_hostname'] = o_cname_part_hostname
-        if o_dname_part_target:
+        if o_dname_part_target is not None:
             _params['dname_part_target'] = o_dname_part_target
-        if o_kx_part_exchanger:
+        if o_kx_part_exchanger is not None:
             _params['kx_part_exchanger'] = o_kx_part_exchanger
-        if o_mx_part_exchanger:
+        if o_mx_part_exchanger is not None:
             _params['mx_part_exchanger'] = o_mx_part_exchanger
-        if o_ns_part_hostname:
+        if o_ns_part_hostname is not None:
             _params['ns_part_hostname'] = o_ns_part_hostname
-        if o_ptr_part_hostname:
+        if o_ptr_part_hostname is not None:
             _params['ptr_part_hostname'] = o_ptr_part_hostname
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_srv_part_target:
+        if o_srv_part_target is not None:
             _params['srv_part_target'] = o_srv_part_target
-        if o_loc_part_altitude:
+        if o_loc_part_altitude is not None:
             _params['loc_part_altitude'] = o_loc_part_altitude
-        if o_loc_part_h_precision:
+        if o_loc_part_h_precision is not None:
             _params['loc_part_h_precision'] = o_loc_part_h_precision
-        if o_loc_part_lat_sec:
+        if o_loc_part_lat_sec is not None:
             _params['loc_part_lat_sec'] = o_loc_part_lat_sec
-        if o_loc_part_lon_sec:
+        if o_loc_part_lon_sec is not None:
             _params['loc_part_lon_sec'] = o_loc_part_lon_sec
-        if o_loc_part_size:
+        if o_loc_part_size is not None:
             _params['loc_part_size'] = o_loc_part_size
-        if o_loc_part_v_precision:
+        if o_loc_part_v_precision is not None:
             _params['loc_part_v_precision'] = o_loc_part_v_precision
-        if o_afsdb_part_subtype:
+        if o_afsdb_part_subtype is not None:
             _params['afsdb_part_subtype'] = o_afsdb_part_subtype
-        if o_cert_part_algorithm:
+        if o_cert_part_algorithm is not None:
             _params['cert_part_algorithm'] = o_cert_part_algorithm
-        if o_cert_part_key_tag:
+        if o_cert_part_key_tag is not None:
             _params['cert_part_key_tag'] = o_cert_part_key_tag
-        if o_cert_part_type:
+        if o_cert_part_type is not None:
             _params['cert_part_type'] = o_cert_part_type
-        if o_dlv_part_algorithm:
+        if o_dlv_part_algorithm is not None:
             _params['dlv_part_algorithm'] = o_dlv_part_algorithm
-        if o_dlv_part_digest_type:
+        if o_dlv_part_digest_type is not None:
             _params['dlv_part_digest_type'] = o_dlv_part_digest_type
-        if o_dlv_part_key_tag:
+        if o_dlv_part_key_tag is not None:
             _params['dlv_part_key_tag'] = o_dlv_part_key_tag
-        if o_ds_part_algorithm:
+        if o_ds_part_algorithm is not None:
             _params['ds_part_algorithm'] = o_ds_part_algorithm
-        if o_ds_part_digest_type:
+        if o_ds_part_digest_type is not None:
             _params['ds_part_digest_type'] = o_ds_part_digest_type
-        if o_ds_part_key_tag:
+        if o_ds_part_key_tag is not None:
             _params['ds_part_key_tag'] = o_ds_part_key_tag
-        if o_kx_part_preference:
+        if o_kx_part_preference is not None:
             _params['kx_part_preference'] = o_kx_part_preference
-        if o_loc_part_lat_deg:
+        if o_loc_part_lat_deg is not None:
             _params['loc_part_lat_deg'] = o_loc_part_lat_deg
-        if o_loc_part_lat_min:
+        if o_loc_part_lat_min is not None:
             _params['loc_part_lat_min'] = o_loc_part_lat_min
-        if o_loc_part_lon_deg:
+        if o_loc_part_lon_deg is not None:
             _params['loc_part_lon_deg'] = o_loc_part_lon_deg
-        if o_loc_part_lon_min:
+        if o_loc_part_lon_min is not None:
             _params['loc_part_lon_min'] = o_loc_part_lon_min
-        if o_mx_part_preference:
+        if o_mx_part_preference is not None:
             _params['mx_part_preference'] = o_mx_part_preference
-        if o_naptr_part_order:
+        if o_naptr_part_order is not None:
             _params['naptr_part_order'] = o_naptr_part_order
-        if o_naptr_part_preference:
+        if o_naptr_part_preference is not None:
             _params['naptr_part_preference'] = o_naptr_part_preference
-        if o_srv_part_port:
+        if o_srv_part_port is not None:
             _params['srv_part_port'] = o_srv_part_port
-        if o_srv_part_priority:
+        if o_srv_part_priority is not None:
             _params['srv_part_priority'] = o_srv_part_priority
-        if o_srv_part_weight:
+        if o_srv_part_weight is not None:
             _params['srv_part_weight'] = o_srv_part_weight
-        if o_sshfp_part_algorithm:
+        if o_sshfp_part_algorithm is not None:
             _params['sshfp_part_algorithm'] = o_sshfp_part_algorithm
-        if o_sshfp_part_fp_type:
+        if o_sshfp_part_fp_type is not None:
             _params['sshfp_part_fp_type'] = o_sshfp_part_fp_type
-        if o_tlsa_part_cert_usage:
+        if o_tlsa_part_cert_usage is not None:
             _params['tlsa_part_cert_usage'] = o_tlsa_part_cert_usage
-        if o_tlsa_part_matching_type:
+        if o_tlsa_part_matching_type is not None:
             _params['tlsa_part_matching_type'] = o_tlsa_part_matching_type
-        if o_tlsa_part_selector:
+        if o_tlsa_part_selector is not None:
             _params['tlsa_part_selector'] = o_tlsa_part_selector
-        if o_uri_part_priority:
+        if o_uri_part_priority is not None:
             _params['uri_part_priority'] = o_uri_part_priority
-        if o_uri_part_weight:
+        if o_uri_part_weight is not None:
             _params['uri_part_weight'] = o_uri_part_weight
-        if o_a6_part_data:
+        if o_a6_part_data is not None:
             _params['a6_part_data'] = o_a6_part_data
-        if o_a_part_ip_address:
+        if o_a_part_ip_address is not None:
             _params['a_part_ip_address'] = o_a_part_ip_address
-        if o_aaaa_part_ip_address:
+        if o_aaaa_part_ip_address is not None:
             _params['aaaa_part_ip_address'] = o_aaaa_part_ip_address
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_cert_part_certificate_or_crl:
+        if o_cert_part_certificate_or_crl is not None:
             _params['cert_part_certificate_or_crl'] = o_cert_part_certificate_or_crl
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_dlv_part_digest:
+        if o_dlv_part_digest is not None:
             _params['dlv_part_digest'] = o_dlv_part_digest
-        if o_ds_part_digest:
+        if o_ds_part_digest is not None:
             _params['ds_part_digest'] = o_ds_part_digest
-        if o_naptr_part_flags:
+        if o_naptr_part_flags is not None:
             _params['naptr_part_flags'] = o_naptr_part_flags
-        if o_naptr_part_regexp:
+        if o_naptr_part_regexp is not None:
             _params['naptr_part_regexp'] = o_naptr_part_regexp
-        if o_naptr_part_replacement:
+        if o_naptr_part_replacement is not None:
             _params['naptr_part_replacement'] = o_naptr_part_replacement
-        if o_naptr_part_service:
+        if o_naptr_part_service is not None:
             _params['naptr_part_service'] = o_naptr_part_service
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
-        if o_sshfp_part_fingerprint:
+        if o_sshfp_part_fingerprint is not None:
             _params['sshfp_part_fingerprint'] = o_sshfp_part_fingerprint
-        if o_tlsa_part_cert_association_data:
+        if o_tlsa_part_cert_association_data is not None:
             _params['tlsa_part_cert_association_data'] = o_tlsa_part_cert_association_data
-        if o_txt_part_data:
+        if o_txt_part_data is not None:
             _params['txt_part_data'] = o_txt_part_data
-        if o_uri_part_target:
+        if o_uri_part_target is not None:
             _params['uri_part_target'] = o_uri_part_target
-        if o_loc_part_lon_dir:
+        if o_loc_part_lon_dir is not None:
             _params['loc_part_lon_dir'] = o_loc_part_lon_dir
-        if o_loc_part_lat_dir:
+        if o_loc_part_lat_dir is not None:
             _params['loc_part_lat_dir'] = o_loc_part_lat_dir
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
         _params['structured'] = o_structured
-        if o_a6record:
+        if o_a6record is not None:
             _params['a6record'] = o_a6record
-        if o_aaaarecord:
+        if o_aaaarecord is not None:
             _params['aaaarecord'] = o_aaaarecord
-        if o_afsdbrecord:
+        if o_afsdbrecord is not None:
             _params['afsdbrecord'] = o_afsdbrecord
-        if o_aplrecord:
+        if o_aplrecord is not None:
             _params['aplrecord'] = o_aplrecord
-        if o_arecord:
+        if o_arecord is not None:
             _params['arecord'] = o_arecord
-        if o_certrecord:
+        if o_certrecord is not None:
             _params['certrecord'] = o_certrecord
-        if o_cnamerecord:
+        if o_cnamerecord is not None:
             _params['cnamerecord'] = o_cnamerecord
-        if o_dhcidrecord:
+        if o_dhcidrecord is not None:
             _params['dhcidrecord'] = o_dhcidrecord
-        if o_dlvrecord:
+        if o_dlvrecord is not None:
             _params['dlvrecord'] = o_dlvrecord
-        if o_dnamerecord:
+        if o_dnamerecord is not None:
             _params['dnamerecord'] = o_dnamerecord
-        if o_dsrecord:
+        if o_dsrecord is not None:
             _params['dsrecord'] = o_dsrecord
-        if o_hiprecord:
+        if o_hiprecord is not None:
             _params['hiprecord'] = o_hiprecord
-        if o_ipseckeyrecord:
+        if o_ipseckeyrecord is not None:
             _params['ipseckeyrecord'] = o_ipseckeyrecord
-        if o_dnsttl:
+        if o_dnsttl is not None:
             _params['dnsttl'] = o_dnsttl
-        if o_keyrecord:
+        if o_keyrecord is not None:
             _params['keyrecord'] = o_keyrecord
-        if o_kxrecord:
+        if o_kxrecord is not None:
             _params['kxrecord'] = o_kxrecord
-        if o_locrecord:
+        if o_locrecord is not None:
             _params['locrecord'] = o_locrecord
-        if o_mxrecord:
+        if o_mxrecord is not None:
             _params['mxrecord'] = o_mxrecord
-        if o_naptrrecord:
+        if o_naptrrecord is not None:
             _params['naptrrecord'] = o_naptrrecord
-        if o_nsecrecord:
+        if o_nsecrecord is not None:
             _params['nsecrecord'] = o_nsecrecord
-        if o_nsrecord:
+        if o_nsrecord is not None:
             _params['nsrecord'] = o_nsrecord
-        if o_ptrrecord:
+        if o_ptrrecord is not None:
             _params['ptrrecord'] = o_ptrrecord
-        if o_rprecord:
+        if o_rprecord is not None:
             _params['rprecord'] = o_rprecord
-        if o_rrsigrecord:
+        if o_rrsigrecord is not None:
             _params['rrsigrecord'] = o_rrsigrecord
-        if o_sigrecord:
+        if o_sigrecord is not None:
             _params['sigrecord'] = o_sigrecord
-        if o_spfrecord:
+        if o_spfrecord is not None:
             _params['spfrecord'] = o_spfrecord
-        if o_srvrecord:
+        if o_srvrecord is not None:
             _params['srvrecord'] = o_srvrecord
-        if o_sshfprecord:
+        if o_sshfprecord is not None:
             _params['sshfprecord'] = o_sshfprecord
-        if o_dnsclass:
+        if o_dnsclass is not None:
             _params['dnsclass'] = o_dnsclass
-        if o_tlsarecord:
+        if o_tlsarecord is not None:
             _params['tlsarecord'] = o_tlsarecord
-        if o_txtrecord:
+        if o_txtrecord is not None:
             _params['txtrecord'] = o_txtrecord
-        if o_urirecord:
+        if o_urirecord is not None:
             _params['urirecord'] = o_urirecord
 
         return self._request(method, _args, _params)
@@ -6206,21 +6206,21 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_idnssoamname:
+        if o_idnssoamname is not None:
             _params['idnssoamname'] = o_idnssoamname
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_idnsserverid:
+        if o_idnsserverid is not None:
             _params['idnsserverid'] = o_idnsserverid
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
 
         return self._request(method, _args, _params)
@@ -6269,20 +6269,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsserverid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_idnssoamname:
+        if o_idnssoamname is not None:
             _params['idnssoamname'] = o_idnssoamname
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
 
         return self._request(method, _args, _params)
@@ -6416,38 +6416,38 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_ip_address:
+        if o_ip_address is not None:
             _params['ip_address'] = o_ip_address
-        if o_name_from_ip:
+        if o_name_from_ip is not None:
             _params['name_from_ip'] = o_name_from_ip
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['force'] = o_force
         _params['raw'] = o_raw
         _params['skip_nameserver_check'] = o_skip_nameserver_check
         _params['skip_overlap_check'] = o_skip_overlap_check
-        if o_idnsallowsyncptr:
+        if o_idnsallowsyncptr is not None:
             _params['idnsallowsyncptr'] = o_idnsallowsyncptr
-        if o_idnssecinlinesigning:
+        if o_idnssecinlinesigning is not None:
             _params['idnssecinlinesigning'] = o_idnssecinlinesigning
-        if o_idnssoamname:
+        if o_idnssoamname is not None:
             _params['idnssoamname'] = o_idnssoamname
-        if o_dnsdefaultttl:
+        if o_dnsdefaultttl is not None:
             _params['dnsdefaultttl'] = o_dnsdefaultttl
-        if o_dnsttl:
+        if o_dnsttl is not None:
             _params['dnsttl'] = o_dnsttl
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_nsec3paramrecord:
+        if o_nsec3paramrecord is not None:
             _params['nsec3paramrecord'] = o_nsec3paramrecord
-        if o_dnsclass:
+        if o_dnsclass is not None:
             _params['dnsclass'] = o_dnsclass
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
-        if o_idnsallowdynupdate:
+        if o_idnsallowdynupdate is not None:
             _params['idnsallowdynupdate'] = o_idnsallowdynupdate
         _params['idnssoarname'] = o_idnssoarname
         _params['idnssoaexpire'] = o_idnssoaexpire
@@ -6455,11 +6455,11 @@ For multi-valued attributes, the command replaces the values already present.
         _params['idnssoarefresh'] = o_idnssoarefresh
         _params['idnssoaretry'] = o_idnssoaretry
         _params['idnssoaserial'] = o_idnssoaserial
-        if o_idnsallowquery:
+        if o_idnsallowquery is not None:
             _params['idnsallowquery'] = o_idnsallowquery
-        if o_idnsallowtransfer:
+        if o_idnsallowtransfer is not None:
             _params['idnsallowtransfer'] = o_idnsallowtransfer
-        if o_idnsupdatepolicy:
+        if o_idnsupdatepolicy is not None:
             _params['idnsupdatepolicy'] = o_idnsupdatepolicy
 
         return self._request(method, _args, _params)
@@ -6634,58 +6634,58 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_name_from_ip:
+        if o_name_from_ip is not None:
             _params['name_from_ip'] = o_name_from_ip
         _params['all'] = o_all
         _params['forward_only'] = o_forward_only
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_idnsallowsyncptr:
+        if o_idnsallowsyncptr is not None:
             _params['idnsallowsyncptr'] = o_idnsallowsyncptr
-        if o_idnssecinlinesigning:
+        if o_idnssecinlinesigning is not None:
             _params['idnssecinlinesigning'] = o_idnssecinlinesigning
-        if o_idnsallowdynupdate:
+        if o_idnsallowdynupdate is not None:
             _params['idnsallowdynupdate'] = o_idnsallowdynupdate
-        if o_idnszoneactive:
+        if o_idnszoneactive is not None:
             _params['idnszoneactive'] = o_idnszoneactive
-        if o_idnssoarname:
+        if o_idnssoarname is not None:
             _params['idnssoarname'] = o_idnssoarname
-        if o_idnsname:
+        if o_idnsname is not None:
             _params['idnsname'] = o_idnsname
-        if o_idnssoamname:
+        if o_idnssoamname is not None:
             _params['idnssoamname'] = o_idnssoamname
-        if o_dnsdefaultttl:
+        if o_dnsdefaultttl is not None:
             _params['dnsdefaultttl'] = o_dnsdefaultttl
-        if o_idnssoaexpire:
+        if o_idnssoaexpire is not None:
             _params['idnssoaexpire'] = o_idnssoaexpire
-        if o_idnssoaminimum:
+        if o_idnssoaminimum is not None:
             _params['idnssoaminimum'] = o_idnssoaminimum
-        if o_idnssoarefresh:
+        if o_idnssoarefresh is not None:
             _params['idnssoarefresh'] = o_idnssoarefresh
-        if o_idnssoaretry:
+        if o_idnssoaretry is not None:
             _params['idnssoaretry'] = o_idnssoaretry
-        if o_idnssoaserial:
+        if o_idnssoaserial is not None:
             _params['idnssoaserial'] = o_idnssoaserial
-        if o_dnsttl:
+        if o_dnsttl is not None:
             _params['dnsttl'] = o_dnsttl
-        if o_idnsallowquery:
+        if o_idnsallowquery is not None:
             _params['idnsallowquery'] = o_idnsallowquery
-        if o_idnsallowtransfer:
+        if o_idnsallowtransfer is not None:
             _params['idnsallowtransfer'] = o_idnsallowtransfer
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_nsec3paramrecord:
+        if o_nsec3paramrecord is not None:
             _params['nsec3paramrecord'] = o_nsec3paramrecord
-        if o_idnsupdatepolicy:
+        if o_idnsupdatepolicy is not None:
             _params['idnsupdatepolicy'] = o_idnsupdatepolicy
-        if o_dnsclass:
+        if o_dnsclass is not None:
             _params['dnsclass'] = o_dnsclass
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
 
         return self._request(method, _args, _params)
@@ -6788,55 +6788,55 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_name_from_ip:
+        if o_name_from_ip is not None:
             _params['name_from_ip'] = o_name_from_ip
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['force'] = o_force
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_idnsallowsyncptr:
+        if o_idnsallowsyncptr is not None:
             _params['idnsallowsyncptr'] = o_idnsallowsyncptr
-        if o_idnssecinlinesigning:
+        if o_idnssecinlinesigning is not None:
             _params['idnssecinlinesigning'] = o_idnssecinlinesigning
-        if o_idnsallowdynupdate:
+        if o_idnsallowdynupdate is not None:
             _params['idnsallowdynupdate'] = o_idnsallowdynupdate
-        if o_idnssoarname:
+        if o_idnssoarname is not None:
             _params['idnssoarname'] = o_idnssoarname
-        if o_idnssoamname:
+        if o_idnssoamname is not None:
             _params['idnssoamname'] = o_idnssoamname
-        if o_dnsdefaultttl:
+        if o_dnsdefaultttl is not None:
             _params['dnsdefaultttl'] = o_dnsdefaultttl
-        if o_idnssoaexpire:
+        if o_idnssoaexpire is not None:
             _params['idnssoaexpire'] = o_idnssoaexpire
-        if o_idnssoaminimum:
+        if o_idnssoaminimum is not None:
             _params['idnssoaminimum'] = o_idnssoaminimum
-        if o_idnssoarefresh:
+        if o_idnssoarefresh is not None:
             _params['idnssoarefresh'] = o_idnssoarefresh
-        if o_idnssoaretry:
+        if o_idnssoaretry is not None:
             _params['idnssoaretry'] = o_idnssoaretry
-        if o_idnssoaserial:
+        if o_idnssoaserial is not None:
             _params['idnssoaserial'] = o_idnssoaserial
-        if o_dnsttl:
+        if o_dnsttl is not None:
             _params['dnsttl'] = o_dnsttl
-        if o_idnsallowquery:
+        if o_idnsallowquery is not None:
             _params['idnsallowquery'] = o_idnsallowquery
-        if o_idnsallowtransfer:
+        if o_idnsallowtransfer is not None:
             _params['idnsallowtransfer'] = o_idnsallowtransfer
-        if o_idnsforwarders:
+        if o_idnsforwarders is not None:
             _params['idnsforwarders'] = o_idnsforwarders
-        if o_nsec3paramrecord:
+        if o_nsec3paramrecord is not None:
             _params['nsec3paramrecord'] = o_nsec3paramrecord
-        if o_idnsupdatepolicy:
+        if o_idnsupdatepolicy is not None:
             _params['idnsupdatepolicy'] = o_idnsupdatepolicy
-        if o_dnsclass:
+        if o_dnsclass is not None:
             _params['dnsclass'] = o_dnsclass
-        if o_idnsforwardpolicy:
+        if o_idnsforwardpolicy is not None:
             _params['idnsforwardpolicy'] = o_idnsforwardpolicy
 
         return self._request(method, _args, _params)
@@ -6934,7 +6934,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_server:
+        if o_server is not None:
             _params['server'] = o_server
 
         return self._request(method, _args, _params)
@@ -6982,18 +6982,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['external'] = o_external
         _params['no_members'] = o_no_members
         _params['nonposix'] = o_nonposix
         _params['raw'] = o_raw
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -7030,14 +7030,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_ipaexternalmember:
+        if o_ipaexternalmember is not None:
             _params['ipaexternalmember'] = o_ipaexternalmember
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -7175,52 +7175,52 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_in_group:
+        if o_in_group is not None:
             _params['in_group'] = o_in_group
-        if o_in_hbacrule:
+        if o_in_hbacrule is not None:
             _params['in_hbacrule'] = o_in_hbacrule
-        if o_in_netgroup:
+        if o_in_netgroup is not None:
             _params['in_netgroup'] = o_in_netgroup
-        if o_in_role:
+        if o_in_role is not None:
             _params['in_role'] = o_in_role
-        if o_in_sudorule:
+        if o_in_sudorule is not None:
             _params['in_sudorule'] = o_in_sudorule
-        if o_no_group:
+        if o_no_group is not None:
             _params['no_group'] = o_no_group
-        if o_no_user:
+        if o_no_user is not None:
             _params['no_user'] = o_no_user
-        if o_not_in_group:
+        if o_not_in_group is not None:
             _params['not_in_group'] = o_not_in_group
-        if o_not_in_hbacrule:
+        if o_not_in_hbacrule is not None:
             _params['not_in_hbacrule'] = o_not_in_hbacrule
-        if o_not_in_netgroup:
+        if o_not_in_netgroup is not None:
             _params['not_in_netgroup'] = o_not_in_netgroup
-        if o_not_in_role:
+        if o_not_in_role is not None:
             _params['not_in_role'] = o_not_in_role
-        if o_not_in_sudorule:
+        if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
         _params['all'] = o_all
         _params['external'] = o_external
         _params['no_members'] = o_no_members
         _params['nonposix'] = o_nonposix
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['posix'] = o_posix
         _params['private'] = o_private
         _params['raw'] = o_raw
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -7278,13 +7278,13 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['external'] = o_external
@@ -7292,9 +7292,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['posix'] = o_posix
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -7331,14 +7331,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_ipaexternalmember:
+        if o_ipaexternalmember is not None:
             _params['ipaexternalmember'] = o_ipaexternalmember
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -7431,26 +7431,26 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_servicecategory:
+        if o_servicecategory is not None:
             _params['servicecategory'] = o_servicecategory
-        if o_sourcehostcategory:
+        if o_sourcehostcategory is not None:
             _params['sourcehostcategory'] = o_sourcehostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
         _params['accessruletype'] = o_accessruletype
 
@@ -7488,9 +7488,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -7527,9 +7527,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hbacsvcgroup:
+        if o_hbacsvcgroup is not None:
             _params['hbacsvcgroup'] = o_hbacsvcgroup
-        if o_hbacsvc:
+        if o_hbacsvc is not None:
             _params['hbacsvc'] = o_hbacsvc
 
         return self._request(method, _args, _params)
@@ -7566,9 +7566,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -7605,9 +7605,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -7726,32 +7726,32 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_servicecategory:
+        if o_servicecategory is not None:
             _params['servicecategory'] = o_servicecategory
-        if o_sourcehostcategory:
+        if o_sourcehostcategory is not None:
             _params['sourcehostcategory'] = o_sourcehostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
-        if o_accessruletype:
+        if o_accessruletype is not None:
             _params['accessruletype'] = o_accessruletype
 
         return self._request(method, _args, _params)
@@ -7821,33 +7821,33 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_servicecategory:
+        if o_servicecategory is not None:
             _params['servicecategory'] = o_servicecategory
-        if o_sourcehostcategory:
+        if o_sourcehostcategory is not None:
             _params['sourcehostcategory'] = o_sourcehostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
-        if o_accessruletype:
+        if o_accessruletype is not None:
             _params['accessruletype'] = o_accessruletype
 
         return self._request(method, _args, _params)
@@ -7884,9 +7884,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -7923,9 +7923,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hbacsvcgroup:
+        if o_hbacsvcgroup is not None:
             _params['hbacsvcgroup'] = o_hbacsvcgroup
-        if o_hbacsvc:
+        if o_hbacsvc is not None:
             _params['hbacsvc'] = o_hbacsvc
 
         return self._request(method, _args, _params)
@@ -7962,9 +7962,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -8001,9 +8001,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -8075,14 +8075,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -8146,18 +8146,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -8203,17 +8203,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -8285,14 +8285,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -8326,7 +8326,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hbacsvc:
+        if o_hbacsvc is not None:
             _params['hbacsvc'] = o_hbacsvc
 
         return self._request(method, _args, _params)
@@ -8390,18 +8390,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -8447,17 +8447,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -8491,7 +8491,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hbacsvc:
+        if o_hbacsvc is not None:
             _params['hbacsvc'] = o_hbacsvc
 
         return self._request(method, _args, _params)
@@ -8566,20 +8566,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
         _params['targethost'] = o_targethost
-        if o_rules:
+        if o_rules is not None:
             _params['rules'] = o_rules
         _params['service'] = o_service
-        if o_sourcehost:
+        if o_sourcehost is not None:
             _params['sourcehost'] = o_sourcehost
         _params['user'] = o_user
-        if o_disabled:
+        if o_disabled is not None:
             _params['disabled'] = o_disabled
-        if o_enabled:
+        if o_enabled is not None:
             _params['enabled'] = o_enabled
-        if o_nodetail:
+        if o_nodetail is not None:
             _params['nodetail'] = o_nodetail
 
         return self._request(method, _args, _params)
@@ -8672,48 +8672,48 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_fqdn)
 
         _params = dict()
-        if o_ipakrbokasdelegate:
+        if o_ipakrbokasdelegate is not None:
             _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
-        if o_ipakrboktoauthasdelegate:
+        if o_ipakrboktoauthasdelegate is not None:
             _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
-        if o_ipakrbrequirespreauth:
+        if o_ipakrbrequirespreauth is not None:
             _params['ipakrbrequirespreauth'] = o_ipakrbrequirespreauth
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_ip_address:
+        if o_ip_address is not None:
             _params['ip_address'] = o_ip_address
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['force'] = o_force
         _params['no_members'] = o_no_members
         _params['no_reverse'] = o_no_reverse
-        if o_random:
+        if o_random is not None:
             _params['random'] = o_random
         _params['raw'] = o_raw
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbprincipalauthind:
+        if o_krbprincipalauthind is not None:
             _params['krbprincipalauthind'] = o_krbprincipalauthind
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipaassignedidview:
+        if o_ipaassignedidview is not None:
             _params['ipaassignedidview'] = o_ipaassignedidview
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_nshostlocation:
+        if o_nshostlocation is not None:
             _params['nshostlocation'] = o_nshostlocation
-        if o_macaddress:
+        if o_macaddress is not None:
             _params['macaddress'] = o_macaddress
-        if o_nsosversion:
+        if o_nsosversion is not None:
             _params['nsosversion'] = o_nsosversion
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_nshardwareplatform:
+        if o_nshardwareplatform is not None:
             _params['nshardwareplatform'] = o_nshardwareplatform
-        if o_ipasshpubkey:
+        if o_ipasshpubkey is not None:
             _params['ipasshpubkey'] = o_ipasshpubkey
 
         return self._request(method, _args, _params)
@@ -8780,7 +8780,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -8856,13 +8856,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -8905,13 +8905,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -8937,7 +8937,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['continue'] = o_continue
-        if o_updatedns:
+        if o_updatedns is not None:
             _params['updatedns'] = o_updatedns
 
         return self._request(method, _args, _params)
@@ -8997,13 +8997,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -9046,13 +9046,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -9173,70 +9173,70 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_enroll_by_user:
+        if o_enroll_by_user is not None:
             _params['enroll_by_user'] = o_enroll_by_user
-        if o_in_hbacrule:
+        if o_in_hbacrule is not None:
             _params['in_hbacrule'] = o_in_hbacrule
-        if o_in_hostgroup:
+        if o_in_hostgroup is not None:
             _params['in_hostgroup'] = o_in_hostgroup
-        if o_in_netgroup:
+        if o_in_netgroup is not None:
             _params['in_netgroup'] = o_in_netgroup
-        if o_in_role:
+        if o_in_role is not None:
             _params['in_role'] = o_in_role
-        if o_in_sudorule:
+        if o_in_sudorule is not None:
             _params['in_sudorule'] = o_in_sudorule
-        if o_man_by_host:
+        if o_man_by_host is not None:
             _params['man_by_host'] = o_man_by_host
-        if o_man_host:
+        if o_man_host is not None:
             _params['man_host'] = o_man_host
-        if o_not_enroll_by_user:
+        if o_not_enroll_by_user is not None:
             _params['not_enroll_by_user'] = o_not_enroll_by_user
-        if o_not_in_hbacrule:
+        if o_not_in_hbacrule is not None:
             _params['not_in_hbacrule'] = o_not_in_hbacrule
-        if o_not_in_hostgroup:
+        if o_not_in_hostgroup is not None:
             _params['not_in_hostgroup'] = o_not_in_hostgroup
-        if o_not_in_netgroup:
+        if o_not_in_netgroup is not None:
             _params['not_in_netgroup'] = o_not_in_netgroup
-        if o_not_in_role:
+        if o_not_in_role is not None:
             _params['not_in_role'] = o_not_in_role
-        if o_not_in_sudorule:
+        if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
-        if o_not_man_by_host:
+        if o_not_man_by_host is not None:
             _params['not_man_by_host'] = o_not_man_by_host
-        if o_not_man_host:
+        if o_not_man_host is not None:
             _params['not_man_host'] = o_not_man_host
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbprincipalauthind:
+        if o_krbprincipalauthind is not None:
             _params['krbprincipalauthind'] = o_krbprincipalauthind
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_fqdn:
+        if o_fqdn is not None:
             _params['fqdn'] = o_fqdn
-        if o_ipaassignedidview:
+        if o_ipaassignedidview is not None:
             _params['ipaassignedidview'] = o_ipaassignedidview
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_nshostlocation:
+        if o_nshostlocation is not None:
             _params['nshostlocation'] = o_nshostlocation
-        if o_macaddress:
+        if o_macaddress is not None:
             _params['macaddress'] = o_macaddress
-        if o_nsosversion:
+        if o_nsosversion is not None:
             _params['nsosversion'] = o_nsosversion
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_nshardwareplatform:
+        if o_nshardwareplatform is not None:
             _params['nshardwareplatform'] = o_nshardwareplatform
 
         return self._request(method, _args, _params)
@@ -9333,51 +9333,51 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_fqdn)
 
         _params = dict()
-        if o_ipakrbokasdelegate:
+        if o_ipakrbokasdelegate is not None:
             _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
-        if o_ipakrboktoauthasdelegate:
+        if o_ipakrboktoauthasdelegate is not None:
             _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
-        if o_ipakrbrequirespreauth:
+        if o_ipakrbrequirespreauth is not None:
             _params['ipakrbrequirespreauth'] = o_ipakrbrequirespreauth
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_random:
+        if o_random is not None:
             _params['random'] = o_random
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_updatedns:
+        if o_updatedns is not None:
             _params['updatedns'] = o_updatedns
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
-        if o_krbprincipalauthind:
+        if o_krbprincipalauthind is not None:
             _params['krbprincipalauthind'] = o_krbprincipalauthind
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipaassignedidview:
+        if o_ipaassignedidview is not None:
             _params['ipaassignedidview'] = o_ipaassignedidview
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_nshostlocation:
+        if o_nshostlocation is not None:
             _params['nshostlocation'] = o_nshostlocation
-        if o_macaddress:
+        if o_macaddress is not None:
             _params['macaddress'] = o_macaddress
-        if o_nsosversion:
+        if o_nsosversion is not None:
             _params['nsosversion'] = o_nsosversion
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_nshardwareplatform:
+        if o_nshardwareplatform is not None:
             _params['nshardwareplatform'] = o_nshardwareplatform
-        if o_ipasshpubkey:
+        if o_ipasshpubkey is not None:
             _params['ipasshpubkey'] = o_ipasshpubkey
 
         return self._request(method, _args, _params)
@@ -9444,7 +9444,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -9511,7 +9511,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_fqdn)
 
         _params = dict()
-        if o_out:
+        if o_out is not None:
             _params['out'] = o_out
         _params['all'] = o_all
         _params['no_members'] = o_no_members
@@ -9554,14 +9554,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -9598,9 +9598,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -9700,42 +9700,42 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_in_hbacrule:
+        if o_in_hbacrule is not None:
             _params['in_hbacrule'] = o_in_hbacrule
-        if o_in_hostgroup:
+        if o_in_hostgroup is not None:
             _params['in_hostgroup'] = o_in_hostgroup
-        if o_in_netgroup:
+        if o_in_netgroup is not None:
             _params['in_netgroup'] = o_in_netgroup
-        if o_in_sudorule:
+        if o_in_sudorule is not None:
             _params['in_sudorule'] = o_in_sudorule
-        if o_no_hostgroup:
+        if o_no_hostgroup is not None:
             _params['no_hostgroup'] = o_no_hostgroup
-        if o_no_host:
+        if o_no_host is not None:
             _params['no_host'] = o_no_host
-        if o_not_in_hbacrule:
+        if o_not_in_hbacrule is not None:
             _params['not_in_hbacrule'] = o_not_in_hbacrule
-        if o_not_in_hostgroup:
+        if o_not_in_hostgroup is not None:
             _params['not_in_hostgroup'] = o_not_in_hostgroup
-        if o_not_in_netgroup:
+        if o_not_in_netgroup is not None:
             _params['not_in_netgroup'] = o_not_in_netgroup
-        if o_not_in_sudorule:
+        if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -9781,17 +9781,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -9828,9 +9828,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -9925,19 +9925,19 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_ipaanchoruuid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
         _params['raw'] = o_raw
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -9967,7 +9967,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['continue'] = o_continue
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
 
         return self._request(method, _args, _params)
@@ -10020,23 +10020,23 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idviewcn)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_ipaanchoruuid:
+        if o_ipaanchoruuid is not None:
             _params['ipaanchoruuid'] = o_ipaanchoruuid
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -10095,24 +10095,24 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_ipaanchoruuid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -10148,7 +10148,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
         _params['raw'] = o_raw
         _params['rights'] = o_rights
@@ -10220,33 +10220,33 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_ipaanchoruuid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
         _params['raw'] = o_raw
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
-        if o_ipaoriginaluid:
+        if o_ipaoriginaluid is not None:
             _params['ipaoriginaluid'] = o_ipaoriginaluid
-        if o_uid:
+        if o_uid is not None:
             _params['uid'] = o_uid
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
-        if o_ipasshpubkey:
+        if o_ipasshpubkey is not None:
             _params['ipasshpubkey'] = o_ipasshpubkey
 
         return self._request(method, _args, _params)
@@ -10282,7 +10282,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
         _params['raw'] = o_raw
         _params['usercertificate'] = o_usercertificate
@@ -10314,7 +10314,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['continue'] = o_continue
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
 
         return self._request(method, _args, _params)
@@ -10382,33 +10382,33 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idviewcn)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_ipaanchoruuid:
+        if o_ipaanchoruuid is not None:
             _params['ipaanchoruuid'] = o_ipaanchoruuid
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
-        if o_ipaoriginaluid:
+        if o_ipaoriginaluid is not None:
             _params['ipaoriginaluid'] = o_ipaoriginaluid
-        if o_uid:
+        if o_uid is not None:
             _params['uid'] = o_uid
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
 
         return self._request(method, _args, _params)
@@ -10488,38 +10488,38 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_ipaanchoruuid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
-        if o_ipaoriginaluid:
+        if o_ipaoriginaluid is not None:
             _params['ipaoriginaluid'] = o_ipaoriginaluid
-        if o_uid:
+        if o_uid is not None:
             _params['uid'] = o_uid
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
-        if o_ipasshpubkey:
+        if o_ipasshpubkey is not None:
             _params['ipasshpubkey'] = o_ipasshpubkey
 
         return self._request(method, _args, _params)
@@ -10555,7 +10555,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
         _params['raw'] = o_raw
         _params['usercertificate'] = o_usercertificate
@@ -10593,7 +10593,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_fallback_to_ldap:
+        if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
         _params['raw'] = o_raw
         _params['rights'] = o_rights
@@ -10680,23 +10680,23 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_ipanttrusteddomainname:
+        if o_ipanttrusteddomainname is not None:
             _params['ipanttrusteddomainname'] = o_ipanttrusteddomainname
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['ipabaseid'] = o_ipabaseid
         _params['ipaidrangesize'] = o_ipaidrangesize
-        if o_ipabaserid:
+        if o_ipabaserid is not None:
             _params['ipabaserid'] = o_ipabaserid
-        if o_ipasecondarybaserid:
+        if o_ipasecondarybaserid is not None:
             _params['ipasecondarybaserid'] = o_ipasecondarybaserid
-        if o_ipanttrusteddomainsid:
+        if o_ipanttrusteddomainsid is not None:
             _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
-        if o_iparangetype:
+        if o_iparangetype is not None:
             _params['iparangetype'] = o_iparangetype
 
         return self._request(method, _args, _params)
@@ -10772,27 +10772,27 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipabaseid:
+        if o_ipabaseid is not None:
             _params['ipabaseid'] = o_ipabaseid
-        if o_ipaidrangesize:
+        if o_ipaidrangesize is not None:
             _params['ipaidrangesize'] = o_ipaidrangesize
-        if o_ipabaserid:
+        if o_ipabaserid is not None:
             _params['ipabaserid'] = o_ipabaserid
-        if o_ipasecondarybaserid:
+        if o_ipasecondarybaserid is not None:
             _params['ipasecondarybaserid'] = o_ipasecondarybaserid
-        if o_ipanttrusteddomainsid:
+        if o_ipanttrusteddomainsid is not None:
             _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_iparangetype:
+        if o_iparangetype is not None:
             _params['iparangetype'] = o_iparangetype
 
         return self._request(method, _args, _params)
@@ -10863,26 +10863,26 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_ipanttrusteddomainname:
+        if o_ipanttrusteddomainname is not None:
             _params['ipanttrusteddomainname'] = o_ipanttrusteddomainname
-        if o_ipanttrusteddomainsid:
+        if o_ipanttrusteddomainsid is not None:
             _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipabaseid:
+        if o_ipabaseid is not None:
             _params['ipabaseid'] = o_ipabaseid
-        if o_ipaidrangesize:
+        if o_ipaidrangesize is not None:
             _params['ipaidrangesize'] = o_ipaidrangesize
-        if o_ipabaserid:
+        if o_ipabaserid is not None:
             _params['ipabaserid'] = o_ipabaserid
-        if o_ipasecondarybaserid:
+        if o_ipasecondarybaserid is not None:
             _params['ipasecondarybaserid'] = o_ipasecondarybaserid
 
         return self._request(method, _args, _params)
@@ -10950,15 +10950,15 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipadomainresolutionorder:
+        if o_ipadomainresolutionorder is not None:
             _params['ipadomainresolutionorder'] = o_ipadomainresolutionorder
 
         return self._request(method, _args, _params)
@@ -10983,9 +10983,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -11046,17 +11046,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -11105,20 +11105,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipadomainresolutionorder:
+        if o_ipadomainresolutionorder is not None:
             _params['ipadomainresolutionorder'] = o_ipadomainresolutionorder
 
         return self._request(method, _args, _params)
@@ -11152,7 +11152,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_show_hosts:
+        if o_show_hosts is not None:
             _params['show_hosts'] = o_show_hosts
 
         return self._request(method, _args, _params)
@@ -11173,9 +11173,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -11203,9 +11203,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_nsosversion:
+        if o_nsosversion is not None:
             _params['nsosversion'] = o_nsosversion
-        if o_nshardwareplatform:
+        if o_nshardwareplatform is not None:
             _params['nshardwareplatform'] = o_nshardwareplatform
         _params['realm'] = o_realm
 
@@ -11239,11 +11239,11 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_objname)
 
         _params = dict()
-        if o_command:
+        if o_command is not None:
             _params['command'] = o_command
-        if o_method:
+        if o_method is not None:
             _params['method'] = o_method
-        if o_object:
+        if o_object is not None:
             _params['object'] = o_object
 
         return self._request(method, _args, _params)
@@ -11302,18 +11302,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_krbmaxticketlife:
+        if o_krbmaxticketlife is not None:
             _params['krbmaxticketlife'] = o_krbmaxticketlife
-        if o_krbmaxrenewableage:
+        if o_krbmaxrenewableage is not None:
             _params['krbmaxrenewableage'] = o_krbmaxrenewableage
 
         return self._request(method, _args, _params)
@@ -11403,13 +11403,13 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -11470,17 +11470,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_idnsname:
+        if o_idnsname is not None:
             _params['idnsname'] = o_idnsname
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -11523,16 +11523,16 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_idnsname)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -11641,36 +11641,36 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_ldapuri)
 
         _params = dict()
-        if o_basedn:
+        if o_basedn is not None:
             _params['basedn'] = o_basedn
-        if o_cacertfile:
+        if o_cacertfile is not None:
             _params['cacertfile'] = o_cacertfile
-        if o_use_def_group:
+        if o_use_def_group is not None:
             _params['use_def_group'] = o_use_def_group
-        if o_binddn:
+        if o_binddn is not None:
             _params['binddn'] = o_binddn
         _params['groupcontainer'] = o_groupcontainer
         _params['usercontainer'] = o_usercontainer
-        if o_continue:
+        if o_continue is not None:
             _params['continue'] = o_continue
         _params['groupoverwritegid'] = o_groupoverwritegid
-        if o_compat:
+        if o_compat is not None:
             _params['compat'] = o_compat
-        if o_exclude_groups:
+        if o_exclude_groups is not None:
             _params['exclude_groups'] = o_exclude_groups
-        if o_exclude_users:
+        if o_exclude_users is not None:
             _params['exclude_users'] = o_exclude_users
-        if o_groupignoreattribute:
+        if o_groupignoreattribute is not None:
             _params['groupignoreattribute'] = o_groupignoreattribute
-        if o_groupignoreobjectclass:
+        if o_groupignoreobjectclass is not None:
             _params['groupignoreobjectclass'] = o_groupignoreobjectclass
         _params['groupobjectclass'] = o_groupobjectclass
-        if o_userignoreattribute:
+        if o_userignoreattribute is not None:
             _params['userignoreattribute'] = o_userignoreattribute
-        if o_userignoreobjectclass:
+        if o_userignoreobjectclass is not None:
             _params['userignoreobjectclass'] = o_userignoreobjectclass
         _params['userobjectclass'] = o_userobjectclass
-        if o_schema:
+        if o_schema is not None:
             _params['schema'] = o_schema
         _params['scope'] = o_scope
 
@@ -11722,22 +11722,22 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_nisdomainname:
+        if o_nisdomainname is not None:
             _params['nisdomainname'] = o_nisdomainname
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -11783,15 +11783,15 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_netgroup:
+        if o_netgroup is not None:
             _params['netgroup'] = o_netgroup
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -11912,54 +11912,54 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_in_netgroup:
+        if o_in_netgroup is not None:
             _params['in_netgroup'] = o_in_netgroup
-        if o_netgroup:
+        if o_netgroup is not None:
             _params['netgroup'] = o_netgroup
-        if o_no_group:
+        if o_no_group is not None:
             _params['no_group'] = o_no_group
-        if o_no_hostgroup:
+        if o_no_hostgroup is not None:
             _params['no_hostgroup'] = o_no_hostgroup
-        if o_no_host:
+        if o_no_host is not None:
             _params['no_host'] = o_no_host
-        if o_no_netgroup:
+        if o_no_netgroup is not None:
             _params['no_netgroup'] = o_no_netgroup
-        if o_no_user:
+        if o_no_user is not None:
             _params['no_user'] = o_no_user
-        if o_not_in_netgroup:
+        if o_not_in_netgroup is not None:
             _params['not_in_netgroup'] = o_not_in_netgroup
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
         _params['all'] = o_all
         _params['managed'] = o_managed
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['private'] = o_private
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_nisdomainname:
+        if o_nisdomainname is not None:
             _params['nisdomainname'] = o_nisdomainname
-        if o_ipauniqueid:
+        if o_ipauniqueid is not None:
             _params['ipauniqueid'] = o_ipauniqueid
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -12017,25 +12017,25 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_nisdomainname:
+        if o_nisdomainname is not None:
             _params['nisdomainname'] = o_nisdomainname
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -12081,15 +12081,15 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_netgroup:
+        if o_netgroup is not None:
             _params['netgroup'] = o_netgroup
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -12170,22 +12170,22 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipatokenhotpauthwindow:
+        if o_ipatokenhotpauthwindow is not None:
             _params['ipatokenhotpauthwindow'] = o_ipatokenhotpauthwindow
-        if o_ipatokenhotpsyncwindow:
+        if o_ipatokenhotpsyncwindow is not None:
             _params['ipatokenhotpsyncwindow'] = o_ipatokenhotpsyncwindow
-        if o_ipatokentotpauthwindow:
+        if o_ipatokentotpauthwindow is not None:
             _params['ipatokentotpauthwindow'] = o_ipatokentotpauthwindow
-        if o_ipatokentotpsyncwindow:
+        if o_ipatokentotpsyncwindow is not None:
             _params['ipatokentotpsyncwindow'] = o_ipatokentotpsyncwindow
 
         return self._request(method, _args, _params)
@@ -12297,45 +12297,45 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_ipatokenuniqueid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['no_qrcode'] = o_no_qrcode
-        if o_qrcode:
+        if o_qrcode is not None:
             _params['qrcode'] = o_qrcode
         _params['raw'] = o_raw
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
-        if o_ipatokendisabled:
+        if o_ipatokendisabled is not None:
             _params['ipatokendisabled'] = o_ipatokendisabled
-        if o_ipatokennotafter:
+        if o_ipatokennotafter is not None:
             _params['ipatokennotafter'] = o_ipatokennotafter
-        if o_ipatokennotbefore:
+        if o_ipatokennotbefore is not None:
             _params['ipatokennotbefore'] = o_ipatokennotbefore
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipatokenmodel:
+        if o_ipatokenmodel is not None:
             _params['ipatokenmodel'] = o_ipatokenmodel
-        if o_ipatokenowner:
+        if o_ipatokenowner is not None:
             _params['ipatokenowner'] = o_ipatokenowner
-        if o_ipatokenserial:
+        if o_ipatokenserial is not None:
             _params['ipatokenserial'] = o_ipatokenserial
-        if o_ipatokenvendor:
+        if o_ipatokenvendor is not None:
             _params['ipatokenvendor'] = o_ipatokenvendor
-        if o_ipatokenhotpcounter:
+        if o_ipatokenhotpcounter is not None:
             _params['ipatokenhotpcounter'] = o_ipatokenhotpcounter
-        if o_ipatokentotptimestep:
+        if o_ipatokentotptimestep is not None:
             _params['ipatokentotptimestep'] = o_ipatokentotptimestep
-        if o_ipatokentotpclockoffset:
+        if o_ipatokentotpclockoffset is not None:
             _params['ipatokentotpclockoffset'] = o_ipatokentotpclockoffset
-        if o_ipatokenotpdigits:
+        if o_ipatokenotpdigits is not None:
             _params['ipatokenotpdigits'] = o_ipatokenotpdigits
-        if o_ipatokenotpkey:
+        if o_ipatokenotpkey is not None:
             _params['ipatokenotpkey'] = o_ipatokenotpkey
-        if o_ipatokenotpalgorithm:
+        if o_ipatokenotpalgorithm is not None:
             _params['ipatokenotpalgorithm'] = o_ipatokenotpalgorithm
 
         return self._request(method, _args, _params)
@@ -12369,7 +12369,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -12472,44 +12472,44 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipatokendisabled:
+        if o_ipatokendisabled is not None:
             _params['ipatokendisabled'] = o_ipatokendisabled
-        if o_ipatokennotafter:
+        if o_ipatokennotafter is not None:
             _params['ipatokennotafter'] = o_ipatokennotafter
-        if o_ipatokennotbefore:
+        if o_ipatokennotbefore is not None:
             _params['ipatokennotbefore'] = o_ipatokennotbefore
-        if o_ipatokenhotpcounter:
+        if o_ipatokenhotpcounter is not None:
             _params['ipatokenhotpcounter'] = o_ipatokenhotpcounter
-        if o_ipatokentotptimestep:
+        if o_ipatokentotptimestep is not None:
             _params['ipatokentotptimestep'] = o_ipatokentotptimestep
-        if o_ipatokentotpclockoffset:
+        if o_ipatokentotpclockoffset is not None:
             _params['ipatokentotpclockoffset'] = o_ipatokentotpclockoffset
-        if o_ipatokenotpdigits:
+        if o_ipatokenotpdigits is not None:
             _params['ipatokenotpdigits'] = o_ipatokenotpdigits
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipatokenuniqueid:
+        if o_ipatokenuniqueid is not None:
             _params['ipatokenuniqueid'] = o_ipatokenuniqueid
-        if o_ipatokenmodel:
+        if o_ipatokenmodel is not None:
             _params['ipatokenmodel'] = o_ipatokenmodel
-        if o_ipatokenowner:
+        if o_ipatokenowner is not None:
             _params['ipatokenowner'] = o_ipatokenowner
-        if o_ipatokenserial:
+        if o_ipatokenserial is not None:
             _params['ipatokenserial'] = o_ipatokenserial
-        if o_ipatokenvendor:
+        if o_ipatokenvendor is not None:
             _params['ipatokenvendor'] = o_ipatokenvendor
-        if o_ipatokenotpalgorithm:
+        if o_ipatokenotpalgorithm is not None:
             _params['ipatokenotpalgorithm'] = o_ipatokenotpalgorithm
 
         return self._request(method, _args, _params)
@@ -12579,33 +12579,33 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_ipatokenuniqueid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipatokendisabled:
+        if o_ipatokendisabled is not None:
             _params['ipatokendisabled'] = o_ipatokendisabled
-        if o_ipatokennotafter:
+        if o_ipatokennotafter is not None:
             _params['ipatokennotafter'] = o_ipatokennotafter
-        if o_ipatokennotbefore:
+        if o_ipatokennotbefore is not None:
             _params['ipatokennotbefore'] = o_ipatokennotbefore
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipatokenmodel:
+        if o_ipatokenmodel is not None:
             _params['ipatokenmodel'] = o_ipatokenmodel
-        if o_ipatokenowner:
+        if o_ipatokenowner is not None:
             _params['ipatokenowner'] = o_ipatokenowner
-        if o_ipatokenserial:
+        if o_ipatokenserial is not None:
             _params['ipatokenserial'] = o_ipatokenserial
-        if o_ipatokenvendor:
+        if o_ipatokenvendor is not None:
             _params['ipatokenvendor'] = o_ipatokenvendor
 
         return self._request(method, _args, _params)
@@ -12639,7 +12639,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -12705,7 +12705,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
 
@@ -12768,7 +12768,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
 
@@ -12828,7 +12828,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_principal)
 
         _params = dict()
-        if o_otp:
+        if o_otp is not None:
             _params['otp'] = o_otp
 
         return self._request(method, _args, _params)
@@ -12909,41 +12909,41 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_filter:
+        if o_filter is not None:
             _params['filter'] = o_filter
-        if o_extratargetfilter:
+        if o_extratargetfilter is not None:
             _params['extratargetfilter'] = o_extratargetfilter
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
-        if o_subtree:
+        if o_subtree is not None:
             _params['subtree'] = o_subtree
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_ipapermtarget:
+        if o_ipapermtarget is not None:
             _params['ipapermtarget'] = o_ipapermtarget
-        if o_ipapermtargetfrom:
+        if o_ipapermtargetfrom is not None:
             _params['ipapermtargetfrom'] = o_ipapermtargetfrom
-        if o_ipapermtargetto:
+        if o_ipapermtargetto is not None:
             _params['ipapermtargetto'] = o_ipapermtargetto
-        if o_ipapermtargetfilter:
+        if o_ipapermtargetfilter is not None:
             _params['ipapermtargetfilter'] = o_ipapermtargetfilter
         _params['ipapermbindruletype'] = o_ipapermbindruletype
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
-        if o_targetgroup:
+        if o_targetgroup is not None:
             _params['targetgroup'] = o_targetgroup
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
-        if o_ipapermlocation:
+        if o_ipapermlocation is not None:
             _params['ipapermlocation'] = o_ipapermlocation
-        if o_ipapermright:
+        if o_ipapermright is not None:
             _params['ipapermright'] = o_ipapermright
 
         return self._request(method, _args, _params)
@@ -12977,7 +12977,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_privilege:
+        if o_privilege is not None:
             _params['privilege'] = o_privilege
 
         return self._request(method, _args, _params)
@@ -13129,52 +13129,52 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_filter:
+        if o_filter is not None:
             _params['filter'] = o_filter
-        if o_extratargetfilter:
+        if o_extratargetfilter is not None:
             _params['extratargetfilter'] = o_extratargetfilter
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
-        if o_subtree:
+        if o_subtree is not None:
             _params['subtree'] = o_subtree
-        if o_targetgroup:
+        if o_targetgroup is not None:
             _params['targetgroup'] = o_targetgroup
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipapermlocation:
+        if o_ipapermlocation is not None:
             _params['ipapermlocation'] = o_ipapermlocation
-        if o_ipapermtarget:
+        if o_ipapermtarget is not None:
             _params['ipapermtarget'] = o_ipapermtarget
-        if o_ipapermtargetfrom:
+        if o_ipapermtargetfrom is not None:
             _params['ipapermtargetfrom'] = o_ipapermtargetfrom
-        if o_ipapermtargetto:
+        if o_ipapermtargetto is not None:
             _params['ipapermtargetto'] = o_ipapermtargetto
-        if o_ipapermdefaultattr:
+        if o_ipapermdefaultattr is not None:
             _params['ipapermdefaultattr'] = o_ipapermdefaultattr
-        if o_ipapermexcludedattr:
+        if o_ipapermexcludedattr is not None:
             _params['ipapermexcludedattr'] = o_ipapermexcludedattr
-        if o_ipapermincludedattr:
+        if o_ipapermincludedattr is not None:
             _params['ipapermincludedattr'] = o_ipapermincludedattr
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_ipapermtargetfilter:
+        if o_ipapermtargetfilter is not None:
             _params['ipapermtargetfilter'] = o_ipapermtargetfilter
-        if o_ipapermbindruletype:
+        if o_ipapermbindruletype is not None:
             _params['ipapermbindruletype'] = o_ipapermbindruletype
-        if o_ipapermright:
+        if o_ipapermright is not None:
             _params['ipapermright'] = o_ipapermright
 
         return self._request(method, _args, _params)
@@ -13271,51 +13271,51 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_filter:
+        if o_filter is not None:
             _params['filter'] = o_filter
-        if o_extratargetfilter:
+        if o_extratargetfilter is not None:
             _params['extratargetfilter'] = o_extratargetfilter
-        if o_memberof:
+        if o_memberof is not None:
             _params['memberof'] = o_memberof
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
-        if o_subtree:
+        if o_subtree is not None:
             _params['subtree'] = o_subtree
-        if o_targetgroup:
+        if o_targetgroup is not None:
             _params['targetgroup'] = o_targetgroup
-        if o_type:
+        if o_type is not None:
             _params['type'] = o_type
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipapermlocation:
+        if o_ipapermlocation is not None:
             _params['ipapermlocation'] = o_ipapermlocation
-        if o_ipapermtarget:
+        if o_ipapermtarget is not None:
             _params['ipapermtarget'] = o_ipapermtarget
-        if o_ipapermtargetfrom:
+        if o_ipapermtargetfrom is not None:
             _params['ipapermtargetfrom'] = o_ipapermtargetfrom
-        if o_ipapermtargetto:
+        if o_ipapermtargetto is not None:
             _params['ipapermtargetto'] = o_ipapermtargetto
-        if o_ipapermexcludedattr:
+        if o_ipapermexcludedattr is not None:
             _params['ipapermexcludedattr'] = o_ipapermexcludedattr
-        if o_ipapermincludedattr:
+        if o_ipapermincludedattr is not None:
             _params['ipapermincludedattr'] = o_ipapermincludedattr
-        if o_ipapermtargetfilter:
+        if o_ipapermtargetfilter is not None:
             _params['ipapermtargetfilter'] = o_ipapermtargetfilter
-        if o_ipapermbindruletype:
+        if o_ipapermbindruletype is not None:
             _params['ipapermbindruletype'] = o_ipapermbindruletype
-        if o_ipapermright:
+        if o_ipapermright is not None:
             _params['ipapermright'] = o_ipapermright
 
         return self._request(method, _args, _params)
@@ -13349,7 +13349,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_privilege:
+        if o_privilege is not None:
             _params['privilege'] = o_privilege
 
         return self._request(method, _args, _params)
@@ -13432,15 +13432,15 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_status:
+        if o_status is not None:
             _params['status'] = o_status
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_server_server:
+        if o_server_server is not None:
             _params['server_server'] = o_server_server
 
         return self._request(method, _args, _params)
@@ -13462,7 +13462,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_server:
+        if o_server is not None:
             _params['server'] = o_server
 
         return self._request(method, _args, _params)
@@ -13501,14 +13501,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -13542,7 +13542,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_role:
+        if o_role is not None:
             _params['role'] = o_role
 
         return self._request(method, _args, _params)
@@ -13576,7 +13576,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_permission:
+        if o_permission is not None:
             _params['permission'] = o_permission
 
         return self._request(method, _args, _params)
@@ -13640,18 +13640,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -13700,19 +13700,19 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -13747,7 +13747,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_role:
+        if o_role is not None:
             _params['role'] = o_role
 
         return self._request(method, _args, _params)
@@ -13781,7 +13781,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_permission:
+        if o_permission is not None:
             _params['permission'] = o_permission
 
         return self._request(method, _args, _params)
@@ -13875,27 +13875,27 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['cospriority'] = o_cospriority
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_krbpwdfailurecountinterval:
+        if o_krbpwdfailurecountinterval is not None:
             _params['krbpwdfailurecountinterval'] = o_krbpwdfailurecountinterval
-        if o_krbpwdhistorylength:
+        if o_krbpwdhistorylength is not None:
             _params['krbpwdhistorylength'] = o_krbpwdhistorylength
-        if o_krbpwdlockoutduration:
+        if o_krbpwdlockoutduration is not None:
             _params['krbpwdlockoutduration'] = o_krbpwdlockoutduration
-        if o_krbpwdmaxfailure:
+        if o_krbpwdmaxfailure is not None:
             _params['krbpwdmaxfailure'] = o_krbpwdmaxfailure
-        if o_krbmaxpwdlife:
+        if o_krbmaxpwdlife is not None:
             _params['krbmaxpwdlife'] = o_krbmaxpwdlife
-        if o_krbpwdmindiffchars:
+        if o_krbpwdmindiffchars is not None:
             _params['krbpwdmindiffchars'] = o_krbpwdmindiffchars
-        if o_krbpwdminlength:
+        if o_krbpwdminlength is not None:
             _params['krbpwdminlength'] = o_krbpwdminlength
-        if o_krbminpwdlife:
+        if o_krbminpwdlife is not None:
             _params['krbminpwdlife'] = o_krbminpwdlife
 
         return self._request(method, _args, _params)
@@ -13980,33 +13980,33 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_cospriority:
+        if o_cospriority is not None:
             _params['cospriority'] = o_cospriority
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_krbpwdfailurecountinterval:
+        if o_krbpwdfailurecountinterval is not None:
             _params['krbpwdfailurecountinterval'] = o_krbpwdfailurecountinterval
-        if o_krbpwdhistorylength:
+        if o_krbpwdhistorylength is not None:
             _params['krbpwdhistorylength'] = o_krbpwdhistorylength
-        if o_krbpwdlockoutduration:
+        if o_krbpwdlockoutduration is not None:
             _params['krbpwdlockoutduration'] = o_krbpwdlockoutduration
-        if o_krbpwdmaxfailure:
+        if o_krbpwdmaxfailure is not None:
             _params['krbpwdmaxfailure'] = o_krbpwdmaxfailure
-        if o_krbmaxpwdlife:
+        if o_krbmaxpwdlife is not None:
             _params['krbmaxpwdlife'] = o_krbmaxpwdlife
-        if o_krbpwdmindiffchars:
+        if o_krbpwdmindiffchars is not None:
             _params['krbpwdmindiffchars'] = o_krbpwdmindiffchars
-        if o_krbpwdminlength:
+        if o_krbpwdminlength is not None:
             _params['krbpwdminlength'] = o_krbpwdminlength
-        if o_krbminpwdlife:
+        if o_krbminpwdlife is not None:
             _params['krbminpwdlife'] = o_krbminpwdlife
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -14073,32 +14073,32 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_cospriority:
+        if o_cospriority is not None:
             _params['cospriority'] = o_cospriority
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_krbpwdfailurecountinterval:
+        if o_krbpwdfailurecountinterval is not None:
             _params['krbpwdfailurecountinterval'] = o_krbpwdfailurecountinterval
-        if o_krbpwdhistorylength:
+        if o_krbpwdhistorylength is not None:
             _params['krbpwdhistorylength'] = o_krbpwdhistorylength
-        if o_krbpwdlockoutduration:
+        if o_krbpwdlockoutduration is not None:
             _params['krbpwdlockoutduration'] = o_krbpwdlockoutduration
-        if o_krbpwdmaxfailure:
+        if o_krbpwdmaxfailure is not None:
             _params['krbpwdmaxfailure'] = o_krbpwdmaxfailure
-        if o_krbmaxpwdlife:
+        if o_krbmaxpwdlife is not None:
             _params['krbmaxpwdlife'] = o_krbmaxpwdlife
-        if o_krbpwdmindiffchars:
+        if o_krbpwdmindiffchars is not None:
             _params['krbpwdmindiffchars'] = o_krbpwdmindiffchars
-        if o_krbpwdminlength:
+        if o_krbpwdminlength is not None:
             _params['krbpwdminlength'] = o_krbpwdminlength
-        if o_krbminpwdlife:
+        if o_krbminpwdlife is not None:
             _params['krbminpwdlife'] = o_krbminpwdlife
 
         return self._request(method, _args, _params)
@@ -14129,7 +14129,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -14183,21 +14183,21 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_ipatokenradiusretries:
+        if o_ipatokenradiusretries is not None:
             _params['ipatokenradiusretries'] = o_ipatokenradiusretries
-        if o_ipatokenradiustimeout:
+        if o_ipatokenradiustimeout is not None:
             _params['ipatokenradiustimeout'] = o_ipatokenradiustimeout
         _params['ipatokenradiussecret'] = o_ipatokenradiussecret
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
         _params['ipatokenradiusserver'] = o_ipatokenradiusserver
-        if o_ipatokenusermapattribute:
+        if o_ipatokenusermapattribute is not None:
             _params['ipatokenusermapattribute'] = o_ipatokenusermapattribute
 
         return self._request(method, _args, _params)
@@ -14273,27 +14273,27 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipatokenradiusretries:
+        if o_ipatokenradiusretries is not None:
             _params['ipatokenradiusretries'] = o_ipatokenradiusretries
-        if o_ipatokenradiustimeout:
+        if o_ipatokenradiustimeout is not None:
             _params['ipatokenradiustimeout'] = o_ipatokenradiustimeout
-        if o_ipatokenradiussecret:
+        if o_ipatokenradiussecret is not None:
             _params['ipatokenradiussecret'] = o_ipatokenradiussecret
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_ipatokenradiusserver:
+        if o_ipatokenradiusserver is not None:
             _params['ipatokenradiusserver'] = o_ipatokenradiusserver
-        if o_ipatokenusermapattribute:
+        if o_ipatokenusermapattribute is not None:
             _params['ipatokenusermapattribute'] = o_ipatokenusermapattribute
 
         return self._request(method, _args, _params)
@@ -14354,28 +14354,28 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipatokenradiusretries:
+        if o_ipatokenradiusretries is not None:
             _params['ipatokenradiusretries'] = o_ipatokenradiusretries
-        if o_ipatokenradiustimeout:
+        if o_ipatokenradiustimeout is not None:
             _params['ipatokenradiustimeout'] = o_ipatokenradiustimeout
-        if o_ipatokenradiussecret:
+        if o_ipatokenradiussecret is not None:
             _params['ipatokenradiussecret'] = o_ipatokenradiussecret
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipatokenradiusserver:
+        if o_ipatokenradiusserver is not None:
             _params['ipatokenradiusserver'] = o_ipatokenradiusserver
-        if o_ipatokenusermapattribute:
+        if o_ipatokenusermapattribute is not None:
             _params['ipatokenusermapattribute'] = o_ipatokenusermapattribute
 
         return self._request(method, _args, _params)
@@ -14452,21 +14452,21 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['force'] = o_force
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_add_domain:
+        if o_add_domain is not None:
             _params['add_domain'] = o_add_domain
-        if o_del_domain:
+        if o_del_domain is not None:
             _params['del_domain'] = o_del_domain
-        if o_associateddomain:
+        if o_associateddomain is not None:
             _params['associateddomain'] = o_associateddomain
 
         return self._request(method, _args, _params)
@@ -14530,14 +14530,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -14583,15 +14583,15 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -14625,7 +14625,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_privilege:
+        if o_privilege is not None:
             _params['privilege'] = o_privilege
 
         return self._request(method, _args, _params)
@@ -14689,18 +14689,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -14749,19 +14749,19 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -14807,15 +14807,15 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -14849,7 +14849,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_privilege:
+        if o_privilege is not None:
             _params['privilege'] = o_privilege
 
         return self._request(method, _args, _params)
@@ -14900,7 +14900,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_known_fingerprints:
+        if o_known_fingerprints is not None:
             _params['known_fingerprints'] = o_known_fingerprints
 
         return self._request(method, _args, _params)
@@ -14934,7 +14934,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['attrs'] = o_attrs
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
 
         return self._request(method, _args, _params)
@@ -14989,14 +14989,14 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_aciname:
+        if o_aciname is not None:
             _params['aciname'] = o_aciname
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
 
         return self._request(method, _args, _params)
@@ -15029,9 +15029,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params = dict()
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_attrs:
+        if o_attrs is not None:
             _params['attrs'] = o_attrs
-        if o_permissions:
+        if o_permissions is not None:
             _params['permissions'] = o_permissions
 
         return self._request(method, _args, _params)
@@ -15110,23 +15110,23 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_seealso:
+        if o_seealso is not None:
             _params['seealso'] = o_seealso
         _params['ipaselinuxuser'] = o_ipaselinuxuser
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -15163,9 +15163,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -15202,9 +15202,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -15317,28 +15317,28 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_seealso:
+        if o_seealso is not None:
             _params['seealso'] = o_seealso
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_ipaselinuxuser:
+        if o_ipaselinuxuser is not None:
             _params['ipaselinuxuser'] = o_ipaselinuxuser
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -15399,27 +15399,27 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_seealso:
+        if o_seealso is not None:
             _params['seealso'] = o_seealso
-        if o_ipaselinuxuser:
+        if o_ipaselinuxuser is not None:
             _params['ipaselinuxuser'] = o_ipaselinuxuser
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -15456,9 +15456,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -15495,9 +15495,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -15583,11 +15583,11 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['continue'] = o_continue
-        if o_force:
+        if o_force is not None:
             _params['force'] = o_force
-        if o_ignore_last_of_role:
+        if o_ignore_last_of_role is not None:
             _params['ignore_last_of_role'] = o_ignore_last_of_role
-        if o_ignore_topology_disconnect:
+        if o_ignore_topology_disconnect is not None:
             _params['ignore_topology_disconnect'] = o_ignore_topology_disconnect
 
         return self._request(method, _args, _params)
@@ -15648,30 +15648,30 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_in_location:
+        if o_in_location is not None:
             _params['in_location'] = o_in_location
-        if o_not_in_location:
+        if o_not_in_location is not None:
             _params['not_in_location'] = o_not_in_location
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_no_topologysuffix:
+        if o_no_topologysuffix is not None:
             _params['no_topologysuffix'] = o_no_topologysuffix
-        if o_servrole:
+        if o_servrole is not None:
             _params['servrole'] = o_servrole
-        if o_topologysuffix:
+        if o_topologysuffix is not None:
             _params['topologysuffix'] = o_topologysuffix
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipamaxdomainlevel:
+        if o_ipamaxdomainlevel is not None:
             _params['ipamaxdomainlevel'] = o_ipamaxdomainlevel
-        if o_ipamindomainlevel:
+        if o_ipamindomainlevel is not None:
             _params['ipamindomainlevel'] = o_ipamindomainlevel
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -15720,19 +15720,19 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipalocation_location:
+        if o_ipalocation_location is not None:
             _params['ipalocation_location'] = o_ipalocation_location
-        if o_ipaserviceweight:
+        if o_ipaserviceweight is not None:
             _params['ipaserviceweight'] = o_ipaserviceweight
 
         return self._request(method, _args, _params)
@@ -15775,18 +15775,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_role_servrole:
+        if o_role_servrole is not None:
             _params['role_servrole'] = o_role_servrole
-        if o_status:
+        if o_status is not None:
             _params['status'] = o_status
         _params['all'] = o_all
         _params['include_master'] = o_include_master
         _params['raw'] = o_raw
-        if o_server_server:
+        if o_server_server is not None:
             _params['server_server'] = o_server_server
 
         return self._request(method, _args, _params)
@@ -15926,25 +15926,25 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        if o_ipakrbokasdelegate:
+        if o_ipakrbokasdelegate is not None:
             _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
-        if o_ipakrboktoauthasdelegate:
+        if o_ipakrboktoauthasdelegate is not None:
             _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
-        if o_ipakrbrequirespreauth:
+        if o_ipakrbrequirespreauth is not None:
             _params['ipakrbrequirespreauth'] = o_ipakrbrequirespreauth
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['force'] = o_force
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbprincipalauthind:
+        if o_krbprincipalauthind is not None:
             _params['krbprincipalauthind'] = o_krbprincipalauthind
-        if o_ipakrbauthzdata:
+        if o_ipakrbauthzdata is not None:
             _params['ipakrbauthzdata'] = o_ipakrbauthzdata
 
         return self._request(method, _args, _params)
@@ -16011,7 +16011,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -16087,13 +16087,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -16136,13 +16136,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -16223,13 +16223,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -16272,13 +16272,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -16333,26 +16333,26 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_man_by_host:
+        if o_man_by_host is not None:
             _params['man_by_host'] = o_man_by_host
-        if o_not_man_by_host:
+        if o_not_man_by_host is not None:
             _params['not_man_by_host'] = o_not_man_by_host
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_krbcanonicalname:
+        if o_krbcanonicalname is not None:
             _params['krbcanonicalname'] = o_krbcanonicalname
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
-        if o_krbprincipalauthind:
+        if o_krbprincipalauthind is not None:
             _params['krbprincipalauthind'] = o_krbprincipalauthind
-        if o_ipakrbauthzdata:
+        if o_ipakrbauthzdata is not None:
             _params['ipakrbauthzdata'] = o_ipakrbauthzdata
 
         return self._request(method, _args, _params)
@@ -16416,29 +16416,29 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        if o_ipakrbokasdelegate:
+        if o_ipakrbokasdelegate is not None:
             _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
-        if o_ipakrboktoauthasdelegate:
+        if o_ipakrboktoauthasdelegate is not None:
             _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
-        if o_ipakrbrequirespreauth:
+        if o_ipakrbrequirespreauth is not None:
             _params['ipakrbrequirespreauth'] = o_ipakrbrequirespreauth
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
-        if o_krbprincipalauthind:
+        if o_krbprincipalauthind is not None:
             _params['krbprincipalauthind'] = o_krbprincipalauthind
-        if o_ipakrbauthzdata:
+        if o_ipakrbauthzdata is not None:
             _params['ipakrbauthzdata'] = o_ipakrbauthzdata
 
         return self._request(method, _args, _params)
@@ -16505,7 +16505,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -16572,7 +16572,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        if o_out:
+        if o_out is not None:
             _params['out'] = o_out
         _params['all'] = o_all
         _params['no_members'] = o_no_members
@@ -16612,9 +16612,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
@@ -16651,7 +16651,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_principal:
+        if o_principal is not None:
             _params['principal'] = o_principal
 
         return self._request(method, _args, _params)
@@ -16685,7 +16685,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_servicedelegationtarget:
+        if o_servicedelegationtarget is not None:
             _params['servicedelegationtarget'] = o_servicedelegationtarget
 
         return self._request(method, _args, _params)
@@ -16746,16 +16746,16 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -16789,7 +16789,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_principal:
+        if o_principal is not None:
             _params['principal'] = o_principal
 
         return self._request(method, _args, _params)
@@ -16823,7 +16823,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_servicedelegationtarget:
+        if o_servicedelegationtarget is not None:
             _params['servicedelegationtarget'] = o_servicedelegationtarget
 
         return self._request(method, _args, _params)
@@ -16889,9 +16889,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -16923,7 +16923,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params = dict()
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_principal:
+        if o_principal is not None:
             _params['principal'] = o_principal
 
         return self._request(method, _args, _params)
@@ -16981,15 +16981,15 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -17019,7 +17019,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params = dict()
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_principal:
+        if o_principal is not None:
             _params['principal'] = o_principal
 
         return self._request(method, _args, _params)
@@ -17257,87 +17257,87 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_from_delete:
+        if o_from_delete is not None:
             _params['from_delete'] = o_from_delete
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_random:
+        if o_random is not None:
             _params['random'] = o_random
         _params['raw'] = o_raw
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbpasswordexpiration:
+        if o_krbpasswordexpiration is not None:
             _params['krbpasswordexpiration'] = o_krbpasswordexpiration
-        if o_krbprincipalexpiration:
+        if o_krbprincipalexpiration is not None:
             _params['krbprincipalexpiration'] = o_krbprincipalexpiration
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_carlicense:
+        if o_carlicense is not None:
             _params['carlicense'] = o_carlicense
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_departmentnumber:
+        if o_departmentnumber is not None:
             _params['departmentnumber'] = o_departmentnumber
-        if o_mail:
+        if o_mail is not None:
             _params['mail'] = o_mail
-        if o_employeenumber:
+        if o_employeenumber is not None:
             _params['employeenumber'] = o_employeenumber
-        if o_employeetype:
+        if o_employeetype is not None:
             _params['employeetype'] = o_employeetype
-        if o_facsimiletelephonenumber:
+        if o_facsimiletelephonenumber is not None:
             _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
         _params['givenname'] = o_givenname
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
         _params['sn'] = o_sn
-        if o_manager:
+        if o_manager is not None:
             _params['manager'] = o_manager
-        if o_mobile:
+        if o_mobile is not None:
             _params['mobile'] = o_mobile
-        if o_ou:
+        if o_ou is not None:
             _params['ou'] = o_ou
-        if o_pager:
+        if o_pager is not None:
             _params['pager'] = o_pager
-        if o_telephonenumber:
+        if o_telephonenumber is not None:
             _params['telephonenumber'] = o_telephonenumber
-        if o_postalcode:
+        if o_postalcode is not None:
             _params['postalcode'] = o_postalcode
-        if o_preferredlanguage:
+        if o_preferredlanguage is not None:
             _params['preferredlanguage'] = o_preferredlanguage
-        if o_ipatokenradiusconfiglink:
+        if o_ipatokenradiusconfiglink is not None:
             _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
-        if o_ipatokenradiususername:
+        if o_ipatokenradiususername is not None:
             _params['ipatokenradiususername'] = o_ipatokenradiususername
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
-        if o_ipasshpubkey:
+        if o_ipasshpubkey is not None:
             _params['ipasshpubkey'] = o_ipasshpubkey
-        if o_st:
+        if o_st is not None:
             _params['st'] = o_st
-        if o_street:
+        if o_street is not None:
             _params['street'] = o_street
-        if o_title:
+        if o_title is not None:
             _params['title'] = o_title
-        if o_ipauserauthtype:
+        if o_ipauserauthtype is not None:
             _params['ipauserauthtype'] = o_ipauserauthtype
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
         _params['cn'] = o_cn
-        if o_displayname:
+        if o_displayname is not None:
             _params['displayname'] = o_displayname
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_initials:
+        if o_initials is not None:
             _params['initials'] = o_initials
 
         return self._request(method, _args, _params)
@@ -17411,11 +17411,11 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_certificate:
+        if o_certificate is not None:
             _params['certificate'] = o_certificate
-        if o_issuer:
+        if o_issuer is not None:
             _params['issuer'] = o_issuer
-        if o_subject:
+        if o_subject is not None:
             _params['subject'] = o_subject
         _params['all'] = o_all
         _params['no_members'] = o_no_members
@@ -17452,7 +17452,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -17684,108 +17684,108 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_in_group:
+        if o_in_group is not None:
             _params['in_group'] = o_in_group
-        if o_in_hbacrule:
+        if o_in_hbacrule is not None:
             _params['in_hbacrule'] = o_in_hbacrule
-        if o_in_netgroup:
+        if o_in_netgroup is not None:
             _params['in_netgroup'] = o_in_netgroup
-        if o_in_role:
+        if o_in_role is not None:
             _params['in_role'] = o_in_role
-        if o_in_sudorule:
+        if o_in_sudorule is not None:
             _params['in_sudorule'] = o_in_sudorule
-        if o_not_in_group:
+        if o_not_in_group is not None:
             _params['not_in_group'] = o_not_in_group
-        if o_not_in_hbacrule:
+        if o_not_in_hbacrule is not None:
             _params['not_in_hbacrule'] = o_not_in_hbacrule
-        if o_not_in_netgroup:
+        if o_not_in_netgroup is not None:
             _params['not_in_netgroup'] = o_not_in_netgroup
-        if o_not_in_role:
+        if o_not_in_role is not None:
             _params['not_in_role'] = o_not_in_role
-        if o_not_in_sudorule:
+        if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbpasswordexpiration:
+        if o_krbpasswordexpiration is not None:
             _params['krbpasswordexpiration'] = o_krbpasswordexpiration
-        if o_krbprincipalexpiration:
+        if o_krbprincipalexpiration is not None:
             _params['krbprincipalexpiration'] = o_krbprincipalexpiration
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
-        if o_carlicense:
+        if o_carlicense is not None:
             _params['carlicense'] = o_carlicense
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_departmentnumber:
+        if o_departmentnumber is not None:
             _params['departmentnumber'] = o_departmentnumber
-        if o_displayname:
+        if o_displayname is not None:
             _params['displayname'] = o_displayname
-        if o_mail:
+        if o_mail is not None:
             _params['mail'] = o_mail
-        if o_employeenumber:
+        if o_employeenumber is not None:
             _params['employeenumber'] = o_employeenumber
-        if o_employeetype:
+        if o_employeetype is not None:
             _params['employeetype'] = o_employeetype
-        if o_facsimiletelephonenumber:
+        if o_facsimiletelephonenumber is not None:
             _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
-        if o_givenname:
+        if o_givenname is not None:
             _params['givenname'] = o_givenname
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
-        if o_initials:
+        if o_initials is not None:
             _params['initials'] = o_initials
-        if o_sn:
+        if o_sn is not None:
             _params['sn'] = o_sn
-        if o_uid:
+        if o_uid is not None:
             _params['uid'] = o_uid
-        if o_manager:
+        if o_manager is not None:
             _params['manager'] = o_manager
-        if o_mobile:
+        if o_mobile is not None:
             _params['mobile'] = o_mobile
-        if o_ou:
+        if o_ou is not None:
             _params['ou'] = o_ou
-        if o_pager:
+        if o_pager is not None:
             _params['pager'] = o_pager
-        if o_telephonenumber:
+        if o_telephonenumber is not None:
             _params['telephonenumber'] = o_telephonenumber
-        if o_postalcode:
+        if o_postalcode is not None:
             _params['postalcode'] = o_postalcode
-        if o_preferredlanguage:
+        if o_preferredlanguage is not None:
             _params['preferredlanguage'] = o_preferredlanguage
-        if o_ipatokenradiusconfiglink:
+        if o_ipatokenradiusconfiglink is not None:
             _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
-        if o_ipatokenradiususername:
+        if o_ipatokenradiususername is not None:
             _params['ipatokenradiususername'] = o_ipatokenradiususername
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
-        if o_st:
+        if o_st is not None:
             _params['st'] = o_st
-        if o_street:
+        if o_street is not None:
             _params['street'] = o_street
-        if o_title:
+        if o_title is not None:
             _params['title'] = o_title
-        if o_ipauserauthtype:
+        if o_ipauserauthtype is not None:
             _params['ipauserauthtype'] = o_ipauserauthtype
 
         return self._request(method, _args, _params)
@@ -17945,93 +17945,93 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_random:
+        if o_random is not None:
             _params['random'] = o_random
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbpasswordexpiration:
+        if o_krbpasswordexpiration is not None:
             _params['krbpasswordexpiration'] = o_krbpasswordexpiration
-        if o_krbprincipalexpiration:
+        if o_krbprincipalexpiration is not None:
             _params['krbprincipalexpiration'] = o_krbprincipalexpiration
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
-        if o_carlicense:
+        if o_carlicense is not None:
             _params['carlicense'] = o_carlicense
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_departmentnumber:
+        if o_departmentnumber is not None:
             _params['departmentnumber'] = o_departmentnumber
-        if o_displayname:
+        if o_displayname is not None:
             _params['displayname'] = o_displayname
-        if o_mail:
+        if o_mail is not None:
             _params['mail'] = o_mail
-        if o_employeenumber:
+        if o_employeenumber is not None:
             _params['employeenumber'] = o_employeenumber
-        if o_employeetype:
+        if o_employeetype is not None:
             _params['employeetype'] = o_employeetype
-        if o_facsimiletelephonenumber:
+        if o_facsimiletelephonenumber is not None:
             _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
-        if o_givenname:
+        if o_givenname is not None:
             _params['givenname'] = o_givenname
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
-        if o_initials:
+        if o_initials is not None:
             _params['initials'] = o_initials
-        if o_sn:
+        if o_sn is not None:
             _params['sn'] = o_sn
-        if o_manager:
+        if o_manager is not None:
             _params['manager'] = o_manager
-        if o_mobile:
+        if o_mobile is not None:
             _params['mobile'] = o_mobile
-        if o_ou:
+        if o_ou is not None:
             _params['ou'] = o_ou
-        if o_pager:
+        if o_pager is not None:
             _params['pager'] = o_pager
-        if o_telephonenumber:
+        if o_telephonenumber is not None:
             _params['telephonenumber'] = o_telephonenumber
-        if o_postalcode:
+        if o_postalcode is not None:
             _params['postalcode'] = o_postalcode
-        if o_preferredlanguage:
+        if o_preferredlanguage is not None:
             _params['preferredlanguage'] = o_preferredlanguage
-        if o_ipatokenradiusconfiglink:
+        if o_ipatokenradiusconfiglink is not None:
             _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
-        if o_ipatokenradiususername:
+        if o_ipatokenradiususername is not None:
             _params['ipatokenradiususername'] = o_ipatokenradiususername
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
-        if o_ipasshpubkey:
+        if o_ipasshpubkey is not None:
             _params['ipasshpubkey'] = o_ipasshpubkey
-        if o_st:
+        if o_st is not None:
             _params['st'] = o_st
-        if o_street:
+        if o_street is not None:
             _params['street'] = o_street
-        if o_title:
+        if o_title is not None:
             _params['title'] = o_title
-        if o_ipauserauthtype:
+        if o_ipauserauthtype is not None:
             _params['ipauserauthtype'] = o_ipauserauthtype
 
         return self._request(method, _args, _params)
@@ -18105,11 +18105,11 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_certificate:
+        if o_certificate is not None:
             _params['certificate'] = o_certificate
-        if o_issuer:
+        if o_issuer is not None:
             _params['issuer'] = o_issuer
-        if o_subject:
+        if o_subject is not None:
             _params['subject'] = o_subject
         _params['all'] = o_all
         _params['no_members'] = o_no_members
@@ -18146,7 +18146,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -18251,14 +18251,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_sudocmd)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -18322,18 +18322,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_sudocmd:
+        if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -18379,17 +18379,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_sudocmd)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -18461,14 +18461,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -18502,7 +18502,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_sudocmd:
+        if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
 
         return self._request(method, _args, _params)
@@ -18566,18 +18566,18 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -18623,17 +18623,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
 
         return self._request(method, _args, _params)
@@ -18667,7 +18667,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_sudocmd:
+        if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
 
         return self._request(method, _args, _params)
@@ -18772,36 +18772,36 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_sudoorder:
+        if o_sudoorder is not None:
             _params['sudoorder'] = o_sudoorder
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_externaluser:
+        if o_externaluser is not None:
             _params['externaluser'] = o_externaluser
-        if o_ipasudorunasextgroup:
+        if o_ipasudorunasextgroup is not None:
             _params['ipasudorunasextgroup'] = o_ipasudorunasextgroup
-        if o_ipasudorunasextuser:
+        if o_ipasudorunasextuser is not None:
             _params['ipasudorunasextuser'] = o_ipasudorunasextuser
-        if o_cmdcategory:
+        if o_cmdcategory is not None:
             _params['cmdcategory'] = o_cmdcategory
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_ipasudorunasgroupcategory:
+        if o_ipasudorunasgroupcategory is not None:
             _params['ipasudorunasgroupcategory'] = o_ipasudorunasgroupcategory
-        if o_ipasudorunasusercategory:
+        if o_ipasudorunasusercategory is not None:
             _params['ipasudorunasusercategory'] = o_ipasudorunasusercategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -18838,9 +18838,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_sudocmdgroup:
+        if o_sudocmdgroup is not None:
             _params['sudocmdgroup'] = o_sudocmdgroup
-        if o_sudocmd:
+        if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
 
         return self._request(method, _args, _params)
@@ -18877,9 +18877,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_sudocmdgroup:
+        if o_sudocmdgroup is not None:
             _params['sudocmdgroup'] = o_sudocmdgroup
-        if o_sudocmd:
+        if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
 
         return self._request(method, _args, _params)
@@ -18916,14 +18916,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_hostmask:
+        if o_hostmask is not None:
             _params['hostmask'] = o_hostmask
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -18990,7 +18990,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
 
         return self._request(method, _args, _params)
@@ -19027,9 +19027,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -19066,9 +19066,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -19199,40 +19199,40 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_sudoorder:
+        if o_sudoorder is not None:
             _params['sudoorder'] = o_sudoorder
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_externaluser:
+        if o_externaluser is not None:
             _params['externaluser'] = o_externaluser
-        if o_ipasudorunasextgroup:
+        if o_ipasudorunasextgroup is not None:
             _params['ipasudorunasextgroup'] = o_ipasudorunasextgroup
-        if o_ipasudorunasextuser:
+        if o_ipasudorunasextuser is not None:
             _params['ipasudorunasextuser'] = o_ipasudorunasextuser
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_cmdcategory:
+        if o_cmdcategory is not None:
             _params['cmdcategory'] = o_cmdcategory
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_ipasudorunasgroupcategory:
+        if o_ipasudorunasgroupcategory is not None:
             _params['ipasudorunasgroupcategory'] = o_ipasudorunasgroupcategory
-        if o_ipasudorunasusercategory:
+        if o_ipasudorunasusercategory is not None:
             _params['ipasudorunasusercategory'] = o_ipasudorunasusercategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -19314,41 +19314,41 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipaenabledflag:
+        if o_ipaenabledflag is not None:
             _params['ipaenabledflag'] = o_ipaenabledflag
-        if o_sudoorder:
+        if o_sudoorder is not None:
             _params['sudoorder'] = o_sudoorder
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_externalhost:
+        if o_externalhost is not None:
             _params['externalhost'] = o_externalhost
-        if o_externaluser:
+        if o_externaluser is not None:
             _params['externaluser'] = o_externaluser
-        if o_ipasudorunasextgroup:
+        if o_ipasudorunasextgroup is not None:
             _params['ipasudorunasextgroup'] = o_ipasudorunasextgroup
-        if o_ipasudorunasextuser:
+        if o_ipasudorunasextuser is not None:
             _params['ipasudorunasextuser'] = o_ipasudorunasextuser
-        if o_cmdcategory:
+        if o_cmdcategory is not None:
             _params['cmdcategory'] = o_cmdcategory
-        if o_hostcategory:
+        if o_hostcategory is not None:
             _params['hostcategory'] = o_hostcategory
-        if o_ipasudorunasgroupcategory:
+        if o_ipasudorunasgroupcategory is not None:
             _params['ipasudorunasgroupcategory'] = o_ipasudorunasgroupcategory
-        if o_ipasudorunasusercategory:
+        if o_ipasudorunasusercategory is not None:
             _params['ipasudorunasusercategory'] = o_ipasudorunasusercategory
-        if o_usercategory:
+        if o_usercategory is not None:
             _params['usercategory'] = o_usercategory
 
         return self._request(method, _args, _params)
@@ -19385,9 +19385,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_sudocmdgroup:
+        if o_sudocmdgroup is not None:
             _params['sudocmdgroup'] = o_sudocmdgroup
-        if o_sudocmd:
+        if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
 
         return self._request(method, _args, _params)
@@ -19424,9 +19424,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_sudocmdgroup:
+        if o_sudocmdgroup is not None:
             _params['sudocmdgroup'] = o_sudocmdgroup
-        if o_sudocmd:
+        if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
 
         return self._request(method, _args, _params)
@@ -19463,14 +19463,14 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_hostmask:
+        if o_hostmask is not None:
             _params['hostmask'] = o_hostmask
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_hostgroup:
+        if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
-        if o_host:
+        if o_host is not None:
             _params['host'] = o_host
 
         return self._request(method, _args, _params)
@@ -19537,7 +19537,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
 
         return self._request(method, _args, _params)
@@ -19574,9 +19574,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -19613,9 +19613,9 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -19677,7 +19677,7 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
 
@@ -19764,23 +19764,23 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_nsds5replicatimeout:
+        if o_nsds5replicatimeout is not None:
             _params['nsds5replicatimeout'] = o_nsds5replicatimeout
         _params['iparepltoposegmentleftnode'] = o_iparepltoposegmentleftnode
-        if o_nsds5replicatedattributelist:
+        if o_nsds5replicatedattributelist is not None:
             _params['nsds5replicatedattributelist'] = o_nsds5replicatedattributelist
-        if o_nsds5replicatedattributelisttotal:
+        if o_nsds5replicatedattributelisttotal is not None:
             _params['nsds5replicatedattributelisttotal'] = o_nsds5replicatedattributelisttotal
         _params['iparepltoposegmentrightnode'] = o_iparepltoposegmentrightnode
-        if o_nsds5replicastripattrs:
+        if o_nsds5replicastripattrs is not None:
             _params['nsds5replicastripattrs'] = o_nsds5replicastripattrs
-        if o_nsds5replicaenabled:
+        if o_nsds5replicaenabled is not None:
             _params['nsds5replicaenabled'] = o_nsds5replicaenabled
         _params['iparepltoposegmentdirection'] = o_iparepltoposegmentdirection
 
@@ -19871,31 +19871,31 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_topologysuffixcn)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_nsds5replicatimeout:
+        if o_nsds5replicatimeout is not None:
             _params['nsds5replicatimeout'] = o_nsds5replicatimeout
-        if o_iparepltoposegmentleftnode:
+        if o_iparepltoposegmentleftnode is not None:
             _params['iparepltoposegmentleftnode'] = o_iparepltoposegmentleftnode
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_nsds5replicatedattributelist:
+        if o_nsds5replicatedattributelist is not None:
             _params['nsds5replicatedattributelist'] = o_nsds5replicatedattributelist
-        if o_nsds5replicatedattributelisttotal:
+        if o_nsds5replicatedattributelisttotal is not None:
             _params['nsds5replicatedattributelisttotal'] = o_nsds5replicatedattributelisttotal
-        if o_iparepltoposegmentrightnode:
+        if o_iparepltoposegmentrightnode is not None:
             _params['iparepltoposegmentrightnode'] = o_iparepltoposegmentrightnode
-        if o_nsds5replicastripattrs:
+        if o_nsds5replicastripattrs is not None:
             _params['nsds5replicastripattrs'] = o_nsds5replicastripattrs
-        if o_iparepltoposegmentdirection:
+        if o_iparepltoposegmentdirection is not None:
             _params['iparepltoposegmentdirection'] = o_iparepltoposegmentdirection
-        if o_nsds5replicaenabled:
+        if o_nsds5replicaenabled is not None:
             _params['nsds5replicaenabled'] = o_nsds5replicaenabled
 
         return self._request(method, _args, _params)
@@ -19954,24 +19954,24 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_nsds5replicatimeout:
+        if o_nsds5replicatimeout is not None:
             _params['nsds5replicatimeout'] = o_nsds5replicatimeout
-        if o_nsds5replicatedattributelist:
+        if o_nsds5replicatedattributelist is not None:
             _params['nsds5replicatedattributelist'] = o_nsds5replicatedattributelist
-        if o_nsds5replicatedattributelisttotal:
+        if o_nsds5replicatedattributelisttotal is not None:
             _params['nsds5replicatedattributelisttotal'] = o_nsds5replicatedattributelisttotal
-        if o_nsds5replicastripattrs:
+        if o_nsds5replicastripattrs is not None:
             _params['nsds5replicastripattrs'] = o_nsds5replicastripattrs
-        if o_nsds5replicaenabled:
+        if o_nsds5replicaenabled is not None:
             _params['nsds5replicaenabled'] = o_nsds5replicaenabled
 
         return self._request(method, _args, _params)
@@ -20003,11 +20003,11 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_left:
+        if o_left is not None:
             _params['left'] = o_left
-        if o_right:
+        if o_right is not None:
             _params['right'] = o_right
-        if o_stop:
+        if o_stop is not None:
             _params['stop'] = o_stop
 
         return self._request(method, _args, _params)
@@ -20076,9 +20076,9 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -20142,17 +20142,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_iparepltopoconfroot:
+        if o_iparepltopoconfroot is not None:
             _params['iparepltopoconfroot'] = o_iparepltopoconfroot
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
 
         return self._request(method, _args, _params)
@@ -20195,16 +20195,16 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_iparepltopoconfroot:
+        if o_iparepltopoconfroot is not None:
             _params['iparepltopoconfroot'] = o_iparepltopoconfroot
 
         return self._request(method, _args, _params)
@@ -20336,27 +20336,27 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_external:
+        if o_external is not None:
             _params['external'] = o_external
-        if o_bidirectional:
+        if o_bidirectional is not None:
             _params['bidirectional'] = o_bidirectional
-        if o_base_id:
+        if o_base_id is not None:
             _params['base_id'] = o_base_id
-        if o_range_size:
+        if o_range_size is not None:
             _params['range_size'] = o_range_size
-        if o_realm_passwd:
+        if o_realm_passwd is not None:
             _params['realm_passwd'] = o_realm_passwd
-        if o_trust_secret:
+        if o_trust_secret is not None:
             _params['trust_secret'] = o_trust_secret
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_realm_admin:
+        if o_realm_admin is not None:
             _params['realm_admin'] = o_realm_admin
-        if o_realm_server:
+        if o_realm_server is not None:
             _params['realm_server'] = o_realm_server
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
-        if o_range_type:
+        if o_range_type is not None:
             _params['range_type'] = o_range_type
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -20417,11 +20417,11 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_realm_passwd:
+        if o_realm_passwd is not None:
             _params['realm_passwd'] = o_realm_passwd
-        if o_realm_admin:
+        if o_realm_admin is not None:
             _params['realm_admin'] = o_realm_admin
-        if o_realm_server:
+        if o_realm_server is not None:
             _params['realm_server'] = o_realm_server
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -20473,23 +20473,23 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_ipantflatname:
+        if o_ipantflatname is not None:
             _params['ipantflatname'] = o_ipantflatname
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_ipanttrusteddomainsid:
+        if o_ipanttrusteddomainsid is not None:
             _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
-        if o_ipantsidblacklistincoming:
+        if o_ipantsidblacklistincoming is not None:
             _params['ipantsidblacklistincoming'] = o_ipantsidblacklistincoming
-        if o_ipantsidblacklistoutgoing:
+        if o_ipantsidblacklistoutgoing is not None:
             _params['ipantsidblacklistoutgoing'] = o_ipantsidblacklistoutgoing
 
         return self._request(method, _args, _params)
@@ -20542,20 +20542,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_ipantsidblacklistincoming:
+        if o_ipantsidblacklistincoming is not None:
             _params['ipantsidblacklistincoming'] = o_ipantsidblacklistincoming
-        if o_ipantsidblacklistoutgoing:
+        if o_ipantsidblacklistoutgoing is not None:
             _params['ipantsidblacklistoutgoing'] = o_ipantsidblacklistoutgoing
-        if o_ipantadditionalsuffixes:
+        if o_ipantadditionalsuffixes is not None:
             _params['ipantadditionalsuffixes'] = o_ipantadditionalsuffixes
 
         return self._request(method, _args, _params)
@@ -20651,17 +20651,17 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
         _params['trust_type'] = o_trust_type
-        if o_ipantfallbackprimarygroup:
+        if o_ipantfallbackprimarygroup is not None:
             _params['ipantfallbackprimarygroup'] = o_ipantfallbackprimarygroup
 
         return self._request(method, _args, _params)
@@ -20736,16 +20736,16 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['trust_type'] = o_trust_type
-        if o_ipantflatname:
+        if o_ipantflatname is not None:
             _params['ipantflatname'] = o_ipantflatname
-        if o_ipanttrusteddomainsid:
+        if o_ipanttrusteddomainsid is not None:
             _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
 
         return self._request(method, _args, _params)
@@ -20859,19 +20859,19 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_trustcn)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         _params['all'] = o_all
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_ipantflatname:
+        if o_ipantflatname is not None:
             _params['ipantflatname'] = o_ipantflatname
-        if o_ipanttrusteddomainsid:
+        if o_ipanttrusteddomainsid is not None:
             _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
 
         return self._request(method, _args, _params)
@@ -20924,19 +20924,19 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['rights'] = o_rights
         _params['trust_type'] = o_trust_type
-        if o_ipantflatname:
+        if o_ipantflatname is not None:
             _params['ipantflatname'] = o_ipantflatname
-        if o_ipanttrusteddomainsid:
+        if o_ipanttrusteddomainsid is not None:
             _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
 
         return self._request(method, _args, _params)
@@ -21092,88 +21092,88 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['noprivate'] = o_noprivate
-        if o_random:
+        if o_random is not None:
             _params['random'] = o_random
         _params['raw'] = o_raw
-        if o_nsaccountlock:
+        if o_nsaccountlock is not None:
             _params['nsaccountlock'] = o_nsaccountlock
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbpasswordexpiration:
+        if o_krbpasswordexpiration is not None:
             _params['krbpasswordexpiration'] = o_krbpasswordexpiration
-        if o_krbprincipalexpiration:
+        if o_krbprincipalexpiration is not None:
             _params['krbprincipalexpiration'] = o_krbprincipalexpiration
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_carlicense:
+        if o_carlicense is not None:
             _params['carlicense'] = o_carlicense
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_departmentnumber:
+        if o_departmentnumber is not None:
             _params['departmentnumber'] = o_departmentnumber
-        if o_mail:
+        if o_mail is not None:
             _params['mail'] = o_mail
-        if o_employeenumber:
+        if o_employeenumber is not None:
             _params['employeenumber'] = o_employeenumber
-        if o_employeetype:
+        if o_employeetype is not None:
             _params['employeetype'] = o_employeetype
-        if o_facsimiletelephonenumber:
+        if o_facsimiletelephonenumber is not None:
             _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
         _params['givenname'] = o_givenname
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
         _params['sn'] = o_sn
-        if o_manager:
+        if o_manager is not None:
             _params['manager'] = o_manager
-        if o_mobile:
+        if o_mobile is not None:
             _params['mobile'] = o_mobile
-        if o_ou:
+        if o_ou is not None:
             _params['ou'] = o_ou
-        if o_pager:
+        if o_pager is not None:
             _params['pager'] = o_pager
-        if o_telephonenumber:
+        if o_telephonenumber is not None:
             _params['telephonenumber'] = o_telephonenumber
-        if o_postalcode:
+        if o_postalcode is not None:
             _params['postalcode'] = o_postalcode
-        if o_preferredlanguage:
+        if o_preferredlanguage is not None:
             _params['preferredlanguage'] = o_preferredlanguage
-        if o_ipatokenradiusconfiglink:
+        if o_ipatokenradiusconfiglink is not None:
             _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
-        if o_ipatokenradiususername:
+        if o_ipatokenradiususername is not None:
             _params['ipatokenradiususername'] = o_ipatokenradiususername
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
-        if o_ipasshpubkey:
+        if o_ipasshpubkey is not None:
             _params['ipasshpubkey'] = o_ipasshpubkey
-        if o_st:
+        if o_st is not None:
             _params['st'] = o_st
-        if o_street:
+        if o_street is not None:
             _params['street'] = o_street
-        if o_title:
+        if o_title is not None:
             _params['title'] = o_title
-        if o_ipauserauthtype:
+        if o_ipauserauthtype is not None:
             _params['ipauserauthtype'] = o_ipauserauthtype
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
         _params['cn'] = o_cn
-        if o_displayname:
+        if o_displayname is not None:
             _params['displayname'] = o_displayname
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_initials:
+        if o_initials is not None:
             _params['initials'] = o_initials
 
         return self._request(method, _args, _params)
@@ -21247,11 +21247,11 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_certificate:
+        if o_certificate is not None:
             _params['certificate'] = o_certificate
-        if o_issuer:
+        if o_issuer is not None:
             _params['issuer'] = o_issuer
-        if o_subject:
+        if o_subject is not None:
             _params['subject'] = o_subject
         _params['all'] = o_all
         _params['no_members'] = o_no_members
@@ -21288,7 +21288,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -21346,7 +21346,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_preserve:
+        if o_preserve is not None:
             _params['preserve'] = o_preserve
         _params['continue'] = o_continue
 
@@ -21568,113 +21568,113 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_preserved:
+        if o_preserved is not None:
             _params['preserved'] = o_preserved
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_in_group:
+        if o_in_group is not None:
             _params['in_group'] = o_in_group
-        if o_in_hbacrule:
+        if o_in_hbacrule is not None:
             _params['in_hbacrule'] = o_in_hbacrule
-        if o_in_netgroup:
+        if o_in_netgroup is not None:
             _params['in_netgroup'] = o_in_netgroup
-        if o_in_role:
+        if o_in_role is not None:
             _params['in_role'] = o_in_role
-        if o_in_sudorule:
+        if o_in_sudorule is not None:
             _params['in_sudorule'] = o_in_sudorule
-        if o_not_in_group:
+        if o_not_in_group is not None:
             _params['not_in_group'] = o_not_in_group
-        if o_not_in_hbacrule:
+        if o_not_in_hbacrule is not None:
             _params['not_in_hbacrule'] = o_not_in_hbacrule
-        if o_not_in_netgroup:
+        if o_not_in_netgroup is not None:
             _params['not_in_netgroup'] = o_not_in_netgroup
-        if o_not_in_role:
+        if o_not_in_role is not None:
             _params['not_in_role'] = o_not_in_role
-        if o_not_in_sudorule:
+        if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
         _params['whoami'] = o_whoami
-        if o_nsaccountlock:
+        if o_nsaccountlock is not None:
             _params['nsaccountlock'] = o_nsaccountlock
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbpasswordexpiration:
+        if o_krbpasswordexpiration is not None:
             _params['krbpasswordexpiration'] = o_krbpasswordexpiration
-        if o_krbprincipalexpiration:
+        if o_krbprincipalexpiration is not None:
             _params['krbprincipalexpiration'] = o_krbprincipalexpiration
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
-        if o_carlicense:
+        if o_carlicense is not None:
             _params['carlicense'] = o_carlicense
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_departmentnumber:
+        if o_departmentnumber is not None:
             _params['departmentnumber'] = o_departmentnumber
-        if o_displayname:
+        if o_displayname is not None:
             _params['displayname'] = o_displayname
-        if o_mail:
+        if o_mail is not None:
             _params['mail'] = o_mail
-        if o_employeenumber:
+        if o_employeenumber is not None:
             _params['employeenumber'] = o_employeenumber
-        if o_employeetype:
+        if o_employeetype is not None:
             _params['employeetype'] = o_employeetype
-        if o_facsimiletelephonenumber:
+        if o_facsimiletelephonenumber is not None:
             _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
-        if o_givenname:
+        if o_givenname is not None:
             _params['givenname'] = o_givenname
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
-        if o_initials:
+        if o_initials is not None:
             _params['initials'] = o_initials
-        if o_sn:
+        if o_sn is not None:
             _params['sn'] = o_sn
-        if o_uid:
+        if o_uid is not None:
             _params['uid'] = o_uid
-        if o_manager:
+        if o_manager is not None:
             _params['manager'] = o_manager
-        if o_mobile:
+        if o_mobile is not None:
             _params['mobile'] = o_mobile
-        if o_ou:
+        if o_ou is not None:
             _params['ou'] = o_ou
-        if o_pager:
+        if o_pager is not None:
             _params['pager'] = o_pager
-        if o_telephonenumber:
+        if o_telephonenumber is not None:
             _params['telephonenumber'] = o_telephonenumber
-        if o_postalcode:
+        if o_postalcode is not None:
             _params['postalcode'] = o_postalcode
-        if o_preferredlanguage:
+        if o_preferredlanguage is not None:
             _params['preferredlanguage'] = o_preferredlanguage
-        if o_ipatokenradiusconfiglink:
+        if o_ipatokenradiusconfiglink is not None:
             _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
-        if o_ipatokenradiususername:
+        if o_ipatokenradiususername is not None:
             _params['ipatokenradiususername'] = o_ipatokenradiususername
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
-        if o_st:
+        if o_st is not None:
             _params['st'] = o_st
-        if o_street:
+        if o_street is not None:
             _params['street'] = o_street
-        if o_title:
+        if o_title is not None:
             _params['title'] = o_title
-        if o_ipauserauthtype:
+        if o_ipauserauthtype is not None:
             _params['ipauserauthtype'] = o_ipauserauthtype
 
         return self._request(method, _args, _params)
@@ -21837,95 +21837,95 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_rename:
+        if o_rename is not None:
             _params['rename'] = o_rename
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_random:
+        if o_random is not None:
             _params['random'] = o_random
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_nsaccountlock:
+        if o_nsaccountlock is not None:
             _params['nsaccountlock'] = o_nsaccountlock
-        if o_usercertificate:
+        if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_krbpasswordexpiration:
+        if o_krbpasswordexpiration is not None:
             _params['krbpasswordexpiration'] = o_krbpasswordexpiration
-        if o_krbprincipalexpiration:
+        if o_krbprincipalexpiration is not None:
             _params['krbprincipalexpiration'] = o_krbprincipalexpiration
-        if o_gidnumber:
+        if o_gidnumber is not None:
             _params['gidnumber'] = o_gidnumber
-        if o_uidnumber:
+        if o_uidnumber is not None:
             _params['uidnumber'] = o_uidnumber
-        if o_userpassword:
+        if o_userpassword is not None:
             _params['userpassword'] = o_userpassword
-        if o_krbprincipalname:
+        if o_krbprincipalname is not None:
             _params['krbprincipalname'] = o_krbprincipalname
-        if o_carlicense:
+        if o_carlicense is not None:
             _params['carlicense'] = o_carlicense
-        if o_l:
+        if o_l is not None:
             _params['l'] = o_l
-        if o_userclass:
+        if o_userclass is not None:
             _params['userclass'] = o_userclass
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_departmentnumber:
+        if o_departmentnumber is not None:
             _params['departmentnumber'] = o_departmentnumber
-        if o_displayname:
+        if o_displayname is not None:
             _params['displayname'] = o_displayname
-        if o_mail:
+        if o_mail is not None:
             _params['mail'] = o_mail
-        if o_employeenumber:
+        if o_employeenumber is not None:
             _params['employeenumber'] = o_employeenumber
-        if o_employeetype:
+        if o_employeetype is not None:
             _params['employeetype'] = o_employeetype
-        if o_facsimiletelephonenumber:
+        if o_facsimiletelephonenumber is not None:
             _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
-        if o_givenname:
+        if o_givenname is not None:
             _params['givenname'] = o_givenname
-        if o_gecos:
+        if o_gecos is not None:
             _params['gecos'] = o_gecos
-        if o_homedirectory:
+        if o_homedirectory is not None:
             _params['homedirectory'] = o_homedirectory
-        if o_initials:
+        if o_initials is not None:
             _params['initials'] = o_initials
-        if o_sn:
+        if o_sn is not None:
             _params['sn'] = o_sn
-        if o_manager:
+        if o_manager is not None:
             _params['manager'] = o_manager
-        if o_mobile:
+        if o_mobile is not None:
             _params['mobile'] = o_mobile
-        if o_ou:
+        if o_ou is not None:
             _params['ou'] = o_ou
-        if o_pager:
+        if o_pager is not None:
             _params['pager'] = o_pager
-        if o_telephonenumber:
+        if o_telephonenumber is not None:
             _params['telephonenumber'] = o_telephonenumber
-        if o_postalcode:
+        if o_postalcode is not None:
             _params['postalcode'] = o_postalcode
-        if o_preferredlanguage:
+        if o_preferredlanguage is not None:
             _params['preferredlanguage'] = o_preferredlanguage
-        if o_ipatokenradiusconfiglink:
+        if o_ipatokenradiusconfiglink is not None:
             _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
-        if o_ipatokenradiususername:
+        if o_ipatokenradiususername is not None:
             _params['ipatokenradiususername'] = o_ipatokenradiususername
-        if o_loginshell:
+        if o_loginshell is not None:
             _params['loginshell'] = o_loginshell
-        if o_ipasshpubkey:
+        if o_ipasshpubkey is not None:
             _params['ipasshpubkey'] = o_ipasshpubkey
-        if o_st:
+        if o_st is not None:
             _params['st'] = o_st
-        if o_street:
+        if o_street is not None:
             _params['street'] = o_street
-        if o_title:
+        if o_title is not None:
             _params['title'] = o_title
-        if o_ipauserauthtype:
+        if o_ipauserauthtype is not None:
             _params['ipauserauthtype'] = o_ipauserauthtype
 
         return self._request(method, _args, _params)
@@ -21999,11 +21999,11 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_certificate:
+        if o_certificate is not None:
             _params['certificate'] = o_certificate
-        if o_issuer:
+        if o_issuer is not None:
             _params['issuer'] = o_issuer
-        if o_subject:
+        if o_subject is not None:
             _params['subject'] = o_subject
         _params['all'] = o_all
         _params['no_members'] = o_no_members
@@ -22040,7 +22040,7 @@ For multi-valued attributes, the command replaces the values already present.
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -22107,7 +22107,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_uid)
 
         _params = dict()
-        if o_out:
+        if o_out is not None:
             _params['out'] = o_out
         _params['all'] = o_all
         _params['no_members'] = o_no_members
@@ -22274,26 +22274,26 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_ipavaultpublickey:
+        if o_ipavaultpublickey is not None:
             _params['ipavaultpublickey'] = o_ipavaultpublickey
-        if o_ipavaultsalt:
+        if o_ipavaultsalt is not None:
             _params['ipavaultsalt'] = o_ipavaultsalt
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipavaulttype:
+        if o_ipavaulttype is not None:
             _params['ipavaulttype'] = o_ipavaulttype
 
         return self._request(method, _args, _params)
@@ -22339,20 +22339,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_services:
+        if o_services is not None:
             _params['services'] = o_services
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -22398,20 +22398,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_services:
+        if o_services is not None:
             _params['services'] = o_services
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -22457,13 +22457,13 @@ For multi-valued attributes, the command replaces the values already present.
         _params['nonce'] = o_nonce
         _params['session_key'] = o_session_key
         _params['vault_data'] = o_vault_data
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
 
         return self._request(method, _args, _params)
@@ -22494,12 +22494,12 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['continue'] = o_continue
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
 
         return self._request(method, _args, _params)
@@ -22560,30 +22560,30 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_criteria)
 
         _params = dict()
-        if o_sizelimit:
+        if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
-        if o_timelimit:
+        if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
-        if o_pkey_only:
+        if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
         _params['raw'] = o_raw
-        if o_services:
+        if o_services is not None:
             _params['services'] = o_services
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_users:
+        if o_users is not None:
             _params['users'] = o_users
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_cn:
+        if o_cn is not None:
             _params['cn'] = o_cn
-        if o_ipavaulttype:
+        if o_ipavaulttype is not None:
             _params['ipavaulttype'] = o_ipavaulttype
 
         return self._request(method, _args, _params)
@@ -22647,29 +22647,29 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_addattr:
+        if o_addattr is not None:
             _params['addattr'] = o_addattr
-        if o_delattr:
+        if o_delattr is not None:
             _params['delattr'] = o_delattr
-        if o_setattr:
+        if o_setattr is not None:
             _params['setattr'] = o_setattr
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_ipavaultpublickey:
+        if o_ipavaultpublickey is not None:
             _params['ipavaultpublickey'] = o_ipavaultpublickey
-        if o_ipavaultsalt:
+        if o_ipavaultsalt is not None:
             _params['ipavaultsalt'] = o_ipavaultsalt
-        if o_description:
+        if o_description is not None:
             _params['description'] = o_description
-        if o_ipavaulttype:
+        if o_ipavaulttype is not None:
             _params['ipavaulttype'] = o_ipavaulttype
 
         return self._request(method, _args, _params)
@@ -22715,20 +22715,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_services:
+        if o_services is not None:
             _params['services'] = o_services
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -22774,20 +22774,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_services:
+        if o_services is not None:
             _params['services'] = o_services
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -22825,13 +22825,13 @@ For multi-valued attributes, the command replaces the values already present.
 
         _params = dict()
         _params['session_key'] = o_session_key
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
 
         return self._request(method, _args, _params)
@@ -22871,15 +22871,15 @@ For multi-valued attributes, the command replaces the values already present.
         _args.append(a_cn)
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
 
         return self._request(method, _args, _params)
@@ -22903,7 +22903,7 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_transport_out:
+        if o_transport_out is not None:
             _params['transport_out'] = o_transport_out
         _params['all'] = o_all
         _params['raw'] = o_raw
@@ -22947,20 +22947,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_services:
+        if o_services is not None:
             _params['services'] = o_services
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -22987,12 +22987,12 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['continue'] = o_continue
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
 
         return self._request(method, _args, _params)
@@ -23034,20 +23034,20 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
-        if o_group:
+        if o_group is not None:
             _params['group'] = o_group
-        if o_services:
+        if o_services is not None:
             _params['services'] = o_services
-        if o_user:
+        if o_user is not None:
             _params['user'] = o_user
 
         return self._request(method, _args, _params)
@@ -23083,15 +23083,15 @@ For multi-valued attributes, the command replaces the values already present.
         _args = list()
 
         _params = dict()
-        if o_service:
+        if o_service is not None:
             _params['service'] = o_service
-        if o_username:
+        if o_username is not None:
             _params['username'] = o_username
         _params['all'] = o_all
         _params['no_members'] = o_no_members
         _params['raw'] = o_raw
         _params['rights'] = o_rights
-        if o_shared:
+        if o_shared is not None:
             _params['shared'] = o_shared
 
         return self._request(method, _args, _params)

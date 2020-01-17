@@ -270,7 +270,7 @@ class MetaAPICreator:
         if spec['required']:
             result['body'].append("_params['{0}'] = {1}".format(arg_name, mapped_arg_name))
         else:
-            result['body'].append("if {0}:".format(mapped_arg_name))
+            result['body'].append("if {0} is not None:".format(mapped_arg_name))
             result['body'].append("    _params['{0}'] = {1}".format(arg_name, mapped_arg_name))
 
     def _render(self):
