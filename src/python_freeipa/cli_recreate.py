@@ -2,6 +2,7 @@ import argparse
 import json
 import logging
 import sys
+import textwrap
 
 
 def main():
@@ -91,7 +92,11 @@ class MetaAPICreator:
         self.append('')
         self.append('')
         self.append('class ClientMeta(Client):')
-        self.append('    version = \'{0}\''.format(self.json_spec['result']['messages'][0]['data']['server_version']))
+        try:
+            version = self.json_spec['result']['messages'][0]['data']['server_version']
+        except KeyError:
+            version = self.json_spec['version']
+        self.append('    version = \'{0}\''.format(version))
         self.append('')
         self.append('    def __init__(self, host, verify_ssl=True):')
         self.append('        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version)')
@@ -127,7 +132,8 @@ class MetaAPICreator:
 
         self.append('):'.format(command), 1)
 
-        self.append('"""{0}'.format(spec['doc']), 2)
+        self.append(textwrap.indent('"""\n' + textwrap.dedent(spec['doc'].lstrip('\n')), '    ' * 2))
+        self.meta_api.append('\n')
         for i in args_options:
             for line in i['doc']:
                 self.append(line, 2)
@@ -195,7 +201,10 @@ class MetaAPICreator:
 
     def func_add_arg_doc(self, arg_name, spec, result, _prefix):
         mapped_arg_name = self._name_mapping(arg_name, _prefix)
-        result['doc'].append(':param {0}: {1}'.format(mapped_arg_name, spec['doc']))
+        lines = textwrap.wrap(' '.join(':param {0}: {1}'.format(mapped_arg_name, spec['doc'].replace('\\n', r'\\n')).splitlines()))
+        result['doc'].append(lines[0])
+        for line in lines[1:]:
+            result['doc'].append('    ' + line)
         _class = spec['class']
         if _class == 'Flag':
             _class = 'bool'
@@ -238,7 +247,7 @@ class MetaAPICreator:
         result['head'] = list()
         result['default_value'] = False
         if not isinstance(spec, dict):
-            self.log.warning("found option spec, that is not a dictionary, adding **kargs?")
+            self.log.warning("found option spec, that is not a dictionary, adding **kwargs?")
             return result
         self.func_add_option_head(spec, result)
         return result
