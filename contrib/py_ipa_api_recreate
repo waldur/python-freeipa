@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+__author__ = 'schlitzer'
+
+from python_freeipa.cli_recreate import main
+
+
+if __name__ == '__main__':
+    main()
