@@ -8,6 +8,7 @@ from python_freeipa import ClientLegacy as Client
 class UsersTest(unittest.TestCase):
     def setUp(self):
         self.client = Client('ipa.demo1.freeipa.org', version='2.215')
+        self.client._current_host='ipa.demo1.freeipa.org'
         self.url = 'https://ipa.demo1.freeipa.org/ipa/session/json'
         self.maxDiff = None
 
