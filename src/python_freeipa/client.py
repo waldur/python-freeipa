@@ -169,7 +169,7 @@ class Client(object):
         """
         if self._host:
             self._current_host = self._host
-            self._login(self._host, username, password)
+            return self._login(self._host, username, password)
         else:
             for host in self.dns_discovered:
                 try:
@@ -226,7 +226,7 @@ class Client(object):
         """
         if self._host:
             self._current_host = self._host
-            self._login_kerberos(self._host)
+            return self._login_kerberos(self._host)
         else:
             for host in self.dns_discovered:
                 try:
