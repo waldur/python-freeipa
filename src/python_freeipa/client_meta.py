@@ -2,10 +2,10 @@ from python_freeipa.client import Client
 
 
 class ClientMeta(Client):
-    version = '4.8.2'
+    version = '2.231'
 
-    def __init__(self, host, verify_ssl=True):
-        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version)
+    def __init__(self, host=None, verify_ssl=True, dns_discovery=True):
+        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version, dns_discovery=dns_discovery)
 
     def aci_add(
             self,
@@ -145,21 +145,21 @@ class ClientMeta(Client):
         """
         Search for ACIs.
 
-            Returns a list of ACIs
+        Returns a list of ACIs
 
-            EXAMPLES:
+        EXAMPLES:
 
-             To find all ACIs that apply directly to members of the group ipausers:
-               ipa aci-find --memberof=ipausers
+         To find all ACIs that apply directly to members of the group ipausers:
+           ipa aci-find --memberof=ipausers
 
-             To find all ACIs that grant add access:
-               ipa aci-find --permissions=add
+         To find all ACIs that grant add access:
+           ipa aci-find --permissions=add
 
-            Note that the find command only looks for the given text in the set of
-            ACIs, it does not evaluate the ACIs to see if something would apply.
-            For example, searching on memberof=ipausers will find all ACIs that
-            have ipausers as a memberof. There may be other ACIs that apply to
-            members of that group indirectly.
+        Note that the find command only looks for the given text in the set of
+        ACIs, it does not evaluate the ACIs to see if something would apply.
+        For example, searching on memberof=ipausers will find all ACIs that
+        have ipausers as a memberof. There may be other ACIs that apply to
+        members of that group indirectly.
 
 
         :param a_criteria: A string searched in all relevant object attributes
@@ -1760,7 +1760,6 @@ class ClientMeta(Client):
             a_methods=None,
     ):
         """
-        Make multiple ipa calls via one remote procedure call
 
 
         :param a_methods: Nested Methods to execute
@@ -2912,7 +2911,7 @@ class ClientMeta(Client):
         :type  o_revocation_reason: int, min value 0, max value 10
         :param o_cacn: Name of issuing CA
         :type  o_cacn: str
-        :param o_subject: Match cn attribute in subject
+        :param o_subject: Subject
         :type  o_subject: str
         :param o_min_serial_number: minimum serial number
         :type  o_min_serial_number: int, min value 0, max value 2147483647
@@ -4014,7 +4013,6 @@ class ClientMeta(Client):
             o_kw=None,
     ):
         """
-        Return command defaults
 
 
         :param a_full_name: Full name
@@ -4122,7 +4120,6 @@ class ClientMeta(Client):
     def config_mod(
             self,
             o_ipamaxusernamelength=None,
-            o_ipamaxhostnamelength=None,
             o_ipahomesrootdir=None,
             o_ipadefaultloginshell=None,
             o_ipadefaultprimarygroup=None,
@@ -4155,8 +4152,6 @@ class ClientMeta(Client):
 
         :param o_ipamaxusernamelength: Maximum username length
         :type  o_ipamaxusernamelength: int, min value 1, max value 255
-        :param o_ipamaxhostnamelength: Maximum hostname length
-        :type  o_ipamaxhostnamelength: int, min value 64, max value 255
         :param o_ipahomesrootdir: Default location of home directories
         :type  o_ipahomesrootdir: IA5Str
         :param o_ipadefaultloginshell: Default shell for new users
@@ -4200,7 +4195,7 @@ class ClientMeta(Client):
         :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'nfs:NONE']
         :param o_ipauserauthtype: Default types of supported user
             authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened', 'disabled']
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'disabled']
         :param o_ca_renewal_master_server: Renewal master for IPA certificate
             authority
         :type  o_ca_renewal_master_server: str
@@ -4234,8 +4229,6 @@ class ClientMeta(Client):
         _params = dict()
         if o_ipamaxusernamelength is not None:
             _params['ipamaxusernamelength'] = o_ipamaxusernamelength
-        if o_ipamaxhostnamelength is not None:
-            _params['ipamaxhostnamelength'] = o_ipamaxhostnamelength
         if o_ipahomesrootdir is not None:
             _params['ipahomesrootdir'] = o_ipahomesrootdir
         if o_ipadefaultloginshell is not None:
@@ -4328,7 +4321,6 @@ class ClientMeta(Client):
             o_raw=False,
     ):
         """
-        Add Class of Service entry
 
 
         :param a_cn: <cn>
@@ -4374,7 +4366,6 @@ class ClientMeta(Client):
             o_continue=False,
     ):
         """
-        Delete Class of Service entry
 
 
         :param a_cn: <cn>
@@ -4405,7 +4396,6 @@ class ClientMeta(Client):
             o_pkey_only=False,
     ):
         """
-        Search for Class of Service entry
 
 
         :param a_criteria: A string searched in all relevant object attributes
@@ -4467,7 +4457,6 @@ class ClientMeta(Client):
             o_raw=False,
     ):
         """
-        Modify Class of Service entry
 
 
         :param a_cn: <cn>
@@ -4526,7 +4515,6 @@ class ClientMeta(Client):
             o_raw=False,
     ):
         """
-        Display Class of Service entry
 
 
         :param a_cn: <cn>
@@ -6853,7 +6841,6 @@ class ClientMeta(Client):
             a_value,
     ):
         """
-        Split DNS record to parts
 
 
         :param a_name: <name>
@@ -7720,7 +7707,7 @@ class ClientMeta(Client):
 
 
         :param a_ipadomainlevel: Domain Level
-        :type  a_ipadomainlevel: int, min value 1, max value 2147483647
+        :type  a_ipadomainlevel: int, min value 0, max value 2147483647
         """
         method = 'domainlevel_set'
 
@@ -7832,7 +7819,6 @@ class ClientMeta(Client):
             o_no_members=False,
             o_user=None,
             o_group=None,
-            o_service=None,
     ):
         """
         Add members to a group.
@@ -7855,8 +7841,6 @@ class ClientMeta(Client):
         :type  o_user: str
         :param o_group: groups to add
         :type  o_group: str
-        :param o_service: services to add
-        :type  o_service: str
         """
         method = 'group_add_member'
 
@@ -7866,52 +7850,6 @@ class ClientMeta(Client):
         _params = dict()
         if o_ipaexternalmember is not None:
             _params['ipaexternalmember'] = o_ipaexternalmember
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        if o_user is not None:
-            _params['user'] = o_user
-        if o_group is not None:
-            _params['group'] = o_group
-        if o_service is not None:
-            _params['service'] = o_service
-
-        return self._request(method, _args, _params)
-
-    def group_add_member_manager(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-    ):
-        """
-        Add users that can manage members of this group.
-
-
-        :param a_cn: Group name
-        :type  a_cn: str
-        :param o_all: Retrieve and print all attributes from the server.
-            Affects command output.
-        :type  o_all: bool
-        :param o_raw: Print entries as stored on the server. Only affects
-            output format.
-        :type  o_raw: bool
-        :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: bool
-        :param o_user: users to add
-        :type  o_user: str
-        :param o_group: groups to add
-        :type  o_group: str
-        """
-        method = 'group_add_member_manager'
-
-        _args = list()
-        _args.append(a_cn)
-
-        _params = dict()
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
@@ -7986,8 +7924,6 @@ class ClientMeta(Client):
             o_no_user=None,
             o_group=None,
             o_no_group=None,
-            o_service=None,
-            o_no_service=None,
             o_in_group=None,
             o_not_in_group=None,
             o_in_netgroup=None,
@@ -7998,10 +7934,6 @@ class ClientMeta(Client):
             o_not_in_hbacrule=None,
             o_in_sudorule=None,
             o_not_in_sudorule=None,
-            o_membermanager_user=None,
-            o_not_membermanager_user=None,
-            o_membermanager_group=None,
-            o_not_membermanager_group=None,
     ):
         """
         Search for groups.
@@ -8048,10 +7980,6 @@ class ClientMeta(Client):
         :type  o_group: str
         :param o_no_group: Search for groups without these member groups.
         :type  o_no_group: str
-        :param o_service: Search for groups with these member services.
-        :type  o_service: Principal
-        :param o_no_service: Search for groups without these member services.
-        :type  o_no_service: Principal
         :param o_in_group: Search for groups with these member of groups.
         :type  o_in_group: str
         :param o_not_in_group: Search for groups without these member of
@@ -8079,18 +8007,6 @@ class ClientMeta(Client):
         :param o_not_in_sudorule: Search for groups without these member of
             sudo rules.
         :type  o_not_in_sudorule: str
-        :param o_membermanager_user: Search for groups with these group
-            membership managed by users.
-        :type  o_membermanager_user: str
-        :param o_not_membermanager_user: Search for groups without these group
-            membership managed by users.
-        :type  o_not_membermanager_user: str
-        :param o_membermanager_group: Search for groups with these group
-            membership managed by groups.
-        :type  o_membermanager_group: str
-        :param o_not_membermanager_group: Search for groups without these
-            group membership managed by groups.
-        :type  o_not_membermanager_group: str
         """
         method = 'group_find'
 
@@ -8125,10 +8041,6 @@ class ClientMeta(Client):
             _params['group'] = o_group
         if o_no_group is not None:
             _params['no_group'] = o_no_group
-        if o_service is not None:
-            _params['service'] = o_service
-        if o_no_service is not None:
-            _params['no_service'] = o_no_service
         if o_in_group is not None:
             _params['in_group'] = o_in_group
         if o_not_in_group is not None:
@@ -8149,14 +8061,6 @@ class ClientMeta(Client):
             _params['in_sudorule'] = o_in_sudorule
         if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
-        if o_membermanager_user is not None:
-            _params['membermanager_user'] = o_membermanager_user
-        if o_not_membermanager_user is not None:
-            _params['not_membermanager_user'] = o_not_membermanager_user
-        if o_membermanager_group is not None:
-            _params['membermanager_group'] = o_membermanager_group
-        if o_not_membermanager_group is not None:
-            _params['not_membermanager_group'] = o_not_membermanager_group
 
         return self._request(method, _args, _params)
 
@@ -8251,7 +8155,6 @@ class ClientMeta(Client):
             o_no_members=False,
             o_user=None,
             o_group=None,
-            o_service=None,
     ):
         """
         Remove members from a group.
@@ -8274,8 +8177,6 @@ class ClientMeta(Client):
         :type  o_user: str
         :param o_group: groups to remove
         :type  o_group: str
-        :param o_service: services to remove
-        :type  o_service: str
         """
         method = 'group_remove_member'
 
@@ -8285,52 +8186,6 @@ class ClientMeta(Client):
         _params = dict()
         if o_ipaexternalmember is not None:
             _params['ipaexternalmember'] = o_ipaexternalmember
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        if o_user is not None:
-            _params['user'] = o_user
-        if o_group is not None:
-            _params['group'] = o_group
-        if o_service is not None:
-            _params['service'] = o_service
-
-        return self._request(method, _args, _params)
-
-    def group_remove_member_manager(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-    ):
-        """
-        Remove users that can manage members of this group.
-
-
-        :param a_cn: Group name
-        :type  a_cn: str
-        :param o_all: Retrieve and print all attributes from the server.
-            Affects command output.
-        :type  o_all: bool
-        :param o_raw: Print entries as stored on the server. Only affects
-            output format.
-        :type  o_raw: bool
-        :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: bool
-        :param o_user: users to remove
-        :type  o_user: str
-        :param o_group: groups to remove
-        :type  o_group: str
-        """
-        method = 'group_remove_member_manager'
-
-        _args = list()
-        _args.append(a_cn)
-
-        _params = dict()
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
@@ -8564,7 +8419,6 @@ class ClientMeta(Client):
             o_hostgroup=None,
     ):
         """
-        Add source hosts and hostgroups to an HBAC rule.
 
 
         :param a_cn: Rule name
@@ -9003,7 +8857,6 @@ class ClientMeta(Client):
             o_hostgroup=None,
     ):
         """
-        Remove source hosts and hostgroups from an HBAC rule.
 
 
         :param a_cn: Rule name
@@ -9783,7 +9636,7 @@ class ClientMeta(Client):
             9")
         :type  o_nsosversion: str
         :param o_userpassword: Password used in bulk enrollment
-        :type  o_userpassword: HostPassword
+        :type  o_userpassword: str
         :param o_random: Generate a random password to be used in bulk
             enrollment
         :type  o_random: bool
@@ -9800,11 +9653,9 @@ class ClientMeta(Client):
         :type  o_ipaassignedidview: str
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
-            'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
-            allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
-            force hardened password authentication by SPAKE or FAST. With no
-            indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+            'radius' to allow RADIUS-based 2FA authentications. Other values may
+            be used for custom configurations.
+        :type  o_krbprincipalauthind: str
         :param o_ipakrbrequirespreauth: Pre-authentication is required for the
             service
         :type  o_ipakrbrequirespreauth: Bool
@@ -10278,6 +10129,7 @@ class ClientMeta(Client):
             o_nshostlocation=None,
             o_nshardwareplatform=None,
             o_nsosversion=None,
+            o_userpassword=None,
             o_usercertificate=None,
             o_macaddress=None,
             o_userclass=None,
@@ -10326,6 +10178,8 @@ class ClientMeta(Client):
         :param o_nsosversion: Host operating system and version (e.g. "Fedora
             9")
         :type  o_nsosversion: str
+        :param o_userpassword: Password used in bulk enrollment
+        :type  o_userpassword: str
         :param o_usercertificate: Base-64 encoded host certificate
         :type  o_usercertificate: Certificate
         :param o_macaddress: Hardware MAC address(es) on this host
@@ -10337,11 +10191,9 @@ class ClientMeta(Client):
         :type  o_ipaassignedidview: str
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
-            'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
-            allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
-            force hardened password authentication by SPAKE or FAST. With no
-            indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+            'radius' to allow RADIUS-based 2FA authentications. Other values may
+            be used for custom configurations.
+        :type  o_krbprincipalauthind: str
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
         :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_sizelimit: Maximum number of entries returned (0 is
@@ -10419,6 +10271,8 @@ class ClientMeta(Client):
             _params['nshardwareplatform'] = o_nshardwareplatform
         if o_nsosversion is not None:
             _params['nsosversion'] = o_nsosversion
+        if o_userpassword is not None:
+            _params['userpassword'] = o_userpassword
         if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
         if o_macaddress is not None:
@@ -10521,7 +10375,7 @@ class ClientMeta(Client):
             9")
         :type  o_nsosversion: str
         :param o_userpassword: Password used in bulk enrollment
-        :type  o_userpassword: HostPassword
+        :type  o_userpassword: str
         :param o_random: Generate a random password to be used in bulk
             enrollment
         :type  o_random: bool
@@ -10540,11 +10394,9 @@ class ClientMeta(Client):
         :type  o_ipaassignedidview: str
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
-            'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
-            allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
-            force hardened password authentication by SPAKE or FAST. With no
-            indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+            'radius' to allow RADIUS-based 2FA authentications. Other values may
+            be used for custom configurations.
+        :type  o_krbprincipalauthind: str
         :param o_ipakrbrequirespreauth: Pre-authentication is required for the
             service
         :type  o_ipakrbrequirespreauth: Bool
@@ -10888,50 +10740,6 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def hostgroup_add_member_manager(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-    ):
-        """
-        Add users that can manage members of this hostgroup.
-
-
-        :param a_cn: Name of host-group
-        :type  a_cn: str
-        :param o_all: Retrieve and print all attributes from the server.
-            Affects command output.
-        :type  o_all: bool
-        :param o_raw: Print entries as stored on the server. Only affects
-            output format.
-        :type  o_raw: bool
-        :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: bool
-        :param o_user: users to add
-        :type  o_user: str
-        :param o_group: groups to add
-        :type  o_group: str
-        """
-        method = 'hostgroup_add_member_manager'
-
-        _args = list()
-        _args.append(a_cn)
-
-        _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        if o_user is not None:
-            _params['user'] = o_user
-        if o_group is not None:
-            _params['group'] = o_group
-
-        return self._request(method, _args, _params)
-
     def hostgroup_del(
             self,
             a_cn,
@@ -10979,10 +10787,6 @@ class ClientMeta(Client):
             o_not_in_hbacrule=None,
             o_in_sudorule=None,
             o_not_in_sudorule=None,
-            o_membermanager_user=None,
-            o_not_membermanager_user=None,
-            o_membermanager_group=None,
-            o_not_membermanager_group=None,
     ):
         """
         Search for hostgroups.
@@ -11044,18 +10848,6 @@ class ClientMeta(Client):
         :param o_not_in_sudorule: Search for host groups without these member
             of sudo rules.
         :type  o_not_in_sudorule: str
-        :param o_membermanager_user: Search for host groups with these group
-            membership managed by users.
-        :type  o_membermanager_user: str
-        :param o_not_membermanager_user: Search for host groups without these
-            group membership managed by users.
-        :type  o_not_membermanager_user: str
-        :param o_membermanager_group: Search for host groups with these group
-            membership managed by groups.
-        :type  o_membermanager_group: str
-        :param o_not_membermanager_group: Search for host groups without these
-            group membership managed by groups.
-        :type  o_not_membermanager_group: str
         """
         method = 'hostgroup_find'
 
@@ -11100,14 +10892,6 @@ class ClientMeta(Client):
             _params['in_sudorule'] = o_in_sudorule
         if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
-        if o_membermanager_user is not None:
-            _params['membermanager_user'] = o_membermanager_user
-        if o_not_membermanager_user is not None:
-            _params['not_membermanager_user'] = o_not_membermanager_user
-        if o_membermanager_group is not None:
-            _params['membermanager_group'] = o_membermanager_group
-        if o_not_membermanager_group is not None:
-            _params['not_membermanager_group'] = o_not_membermanager_group
 
         return self._request(method, _args, _params)
 
@@ -11218,50 +11002,6 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def hostgroup_remove_member_manager(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-    ):
-        """
-        Remove users that can manage members of this hostgroup.
-
-
-        :param a_cn: Name of host-group
-        :type  a_cn: str
-        :param o_all: Retrieve and print all attributes from the server.
-            Affects command output.
-        :type  o_all: bool
-        :param o_raw: Print entries as stored on the server. Only affects
-            output format.
-        :type  o_raw: bool
-        :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: bool
-        :param o_user: users to remove
-        :type  o_user: str
-        :param o_group: groups to remove
-        :type  o_group: str
-        """
-        method = 'hostgroup_remove_member_manager'
-
-        _args = list()
-        _args.append(a_cn)
-
-        _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        if o_user is not None:
-            _params['user'] = o_user
-        if o_group is not None:
-            _params['group'] = o_group
-
-        return self._request(method, _args, _params)
-
     def hostgroup_show(
             self,
             a_cn,
@@ -11305,7 +11045,6 @@ class ClientMeta(Client):
             self,
     ):
         """
-        Internationalization messages
 
 
         """
@@ -12179,7 +11918,8 @@ class ClientMeta(Client):
         :type  o_ipanttrusteddomainsid: str
         :param o_ipanttrusteddomainname: Name of the trusted domain
         :type  o_ipanttrusteddomainname: str
-        :param o_iparangetype: ID range type, one of allowed values
+        :param o_iparangetype: ID range type, one of ipa-ad-trust, ipa-ad-
+            trust-posix, ipa-local
         :type  o_iparangetype: str, valid values ['ipa-ad-trust', 'ipa-ad-trust-posix', 'ipa-local']
         :param o_setattr: Set an attribute to a name/value pair. Format is
             attr=value. For multi-valued attributes, the command replaces the
@@ -12280,7 +12020,8 @@ class ClientMeta(Client):
         :type  o_ipasecondarybaserid: int, min value -2147483648, max value 2147483647
         :param o_ipanttrusteddomainsid: Domain SID of the trusted domain
         :type  o_ipanttrusteddomainsid: str
-        :param o_iparangetype: ID range type, one of allowed values
+        :param o_iparangetype: ID range type, one of ipa-ad-trust, ipa-ad-
+            trust-posix, ipa-local
         :type  o_iparangetype: str, valid values ['ipa-ad-trust', 'ipa-ad-trust-posix', 'ipa-local']
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
         :type  o_timelimit: int, min value 0, max value 2147483647
@@ -12844,7 +12585,6 @@ class ClientMeta(Client):
             self,
     ):
         """
-        Checks if any of the servers has the KRA service enabled
 
 
         """
@@ -13229,8 +12969,8 @@ class ClientMeta(Client):
             o_cacertfile=None,
             o_use_def_group=True,
             o_scope='onelevel',
-            o_exclude_users=None,
             o_exclude_groups=None,
+            o_exclude_users=None,
     ):
         """
         Migrate users and groups from DS to IPA.
@@ -13287,10 +13027,10 @@ class ClientMeta(Client):
         :param o_scope: LDAP search scope for users and groups: base,
             onelevel, or subtree. Defaults to onelevel
         :type  o_scope: str, valid values ['base', 'onelevel', 'subtree']
-        :param o_exclude_users: users to exclude from migration
-        :type  o_exclude_users: str
         :param o_exclude_groups: groups to exclude from migration
         :type  o_exclude_groups: str
+        :param o_exclude_users: users to exclude from migration
+        :type  o_exclude_users: str
         """
         method = 'migrate_ds'
 
@@ -13327,10 +13067,10 @@ class ClientMeta(Client):
         if o_use_def_group is not None:
             _params['use_def_group'] = o_use_def_group
         _params['scope'] = o_scope
-        if o_exclude_users is not None:
-            _params['exclude_users'] = o_exclude_users
         if o_exclude_groups is not None:
             _params['exclude_groups'] = o_exclude_groups
+        if o_exclude_users is not None:
+            _params['exclude_users'] = o_exclude_users
 
         return self._request(method, _args, _params)
 
@@ -14631,9 +14371,9 @@ class ClientMeta(Client):
             o_memberof=None,
             o_targetgroup=None,
             o_type=None,
-            o_permissions=None,
             o_filter=None,
             o_subtree=None,
+            o_permissions=None,
             o_setattr=None,
             o_addattr=None,
             o_all=True,
@@ -14677,12 +14417,12 @@ class ClientMeta(Client):
         :param o_type: Type of IPA object (sets subtree and objectClass
             targetfilter)
         :type  o_type: str
-        :param o_permissions: Deprecated; use ipapermright
-        :type  o_permissions: str
         :param o_filter: Deprecated; use extratargetfilter
         :type  o_filter: str
         :param o_subtree: Deprecated; use ipapermlocation
         :type  o_subtree: str
+        :param o_permissions: Deprecated; use ipapermright
+        :type  o_permissions: str
         :param o_setattr: Set an attribute to a name/value pair. Format is
             attr=value. For multi-valued attributes, the command replaces the
             values already present.
@@ -14728,12 +14468,12 @@ class ClientMeta(Client):
             _params['targetgroup'] = o_targetgroup
         if o_type is not None:
             _params['type'] = o_type
-        if o_permissions is not None:
-            _params['permissions'] = o_permissions
         if o_filter is not None:
             _params['filter'] = o_filter
         if o_subtree is not None:
             _params['subtree'] = o_subtree
+        if o_permissions is not None:
+            _params['permissions'] = o_permissions
         if o_setattr is not None:
             _params['setattr'] = o_setattr
         if o_addattr is not None:
@@ -14868,9 +14608,9 @@ class ClientMeta(Client):
             o_memberof=None,
             o_targetgroup=None,
             o_type=None,
-            o_permissions=None,
             o_filter=None,
             o_subtree=None,
+            o_permissions=None,
             o_timelimit=None,
             o_sizelimit=None,
             o_all=True,
@@ -14926,12 +14666,12 @@ class ClientMeta(Client):
         :param o_type: Type of IPA object (sets subtree and objectClass
             targetfilter)
         :type  o_type: str
-        :param o_permissions: Deprecated; use ipapermright
-        :type  o_permissions: str
         :param o_filter: Deprecated; use extratargetfilter
         :type  o_filter: str
         :param o_subtree: Deprecated; use ipapermlocation
         :type  o_subtree: str
+        :param o_permissions: Deprecated; use ipapermright
+        :type  o_permissions: str
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
         :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_sizelimit: Maximum number of entries returned (0 is
@@ -14987,12 +14727,12 @@ class ClientMeta(Client):
             _params['targetgroup'] = o_targetgroup
         if o_type is not None:
             _params['type'] = o_type
-        if o_permissions is not None:
-            _params['permissions'] = o_permissions
         if o_filter is not None:
             _params['filter'] = o_filter
         if o_subtree is not None:
             _params['subtree'] = o_subtree
+        if o_permissions is not None:
+            _params['permissions'] = o_permissions
         if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         if o_sizelimit is not None:
@@ -15022,9 +14762,9 @@ class ClientMeta(Client):
             o_memberof=None,
             o_targetgroup=None,
             o_type=None,
-            o_permissions=None,
             o_filter=None,
             o_subtree=None,
+            o_permissions=None,
             o_setattr=None,
             o_addattr=None,
             o_delattr=None,
@@ -15077,12 +14817,12 @@ class ClientMeta(Client):
         :param o_type: Type of IPA object (sets subtree and objectClass
             targetfilter)
         :type  o_type: str
-        :param o_permissions: Deprecated; use ipapermright
-        :type  o_permissions: str
         :param o_filter: Deprecated; use extratargetfilter
         :type  o_filter: str
         :param o_subtree: Deprecated; use ipapermlocation
         :type  o_subtree: str
+        :param o_permissions: Deprecated; use ipapermright
+        :type  o_permissions: str
         :param o_setattr: Set an attribute to a name/value pair. Format is
             attr=value. For multi-valued attributes, the command replaces the
             values already present.
@@ -15141,12 +14881,12 @@ class ClientMeta(Client):
             _params['targetgroup'] = o_targetgroup
         if o_type is not None:
             _params['type'] = o_type
-        if o_permissions is not None:
-            _params['permissions'] = o_permissions
         if o_filter is not None:
             _params['filter'] = o_filter
         if o_subtree is not None:
             _params['subtree'] = o_subtree
+        if o_permissions is not None:
+            _params['permissions'] = o_permissions
         if o_setattr is not None:
             _params['setattr'] = o_setattr
         if o_addattr is not None:
@@ -16416,18 +16156,7 @@ class ClientMeta(Client):
             o_raw=False,
     ):
         """
-        Modify realm domains
-
-        DNS check: When manually adding a domain to the list, a DNS check is
-        performed by default. It ensures that the domain is associated with
-        the IPA realm, by checking whether the domain has a _kerberos TXT record
-        containing the IPA realm name. This check can be skipped by specifying
-        --force option.
-
-        Removal: when a realm domain which has a matching DNS zone managed by
-        IPA is being removed, a corresponding _kerberos TXT record in the zone is
-        removed automatically as well. Other records in the zone or the zone
-        itself are not affected.
+        Modify realm domains.
 
 
         :param o_associateddomain: Domain
@@ -16958,7 +16687,6 @@ class ClientMeta(Client):
             o_known_fingerprints=None,
     ):
         """
-        Store and provide schema for commands and topics
 
 
         :param o_known_fingerprints: Fingerprint of schema cached by client
@@ -18085,7 +17813,6 @@ class ClientMeta(Client):
             o_setattr=None,
             o_addattr=None,
             o_force=False,
-            o_skip_host_check=False,
             o_all=True,
             o_raw=False,
             o_no_members=False,
@@ -18104,11 +17831,9 @@ class ClientMeta(Client):
         :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
-            'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
-            allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
-            force hardened password authentication by SPAKE or FAST. With no
-            indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+            'radius' to allow RADIUS-based 2FA authentications. Other values may
+            be used for custom configurations.
+        :type  o_krbprincipalauthind: str
         :param o_ipakrbrequirespreauth: Pre-authentication is required for the
             service
         :type  o_ipakrbrequirespreauth: Bool
@@ -18125,11 +17850,8 @@ class ClientMeta(Client):
         :param o_addattr: Add an attribute/value pair. Format is attr=value.
             The attribute must be part of the schema.
         :type  o_addattr: str
-        :param o_force: force principal name even if host not in DNS
+        :param o_force: force principal name even if not in DNS
         :type  o_force: bool
-        :param o_skip_host_check: force service to be created even when host
-            object does not exist to manage it
-        :type  o_skip_host_check: bool
         :param o_all: Retrieve and print all attributes from the server.
             Affects command output.
         :type  o_all: bool
@@ -18162,7 +17884,6 @@ class ClientMeta(Client):
         if o_addattr is not None:
             _params['addattr'] = o_addattr
         _params['force'] = o_force
-        _params['skip_host_check'] = o_skip_host_check
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
@@ -18278,74 +17999,6 @@ class ClientMeta(Client):
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-
-        return self._request(method, _args, _params)
-
-    def service_add_smb(
-            self,
-            a_fqdn,
-            a_ipantflatname=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_usercertificate=None,
-            o_ipakrbokasdelegate=None,
-            o_ipakrboktoauthasdelegate=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-    ):
-        """
-        Add a new SMB service.
-
-
-        :param a_fqdn: Host name
-        :type  a_fqdn: str
-        :param a_ipantflatname: SMB service NetBIOS name
-        :type  a_ipantflatname: str
-        :param o_setattr: Set an attribute to a name/value pair. Format is
-            attr=value. For multi-valued attributes, the command replaces the
-            values already present.
-        :type  o_setattr: str
-        :param o_addattr: Add an attribute/value pair. Format is attr=value.
-            The attribute must be part of the schema.
-        :type  o_addattr: str
-        :param o_usercertificate: Base-64 encoded service certificate
-        :type  o_usercertificate: Certificate
-        :param o_ipakrbokasdelegate: Client credentials may be delegated to
-            the service
-        :type  o_ipakrbokasdelegate: Bool
-        :param o_ipakrboktoauthasdelegate: The service is allowed to
-            authenticate on behalf of a client
-        :type  o_ipakrboktoauthasdelegate: Bool
-        :param o_all: Retrieve and print all attributes from the server.
-            Affects command output.
-        :type  o_all: bool
-        :param o_raw: Print entries as stored on the server. Only affects
-            output format.
-        :type  o_raw: bool
-        :param o_no_members: Suppress processing of membership attributes.
-        :type  o_no_members: bool
-        """
-        method = 'service_add_smb'
-
-        _args = list()
-        _args.append(a_fqdn)
-        _args.append(a_ipantflatname)
-
-        _params = dict()
-        if o_setattr is not None:
-            _params['setattr'] = o_setattr
-        if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
-        if o_ipakrbokasdelegate is not None:
-            _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
-        if o_ipakrboktoauthasdelegate is not None:
-            _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
@@ -18644,11 +18297,9 @@ class ClientMeta(Client):
         :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
-            'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
-            allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
-            force hardened password authentication by SPAKE or FAST. With no
-            indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+            'radius' to allow RADIUS-based 2FA authentications. Other values may
+            be used for custom configurations.
+        :type  o_krbprincipalauthind: str
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
         :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_sizelimit: Maximum number of entries returned (0 is
@@ -18735,11 +18386,9 @@ class ClientMeta(Client):
         :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
-            'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
-            allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
-            force hardened password authentication by SPAKE or FAST. With no
-            indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+            'radius' to allow RADIUS-based 2FA authentications. Other values may
+            be used for custom configurations.
+        :type  o_krbprincipalauthind: str
         :param o_ipakrbrequirespreauth: Pre-authentication is required for the
             service
         :type  o_ipakrbrequirespreauth: Bool
@@ -19689,7 +19338,7 @@ class ClientMeta(Client):
         :param o_ipasshpubkey: SSH public key
         :type  o_ipasshpubkey: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -20048,10 +19697,6 @@ class ClientMeta(Client):
             o_employeetype=None,
             o_preferredlanguage=None,
             o_usercertificate=None,
-            o_ipantlogonscript=None,
-            o_ipantprofilepath=None,
-            o_ipanthomedirectory=None,
-            o_ipanthomedirectoryrive=None,
             o_timelimit=None,
             o_sizelimit=None,
             o_all=True,
@@ -20133,7 +19778,7 @@ class ClientMeta(Client):
         :param o_carlicense: Car License
         :type  o_carlicense: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -20151,14 +19796,6 @@ class ClientMeta(Client):
         :type  o_preferredlanguage: str
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
-        :param o_ipantlogonscript: SMB logon script path
-        :type  o_ipantlogonscript: str
-        :param o_ipantprofilepath: SMB profile path
-        :type  o_ipantprofilepath: str
-        :param o_ipanthomedirectory: SMB Home Directory
-        :type  o_ipanthomedirectory: str
-        :param o_ipanthomedirectoryrive: SMB Home Directory Drive
-        :type  o_ipanthomedirectoryrive: str, valid values ['A:', 'B:', 'C:', 'D:', 'E:', 'F:', 'G:', 'H:', 'I:', 'J:', 'K:', 'L:', 'M:', 'N:', 'O:', 'P:', 'Q:', 'R:', 'S:', 'T:', 'U:', 'V:', 'W:', 'X:', 'Y:', 'Z:']
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
         :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_sizelimit: Maximum number of entries returned (0 is
@@ -20284,14 +19921,6 @@ class ClientMeta(Client):
             _params['preferredlanguage'] = o_preferredlanguage
         if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_ipantlogonscript is not None:
-            _params['ipantlogonscript'] = o_ipantlogonscript
-        if o_ipantprofilepath is not None:
-            _params['ipantprofilepath'] = o_ipantprofilepath
-        if o_ipanthomedirectory is not None:
-            _params['ipanthomedirectory'] = o_ipanthomedirectory
-        if o_ipanthomedirectoryrive is not None:
-            _params['ipanthomedirectoryrive'] = o_ipanthomedirectoryrive
         if o_timelimit is not None:
             _params['timelimit'] = o_timelimit
         if o_sizelimit is not None:
@@ -20365,10 +19994,6 @@ class ClientMeta(Client):
             o_employeetype=None,
             o_preferredlanguage=None,
             o_usercertificate=None,
-            o_ipantlogonscript=None,
-            o_ipantprofilepath=None,
-            o_ipanthomedirectory=None,
-            o_ipanthomedirectoryrive=None,
             o_setattr=None,
             o_addattr=None,
             o_delattr=None,
@@ -20444,7 +20069,7 @@ class ClientMeta(Client):
         :param o_ipasshpubkey: SSH public key
         :type  o_ipasshpubkey: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -20462,14 +20087,6 @@ class ClientMeta(Client):
         :type  o_preferredlanguage: str
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
-        :param o_ipantlogonscript: SMB logon script path
-        :type  o_ipantlogonscript: str
-        :param o_ipantprofilepath: SMB profile path
-        :type  o_ipantprofilepath: str
-        :param o_ipanthomedirectory: SMB Home Directory
-        :type  o_ipanthomedirectory: str
-        :param o_ipanthomedirectoryrive: SMB Home Directory Drive
-        :type  o_ipanthomedirectoryrive: str, valid values ['A:', 'B:', 'C:', 'D:', 'E:', 'F:', 'G:', 'H:', 'I:', 'J:', 'K:', 'L:', 'M:', 'N:', 'O:', 'P:', 'Q:', 'R:', 'S:', 'T:', 'U:', 'V:', 'W:', 'X:', 'Y:', 'Z:']
         :param o_setattr: Set an attribute to a name/value pair. Format is
             attr=value. For multi-valued attributes, the command replaces the
             values already present.
@@ -20576,14 +20193,6 @@ class ClientMeta(Client):
             _params['preferredlanguage'] = o_preferredlanguage
         if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_ipantlogonscript is not None:
-            _params['ipantlogonscript'] = o_ipantlogonscript
-        if o_ipantprofilepath is not None:
-            _params['ipantprofilepath'] = o_ipantprofilepath
-        if o_ipanthomedirectory is not None:
-            _params['ipanthomedirectory'] = o_ipanthomedirectory
-        if o_ipanthomedirectoryrive is not None:
-            _params['ipanthomedirectoryrive'] = o_ipanthomedirectoryrive
         if o_setattr is not None:
             _params['setattr'] = o_setattr
         if o_addattr is not None:
@@ -23207,8 +22816,8 @@ class ClientMeta(Client):
         :param o_range_size: Size of the ID range reserved for the trusted
             domain
         :type  o_range_size: int, min value -2147483648, max value 2147483647
-        :param o_range_type: Type of trusted domain ID range, one of allowed
-            values
+        :param o_range_type: Type of trusted domain ID range, one of ipa-ad-
+            trust, ipa-ad-trust-posix
         :type  o_range_type: str, valid values ['ipa-ad-trust', 'ipa-ad-trust-posix']
         :param o_bidirectional: Establish bi-directional trust. By default
             trust is inbound one-way only.
@@ -24026,7 +23635,7 @@ class ClientMeta(Client):
         :param o_ipasshpubkey: SSH public key
         :type  o_ipasshpubkey: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -24433,10 +24042,6 @@ class ClientMeta(Client):
             o_employeetype=None,
             o_preferredlanguage=None,
             o_usercertificate=None,
-            o_ipantlogonscript=None,
-            o_ipantprofilepath=None,
-            o_ipanthomedirectory=None,
-            o_ipanthomedirectoryrive=None,
             o_nsaccountlock=False,
             o_preserved=False,
             o_timelimit=None,
@@ -24521,7 +24126,7 @@ class ClientMeta(Client):
         :param o_carlicense: Car License
         :type  o_carlicense: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -24539,14 +24144,6 @@ class ClientMeta(Client):
         :type  o_preferredlanguage: str
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
-        :param o_ipantlogonscript: SMB logon script path
-        :type  o_ipantlogonscript: str
-        :param o_ipantprofilepath: SMB profile path
-        :type  o_ipantprofilepath: str
-        :param o_ipanthomedirectory: SMB Home Directory
-        :type  o_ipanthomedirectory: str
-        :param o_ipanthomedirectoryrive: SMB Home Directory Drive
-        :type  o_ipanthomedirectoryrive: str, valid values ['A:', 'B:', 'C:', 'D:', 'E:', 'F:', 'G:', 'H:', 'I:', 'J:', 'K:', 'L:', 'M:', 'N:', 'O:', 'P:', 'Q:', 'R:', 'S:', 'T:', 'U:', 'V:', 'W:', 'X:', 'Y:', 'Z:']
         :param o_nsaccountlock: Account disabled
         :type  o_nsaccountlock: Bool
         :param o_preserved: Preserved user
@@ -24676,14 +24273,6 @@ class ClientMeta(Client):
             _params['preferredlanguage'] = o_preferredlanguage
         if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_ipantlogonscript is not None:
-            _params['ipantlogonscript'] = o_ipantlogonscript
-        if o_ipantprofilepath is not None:
-            _params['ipantprofilepath'] = o_ipantprofilepath
-        if o_ipanthomedirectory is not None:
-            _params['ipanthomedirectory'] = o_ipanthomedirectory
-        if o_ipanthomedirectoryrive is not None:
-            _params['ipanthomedirectoryrive'] = o_ipanthomedirectoryrive
         if o_nsaccountlock is not None:
             _params['nsaccountlock'] = o_nsaccountlock
         if o_preserved is not None:
@@ -24762,10 +24351,6 @@ class ClientMeta(Client):
             o_employeetype=None,
             o_preferredlanguage=None,
             o_usercertificate=None,
-            o_ipantlogonscript=None,
-            o_ipantprofilepath=None,
-            o_ipanthomedirectory=None,
-            o_ipanthomedirectoryrive=None,
             o_nsaccountlock=False,
             o_setattr=None,
             o_addattr=None,
@@ -24842,7 +24427,7 @@ class ClientMeta(Client):
         :param o_ipasshpubkey: SSH public key
         :type  o_ipasshpubkey: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -24860,14 +24445,6 @@ class ClientMeta(Client):
         :type  o_preferredlanguage: str
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
-        :param o_ipantlogonscript: SMB logon script path
-        :type  o_ipantlogonscript: str
-        :param o_ipantprofilepath: SMB profile path
-        :type  o_ipantprofilepath: str
-        :param o_ipanthomedirectory: SMB Home Directory
-        :type  o_ipanthomedirectory: str
-        :param o_ipanthomedirectoryrive: SMB Home Directory Drive
-        :type  o_ipanthomedirectoryrive: str, valid values ['A:', 'B:', 'C:', 'D:', 'E:', 'F:', 'G:', 'H:', 'I:', 'J:', 'K:', 'L:', 'M:', 'N:', 'O:', 'P:', 'Q:', 'R:', 'S:', 'T:', 'U:', 'V:', 'W:', 'X:', 'Y:', 'Z:']
         :param o_nsaccountlock: Account disabled
         :type  o_nsaccountlock: Bool
         :param o_setattr: Set an attribute to a name/value pair. Format is
@@ -24976,14 +24553,6 @@ class ClientMeta(Client):
             _params['preferredlanguage'] = o_preferredlanguage
         if o_usercertificate is not None:
             _params['usercertificate'] = o_usercertificate
-        if o_ipantlogonscript is not None:
-            _params['ipantlogonscript'] = o_ipantlogonscript
-        if o_ipantprofilepath is not None:
-            _params['ipantprofilepath'] = o_ipantprofilepath
-        if o_ipanthomedirectory is not None:
-            _params['ipanthomedirectory'] = o_ipanthomedirectory
-        if o_ipanthomedirectoryrive is not None:
-            _params['ipanthomedirectoryrive'] = o_ipanthomedirectoryrive
         if o_nsaccountlock is not None:
             _params['nsaccountlock'] = o_nsaccountlock
         if o_setattr is not None:
@@ -25348,7 +24917,6 @@ class ClientMeta(Client):
             o_no_members=False,
     ):
         """
-        Add a vault.
 
 
         :param a_cn: Vault name
@@ -25554,7 +25122,6 @@ class ClientMeta(Client):
             o_raw=False,
     ):
         """
-        Archive data into a vault.
 
 
         :param a_cn: Vault name
@@ -25747,7 +25314,6 @@ class ClientMeta(Client):
             o_no_members=False,
     ):
         """
-        Modify a vault.
 
 
         :param a_cn: Vault name
@@ -25960,7 +25526,6 @@ class ClientMeta(Client):
             o_raw=False,
     ):
         """
-        Retrieve data from a vault.
 
 
         :param a_cn: Vault name

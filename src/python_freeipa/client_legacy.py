@@ -23,79 +23,79 @@ class ClientLegacy(Client):
         Add a new user. Username corresponds to UID field of user.
 
         :param username: User login, it should be alphanumeric and maximum length is 32.
-        :type username: string
+        :type username: str
         :param first_name: First name
-        :type first_name: string
+        :type first_name: str
         :param last_name: Last name
-        :type last_name: string
+        :type last_name: str
         :param full_name: Full name
-        :type full_name: string
+        :type full_name: str
         :param display_name: Display name
-        :type display_name: string
+        :type display_name: str
         :param noprivate: Don't create user private group
         :type noprivate: bool
         :param mail: Email address
-        :type mail: string or list
+        :type mail: str or list
         :param ssh_key: SSH public key
-        :type ssh_key: string or list
+        :type ssh_key: str or list
         :param job_title: Job title
-        :type job_title: string
+        :type job_title: str
         :param gid_number: gidNumber
-        :type gid_number: string
+        :type gid_number: str
         :param uid_number: uidNumber
-        :type uid_number: string
+        :type uid_number: str
         :param preferred_language: Preferred language ISO code
-        :type preferred_language: string
+        :type preferred_language: str
         :param disabled: Account disabled
         :type disabled: bool
         :param random_pass: Generate a random user password
         :type random_pass: bool
         :param initials: Represent initials of user
-        :type initials: string
+        :type initials: str
         :param home_directory: Home directory field of user
-        :type home_directory: string
+        :type home_directory: str
         :param gecos: GECOS field is a comma-delimited list used to record general information about the user.
-        :type gecos: string
+        :type gecos: str
         :param login_shell: Login shell field of user
-        :type login_shell: string
+        :type login_shell: str
         :param user_password: Prompt to set the user password
-        :type user_password: string
+        :type user_password: str
         :param street_address: Street address field of user
-        :type street_address: string
+        :type street_address: str
         :param city: City field of user
-        :type city: string
+        :type city: str
         :param state: State/Province field of user
-        :type state: string
+        :type state: str
         :param postal_code: ZIP code field of user
-        :type postal_code: string
+        :type postal_code: str
         :param telephone_number: Telephone number field of user
-        :type telephone_number: string or list
+        :type telephone_number: str or list
         :param mobile_number: Mobile number field of user
-        :type mobile_number: string or list
+        :type mobile_number: str or list
         :param pager_number: Pager number field of user
-        :type pager_number: string or list
+        :type pager_number: str or list
         :param fax_number: Fax number field of user
-        :type fax_number: string or list
+        :type fax_number: str or list
         :param organization_unit: Organization unit of user
-        :type organization_unit: string
+        :type organization_unit: str
         :param manager: Manager field of user
-        :type manager: string
+        :type manager: str
         :param car_license: Car license of user
-        :type car_license: string or list
+        :type car_license: str or list
         :param user_auth_type: Types of supported user authentication. Possible values(password, radius, otp)
-        :type user_auth_type: string or list
+        :type user_auth_type: str or list
         :param user_class: Category of user
-        :type user_class: string
+        :type user_class: str
         :param radius_proxy_config: RADIUS proxy configuration
-        :type radius_proxy_config: string
+        :type radius_proxy_config: str
         :param radius_proxy_username: RADIUS proxy username
-        :type radius_proxy_username: string
+        :type radius_proxy_username: str
         :param department_number: Department number of user
-        :type department_number: string
+        :type department_number: str
         :param employee_number: Employee number of user
-        :type employee_number: string
+        :type employee_number: str
         :param employee_type: Employee type of user
-        :type employee_type: string
+        :type employee_type: str
         """
         params = {
             'all': True,
@@ -212,7 +212,7 @@ class ClientLegacy(Client):
         Search for users.
 
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
 
         """
         params = {
@@ -229,7 +229,7 @@ class ClientLegacy(Client):
         Display information about a user.
 
         :param username: User login.
-        :type username: string
+        :type username: str
         """
         data = self._request('user_show', username, {'all': True, 'raw': False})
         return data['result']
@@ -239,7 +239,7 @@ class ClientLegacy(Client):
         Get lockout status of a user account.
 
         :param username: User login.
-        :type username: string
+        :type username: str
         """
         return self._request('user_status', username, {'all': True, 'raw': False})
 
@@ -248,7 +248,7 @@ class ClientLegacy(Client):
         Disable a user account.
 
         :param username: User login.
-        :type username: string
+        :type username: str
         """
         self._request('user_disable', username)
 
@@ -257,7 +257,7 @@ class ClientLegacy(Client):
         Enable a user account.
 
         :param username: User login.
-        :type username: string
+        :type username: str
         """
         self._request('user_enable', username)
 
@@ -273,75 +273,75 @@ class ClientLegacy(Client):
         Modify a user.
 
         :param username: User login.
-        :type username: string
+        :type username: str
         :param first_name: First name
-        :type first_name: string
+        :type first_name: str
         :param last_name: Last name
-        :type last_name: string
+        :type last_name: str
         :param full_name: Full name
-        :type full_name: string
+        :type full_name: str
         :param display_name: Display name
-        :type display_name: string
+        :type display_name: str
         :param noprivate: Don't create user private group
         :type noprivate: bool
         :param mail: Email address
-        :type mail: string or list
+        :type mail: str or list
         :param ssh_key: SSH public key
-        :type ssh_key: string or list
+        :type ssh_key: str or list
         :param job_title: Job title
-        :type job_title: string
+        :type job_title: str
         :param preferred_language: Preferred language ISO code
-        :type preferred_language: string
+        :type preferred_language: str
         :param disabled: Account disabled
         :type disabled: bool
         :param random_pass: Generate a random user password
         :type random_pass: bool
         :param initials: Represent initials of user
-        :type initials: string
+        :type initials: str
         :param home_directory: Home directory field of user
-        :type home_directory: string
+        :type home_directory: str
         :param gecos: Gecos field of user
-        :type gecos: string
+        :type gecos: str
         :param login_shell: Login shell field of user
-        :type login_shell: string
+        :type login_shell: str
         :param user_password: Prompt to set the user password
-        :type user_password: string
+        :type user_password: str
         :param street_address: Street address field of user
-        :type street_address: string
+        :type street_address: str
         :param city: City field of user
-        :type city: string
+        :type city: str
         :param state: State/Province field of user
-        :type state: string
+        :type state: str
         :param postal_code: ZIP code field of user
-        :type postal_code: string
+        :type postal_code: str
         :param telephone_number: Telephone number field of user
-        :type telephone_number: string or list
+        :type telephone_number: str or list
         :param mobile_number: Mobile number field of user
-        :type mobile_number: string or list
+        :type mobile_number: str or list
         :param pager_number: Pager number field of user
-        :type pager_number: string or list
+        :type pager_number: str or list
         :param fax_number: Fax number field of user
-        :type fax_number: string or list
+        :type fax_number: str or list
         :param organization_unit: Organization unit of user
-        :type organization_unit: string
+        :type organization_unit: str
         :param manager: Manager field of user
-        :type manager: string
+        :type manager: str
         :param car_license: Car license of user
-        :type car_license: string or list
+        :type car_license: str or list
         :param user_auth_type: Types of supported user authentication. Possible values(password, radius, otp)
-        :type user_auth_type: string or list
+        :type user_auth_type: str or list
         :param user_class: Category of user
-        :type user_class: string
+        :type user_class: str
         :param radius_proxy_config: RADIUS proxy configuration
-        :type radius_proxy_config: string
+        :type radius_proxy_config: str
         :param radius_proxy_username: RADIUS proxy username
-        :type radius_proxy_username: string
+        :type radius_proxy_username: str
         :param department_number: Department number of user
-        :type department_number: string
+        :type department_number: str
         :param employee_number: Employee number of user
-        :type employee_number: string
+        :type employee_number: str
         :param employee_type: Employee type of user
-        :type employee_type: string
+        :type employee_type: str
         """
         params = {
             'all': False,  # Retrieve and print all attributes from the server.
@@ -460,7 +460,7 @@ class ClientLegacy(Client):
         Delete a user.
 
         :param username: User login.
-        :type username: string
+        :type username: str
         :param skip_errors: Continuous mode: Don't stop on errors.
         :type skip_errors: bool
         :param soft_delete: Mark user as deleted instead of removing record.
@@ -477,7 +477,7 @@ class ClientLegacy(Client):
         Undelete a user.
 
         :param username: User login.
-        :type username: string
+        :type username: str
         """
         return self._request('user_undel', username)
 
@@ -486,13 +486,13 @@ class ClientLegacy(Client):
         Set the password of a user.
 
         :param login: User login (username)
-        :type login: string
+        :type login: str
         :param password: New password for the user
-        :type password: string
+        :type password: str
         :param current_password: current password of the logged in user.
                                  Leave blank if resetting for another user,
                                  this will set the new password to expired
-        :type current_password: string
+        :type current_password: str
         """
         if not current_password:  # resetting for another user
             params = {}
@@ -507,9 +507,9 @@ class ClientLegacy(Client):
         Create a new group.
 
         :param group: Group name, it should be alphanumeric and maximum length is 255.
-        :type group: string
+        :type group: str
         :param description: Group description
-        :type description: string
+        :type description: str
         :param non_posix: Create as non-POSIX group
         :type non_posix: bool
         :param external: Allow adding external non-IPA members from trusted domains
@@ -552,9 +552,9 @@ class ClientLegacy(Client):
 
         :param group: Group name.
         :param users: Users to add.
-        :type users: string or list
+        :type users: str or list
         :param groups: Groups to add.
-        :type groups: string or list
+        :type groups: str or list
         :param skip_errors: Skip processing errors.
         :type skip_errors: bool
         """
@@ -576,9 +576,9 @@ class ClientLegacy(Client):
 
         :param group: Group name.
         :param users: Users to remove.
-        :type users: string or list
+        :type users: str or list
         :param groups: Groups to remove.
-        :type groups: string or list
+        :type groups: str or list
         :param skip_errors: Skip processing errors.
         :type skip_errors: bool
         """
@@ -600,7 +600,7 @@ class ClientLegacy(Client):
         Search for groups.
 
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
         """
         params = {
             'all': True,
@@ -628,9 +628,9 @@ class ClientLegacy(Client):
         Modify a group.
 
         :param group: Group name.
-        :type group: string
+        :type group: str
         :param description: Group description
-        :type description: string
+        :type description: str
         :param posix: change to a POSIX group
         :type posix: bool
         :param external: Allow adding external non-IPA members from trusted domains
@@ -638,7 +638,7 @@ class ClientLegacy(Client):
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         :param rename: Rename the group object
-        :type rename: string
+        :type rename: str
         """
         params = {
             'all': False,
@@ -669,13 +669,13 @@ class ClientLegacy(Client):
         Search for the automount key.
 
         :param key: Automount key name.
-        :type key: string
+        :type key: str
         :param location: Automount location name
-        :type location: string
+        :type location: str
         :param automount_map: Automount map name
-        :type automount_map: string
+        :type automount_map: str
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
         :return:
         :rtype: dict
         """
@@ -705,13 +705,13 @@ class ClientLegacy(Client):
         Create a new automount key.
 
         :param key: Automount key name
-        :type key: string
+        :type key: str
         :param mount_info: Mount information
-        :type mount_info: string
+        :type mount_info: str
         :param location: Automount location name
-        :type location: string
+        :type location: str
         :param automount_map: Automount map name
-        :type automount_map: string
+        :type automount_map: str
         :return: automount key data
         :rtype: dict
         """
@@ -739,13 +739,13 @@ class ClientLegacy(Client):
         Modify an automount key.
 
         :param key: Automount key name
-        :type key: string
+        :type key: str
         :param mount_info: Mount information
-        :type mount_info: string
+        :type mount_info: str
         :param automount_location: Automount location name
         :param: type string
         :param automount_map: Automount map name
-        :type automount_map: string
+        :type automount_map: str
         :return: automount key data
         :rtype: dict
         """
@@ -770,7 +770,7 @@ class ClientLegacy(Client):
         Create a new automount location.
 
         :param location: Automount location name.
-        :type location: string
+        :type location: str
         """
         params = {
             'all': True,
@@ -786,7 +786,7 @@ class ClientLegacy(Client):
         Delete an automount location.
 
         :param location: Automount location name.
-        :type location: string
+        :type location: str
         """
         params = {'continue': skip_errors}
         data = self._request('automountlocation_del', location, params)
@@ -797,7 +797,7 @@ class ClientLegacy(Client):
         Search for an automount location.
 
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
         """
         params = {
             'all': True,
@@ -814,7 +814,7 @@ class ClientLegacy(Client):
         Display an automount location.
 
         :param location: Automount location name.
-        :type location: string
+        :type location: str
         """
         params = {
             'all': True,
@@ -830,7 +830,7 @@ class ClientLegacy(Client):
         Generate automount files for a specific location.
 
         :param location: Automount location name
-        :type location: string
+        :type location: str
         """
         data = self._request('automountlocation_tofiles', location)
         return data['result']
@@ -840,9 +840,9 @@ class ClientLegacy(Client):
         Display an automount map.
 
         :param location: Automount location name
-        :type location: string
+        :type location: str
         :param automount_map: Automount map name
-        :type automount_map: string
+        :type automount_map: str
         """
         args = [
             location,
@@ -863,9 +863,9 @@ class ClientLegacy(Client):
         Delete an automount map.
 
         :param location: Automount location name
-        :type location: string
+        :type location: str
         :param automount_map: Automount map name
-        :type automount_map: string
+        :type automount_map: str
         """
         args = [location, automount_map]
         params = {'continue': skip_errors}
@@ -878,9 +878,9 @@ class ClientLegacy(Client):
         Find an automount map.
 
         :param location: Automount location name
-        :type location: string
+        :type location: str
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
         """
         args = [location]
         if criteria:
@@ -901,9 +901,9 @@ class ClientLegacy(Client):
         Modify an automount map.
 
         :param location: Automount location name
-        :type location: string
+        :type location: str
         :param automount_map: Automount map name
-        :type automount_map: string
+        :type automount_map: str
         """
         args = [
             location,
@@ -929,9 +929,9 @@ class ClientLegacy(Client):
         Display an automount map.
 
         :param location: Automount location name
-        :type location: string
+        :type location: str
         :param automount_map: Automount map name
-        :type automount_map: string
+        :type automount_map: str
         """
         args = [
             location,
@@ -953,7 +953,7 @@ class ClientLegacy(Client):
         Create a new host.
 
         :param host: Host name which should be alphanumeric and maximum length is 255
-        :type host: string
+        :type host: str
         """
         params = {
             'all': True
@@ -968,7 +968,7 @@ class ClientLegacy(Client):
         Delete host from FreeIPA
 
         :param fqdn: Host name
-        :type fqdn: string
+        :type fqdn: str
         :param skip_errors: Continuous mode: Don't stop on errors
         :type skip_errors: bool
         :param updatedns: Remove A, AAAA, SSHFP and PTR records of the host(s) managed by IPA DNS
@@ -989,7 +989,7 @@ class ClientLegacy(Client):
         Search for hosts.
 
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
         :param allattr: Retrieve and print all attributes from the server. Affects command output
         :type allattr: bool
         :param no_members: Suppress processing of membership attributes
@@ -1013,7 +1013,7 @@ class ClientLegacy(Client):
         Display information about a host.
 
         :param fqdn: Host name
-        :type fqdn: string
+        :type fqdn: str
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
         :type rights: bool
         :param no_members: Suppress processing of membership attributes
@@ -1032,9 +1032,9 @@ class ClientLegacy(Client):
         Create a new host group.
 
         :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
-        :type hostgroup: string
+        :type hostgroup: str
         :param description: Host Group description
-        :type description: string
+        :type description: str
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         """
@@ -1055,7 +1055,7 @@ class ClientLegacy(Client):
         Delete a hostgroup
 
         :param hostgroup_name: Name of hostgroup
-        :type hostgroup_name: string
+        :type hostgroup_name: str
         :param skip_errors: Continuous mode: Don't stop on errors
         :type skip_errors: bool
         """
@@ -1068,7 +1068,7 @@ class ClientLegacy(Client):
         Search for hostgroups
 
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
         :param allattr: Retrieve and print all attributes from the server. Affects command output
         :type allattr: bool
         :param no_members: Suppress processing of membership attributes
@@ -1092,7 +1092,7 @@ class ClientLegacy(Client):
         Display information about a host.
 
         :param hostgroup: Hostgroup name
-        :type hostgroup: string
+        :type hostgroup: str
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
         :type rights: bool
         :param no_members: Suppress processing of membership attributes
@@ -1112,9 +1112,9 @@ class ClientLegacy(Client):
         Modify a hostgroup.
 
         :param hostgroup: Group name.
-        :type hostgroup: string
+        :type hostgroup: str
         :param description: Group description
-        :type description: string
+        :type description: str
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         :param rights: Display the access rights of this entry (requires --all). See ipa man page for details
@@ -1143,7 +1143,7 @@ class ClientLegacy(Client):
         Add members to a hostgroup.
 
         :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
-        :type hostgroup: string
+        :type hostgroup: str
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         :param host: Hosts to add
@@ -1176,7 +1176,7 @@ class ClientLegacy(Client):
         Remove members from a hostgroup.
 
         :param hostgroup: Host Group name, it should be alphanumeric and maximum length is 255.
-        :type hostgroup: string
+        :type hostgroup: str
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         :param host: Hosts to remove
@@ -1208,9 +1208,9 @@ class ClientLegacy(Client):
         Create a new DNS record.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         :param record_name: DNS record name (e.g., host1)
-        :type record_name: string
+        :type record_name: str
         """
         params = {'all': True}
 
@@ -1223,9 +1223,9 @@ class ClientLegacy(Client):
         Delete a DNS record.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         :param record_name: DNS record name (e.g., host1)
-        :type record_name: string
+        :type record_name: str
         """
         params = {}
 
@@ -1237,9 +1237,9 @@ class ClientLegacy(Client):
         Search for DNS records.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
         """
         params = {
             'all': True,
@@ -1253,9 +1253,9 @@ class ClientLegacy(Client):
         Display information about a DNS record.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         :param record_name: DNS record name (e.g., host1)
-        :type record_name: string
+        :type record_name: str
         """
         params = {
             'all': True,
@@ -1271,9 +1271,9 @@ class ClientLegacy(Client):
         Modify a DNS record.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         :param record_name: DNS record name (e.g., host1)
-        :type record_name: string
+        :type record_name: str
         """
         params = {
             'all': False,
@@ -1290,7 +1290,7 @@ class ClientLegacy(Client):
         Create a new DNS zone.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         """
         params = {'all': True}
 
@@ -1303,7 +1303,7 @@ class ClientLegacy(Client):
         Delete a DNS zone.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         """
         params = {}
 
@@ -1315,7 +1315,7 @@ class ClientLegacy(Client):
         Search for DNS zones.
 
         :param criteria: A string searched in all relevant object attributes.
-        :type criteria: string
+        :type criteria: str
         """
         params = {
             'all': True,
@@ -1329,7 +1329,7 @@ class ClientLegacy(Client):
         Display information about a DNS zone.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         """
         params = {
             'all': True,
@@ -1345,7 +1345,7 @@ class ClientLegacy(Client):
         Modify a DNS zone.
 
         :param zone_name: DNS zone name (e.g., example.com)
-        :type zone_name: string
+        :type zone_name: str
         """
         params = {
             'all': False,

@@ -2,6 +2,7 @@
 
 import json
 import logging
+import socket
 
 import requests
 
@@ -10,6 +11,12 @@ try:
 except ImportError as e:
     # Will raise if the user tries to login via Kerberos.
     requests_kerberos = e
+
+try:
+    import srvlookup
+except ImportError as e:
+    # Will raise if the user tires to do dns service discovery.
+    srvlookup = e
 
 from python_freeipa.exceptions import Denied
 from python_freeipa.exceptions import FreeIPAError
@@ -97,23 +104,54 @@ class AuthenticatedSession(object):
 class Client(object):
     """Lightweight FreeIPA JSON RPC client."""
 
-    def __init__(self, host, verify_ssl=True, version=None):
+    def __init__(self, host=None, verify_ssl=True, version=None, dns_discovery=True):
         """
         Initialize client with connection options.
 
-        :param host: hostname to connect to
-        :type host: string
+        :param host: hostname to connect to, set None for dns service discovery
+        :type host: str or None
         :param verify_ssl: verify SSL certificates for HTTPS requests
         :type verify_ssl: bool
         :param version: default client version, may be overwritten in individual requests
-        :type version: string
+        :type version: str
+        :param dns_discovery: if set to True, will try to use the current hosts domainname for dns discovery.
+                           if set to a string, will use this string for dns discovery.
+                           in both cases, it will try to strip as many parts left from a dot (.),
+                           until it finds an idm server.
+                           discoverd IPA servers will by tried in order (priority, weight),
+                           until one is found that will respond to our login request.
+                           if host param is set, host param will always win, and no dns discovery is performed.
+        :type dns_discovery: str
         """
+        self._dns_discovery = dns_discovery
         self._host = host
+        self._current_host = None
         self._base_url = 'https://{0}/ipa'.format(self._host)
         self._verify_ssl = verify_ssl
         self._version = version
         self._session = requests.Session()
         self._log = logging.getLogger(__name__)
+
+    @property
+    def current_host(self):
+        return self._current_host
+
+    @property
+    def dns_discovered(self):
+        if isinstance(self._dns_discovery, str):
+            _domain = self._dns_discovery
+        elif self._dns_discovery:
+            _domain = socket.getfqdn()
+        else:
+            raise FreeIPAError('neither host specified, not dns_discovery enabled')
+        while True:
+            try:
+                return srvlookup.lookup('ldap', 'tcp', _domain)
+            except srvlookup.SRVQueryFailure:
+                try:
+                    _domain = _domain.split('.', 1)[1]
+                except IndexError:
+                    raise FreeIPAError('could not find any IPA Server using DNS lookup')
 
     @property
     def log(self):
@@ -124,12 +162,28 @@ class Client(object):
         Login to FreeIPA server using username and password.
 
         :param username: user to connect
-        :type username: string
+        :type username: str
         :param password: password of the user
-        :type password: string
+        :type password: str
         :raises Unauthorized: raised if credentials are invalid.
         """
-        login_url = '{0}/session/login_password'.format(self._base_url)
+        if self._host:
+            self._current_host = self._host
+            self._login(self._host, username, password)
+        else:
+            for host in self.dns_discovered:
+                try:
+                    self._current_host = host.host
+                    return self._login(host.host, username, password)
+                except requests.exceptions.ConnectionError as err:
+                    self.log.warning("could not connect discovered host: {0}".format(err))
+            raise FreeIPAError("could not connect to any host")
+
+    def _login(self, host, username, password):
+        """
+        private function, use login instead
+        """
+        login_url = 'https://{0}/ipa/session/login_password'.format(host)
         headers = {
             'Referer': login_url,
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -170,12 +224,28 @@ class Client(object):
         :raises Unauthorized: raised if credentials are invalid.
         :raises ImportError: raised if the ``requests_kerberos`` module is unavailable.
         """
+        if self._host:
+            self._current_host = self._host
+            self._login_kerberos(self._host)
+        else:
+            for host in self.dns_discovered:
+                try:
+                    self._current_host = host.host
+                    return self._login_kerberos(host.host)
+                except requests.exceptions.ConnectionError as err:
+                    self.log.warning("could not connect discovered host: {0}".format(err))
+            raise FreeIPAError("could not connect to any host")
+
+    def _login_kerberos(self, host):
+        """
+        private function, use login_kerberos instead
+        """
         if isinstance(requests_kerberos, ImportError):
             raise requests_kerberos
 
-        login_url = '{0}/session/login_kerberos'.format(self._base_url)
+        login_url = 'https://{0}/ipa/session/login_kerberos'.format(host)
         headers = {
-            'Referer': self._base_url
+            'Referer': 'https://{0}/ipa'.format(host)
         }
         response = self._session.post(login_url, headers=headers, verify=self._verify_ssl,
                                       auth=requests_kerberos.HTTPKerberosAuth())
@@ -183,7 +253,7 @@ class Client(object):
         if not response.ok:
             raise Unauthorized(response.text)
 
-        self.log.info('Successfully logged using Kerberos credentials.')
+        self.log.info('Successfully logged to {0} using Kerberos credentials.'.format(host))
 
         return AuthenticatedSession(self, logged_in=True)
 
@@ -198,7 +268,7 @@ class Client(object):
         Make an HTTP request to FreeIPA JSON RPC server.
 
         :param method: RPC method name is required
-        :type method: string
+        :type method: str
         :param args: optional positional argument or list of arguments
         :type args: list or string
         :param params: optional named parameters
@@ -207,9 +277,9 @@ class Client(object):
         :rtype: dict
         :raises FreeIPAError: if the response code is not OK
         """
-        session_url = '{0}/session/json'.format(self._base_url)
+        session_url = 'https://{0}/ipa/session/json'.format(self.current_host)
         headers = {
-            'Referer': self._base_url,
+            'Referer': 'https://{0}/ipa'.format(self.current_host),
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
@@ -258,14 +328,14 @@ class Client(object):
         Set the password of a user. (Does not expire)
 
         :param username: User login (username)
-        :type username: string
+        :type username: str
         :param new_password: New password for the user
-        :type new_password: string
+        :type new_password: str
         :param old_password: Users old password
-        :type old_password: string
+        :type old_password: str
         """
 
-        password_url = '{0}/session/change_password'.format(self._base_url)
+        password_url = 'https://{0}/ipa/session/change_password'.format(self.current_host)
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'text/plain'
