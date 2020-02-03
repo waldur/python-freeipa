@@ -2,7 +2,7 @@ from python_freeipa.client import Client
 
 
 class ClientMeta(Client):
-    version = '4.8.2'
+    version = '2.235'
 
     def __init__(self, host, verify_ssl=True):
         super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version)
