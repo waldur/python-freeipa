@@ -54,6 +54,35 @@ Run tests suite:
 
     python setup.py test
 
+Recreation of MetaClient
+------------------------
+
+It is possible to manually recreate the "ClientMeta" class.
+This might be needed if the IPA/IdM Server you are using is not matching
+the on that has been used to build the packaged version.
+
+here is what you need to do:
+
+
+.. code-block:: bash
+
+  # fetch code, create virtual environment, and install required packages
+  git clone git@github.com:opennode/python-freeipa.git
+  cd python-freeipa
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install requests-kerberos python_freeipa
+  # recreate the ClientMeta class
+  contrib/py_ipa_api_recreate --source-url ipa.demo1.freeipa.org --source-url-user admin --source-url-pass Secret123
+  # move the file where it belongs
+  mv meta_api.py src/python_freeipa/client_meta.py
+  # build the python package
+  python setup.py sdist
+
+This will give you a python package in dist/, which you can install using "pip install"
+
+
+
 Base client module
 ------------------
 
