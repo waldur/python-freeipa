@@ -7,6 +7,8 @@ import logging
 import sys
 import textwrap
 
+from python_freeipa import Client
+
 
 def main():
     parser = argparse.ArgumentParser(description="Recreate API Commands from JSON api spec")
@@ -17,23 +19,40 @@ def main():
         "--source-json", dest="source_json", action="store", default=None,
         help="Full path to json document, describing the API")
 
+    parser.add_argument(
+        "--source-json-version", dest="source_json_version", action="store", default=None,
+        help="api_version this schema file uses")
+
     source_group.add_argument(
         "--source-url", dest="source_url", action="store", default=None,
-        help="fqdn of ipa server, to fetch the API from, requires kerberos ticket to be present")
+        help="fqdn of ipa server, to fetch the API from")
+
+    parser.add_argument(
+        "--source-url-user", dest="source_url_user", action="store", default=None,
+        help="username for remote server, omit if TGT present")
+
+    parser.add_argument(
+        "--source-url-pass", dest="source_url_pass", action="store", default=None,
+        help="password for remote server, omit if TGT present")
 
     parsed_args = parser.parse_args()
 
     creator = MetaAPICreator(
         src_json=parsed_args.source_json,
-        src_url=parsed_args.source_url
+        src_url=parsed_args.source_url,
+        src_url_pass = parsed_args.source_url_pass,
+        src_url_user = parsed_args.source_url_user,
+        version = parsed_args.source_json_version,
     )
     creator.run()
 
 
 class MetaAPICreator:
-    def __init__(self, src_json, src_url):
+    def __init__(self, src_json, src_url, src_url_pass, src_url_user, version):
         self._src_json = src_json
         self._src_url = src_url
+        self._src_url_pass = src_url_pass
+        self._src_url_user = src_url_user
         self._json_spec = None
         self.log = logging.getLogger()
         fmt = logging.Formatter("%(levelname)s  %(message)s")
@@ -42,6 +61,20 @@ class MetaAPICreator:
         self.log.addHandler(handler)
         self.log.setLevel(logging.DEBUG)
         self._meta_api = []
+        self._client = None
+        self._version = version
+
+    @property
+    def client(self):
+        if self._client:
+            return self._client
+        self._client = Client(self._src_url, verify_ssl=False)
+        if self._src_url_pass:
+            self._client.login(self._src_url_user, self._src_url_pass)
+        else:
+            self._client.login_kerberos()
+        return self._client
+
 
     @property
     def meta_api(self):
@@ -64,6 +97,21 @@ class MetaAPICreator:
         else:
             self._json_spec = self.sort_spec(self._json_spec_from_url())
         return self._json_spec
+
+    @property
+    def version(self):
+        if self._version:
+            return self._version
+        for key, value in self.client._request('env',[], {})['result'].items():
+            self.log.info(key)
+            if key == 'api_version':
+                self._version = value
+        if not self._version:
+            self.log.fatal("could not fetch version from upstream server")
+            sys.exit(1)
+        return self._version
+
+
 
     def sort_spec(self, od):
         res = OrderedDict()
@@ -96,15 +144,17 @@ class MetaAPICreator:
             sys.exit(1)
 
     def _json_spec_from_url(self):
-        raise NotImplementedError
+        self.log.info("fetching data from {0}".format(self._src_url))
+        self.client._version = self._version
+        result = self.client._request('json_metadata', [], {"command": "all"})
+        return {"result": result}
 
     def _class_header(self):
         self.append('from python_freeipa.client import Client')
         self.append('')
         self.append('')
         self.append('class ClientMeta(Client):')
-        version = self.json_spec['result']['messages'][0]['data']['server_version']
-        self.append('    version = \'{0}\''.format(version))
+        self.append('    version = \'{0}\''.format(self.version))
         self.append('')
         self.append('    def __init__(self, host=None, verify_ssl=True, dns_discovery=True):')
         self.append('        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version, dns_discovery=dns_discovery)')
@@ -230,7 +280,10 @@ class MetaAPICreator:
         elif _class == 'Str':
             _class = 'str'
         elif _class == "StrEnum":
-            _class = 'str, valid values {0}'.format(spec['cli_metavar'])
+            if spec['multivalue']:
+                _class = 'list of str, valid values {0}'.format(spec['cli_metavar'])
+            else:
+                _class = 'str, valid values {0}'.format(spec['cli_metavar'])
         result['doc'].append(':type  {0}: {1}'.format(mapped_arg_name, _class))
 
     def func_add_arg_body(self, arg_name, spec, result):
