@@ -4,8 +4,8 @@ from python_freeipa.client import Client
 class ClientMeta(Client):
     version = '2.235'
 
-    def __init__(self, host, verify_ssl=True):
-        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version)
+    def __init__(self, host=None, verify_ssl=True, dns_discovery=True):
+        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version, dns_discovery=dns_discovery)
 
     def aci_add(
             self,
@@ -4189,7 +4189,7 @@ class ClientMeta(Client):
             password expiration
         :type  o_ipapwdexpadvnotify: int, min value 0, max value 2147483647
         :param o_ipaconfigstring: Extra hashes to generate in password plug-in
-        :type  o_ipaconfigstring: str, valid values ['AllowNThash', 'KDC:Disable Last Success', 'KDC:Disable Lockout', 'KDC:Disable Default Preauth for SPNs']
+        :type  o_ipaconfigstring: list of str, valid values ['AllowNThash', 'KDC:Disable Last Success', 'KDC:Disable Lockout', 'KDC:Disable Default Preauth for SPNs']
         :param o_ipaselinuxusermaporder: Order in increasing priority of
             SELinux users, delimited by $
         :type  o_ipaselinuxusermaporder: str
@@ -4197,10 +4197,10 @@ class ClientMeta(Client):
             is found in SELinux map rule
         :type  o_ipaselinuxusermapdefault: str
         :param o_ipakrbauthzdata: Default types of PAC supported for services
-        :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'nfs:NONE']
+        :type  o_ipakrbauthzdata: list of str, valid values ['MS-PAC', 'PAD', 'nfs:NONE']
         :param o_ipauserauthtype: Default types of supported user
             authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened', 'disabled']
+        :type  o_ipauserauthtype: list of str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened', 'disabled']
         :param o_ca_renewal_master_server: Renewal master for IPA certificate
             authority
         :type  o_ca_renewal_master_server: str
@@ -9804,7 +9804,7 @@ class ClientMeta(Client):
             allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
             force hardened password authentication by SPAKE or FAST. With no
             indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+        :type  o_krbprincipalauthind: list of str, valid values ['radius', 'otp', 'pkinit', 'hardened']
         :param o_ipakrbrequirespreauth: Pre-authentication is required for the
             service
         :type  o_ipakrbrequirespreauth: Bool
@@ -10341,7 +10341,7 @@ class ClientMeta(Client):
             allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
             force hardened password authentication by SPAKE or FAST. With no
             indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+        :type  o_krbprincipalauthind: list of str, valid values ['radius', 'otp', 'pkinit', 'hardened']
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
         :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_sizelimit: Maximum number of entries returned (0 is
@@ -10544,7 +10544,7 @@ class ClientMeta(Client):
             allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
             force hardened password authentication by SPAKE or FAST. With no
             indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+        :type  o_krbprincipalauthind: list of str, valid values ['radius', 'otp', 'pkinit', 'hardened']
         :param o_ipakrbrequirespreauth: Pre-authentication is required for the
             service
         :type  o_ipakrbrequirespreauth: Bool
@@ -14648,7 +14648,7 @@ class ClientMeta(Client):
         :type  a_cn: str
         :param o_ipapermright: Rights to grant (read, search, compare, write,
             add, delete, all)
-        :type  o_ipapermright: str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
+        :type  o_ipapermright: list of str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
         :param o_attrs: All attributes to which the permission applies
         :type  o_attrs: str
         :param o_ipapermbindruletype: Bind rule type
@@ -14888,7 +14888,7 @@ class ClientMeta(Client):
         :type  o_cn: str
         :param o_ipapermright: Rights to grant (read, search, compare, write,
             add, delete, all)
-        :type  o_ipapermright: str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
+        :type  o_ipapermright: list of str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
         :param o_attrs: All attributes to which the permission applies
         :type  o_attrs: str
         :param o_ipapermincludedattr: User-specified attributes to which the
@@ -15042,7 +15042,7 @@ class ClientMeta(Client):
         :type  a_cn: str
         :param o_ipapermright: Rights to grant (read, search, compare, write,
             add, delete, all)
-        :type  o_ipapermright: str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
+        :type  o_ipapermright: list of str, valid values ['read', 'search', 'compare', 'write', 'add', 'delete', 'all']
         :param o_attrs: All attributes to which the permission applies
         :type  o_attrs: str
         :param o_ipapermincludedattr: User-specified attributes to which the
@@ -18101,14 +18101,14 @@ class ClientMeta(Client):
         :param o_ipakrbauthzdata: Override default list of supported PAC
             types. Use 'NONE' to disable PAC support for this service, e.g. this
             might be necessary for NFS services.
-        :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
+        :type  o_ipakrbauthzdata: list of str, valid values ['MS-PAC', 'PAD', 'NONE']
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
             'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
             allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
             force hardened password authentication by SPAKE or FAST. With no
             indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+        :type  o_krbprincipalauthind: list of str, valid values ['radius', 'otp', 'pkinit', 'hardened']
         :param o_ipakrbrequirespreauth: Pre-authentication is required for the
             service
         :type  o_ipakrbrequirespreauth: Bool
@@ -18641,14 +18641,14 @@ class ClientMeta(Client):
         :param o_ipakrbauthzdata: Override default list of supported PAC
             types. Use 'NONE' to disable PAC support for this service, e.g. this
             might be necessary for NFS services.
-        :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
+        :type  o_ipakrbauthzdata: list of str, valid values ['MS-PAC', 'PAD', 'NONE']
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
             'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
             allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
             force hardened password authentication by SPAKE or FAST. With no
             indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+        :type  o_krbprincipalauthind: list of str, valid values ['radius', 'otp', 'pkinit', 'hardened']
         :param o_timelimit: Time limit of search in seconds (0 is unlimited)
         :type  o_timelimit: int, min value 0, max value 2147483647
         :param o_sizelimit: Maximum number of entries returned (0 is
@@ -18732,14 +18732,14 @@ class ClientMeta(Client):
         :param o_ipakrbauthzdata: Override default list of supported PAC
             types. Use 'NONE' to disable PAC support for this service, e.g. this
             might be necessary for NFS services.
-        :type  o_ipakrbauthzdata: str, valid values ['MS-PAC', 'PAD', 'NONE']
+        :type  o_ipakrbauthzdata: list of str, valid values ['MS-PAC', 'PAD', 'NONE']
         :param o_krbprincipalauthind: Defines a whitelist for Authentication
             Indicators. Use 'otp' to allow OTP-based 2FA authentications. Use
             'radius' to allow RADIUS-based 2FA authentications. Use 'pkinit' to
             allow PKINIT-based 2FA authentications. Use 'hardened' to allow brute-
             force hardened password authentication by SPAKE or FAST. With no
             indicator specified, all authentication mechanisms are allowed.
-        :type  o_krbprincipalauthind: str, valid values ['radius', 'otp', 'pkinit', 'hardened']
+        :type  o_krbprincipalauthind: list of str, valid values ['radius', 'otp', 'pkinit', 'hardened']
         :param o_ipakrbrequirespreauth: Pre-authentication is required for the
             service
         :type  o_ipakrbrequirespreauth: Bool
@@ -19689,7 +19689,7 @@ class ClientMeta(Client):
         :param o_ipasshpubkey: SSH public key
         :type  o_ipasshpubkey: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: list of str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -20133,7 +20133,7 @@ class ClientMeta(Client):
         :param o_carlicense: Car License
         :type  o_carlicense: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: list of str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -20444,7 +20444,7 @@ class ClientMeta(Client):
         :param o_ipasshpubkey: SSH public key
         :type  o_ipasshpubkey: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: list of str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -24026,7 +24026,7 @@ class ClientMeta(Client):
         :param o_ipasshpubkey: SSH public key
         :type  o_ipasshpubkey: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: list of str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -24521,7 +24521,7 @@ class ClientMeta(Client):
         :param o_carlicense: Car License
         :type  o_carlicense: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: list of str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
@@ -24842,7 +24842,7 @@ class ClientMeta(Client):
         :param o_ipasshpubkey: SSH public key
         :type  o_ipasshpubkey: str
         :param o_ipauserauthtype: Types of supported user authentication
-        :type  o_ipauserauthtype: str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
+        :type  o_ipauserauthtype: list of str, valid values ['password', 'radius', 'otp', 'pkinit', 'hardened']
         :param o_userclass: User category (semantics placed on this attribute
             are for local interpretation)
         :type  o_userclass: str
