@@ -173,8 +173,8 @@ class Client(object):
         else:
             for host in self.dns_discovered:
                 try:
-                    self._current_host = host.host
-                    return self._login(host.host, username, password)
+                    self._current_host = host.hostname
+                    return self._login(host.hostname, username, password)
                 except requests.exceptions.ConnectionError as err:
                     self.log.warning("could not connect discovered host: {0}".format(err))
             raise FreeIPAError("could not connect to any host")
@@ -230,8 +230,8 @@ class Client(object):
         else:
             for host in self.dns_discovered:
                 try:
-                    self._current_host = host.host
-                    return self._login_kerberos(host.host)
+                    self._current_host = host.hostname
+                    return self._login_kerberos(host.hostname)
                 except requests.exceptions.ConnectionError as err:
                     self.log.warning("could not connect discovered host: {0}".format(err))
             raise FreeIPAError("could not connect to any host")
