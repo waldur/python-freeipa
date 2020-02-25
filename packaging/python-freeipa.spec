@@ -1,7 +1,7 @@
 Name: python-freeipa
 Summary: Lightweight FreeIPA client
 Group: Development/Libraries
-Version: 1.0.0
+Version: 1.0.1
 Release: 1.el7
 License: MIT
 Url: https://waldur.com
@@ -35,6 +35,9 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
+* Tue Feb 25 2020 Jenkins <jenkins@opennodecloud.com> - 1.0.1-1.el7
+- New upstream release
+
 * Tue Jan 21 2020 Jenkins <jenkins@opennodecloud.com> - 1.0.0-1.el7
 - New upstream release
 
