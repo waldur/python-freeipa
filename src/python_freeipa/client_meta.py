@@ -8,22 +8,22 @@ class ClientMeta(Client):
         super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version, dns_discovery=dns_discovery)
 
     def aci_add(
-            self,
-            a_aciname,
-            o_permissions,
-            o_aciprefix,
-            o_permission=None,
-            o_group=None,
-            o_attrs=None,
-            o_type=None,
-            o_memberof=None,
-            o_filter=None,
-            o_subtree=None,
-            o_targetgroup=None,
-            o_selfaci=False,
-            o_test=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_permissions,
+        o_aciprefix,
+        o_permission=None,
+        o_group=None,
+        o_attrs=None,
+        o_type=None,
+        o_memberof=None,
+        o_filter=None,
+        o_subtree=None,
+        o_targetgroup=None,
+        o_selfaci=False,
+        o_test=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create new ACI.
@@ -99,9 +99,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def aci_del(
-            self,
-            a_aciname,
-            o_aciprefix,
+        self,
+        a_aciname,
+        o_aciprefix,
     ):
         """
         Delete ACI.
@@ -124,23 +124,23 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def aci_find(
-            self,
-            a_criteria=None,
-            o_aciname=None,
-            o_permission=None,
-            o_group=None,
-            o_permissions=None,
-            o_attrs=None,
-            o_type=None,
-            o_memberof=None,
-            o_filter=None,
-            o_subtree=None,
-            o_targetgroup=None,
-            o_selfaci=False,
-            o_aciprefix=None,
-            o_pkey_only=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_criteria=None,
+        o_aciname=None,
+        o_permission=None,
+        o_group=None,
+        o_permissions=None,
+        o_attrs=None,
+        o_type=None,
+        o_memberof=None,
+        o_filter=None,
+        o_subtree=None,
+        o_targetgroup=None,
+        o_selfaci=False,
+        o_aciprefix=None,
+        o_pkey_only=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Search for ACIs.
@@ -239,21 +239,21 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def aci_mod(
-            self,
-            a_aciname,
-            o_aciprefix,
-            o_permission=None,
-            o_group=None,
-            o_permissions=None,
-            o_attrs=None,
-            o_type=None,
-            o_memberof=None,
-            o_filter=None,
-            o_subtree=None,
-            o_targetgroup=None,
-            o_selfaci=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_aciprefix,
+        o_permission=None,
+        o_group=None,
+        o_permissions=None,
+        o_attrs=None,
+        o_type=None,
+        o_memberof=None,
+        o_filter=None,
+        o_subtree=None,
+        o_targetgroup=None,
+        o_selfaci=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify ACI.
@@ -326,22 +326,22 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def aci_rename(
-            self,
-            a_aciname,
-            o_aciprefix,
-            o_newname,
-            o_permission=None,
-            o_group=None,
-            o_permissions=None,
-            o_attrs=None,
-            o_type=None,
-            o_memberof=None,
-            o_filter=None,
-            o_subtree=None,
-            o_targetgroup=None,
-            o_selfaci=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_aciprefix,
+        o_newname,
+        o_permission=None,
+        o_group=None,
+        o_permissions=None,
+        o_attrs=None,
+        o_type=None,
+        o_memberof=None,
+        o_filter=None,
+        o_subtree=None,
+        o_targetgroup=None,
+        o_selfaci=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Rename an ACI.
@@ -417,12 +417,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def aci_show(
-            self,
-            a_aciname,
-            o_aciprefix,
-            o_location=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_aciprefix,
+        o_location=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display a single ACI given an ACI name.
@@ -457,7 +457,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def adtrust_is_enabled(
-            self,
+        self,
     ):
         """
         Determine whether ipa-adtrust-install has been run on this system
@@ -473,14 +473,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_add(
-            self,
-            a_cn,
-            o_type,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_type,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add an automember rule.
@@ -525,15 +525,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_add_condition(
-            self,
-            a_cn,
-            o_key,
-            o_type,
-            o_description=None,
-            o_automemberinclusiveregex=None,
-            o_automemberexclusiveregex=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_key,
+        o_type,
+        o_description=None,
+        o_automemberinclusiveregex=None,
+        o_automemberexclusiveregex=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add conditions to an automember rule.
@@ -579,11 +579,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_default_group_remove(
-            self,
-            o_type,
-            o_description=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_type,
+        o_description=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Remove default (fallback) group for all unmatched entries.
@@ -614,12 +614,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_default_group_set(
-            self,
-            o_automemberdefaultgroup,
-            o_type,
-            o_description=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_automemberdefaultgroup,
+        o_type,
+        o_description=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Set default (fallback) group for all unmatched entries.
@@ -654,10 +654,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_default_group_show(
-            self,
-            o_type,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_type,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about the default (fallback) automember groups.
@@ -684,9 +684,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_del(
-            self,
-            a_cn,
-            o_type,
+        self,
+        a_cn,
+        o_type,
     ):
         """
         Delete an automember rule.
@@ -708,13 +708,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_find(
-            self,
-            o_type,
-            a_criteria=None,
-            o_description=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        o_type,
+        a_criteria=None,
+        o_description=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for automember rules.
@@ -753,14 +753,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_find_orphans(
-            self,
-            o_type,
-            a_criteria=None,
-            o_description=None,
-            o_remove=False,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        o_type,
+        a_criteria=None,
+        o_description=None,
+        o_remove=False,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for orphan automember rules. The command might need to be run as
@@ -804,16 +804,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_mod(
-            self,
-            a_cn,
-            o_type,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_type,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify an automember rule.
@@ -867,13 +867,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_rebuild(
-            self,
-            o_type=None,
-            o_users=None,
-            o_hosts=None,
-            o_no_wait=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_type=None,
+        o_users=None,
+        o_hosts=None,
+        o_no_wait=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Rebuild auto membership.
@@ -913,15 +913,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_remove_condition(
-            self,
-            a_cn,
-            o_key,
-            o_type,
-            o_description=None,
-            o_automemberinclusiveregex=None,
-            o_automemberexclusiveregex=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_key,
+        o_type,
+        o_description=None,
+        o_automemberinclusiveregex=None,
+        o_automemberexclusiveregex=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Remove conditions from an automember rule.
@@ -967,11 +967,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automember_show(
-            self,
-            a_cn,
-            o_type,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_type,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about an automember rule.
@@ -1001,15 +1001,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountkey_add(
-            self,
-            a_automountlocationcn,
-            a_automountmapautomountmapname,
-            o_automountkey,
-            o_automountinformation,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_automountlocationcn,
+        a_automountmapautomountmapname,
+        o_automountkey,
+        o_automountinformation,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create a new automount key.
@@ -1056,12 +1056,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountkey_del(
-            self,
-            a_automountlocationcn,
-            a_automountmapautomountmapname,
-            o_automountkey,
-            o_continue=False,
-            o_automountinformation=None,
+        self,
+        a_automountlocationcn,
+        a_automountmapautomountmapname,
+        o_automountkey,
+        o_continue=False,
+        o_automountinformation=None,
     ):
         """
         Delete an automount key.
@@ -1093,16 +1093,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountkey_find(
-            self,
-            a_automountlocationcn,
-            a_automountmapautomountmapname,
-            a_criteria=None,
-            o_automountkey=None,
-            o_automountinformation=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_automountlocationcn,
+        a_automountmapautomountmapname,
+        a_criteria=None,
+        o_automountkey=None,
+        o_automountinformation=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Search for an automount key.
@@ -1152,19 +1152,19 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountkey_mod(
-            self,
-            a_automountlocationcn,
-            a_automountmapautomountmapname,
-            o_automountkey,
-            o_automountinformation=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_newautomountinformation=None,
-            o_all=True,
-            o_raw=False,
-            o_rename=None,
+        self,
+        a_automountlocationcn,
+        a_automountmapautomountmapname,
+        o_automountkey,
+        o_automountinformation=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_newautomountinformation=None,
+        o_all=True,
+        o_raw=False,
+        o_rename=None,
     ):
         """
         Modify an automount key.
@@ -1229,14 +1229,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountkey_show(
-            self,
-            a_automountlocationcn,
-            a_automountmapautomountmapname,
-            o_automountkey,
-            o_rights=False,
-            o_automountinformation=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_automountlocationcn,
+        a_automountmapautomountmapname,
+        o_automountkey,
+        o_rights=False,
+        o_automountinformation=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display an automount key.
@@ -1277,12 +1277,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountlocation_add(
-            self,
-            a_cn,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create a new automount location.
@@ -1320,9 +1320,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountlocation_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete an automount location.
@@ -1344,14 +1344,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountlocation_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for an automount location.
@@ -1396,11 +1396,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountlocation_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display an automount location.
@@ -1431,8 +1431,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountlocation_tofiles(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Generate automount files for a specific location.
@@ -1451,14 +1451,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountmap_add(
-            self,
-            a_automountlocationcn,
-            a_automountmapname,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_automountlocationcn,
+        a_automountmapname,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create a new automount map.
@@ -1503,16 +1503,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountmap_add_indirect(
-            self,
-            a_automountlocationcn,
-            a_automountmapname,
-            o_key,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_parentmap='auto.master',
-            o_all=True,
-            o_raw=False,
+        self,
+        a_automountlocationcn,
+        a_automountmapname,
+        o_key,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_parentmap='auto.master',
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create a new indirect mount point.
@@ -1565,10 +1565,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountmap_del(
-            self,
-            a_automountlocationcn,
-            a_automountmapname,
-            o_continue=False,
+        self,
+        a_automountlocationcn,
+        a_automountmapname,
+        o_continue=False,
     ):
         """
         Delete an automount map.
@@ -1593,16 +1593,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountmap_find(
-            self,
-            a_automountlocationcn,
-            a_criteria=None,
-            o_automountmapname=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_automountlocationcn,
+        a_criteria=None,
+        o_automountmapname=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for an automount map.
@@ -1654,16 +1654,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountmap_mod(
-            self,
-            a_automountlocationcn,
-            a_automountmapname,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_automountlocationcn,
+        a_automountmapname,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify an automount map.
@@ -1717,12 +1717,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def automountmap_show(
-            self,
-            a_automountlocationcn,
-            a_automountmapname,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_automountlocationcn,
+        a_automountmapname,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display an automount map.
@@ -1756,8 +1756,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def batch(
-            self,
-            a_methods=None,
+        self,
+        a_methods=None,
     ):
         """
         Make multiple ipa calls via one remote procedure call
@@ -1776,15 +1776,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ca_add(
-            self,
-            a_cn,
-            o_ipacasubjectdn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_chain=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_ipacasubjectdn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_chain=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create a CA.
@@ -1832,9 +1832,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ca_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a CA.
@@ -1856,8 +1856,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ca_disable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Disable a CA.
@@ -1876,8 +1876,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ca_enable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Enable a CA.
@@ -1896,18 +1896,18 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ca_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_ipacaid=None,
-            o_ipacasubjectdn=None,
-            o_ipacaissuerdn=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_ipacaid=None,
+        o_ipacasubjectdn=None,
+        o_ipacaissuerdn=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for CAs.
@@ -1968,7 +1968,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ca_is_enabled(
-            self,
+        self,
     ):
         """
         Checks if any of the servers has the CA service enabled.
@@ -1984,16 +1984,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ca_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_rename=None,
     ):
         """
         Modify CA configuration.
@@ -2048,12 +2048,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ca_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_chain=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_chain=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display the properties of a CA.
@@ -2087,20 +2087,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_ipacacategory=None,
-            o_ipacertprofilecategory=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_servicecategory=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_ipacacategory=None,
+        o_ipacertprofilecategory=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_servicecategory=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Create a new CA ACL.
@@ -2169,12 +2169,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_add_ca(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_ca=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_ca=None,
     ):
         """
         Add CAs to a CA ACL.
@@ -2208,13 +2208,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_add_host(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Add target hosts and hostgroups to a CA ACL.
@@ -2252,12 +2252,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_add_profile(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_certprofile=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_certprofile=None,
     ):
         """
         Add profiles to a CA ACL.
@@ -2291,12 +2291,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_add_service(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_service=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_service=None,
     ):
         """
         Add services to a CA ACL.
@@ -2330,13 +2330,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_add_user(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Add users and groups to a CA ACL.
@@ -2374,9 +2374,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a CA ACL.
@@ -2398,8 +2398,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_disable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Disable a CA ACL.
@@ -2418,8 +2418,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_enable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Enable a CA ACL.
@@ -2438,22 +2438,22 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_ipacacategory=None,
-            o_ipacertprofilecategory=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_servicecategory=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_ipacacategory=None,
+        o_ipacertprofilecategory=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_servicecategory=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for CA ACLs.
@@ -2529,22 +2529,22 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_ipacacategory=None,
-            o_ipacertprofilecategory=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_servicecategory=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_ipacacategory=None,
+        o_ipacertprofilecategory=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_servicecategory=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify a CA ACL.
@@ -2622,12 +2622,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_remove_ca(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_ca=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_ca=None,
     ):
         """
         Remove CAs from a CA ACL.
@@ -2661,13 +2661,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_remove_host(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Remove target hosts and hostgroups from a CA ACL.
@@ -2705,12 +2705,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_remove_profile(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_certprofile=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_certprofile=None,
     ):
         """
         Remove profiles from a CA ACL.
@@ -2744,12 +2744,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_remove_service(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_service=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_service=None,
     ):
         """
         Remove services from a CA ACL.
@@ -2783,13 +2783,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_remove_user(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Remove users and groups from a CA ACL.
@@ -2827,12 +2827,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def caacl_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display the properties of a CA ACL.
@@ -2866,36 +2866,36 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cert_find(
-            self,
-            a_criteria=None,
-            o_certificate=None,
-            o_issuer=None,
-            o_revocation_reason=None,
-            o_cacn=None,
-            o_subject=None,
-            o_min_serial_number=None,
-            o_max_serial_number=None,
-            o_exactly=False,
-            o_validnotafter_from=None,
-            o_validnotafter_to=None,
-            o_validnotbefore_from=None,
-            o_validnotbefore_to=None,
-            o_issuedon_from=None,
-            o_issuedon_to=None,
-            o_revokedon_from=None,
-            o_revokedon_to=None,
-            o_pkey_only=False,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_user=None,
-            o_no_user=None,
-            o_host=None,
-            o_no_host=None,
-            o_service=None,
-            o_no_service=None,
+        self,
+        a_criteria=None,
+        o_certificate=None,
+        o_issuer=None,
+        o_revocation_reason=None,
+        o_cacn=None,
+        o_subject=None,
+        o_min_serial_number=None,
+        o_max_serial_number=None,
+        o_exactly=False,
+        o_validnotafter_from=None,
+        o_validnotafter_to=None,
+        o_validnotbefore_from=None,
+        o_validnotbefore_to=None,
+        o_issuedon_from=None,
+        o_issuedon_to=None,
+        o_revokedon_from=None,
+        o_revokedon_to=None,
+        o_pkey_only=False,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_user=None,
+        o_no_user=None,
+        o_host=None,
+        o_no_host=None,
+        o_service=None,
+        o_no_service=None,
     ):
         """
         Search for existing certificates.
@@ -3031,9 +3031,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cert_remove_hold(
-            self,
-            a_serial_number,
-            o_cacn='ipa',
+        self,
+        a_serial_number,
+        o_cacn='ipa',
     ):
         """
         Take a revoked certificate off hold.
@@ -3057,16 +3057,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cert_request(
-            self,
-            a_csr,
-            o_principal,
-            o_request_type='pkcs10',
-            o_profile_id=None,
-            o_cacn='ipa',
-            o_add=False,
-            o_chain=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_csr,
+        o_principal,
+        o_request_type='pkcs10',
+        o_profile_id=None,
+        o_cacn='ipa',
+        o_add=False,
+        o_chain=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Submit a certificate signing request.
@@ -3115,10 +3115,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cert_revoke(
-            self,
-            a_serial_number,
-            o_revocation_reason=0,
-            o_cacn='ipa',
+        self,
+        a_serial_number,
+        o_revocation_reason=0,
+        o_cacn='ipa',
     ):
         """
         Revoke a certificate.
@@ -3146,14 +3146,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cert_show(
-            self,
-            a_serial_number,
-            o_cacn='ipa',
-            o_out=None,
-            o_chain=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_serial_number,
+        o_cacn='ipa',
+        o_out=None,
+        o_chain=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Retrieve an existing certificate.
@@ -3195,11 +3195,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cert_status(
-            self,
-            a_request_id,
-            o_cacn='ipa',
-            o_all=True,
-            o_raw=False,
+        self,
+        a_request_id,
+        o_cacn='ipa',
+        o_all=True,
+        o_raw=False,
     ):
         """
         Check the status of a certificate signing request.
@@ -3230,10 +3230,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmap_match(
-            self,
-            a_certificate,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_certificate,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Search for users matching the provided certificate.
@@ -3264,14 +3264,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmapconfig_mod(
-            self,
-            o_ipacertmappromptusername=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_ipacertmappromptusername=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify Certificate Identity Mapping configuration.
@@ -3320,10 +3320,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmapconfig_show(
-            self,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Show the current Certificate Identity Mapping configuration.
@@ -3351,18 +3351,18 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmaprule_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipacertmapmaprule=None,
-            o_ipacertmapmatchrule=None,
-            o_associateddomain=None,
-            o_ipacertmappriority=None,
-            o_ipaenabledflag=True,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipacertmapmaprule=None,
+        o_ipacertmapmatchrule=None,
+        o_associateddomain=None,
+        o_ipacertmappriority=None,
+        o_ipaenabledflag=True,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create a new Certificate Identity Mapping Rule.
@@ -3428,9 +3428,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmaprule_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a Certificate Identity Mapping Rule.
@@ -3452,8 +3452,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmaprule_disable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Disable a Certificate Identity Mapping Rule.
@@ -3472,8 +3472,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmaprule_enable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Enable a Certificate Identity Mapping Rule.
@@ -3492,20 +3492,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmaprule_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_ipacertmapmaprule=None,
-            o_ipacertmapmatchrule=None,
-            o_associateddomain=None,
-            o_ipacertmappriority=None,
-            o_ipaenabledflag=True,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_ipacertmapmaprule=None,
+        o_ipacertmapmatchrule=None,
+        o_associateddomain=None,
+        o_ipacertmappriority=None,
+        o_ipaenabledflag=True,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for Certificate Identity Mapping Rules.
@@ -3578,20 +3578,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmaprule_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipacertmapmaprule=None,
-            o_ipacertmapmatchrule=None,
-            o_associateddomain=None,
-            o_ipacertmappriority=None,
-            o_ipaenabledflag=True,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipacertmapmaprule=None,
+        o_ipacertmapmatchrule=None,
+        o_associateddomain=None,
+        o_ipacertmappriority=None,
+        o_ipaenabledflag=True,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify a Certificate Identity Mapping Rule.
@@ -3666,11 +3666,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certmaprule_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a Certificate Identity Mapping Rule.
@@ -3701,9 +3701,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certprofile_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a Certificate Profile.
@@ -3725,16 +3725,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certprofile_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_ipacertprofilestoreissued=True,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_ipacertprofilestoreissued=True,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for Certificate Profiles.
@@ -3788,13 +3788,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certprofile_import(
-            self,
-            a_cn,
-            o_description,
-            o_file,
-            o_ipacertprofilestoreissued=True,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_description,
+        o_file,
+        o_ipacertprofilestoreissued=True,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Import a Certificate Profile.
@@ -3832,17 +3832,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certprofile_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipacertprofilestoreissued=True,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_file=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipacertprofilestoreissued=True,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_file=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify Certificate Profile configuration.
@@ -3902,12 +3902,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def certprofile_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_out=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_out=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display the properties of a Certificate Profile.
@@ -3942,11 +3942,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def class_find(
-            self,
-            a_criteria=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for classes.
@@ -3978,10 +3978,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def class_show(
-            self,
-            a_full_name,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_full_name,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a class.
@@ -4008,10 +4008,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def command_defaults(
-            self,
-            a_full_name,
-            o_params=None,
-            o_kw=None,
+        self,
+        a_full_name,
+        o_params=None,
+        o_kw=None,
     ):
         """
         Return command defaults
@@ -4038,11 +4038,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def command_find(
-            self,
-            a_criteria=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for commands.
@@ -4074,10 +4074,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def command_show(
-            self,
-            a_full_name,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_full_name,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a command.
@@ -4104,7 +4104,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def compat_is_enabled(
-            self,
+        self,
     ):
         """
         Determine whether Schema Compatibility plugin is configured to serve trusted domain users and groups
@@ -4120,34 +4120,34 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def config_mod(
-            self,
-            o_ipamaxusernamelength=None,
-            o_ipamaxhostnamelength=None,
-            o_ipahomesrootdir=None,
-            o_ipadefaultloginshell=None,
-            o_ipadefaultprimarygroup=None,
-            o_ipadefaultemaildomain=None,
-            o_ipasearchtimelimit=None,
-            o_ipasearchrecordslimit=None,
-            o_ipausersearchfields=None,
-            o_ipagroupsearchfields=None,
-            o_ipamigrationenabled=None,
-            o_ipagroupobjectclasses=None,
-            o_ipauserobjectclasses=None,
-            o_ipapwdexpadvnotify=None,
-            o_ipaconfigstring=None,
-            o_ipaselinuxusermaporder=None,
-            o_ipaselinuxusermapdefault=None,
-            o_ipakrbauthzdata=None,
-            o_ipauserauthtype=None,
-            o_ca_renewal_master_server=None,
-            o_ipadomainresolutionorder=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_ipamaxusernamelength=None,
+        o_ipamaxhostnamelength=None,
+        o_ipahomesrootdir=None,
+        o_ipadefaultloginshell=None,
+        o_ipadefaultprimarygroup=None,
+        o_ipadefaultemaildomain=None,
+        o_ipasearchtimelimit=None,
+        o_ipasearchrecordslimit=None,
+        o_ipausersearchfields=None,
+        o_ipagroupsearchfields=None,
+        o_ipamigrationenabled=None,
+        o_ipagroupobjectclasses=None,
+        o_ipauserobjectclasses=None,
+        o_ipapwdexpadvnotify=None,
+        o_ipaconfigstring=None,
+        o_ipaselinuxusermaporder=None,
+        o_ipaselinuxusermapdefault=None,
+        o_ipakrbauthzdata=None,
+        o_ipauserauthtype=None,
+        o_ca_renewal_master_server=None,
+        o_ipadomainresolutionorder=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify configuration options.
@@ -4287,10 +4287,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def config_show(
-            self,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Show the current configuration.
@@ -4318,14 +4318,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cosentry_add(
-            self,
-            a_cn,
-            o_krbpwdpolicyreference,
-            o_cospriority,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_krbpwdpolicyreference,
+        o_cospriority,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add Class of Service entry
@@ -4369,9 +4369,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cosentry_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete Class of Service entry
@@ -4393,16 +4393,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cosentry_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_krbpwdpolicyreference=None,
-            o_cospriority=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_krbpwdpolicyreference=None,
+        o_cospriority=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for Class of Service entry
@@ -4455,16 +4455,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cosentry_mod(
-            self,
-            a_cn,
-            o_krbpwdpolicyreference=None,
-            o_cospriority=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_krbpwdpolicyreference=None,
+        o_cospriority=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify Class of Service entry
@@ -4519,11 +4519,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def cosentry_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display Class of Service entry
@@ -4554,14 +4554,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def delegation_add(
-            self,
-            a_aciname,
-            o_attrs,
-            o_memberof,
-            o_group,
-            o_permissions=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_attrs,
+        o_memberof,
+        o_group,
+        o_permissions=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new delegation.
@@ -4602,8 +4602,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def delegation_del(
-            self,
-            a_aciname,
+        self,
+        a_aciname,
     ):
         """
         Delete a delegation.
@@ -4622,16 +4622,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def delegation_find(
-            self,
-            a_criteria=None,
-            o_aciname=None,
-            o_permissions=None,
-            o_attrs=None,
-            o_memberof=None,
-            o_group=None,
-            o_pkey_only=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_criteria=None,
+        o_aciname=None,
+        o_permissions=None,
+        o_attrs=None,
+        o_memberof=None,
+        o_group=None,
+        o_pkey_only=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Search for delegations.
@@ -4684,14 +4684,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def delegation_mod(
-            self,
-            a_aciname,
-            o_permissions=None,
-            o_attrs=None,
-            o_memberof=None,
-            o_group=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_permissions=None,
+        o_attrs=None,
+        o_memberof=None,
+        o_group=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify a delegation.
@@ -4735,10 +4735,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def delegation_show(
-            self,
-            a_aciname,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a delegation.
@@ -4765,7 +4765,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dns_is_enabled(
-            self,
+        self,
     ):
         """
         Checks if any of the servers has the DNS service enabled.
@@ -4781,8 +4781,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dns_resolve(
-            self,
-            a_hostname,
+        self,
+        a_hostname,
     ):
         """
         Resolve a host name in DNS. (Deprecated)
@@ -4801,10 +4801,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dns_update_system_records(
-            self,
-            o_dry_run=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_dry_run=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Update location and IPA server DNS records
@@ -4831,18 +4831,18 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsconfig_mod(
-            self,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_idnsallowsyncptr=None,
-            o_idnszonerefresh=None,
-            o_ipadnsversion=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_idnsallowsyncptr=None,
+        o_idnszonerefresh=None,
+        o_ipadnsversion=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify global DNS configuration.
@@ -4911,10 +4911,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsconfig_show(
-            self,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Show the current global DNS configuration.
@@ -4942,16 +4942,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_add(
-            self,
-            a_idnsname,
-            o_name_from_ip=None,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_skip_overlap_check=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_name_from_ip=None,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_skip_overlap_check=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create new DNS forward zone.
@@ -5009,8 +5009,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_add_permission(
-            self,
-            a_idnsname,
+        self,
+        a_idnsname,
     ):
         """
         Add a permission for per-forward zone access delegation.
@@ -5029,9 +5029,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_del(
-            self,
-            a_idnsname,
-            o_continue=False,
+        self,
+        a_idnsname,
+        o_continue=False,
     ):
         """
         Delete DNS forward zone.
@@ -5053,8 +5053,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_disable(
-            self,
-            a_idnsname,
+        self,
+        a_idnsname,
     ):
         """
         Disable DNS Forward Zone.
@@ -5073,8 +5073,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_enable(
-            self,
-            a_idnsname,
+        self,
+        a_idnsname,
     ):
         """
         Enable DNS Forward Zone.
@@ -5093,18 +5093,18 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_find(
-            self,
-            a_criteria=None,
-            o_idnsname=None,
-            o_name_from_ip=None,
-            o_idnszoneactive=None,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_idnsname=None,
+        o_name_from_ip=None,
+        o_idnszoneactive=None,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for DNS forward zones.
@@ -5169,17 +5169,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_mod(
-            self,
-            a_idnsname,
-            o_name_from_ip=None,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_name_from_ip=None,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify DNS forward zone.
@@ -5242,8 +5242,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_remove_permission(
-            self,
-            a_idnsname,
+        self,
+        a_idnsname,
     ):
         """
         Remove a permission for per-forward zone access delegation.
@@ -5262,11 +5262,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_show(
-            self,
-            a_idnsname,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a DNS forward zone.
@@ -5297,107 +5297,107 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsrecord_add(
-            self,
-            a_dnszoneidnsname,
-            a_idnsname,
-            o_dnsttl=None,
-            o_dnsclass=None,
-            o_arecord=None,
-            o_a_part_ip_address=None,
-            o_a_extra_create_reverse=False,
-            o_aaaarecord=None,
-            o_aaaa_part_ip_address=None,
-            o_aaaa_extra_create_reverse=False,
-            o_a6record=None,
-            o_a6_part_data=None,
-            o_afsdbrecord=None,
-            o_afsdb_part_subtype=None,
-            o_afsdb_part_hostname=None,
-            o_aplrecord=None,
-            o_certrecord=None,
-            o_cert_part_type=None,
-            o_cert_part_key_tag=None,
-            o_cert_part_algorithm=None,
-            o_cert_part_certificate_or_crl=None,
-            o_cnamerecord=None,
-            o_cname_part_hostname=None,
-            o_dhcidrecord=None,
-            o_dlvrecord=None,
-            o_dlv_part_key_tag=None,
-            o_dlv_part_algorithm=None,
-            o_dlv_part_digest_type=None,
-            o_dlv_part_digest=None,
-            o_dnamerecord=None,
-            o_dname_part_target=None,
-            o_dsrecord=None,
-            o_ds_part_key_tag=None,
-            o_ds_part_algorithm=None,
-            o_ds_part_digest_type=None,
-            o_ds_part_digest=None,
-            o_hiprecord=None,
-            o_ipseckeyrecord=None,
-            o_keyrecord=None,
-            o_kxrecord=None,
-            o_kx_part_preference=None,
-            o_kx_part_exchanger=None,
-            o_locrecord=None,
-            o_loc_part_lat_deg=None,
-            o_loc_part_lat_min=None,
-            o_loc_part_lat_sec=None,
-            o_loc_part_lat_dir=None,
-            o_loc_part_lon_deg=None,
-            o_loc_part_lon_min=None,
-            o_loc_part_lon_sec=None,
-            o_loc_part_lon_dir=None,
-            o_loc_part_altitude=None,
-            o_loc_part_size=None,
-            o_loc_part_h_precision=None,
-            o_loc_part_v_precision=None,
-            o_mxrecord=None,
-            o_mx_part_preference=None,
-            o_mx_part_exchanger=None,
-            o_naptrrecord=None,
-            o_naptr_part_order=None,
-            o_naptr_part_preference=None,
-            o_naptr_part_flags=None,
-            o_naptr_part_service=None,
-            o_naptr_part_regexp=None,
-            o_naptr_part_replacement=None,
-            o_nsrecord=None,
-            o_ns_part_hostname=None,
-            o_nsecrecord=None,
-            o_ptrrecord=None,
-            o_ptr_part_hostname=None,
-            o_rrsigrecord=None,
-            o_rprecord=None,
-            o_sigrecord=None,
-            o_spfrecord=None,
-            o_srvrecord=None,
-            o_srv_part_priority=None,
-            o_srv_part_weight=None,
-            o_srv_part_port=None,
-            o_srv_part_target=None,
-            o_sshfprecord=None,
-            o_sshfp_part_algorithm=None,
-            o_sshfp_part_fp_type=None,
-            o_sshfp_part_fingerprint=None,
-            o_tlsarecord=None,
-            o_tlsa_part_cert_usage=None,
-            o_tlsa_part_selector=None,
-            o_tlsa_part_matching_type=None,
-            o_tlsa_part_cert_association_data=None,
-            o_txtrecord=None,
-            o_txt_part_data=None,
-            o_urirecord=None,
-            o_uri_part_priority=None,
-            o_uri_part_weight=None,
-            o_uri_part_target=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_force=False,
-            o_structured=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_dnszoneidnsname,
+        a_idnsname,
+        o_dnsttl=None,
+        o_dnsclass=None,
+        o_arecord=None,
+        o_a_part_ip_address=None,
+        o_a_extra_create_reverse=False,
+        o_aaaarecord=None,
+        o_aaaa_part_ip_address=None,
+        o_aaaa_extra_create_reverse=False,
+        o_a6record=None,
+        o_a6_part_data=None,
+        o_afsdbrecord=None,
+        o_afsdb_part_subtype=None,
+        o_afsdb_part_hostname=None,
+        o_aplrecord=None,
+        o_certrecord=None,
+        o_cert_part_type=None,
+        o_cert_part_key_tag=None,
+        o_cert_part_algorithm=None,
+        o_cert_part_certificate_or_crl=None,
+        o_cnamerecord=None,
+        o_cname_part_hostname=None,
+        o_dhcidrecord=None,
+        o_dlvrecord=None,
+        o_dlv_part_key_tag=None,
+        o_dlv_part_algorithm=None,
+        o_dlv_part_digest_type=None,
+        o_dlv_part_digest=None,
+        o_dnamerecord=None,
+        o_dname_part_target=None,
+        o_dsrecord=None,
+        o_ds_part_key_tag=None,
+        o_ds_part_algorithm=None,
+        o_ds_part_digest_type=None,
+        o_ds_part_digest=None,
+        o_hiprecord=None,
+        o_ipseckeyrecord=None,
+        o_keyrecord=None,
+        o_kxrecord=None,
+        o_kx_part_preference=None,
+        o_kx_part_exchanger=None,
+        o_locrecord=None,
+        o_loc_part_lat_deg=None,
+        o_loc_part_lat_min=None,
+        o_loc_part_lat_sec=None,
+        o_loc_part_lat_dir=None,
+        o_loc_part_lon_deg=None,
+        o_loc_part_lon_min=None,
+        o_loc_part_lon_sec=None,
+        o_loc_part_lon_dir=None,
+        o_loc_part_altitude=None,
+        o_loc_part_size=None,
+        o_loc_part_h_precision=None,
+        o_loc_part_v_precision=None,
+        o_mxrecord=None,
+        o_mx_part_preference=None,
+        o_mx_part_exchanger=None,
+        o_naptrrecord=None,
+        o_naptr_part_order=None,
+        o_naptr_part_preference=None,
+        o_naptr_part_flags=None,
+        o_naptr_part_service=None,
+        o_naptr_part_regexp=None,
+        o_naptr_part_replacement=None,
+        o_nsrecord=None,
+        o_ns_part_hostname=None,
+        o_nsecrecord=None,
+        o_ptrrecord=None,
+        o_ptr_part_hostname=None,
+        o_rrsigrecord=None,
+        o_rprecord=None,
+        o_sigrecord=None,
+        o_spfrecord=None,
+        o_srvrecord=None,
+        o_srv_part_priority=None,
+        o_srv_part_weight=None,
+        o_srv_part_port=None,
+        o_srv_part_target=None,
+        o_sshfprecord=None,
+        o_sshfp_part_algorithm=None,
+        o_sshfp_part_fp_type=None,
+        o_sshfp_part_fingerprint=None,
+        o_tlsarecord=None,
+        o_tlsa_part_cert_usage=None,
+        o_tlsa_part_selector=None,
+        o_tlsa_part_matching_type=None,
+        o_tlsa_part_cert_association_data=None,
+        o_txtrecord=None,
+        o_txt_part_data=None,
+        o_urirecord=None,
+        o_uri_part_priority=None,
+        o_uri_part_weight=None,
+        o_uri_part_target=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_force=False,
+        o_structured=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add new DNS resource record.
@@ -5828,44 +5828,44 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsrecord_del(
-            self,
-            a_dnszoneidnsname,
-            a_idnsname,
-            o_dnsttl=None,
-            o_dnsclass=None,
-            o_arecord=None,
-            o_aaaarecord=None,
-            o_a6record=None,
-            o_afsdbrecord=None,
-            o_aplrecord=None,
-            o_certrecord=None,
-            o_cnamerecord=None,
-            o_dhcidrecord=None,
-            o_dlvrecord=None,
-            o_dnamerecord=None,
-            o_dsrecord=None,
-            o_hiprecord=None,
-            o_ipseckeyrecord=None,
-            o_keyrecord=None,
-            o_kxrecord=None,
-            o_locrecord=None,
-            o_mxrecord=None,
-            o_naptrrecord=None,
-            o_nsrecord=None,
-            o_nsecrecord=None,
-            o_ptrrecord=None,
-            o_rrsigrecord=None,
-            o_rprecord=None,
-            o_sigrecord=None,
-            o_spfrecord=None,
-            o_srvrecord=None,
-            o_sshfprecord=None,
-            o_tlsarecord=None,
-            o_txtrecord=None,
-            o_urirecord=None,
-            o_del_all=False,
-            o_structured=False,
-            o_raw=False,
+        self,
+        a_dnszoneidnsname,
+        a_idnsname,
+        o_dnsttl=None,
+        o_dnsclass=None,
+        o_arecord=None,
+        o_aaaarecord=None,
+        o_a6record=None,
+        o_afsdbrecord=None,
+        o_aplrecord=None,
+        o_certrecord=None,
+        o_cnamerecord=None,
+        o_dhcidrecord=None,
+        o_dlvrecord=None,
+        o_dnamerecord=None,
+        o_dsrecord=None,
+        o_hiprecord=None,
+        o_ipseckeyrecord=None,
+        o_keyrecord=None,
+        o_kxrecord=None,
+        o_locrecord=None,
+        o_mxrecord=None,
+        o_naptrrecord=None,
+        o_nsrecord=None,
+        o_nsecrecord=None,
+        o_ptrrecord=None,
+        o_rrsigrecord=None,
+        o_rprecord=None,
+        o_sigrecord=None,
+        o_spfrecord=None,
+        o_srvrecord=None,
+        o_sshfprecord=None,
+        o_tlsarecord=None,
+        o_txtrecord=None,
+        o_urirecord=None,
+        o_del_all=False,
+        o_structured=False,
+        o_raw=False,
     ):
         """
         Delete DNS resource record.
@@ -6025,10 +6025,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsrecord_delentry(
-            self,
-            a_dnszoneidnsname,
-            a_idnsname,
-            o_continue=False,
+        self,
+        a_dnszoneidnsname,
+        a_idnsname,
+        o_continue=False,
     ):
         """
         Delete DNS record entry.
@@ -6053,48 +6053,48 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsrecord_find(
-            self,
-            a_dnszoneidnsname,
-            a_criteria=None,
-            o_idnsname=None,
-            o_dnsttl=None,
-            o_dnsclass=None,
-            o_arecord=None,
-            o_aaaarecord=None,
-            o_a6record=None,
-            o_afsdbrecord=None,
-            o_aplrecord=None,
-            o_certrecord=None,
-            o_cnamerecord=None,
-            o_dhcidrecord=None,
-            o_dlvrecord=None,
-            o_dnamerecord=None,
-            o_dsrecord=None,
-            o_hiprecord=None,
-            o_ipseckeyrecord=None,
-            o_keyrecord=None,
-            o_kxrecord=None,
-            o_locrecord=None,
-            o_mxrecord=None,
-            o_naptrrecord=None,
-            o_nsrecord=None,
-            o_nsecrecord=None,
-            o_ptrrecord=None,
-            o_rrsigrecord=None,
-            o_rprecord=None,
-            o_sigrecord=None,
-            o_spfrecord=None,
-            o_srvrecord=None,
-            o_sshfprecord=None,
-            o_tlsarecord=None,
-            o_txtrecord=None,
-            o_urirecord=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_structured=False,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_dnszoneidnsname,
+        a_criteria=None,
+        o_idnsname=None,
+        o_dnsttl=None,
+        o_dnsclass=None,
+        o_arecord=None,
+        o_aaaarecord=None,
+        o_a6record=None,
+        o_afsdbrecord=None,
+        o_aplrecord=None,
+        o_certrecord=None,
+        o_cnamerecord=None,
+        o_dhcidrecord=None,
+        o_dlvrecord=None,
+        o_dnamerecord=None,
+        o_dsrecord=None,
+        o_hiprecord=None,
+        o_ipseckeyrecord=None,
+        o_keyrecord=None,
+        o_kxrecord=None,
+        o_locrecord=None,
+        o_mxrecord=None,
+        o_naptrrecord=None,
+        o_nsrecord=None,
+        o_nsecrecord=None,
+        o_ptrrecord=None,
+        o_rrsigrecord=None,
+        o_rprecord=None,
+        o_sigrecord=None,
+        o_spfrecord=None,
+        o_srvrecord=None,
+        o_sshfprecord=None,
+        o_tlsarecord=None,
+        o_txtrecord=None,
+        o_urirecord=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_structured=False,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for DNS resources.
@@ -6274,107 +6274,107 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsrecord_mod(
-            self,
-            a_dnszoneidnsname,
-            a_idnsname,
-            o_dnsttl=None,
-            o_dnsclass=None,
-            o_arecord=None,
-            o_a_part_ip_address=None,
-            o_aaaarecord=None,
-            o_aaaa_part_ip_address=None,
-            o_a6record=None,
-            o_a6_part_data=None,
-            o_afsdbrecord=None,
-            o_afsdb_part_subtype=None,
-            o_afsdb_part_hostname=None,
-            o_aplrecord=None,
-            o_certrecord=None,
-            o_cert_part_type=None,
-            o_cert_part_key_tag=None,
-            o_cert_part_algorithm=None,
-            o_cert_part_certificate_or_crl=None,
-            o_cnamerecord=None,
-            o_cname_part_hostname=None,
-            o_dhcidrecord=None,
-            o_dlvrecord=None,
-            o_dlv_part_key_tag=None,
-            o_dlv_part_algorithm=None,
-            o_dlv_part_digest_type=None,
-            o_dlv_part_digest=None,
-            o_dnamerecord=None,
-            o_dname_part_target=None,
-            o_dsrecord=None,
-            o_ds_part_key_tag=None,
-            o_ds_part_algorithm=None,
-            o_ds_part_digest_type=None,
-            o_ds_part_digest=None,
-            o_hiprecord=None,
-            o_ipseckeyrecord=None,
-            o_keyrecord=None,
-            o_kxrecord=None,
-            o_kx_part_preference=None,
-            o_kx_part_exchanger=None,
-            o_locrecord=None,
-            o_loc_part_lat_deg=None,
-            o_loc_part_lat_min=None,
-            o_loc_part_lat_sec=None,
-            o_loc_part_lat_dir=None,
-            o_loc_part_lon_deg=None,
-            o_loc_part_lon_min=None,
-            o_loc_part_lon_sec=None,
-            o_loc_part_lon_dir=None,
-            o_loc_part_altitude=None,
-            o_loc_part_size=None,
-            o_loc_part_h_precision=None,
-            o_loc_part_v_precision=None,
-            o_mxrecord=None,
-            o_mx_part_preference=None,
-            o_mx_part_exchanger=None,
-            o_naptrrecord=None,
-            o_naptr_part_order=None,
-            o_naptr_part_preference=None,
-            o_naptr_part_flags=None,
-            o_naptr_part_service=None,
-            o_naptr_part_regexp=None,
-            o_naptr_part_replacement=None,
-            o_nsrecord=None,
-            o_ns_part_hostname=None,
-            o_nsecrecord=None,
-            o_ptrrecord=None,
-            o_ptr_part_hostname=None,
-            o_rrsigrecord=None,
-            o_rprecord=None,
-            o_sigrecord=None,
-            o_spfrecord=None,
-            o_srvrecord=None,
-            o_srv_part_priority=None,
-            o_srv_part_weight=None,
-            o_srv_part_port=None,
-            o_srv_part_target=None,
-            o_sshfprecord=None,
-            o_sshfp_part_algorithm=None,
-            o_sshfp_part_fp_type=None,
-            o_sshfp_part_fingerprint=None,
-            o_tlsarecord=None,
-            o_tlsa_part_cert_usage=None,
-            o_tlsa_part_selector=None,
-            o_tlsa_part_matching_type=None,
-            o_tlsa_part_cert_association_data=None,
-            o_txtrecord=None,
-            o_txt_part_data=None,
-            o_urirecord=None,
-            o_uri_part_priority=None,
-            o_uri_part_weight=None,
-            o_uri_part_target=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_structured=False,
-            o_all=True,
-            o_raw=False,
-            o_rename=None,
+        self,
+        a_dnszoneidnsname,
+        a_idnsname,
+        o_dnsttl=None,
+        o_dnsclass=None,
+        o_arecord=None,
+        o_a_part_ip_address=None,
+        o_aaaarecord=None,
+        o_aaaa_part_ip_address=None,
+        o_a6record=None,
+        o_a6_part_data=None,
+        o_afsdbrecord=None,
+        o_afsdb_part_subtype=None,
+        o_afsdb_part_hostname=None,
+        o_aplrecord=None,
+        o_certrecord=None,
+        o_cert_part_type=None,
+        o_cert_part_key_tag=None,
+        o_cert_part_algorithm=None,
+        o_cert_part_certificate_or_crl=None,
+        o_cnamerecord=None,
+        o_cname_part_hostname=None,
+        o_dhcidrecord=None,
+        o_dlvrecord=None,
+        o_dlv_part_key_tag=None,
+        o_dlv_part_algorithm=None,
+        o_dlv_part_digest_type=None,
+        o_dlv_part_digest=None,
+        o_dnamerecord=None,
+        o_dname_part_target=None,
+        o_dsrecord=None,
+        o_ds_part_key_tag=None,
+        o_ds_part_algorithm=None,
+        o_ds_part_digest_type=None,
+        o_ds_part_digest=None,
+        o_hiprecord=None,
+        o_ipseckeyrecord=None,
+        o_keyrecord=None,
+        o_kxrecord=None,
+        o_kx_part_preference=None,
+        o_kx_part_exchanger=None,
+        o_locrecord=None,
+        o_loc_part_lat_deg=None,
+        o_loc_part_lat_min=None,
+        o_loc_part_lat_sec=None,
+        o_loc_part_lat_dir=None,
+        o_loc_part_lon_deg=None,
+        o_loc_part_lon_min=None,
+        o_loc_part_lon_sec=None,
+        o_loc_part_lon_dir=None,
+        o_loc_part_altitude=None,
+        o_loc_part_size=None,
+        o_loc_part_h_precision=None,
+        o_loc_part_v_precision=None,
+        o_mxrecord=None,
+        o_mx_part_preference=None,
+        o_mx_part_exchanger=None,
+        o_naptrrecord=None,
+        o_naptr_part_order=None,
+        o_naptr_part_preference=None,
+        o_naptr_part_flags=None,
+        o_naptr_part_service=None,
+        o_naptr_part_regexp=None,
+        o_naptr_part_replacement=None,
+        o_nsrecord=None,
+        o_ns_part_hostname=None,
+        o_nsecrecord=None,
+        o_ptrrecord=None,
+        o_ptr_part_hostname=None,
+        o_rrsigrecord=None,
+        o_rprecord=None,
+        o_sigrecord=None,
+        o_spfrecord=None,
+        o_srvrecord=None,
+        o_srv_part_priority=None,
+        o_srv_part_weight=None,
+        o_srv_part_port=None,
+        o_srv_part_target=None,
+        o_sshfprecord=None,
+        o_sshfp_part_algorithm=None,
+        o_sshfp_part_fp_type=None,
+        o_sshfp_part_fingerprint=None,
+        o_tlsarecord=None,
+        o_tlsa_part_cert_usage=None,
+        o_tlsa_part_selector=None,
+        o_tlsa_part_matching_type=None,
+        o_tlsa_part_cert_association_data=None,
+        o_txtrecord=None,
+        o_txt_part_data=None,
+        o_urirecord=None,
+        o_uri_part_priority=None,
+        o_uri_part_weight=None,
+        o_uri_part_target=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_structured=False,
+        o_all=True,
+        o_raw=False,
+        o_rename=None,
     ):
         """
         Modify a DNS resource record.
@@ -6804,13 +6804,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsrecord_show(
-            self,
-            a_dnszoneidnsname,
-            a_idnsname,
-            o_rights=False,
-            o_structured=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_dnszoneidnsname,
+        a_idnsname,
+        o_rights=False,
+        o_structured=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display DNS resource.
@@ -6848,9 +6848,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsrecord_split_parts(
-            self,
-            a_name,
-            a_value,
+        self,
+        a_name,
+        a_value,
     ):
         """
         Split DNS record to parts
@@ -6872,17 +6872,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsserver_find(
-            self,
-            a_criteria=None,
-            o_idnsserverid=None,
-            o_idnssoamname=None,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_idnsserverid=None,
+        o_idnssoamname=None,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for DNS servers.
@@ -6943,17 +6943,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsserver_mod(
-            self,
-            a_idnsserverid,
-            o_idnssoamname=None,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsserverid,
+        o_idnssoamname=None,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify DNS server configuration
@@ -7016,11 +7016,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsserver_show(
-            self,
-            a_idnsserverid,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsserverid,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display configuration of a DNS server.
@@ -7051,36 +7051,36 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_add(
-            self,
-            a_idnsname,
-            o_idnssoaserial,
-            o_name_from_ip=None,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_idnssoamname=None,
-            o_idnssoarname='',
-            o_idnssoarefresh=3600,
-            o_idnssoaretry=900,
-            o_idnssoaexpire=1209600,
-            o_idnssoaminimum=3600,
-            o_dnsttl=None,
-            o_dnsdefaultttl=None,
-            o_dnsclass=None,
-            o_idnsupdatepolicy=None,
-            o_idnsallowdynupdate=False,
-            o_idnsallowquery='any;',
-            o_idnsallowtransfer='none;',
-            o_idnsallowsyncptr=None,
-            o_idnssecinlinesigning=False,
-            o_nsec3paramrecord=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_skip_overlap_check=False,
-            o_force=False,
-            o_skip_nameserver_check=False,
-            o_ip_address=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_idnssoaserial,
+        o_name_from_ip=None,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_idnssoamname=None,
+        o_idnssoarname='',
+        o_idnssoarefresh=3600,
+        o_idnssoaretry=900,
+        o_idnssoaexpire=1209600,
+        o_idnssoaminimum=3600,
+        o_dnsttl=None,
+        o_dnsdefaultttl=None,
+        o_dnsclass=None,
+        o_idnsupdatepolicy=None,
+        o_idnsallowdynupdate=False,
+        o_idnsallowquery='any;',
+        o_idnsallowtransfer='none;',
+        o_idnsallowsyncptr=None,
+        o_idnssecinlinesigning=False,
+        o_nsec3paramrecord=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_skip_overlap_check=False,
+        o_force=False,
+        o_skip_nameserver_check=False,
+        o_ip_address=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create new DNS zone (SOA record).
@@ -7218,8 +7218,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_add_permission(
-            self,
-            a_idnsname,
+        self,
+        a_idnsname,
     ):
         """
         Add a permission for per-zone access delegation.
@@ -7238,9 +7238,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_del(
-            self,
-            a_idnsname,
-            o_continue=False,
+        self,
+        a_idnsname,
+        o_continue=False,
     ):
         """
         Delete DNS zone (SOA record).
@@ -7262,8 +7262,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_disable(
-            self,
-            a_idnsname,
+        self,
+        a_idnsname,
     ):
         """
         Disable DNS Zone.
@@ -7282,8 +7282,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_enable(
-            self,
-            a_idnsname,
+        self,
+        a_idnsname,
     ):
         """
         Enable DNS Zone.
@@ -7302,36 +7302,36 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_find(
-            self,
-            a_criteria=None,
-            o_idnsname=None,
-            o_name_from_ip=None,
-            o_idnszoneactive=None,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_idnssoamname=None,
-            o_idnssoarname='',
-            o_idnssoaserial=None,
-            o_idnssoarefresh=3600,
-            o_idnssoaretry=900,
-            o_idnssoaexpire=1209600,
-            o_idnssoaminimum=3600,
-            o_dnsttl=None,
-            o_dnsdefaultttl=None,
-            o_dnsclass=None,
-            o_idnsupdatepolicy=None,
-            o_idnsallowdynupdate=False,
-            o_idnsallowquery='any;',
-            o_idnsallowtransfer='none;',
-            o_idnsallowsyncptr=None,
-            o_idnssecinlinesigning=False,
-            o_nsec3paramrecord=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_forward_only=False,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_idnsname=None,
+        o_name_from_ip=None,
+        o_idnszoneactive=None,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_idnssoamname=None,
+        o_idnssoarname='',
+        o_idnssoaserial=None,
+        o_idnssoarefresh=3600,
+        o_idnssoaretry=900,
+        o_idnssoaexpire=1209600,
+        o_idnssoaminimum=3600,
+        o_dnsttl=None,
+        o_dnsdefaultttl=None,
+        o_dnsclass=None,
+        o_idnsupdatepolicy=None,
+        o_idnsallowdynupdate=False,
+        o_idnsallowquery='any;',
+        o_idnsallowtransfer='none;',
+        o_idnsallowsyncptr=None,
+        o_idnssecinlinesigning=False,
+        o_nsec3paramrecord=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_forward_only=False,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for DNS zones (SOA records).
@@ -7473,35 +7473,35 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_mod(
-            self,
-            a_idnsname,
-            o_name_from_ip=None,
-            o_idnsforwarders=None,
-            o_idnsforwardpolicy=None,
-            o_idnssoamname=None,
-            o_idnssoarname='',
-            o_idnssoaserial=None,
-            o_idnssoarefresh=3600,
-            o_idnssoaretry=900,
-            o_idnssoaexpire=1209600,
-            o_idnssoaminimum=3600,
-            o_dnsttl=None,
-            o_dnsdefaultttl=None,
-            o_dnsclass=None,
-            o_idnsupdatepolicy=None,
-            o_idnsallowdynupdate=False,
-            o_idnsallowquery='any;',
-            o_idnsallowtransfer='none;',
-            o_idnsallowsyncptr=None,
-            o_idnssecinlinesigning=False,
-            o_nsec3paramrecord=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_force=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_name_from_ip=None,
+        o_idnsforwarders=None,
+        o_idnsforwardpolicy=None,
+        o_idnssoamname=None,
+        o_idnssoarname='',
+        o_idnssoaserial=None,
+        o_idnssoarefresh=3600,
+        o_idnssoaretry=900,
+        o_idnssoaexpire=1209600,
+        o_idnssoaminimum=3600,
+        o_dnsttl=None,
+        o_dnsdefaultttl=None,
+        o_dnsclass=None,
+        o_idnsupdatepolicy=None,
+        o_idnsallowdynupdate=False,
+        o_idnsallowquery='any;',
+        o_idnsallowtransfer='none;',
+        o_idnsallowsyncptr=None,
+        o_idnssecinlinesigning=False,
+        o_nsec3paramrecord=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_force=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify DNS zone (SOA record).
@@ -7641,8 +7641,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_remove_permission(
-            self,
-            a_idnsname,
+        self,
+        a_idnsname,
     ):
         """
         Remove a permission for per-zone access delegation.
@@ -7661,11 +7661,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_show(
-            self,
-            a_idnsname,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a DNS zone (SOA record).
@@ -7696,7 +7696,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def domainlevel_get(
-            self,
+        self,
     ):
         """
         Query current Domain Level.
@@ -7712,8 +7712,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def domainlevel_set(
-            self,
-            a_ipadomainlevel,
+        self,
+        a_ipadomainlevel,
     ):
         """
         Change current Domain Level.
@@ -7732,9 +7732,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def env(
-            self,
-            o_server=False,
-            o_all=True,
+        self,
+        o_server=False,
+        o_all=True,
     ):
         """
         Show environment variables.
@@ -7758,17 +7758,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_gidnumber=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_nonposix=False,
-            o_external=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_gidnumber=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_nonposix=False,
+        o_external=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Create a new group.
@@ -7824,15 +7824,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_add_member(
-            self,
-            a_cn,
-            o_ipaexternalmember=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_service=None,
+        self,
+        a_cn,
+        o_ipaexternalmember=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_service=None,
     ):
         """
         Add members to a group.
@@ -7879,13 +7879,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_add_member_manager(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Add users that can manage members of this group.
@@ -7923,9 +7923,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete group.
@@ -7947,8 +7947,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_detach(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Detach a managed group from a user.
@@ -7967,41 +7967,41 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_gidnumber=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_private=False,
-            o_posix=False,
-            o_external=False,
-            o_nonposix=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
-            o_user=None,
-            o_no_user=None,
-            o_group=None,
-            o_no_group=None,
-            o_service=None,
-            o_no_service=None,
-            o_in_group=None,
-            o_not_in_group=None,
-            o_in_netgroup=None,
-            o_not_in_netgroup=None,
-            o_in_role=None,
-            o_not_in_role=None,
-            o_in_hbacrule=None,
-            o_not_in_hbacrule=None,
-            o_in_sudorule=None,
-            o_not_in_sudorule=None,
-            o_membermanager_user=None,
-            o_not_membermanager_user=None,
-            o_membermanager_group=None,
-            o_not_membermanager_group=None,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_gidnumber=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_private=False,
+        o_posix=False,
+        o_external=False,
+        o_nonposix=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
+        o_user=None,
+        o_no_user=None,
+        o_group=None,
+        o_no_group=None,
+        o_service=None,
+        o_no_service=None,
+        o_in_group=None,
+        o_not_in_group=None,
+        o_in_netgroup=None,
+        o_not_in_netgroup=None,
+        o_in_role=None,
+        o_not_in_role=None,
+        o_in_hbacrule=None,
+        o_not_in_hbacrule=None,
+        o_in_sudorule=None,
+        o_not_in_sudorule=None,
+        o_membermanager_user=None,
+        o_not_membermanager_user=None,
+        o_membermanager_group=None,
+        o_not_membermanager_group=None,
     ):
         """
         Search for groups.
@@ -8161,20 +8161,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_gidnumber=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_posix=False,
-            o_external=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_description=None,
+        o_gidnumber=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_posix=False,
+        o_external=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify a group.
@@ -8243,15 +8243,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_remove_member(
-            self,
-            a_cn,
-            o_ipaexternalmember=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_service=None,
+        self,
+        a_cn,
+        o_ipaexternalmember=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_service=None,
     ):
         """
         Remove members from a group.
@@ -8298,13 +8298,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_remove_member_manager(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Remove users that can manage members of this group.
@@ -8342,12 +8342,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def group_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a named group.
@@ -8381,21 +8381,21 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_add(
-            self,
-            a_cn,
-            o_accessruletype='allow',
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_sourcehostcategory=None,
-            o_servicecategory=None,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_externalhost=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_accessruletype='allow',
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_sourcehostcategory=None,
+        o_servicecategory=None,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_externalhost=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Create a new HBAC rule.
@@ -8467,13 +8467,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_add_host(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Add target hosts and hostgroups to an HBAC rule.
@@ -8511,13 +8511,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_add_service(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_hbacsvc=None,
-            o_hbacsvcgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_hbacsvc=None,
+        o_hbacsvcgroup=None,
     ):
         """
         Add services to an HBAC rule.
@@ -8555,13 +8555,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_add_sourcehost(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Add source hosts and hostgroups to an HBAC rule.
@@ -8599,13 +8599,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_add_user(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Add users and groups to an HBAC rule.
@@ -8643,9 +8643,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete an HBAC rule.
@@ -8667,8 +8667,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_disable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Disable an HBAC rule.
@@ -8687,8 +8687,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_enable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Enable an HBAC rule.
@@ -8707,23 +8707,23 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_accessruletype='allow',
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_sourcehostcategory=None,
-            o_servicecategory=None,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_externalhost=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_accessruletype='allow',
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_sourcehostcategory=None,
+        o_servicecategory=None,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_externalhost=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for HBAC rules.
@@ -8803,24 +8803,24 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_mod(
-            self,
-            a_cn,
-            o_accessruletype='allow',
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_sourcehostcategory=None,
-            o_servicecategory=None,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_externalhost=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_accessruletype='allow',
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_sourcehostcategory=None,
+        o_servicecategory=None,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_externalhost=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify an HBAC rule.
@@ -8906,13 +8906,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_remove_host(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Remove target hosts and hostgroups from an HBAC rule.
@@ -8950,13 +8950,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_remove_service(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_hbacsvc=None,
-            o_hbacsvcgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_hbacsvc=None,
+        o_hbacsvcgroup=None,
     ):
         """
         Remove service and service groups from an HBAC rule.
@@ -8994,13 +8994,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_remove_sourcehost(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Remove source hosts and hostgroups from an HBAC rule.
@@ -9038,13 +9038,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_remove_user(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Remove users and groups from an HBAC rule.
@@ -9082,12 +9082,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacrule_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display the properties of an HBAC rule.
@@ -9121,14 +9121,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvc_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new HBAC service.
@@ -9173,9 +9173,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvc_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete an existing HBAC service.
@@ -9197,16 +9197,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvc_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for HBAC services.
@@ -9258,16 +9258,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvc_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify an HBAC service.
@@ -9321,12 +9321,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvc_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about an HBAC service.
@@ -9360,14 +9360,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new HBAC service group.
@@ -9412,12 +9412,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_hbacsvc=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_hbacsvc=None,
     ):
         """
         Add members to an HBAC service group.
@@ -9451,9 +9451,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete an HBAC service group.
@@ -9475,16 +9475,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for an HBAC service group.
@@ -9536,16 +9536,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify an HBAC service group.
@@ -9599,12 +9599,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_hbacsvc=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_hbacsvc=None,
     ):
         """
         Remove members from an HBAC service group.
@@ -9638,12 +9638,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about an HBAC service group.
@@ -9677,16 +9677,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hbactest(
-            self,
-            o_user,
-            o_targethost,
-            o_service,
-            o_sourcehost=None,
-            o_rules=None,
-            o_nodetail=False,
-            o_enabled=False,
-            o_disabled=False,
-            o_sizelimit=None,
+        self,
+        o_user,
+        o_targethost,
+        o_service,
+        o_sourcehost=None,
+        o_rules=None,
+        o_nodetail=False,
+        o_enabled=False,
+        o_disabled=False,
+        o_sizelimit=None,
     ):
         """
         Simulate use of Host-based access controls
@@ -9737,32 +9737,32 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_add(
-            self,
-            a_fqdn,
-            o_description=None,
-            o_l=None,
-            o_nshostlocation=None,
-            o_nshardwareplatform=None,
-            o_nsosversion=None,
-            o_userpassword=None,
-            o_random=False,
-            o_usercertificate=None,
-            o_macaddress=None,
-            o_ipasshpubkey=None,
-            o_userclass=None,
-            o_ipaassignedidview=None,
-            o_krbprincipalauthind=None,
-            o_ipakrbrequirespreauth=None,
-            o_ipakrbokasdelegate=None,
-            o_ipakrboktoauthasdelegate=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_force=False,
-            o_no_reverse=False,
-            o_ip_address=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_fqdn,
+        o_description=None,
+        o_l=None,
+        o_nshostlocation=None,
+        o_nshardwareplatform=None,
+        o_nsosversion=None,
+        o_userpassword=None,
+        o_random=False,
+        o_usercertificate=None,
+        o_macaddress=None,
+        o_ipasshpubkey=None,
+        o_userclass=None,
+        o_ipaassignedidview=None,
+        o_krbprincipalauthind=None,
+        o_ipakrbrequirespreauth=None,
+        o_ipakrbokasdelegate=None,
+        o_ipakrboktoauthasdelegate=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_force=False,
+        o_no_reverse=False,
+        o_ip_address=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new host.
@@ -9889,12 +9889,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_add_cert(
-            self,
-            a_fqdn,
-            o_usercertificate,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_fqdn,
+        o_usercertificate,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add certificates to host entry
@@ -9927,12 +9927,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_add_managedby(
-            self,
-            a_fqdn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
+        self,
+        a_fqdn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
     ):
         """
         Add hosts that can manage this host.
@@ -9966,12 +9966,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_add_principal(
-            self,
-            a_fqdn,
-            a_krbprincipalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_fqdn,
+        a_krbprincipalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add new principal alias to host entry
@@ -10004,15 +10004,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_allow_create_keytab(
-            self,
-            a_fqdn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_fqdn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Allow users, groups, hosts or host groups to create a keytab of this host.
@@ -10058,15 +10058,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_allow_retrieve_keytab(
-            self,
-            a_fqdn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_fqdn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Allow users, groups, hosts or host groups to retrieve a keytab of this host.
@@ -10112,10 +10112,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_del(
-            self,
-            a_fqdn,
-            o_continue=False,
-            o_updatedns=False,
+        self,
+        a_fqdn,
+        o_continue=False,
+        o_updatedns=False,
     ):
         """
         Delete a host.
@@ -10142,8 +10142,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_disable(
-            self,
-            a_fqdn,
+        self,
+        a_fqdn,
     ):
         """
         Disable the Kerberos key, SSL certificate and all services of a host.
@@ -10162,15 +10162,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_disallow_create_keytab(
-            self,
-            a_fqdn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_fqdn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Disallow users, groups, hosts or host groups to create a keytab of this host.
@@ -10216,15 +10216,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_disallow_retrieve_keytab(
-            self,
-            a_fqdn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_fqdn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Disallow users, groups, hosts or host groups to retrieve a keytab of this host.
@@ -10270,41 +10270,41 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_find(
-            self,
-            a_criteria=None,
-            o_fqdn=None,
-            o_description=None,
-            o_l=None,
-            o_nshostlocation=None,
-            o_nshardwareplatform=None,
-            o_nsosversion=None,
-            o_usercertificate=None,
-            o_macaddress=None,
-            o_userclass=None,
-            o_ipaassignedidview=None,
-            o_krbprincipalauthind=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
-            o_in_hostgroup=None,
-            o_not_in_hostgroup=None,
-            o_in_netgroup=None,
-            o_not_in_netgroup=None,
-            o_in_role=None,
-            o_not_in_role=None,
-            o_in_hbacrule=None,
-            o_not_in_hbacrule=None,
-            o_in_sudorule=None,
-            o_not_in_sudorule=None,
-            o_enroll_by_user=None,
-            o_not_enroll_by_user=None,
-            o_man_by_host=None,
-            o_not_man_by_host=None,
-            o_man_host=None,
-            o_not_man_host=None,
+        self,
+        a_criteria=None,
+        o_fqdn=None,
+        o_description=None,
+        o_l=None,
+        o_nshostlocation=None,
+        o_nshardwareplatform=None,
+        o_nsosversion=None,
+        o_usercertificate=None,
+        o_macaddress=None,
+        o_userclass=None,
+        o_ipaassignedidview=None,
+        o_krbprincipalauthind=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
+        o_in_hostgroup=None,
+        o_not_in_hostgroup=None,
+        o_in_netgroup=None,
+        o_not_in_netgroup=None,
+        o_in_role=None,
+        o_not_in_role=None,
+        o_in_hbacrule=None,
+        o_not_in_hbacrule=None,
+        o_in_sudorule=None,
+        o_not_in_sudorule=None,
+        o_enroll_by_user=None,
+        o_not_enroll_by_user=None,
+        o_man_by_host=None,
+        o_not_man_by_host=None,
+        o_man_host=None,
+        o_not_man_host=None,
     ):
         """
         Search for hosts.
@@ -10474,33 +10474,33 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_mod(
-            self,
-            a_fqdn,
-            o_description=None,
-            o_l=None,
-            o_nshostlocation=None,
-            o_nshardwareplatform=None,
-            o_nsosversion=None,
-            o_userpassword=None,
-            o_random=False,
-            o_usercertificate=None,
-            o_krbprincipalname=None,
-            o_macaddress=None,
-            o_ipasshpubkey=None,
-            o_userclass=None,
-            o_ipaassignedidview=None,
-            o_krbprincipalauthind=None,
-            o_ipakrbrequirespreauth=None,
-            o_ipakrbokasdelegate=None,
-            o_ipakrboktoauthasdelegate=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_updatedns=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_fqdn,
+        o_description=None,
+        o_l=None,
+        o_nshostlocation=None,
+        o_nshardwareplatform=None,
+        o_nsosversion=None,
+        o_userpassword=None,
+        o_random=False,
+        o_usercertificate=None,
+        o_krbprincipalname=None,
+        o_macaddress=None,
+        o_ipasshpubkey=None,
+        o_userclass=None,
+        o_ipaassignedidview=None,
+        o_krbprincipalauthind=None,
+        o_ipakrbrequirespreauth=None,
+        o_ipakrbokasdelegate=None,
+        o_ipakrboktoauthasdelegate=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_updatedns=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify information about a host.
@@ -10634,12 +10634,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_remove_cert(
-            self,
-            a_fqdn,
-            o_usercertificate,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_fqdn,
+        o_usercertificate,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove certificates from host entry
@@ -10672,12 +10672,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_remove_managedby(
-            self,
-            a_fqdn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
+        self,
+        a_fqdn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
     ):
         """
         Remove hosts that can manage this host.
@@ -10711,12 +10711,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_remove_principal(
-            self,
-            a_fqdn,
-            a_krbprincipalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_fqdn,
+        a_krbprincipalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove principal alias from a host entry
@@ -10749,13 +10749,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def host_show(
-            self,
-            a_fqdn,
-            o_rights=False,
-            o_out=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_fqdn,
+        o_rights=False,
+        o_out=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a host.
@@ -10793,14 +10793,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new hostgroup.
@@ -10845,13 +10845,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Add members to a hostgroup.
@@ -10889,13 +10889,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_add_member_manager(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Add users that can manage members of this hostgroup.
@@ -10933,9 +10933,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a hostgroup.
@@ -10957,32 +10957,32 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
-            o_host=None,
-            o_no_host=None,
-            o_hostgroup=None,
-            o_no_hostgroup=None,
-            o_in_hostgroup=None,
-            o_not_in_hostgroup=None,
-            o_in_netgroup=None,
-            o_not_in_netgroup=None,
-            o_in_hbacrule=None,
-            o_not_in_hbacrule=None,
-            o_in_sudorule=None,
-            o_not_in_sudorule=None,
-            o_membermanager_user=None,
-            o_not_membermanager_user=None,
-            o_membermanager_group=None,
-            o_not_membermanager_group=None,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
+        o_host=None,
+        o_no_host=None,
+        o_hostgroup=None,
+        o_no_hostgroup=None,
+        o_in_hostgroup=None,
+        o_not_in_hostgroup=None,
+        o_in_netgroup=None,
+        o_not_in_netgroup=None,
+        o_in_hbacrule=None,
+        o_not_in_hbacrule=None,
+        o_in_sudorule=None,
+        o_not_in_sudorule=None,
+        o_membermanager_user=None,
+        o_not_membermanager_user=None,
+        o_membermanager_group=None,
+        o_not_membermanager_group=None,
     ):
         """
         Search for hostgroups.
@@ -11112,16 +11112,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify a hostgroup.
@@ -11175,13 +11175,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Remove members from a hostgroup.
@@ -11219,13 +11219,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_remove_member_manager(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Remove users that can manage members of this hostgroup.
@@ -11263,12 +11263,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def hostgroup_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a hostgroup.
@@ -11302,7 +11302,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def i18n_messages(
-            self,
+        self,
     ):
         """
         Internationalization messages
@@ -11318,17 +11318,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverridegroup_add(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_description=None,
-            o_cn=None,
-            o_gidnumber=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_description=None,
+        o_cn=None,
+        o_gidnumber=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new Group ID override.
@@ -11386,11 +11386,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverridegroup_del(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_continue=False,
-            o_fallback_to_ldap=False,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_continue=False,
+        o_fallback_to_ldap=False,
     ):
         """
         Delete an Group ID override.
@@ -11420,19 +11420,19 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverridegroup_find(
-            self,
-            a_idviewcn,
-            a_criteria=None,
-            o_ipaanchoruuid=None,
-            o_description=None,
-            o_cn=None,
-            o_gidnumber=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_idviewcn,
+        a_criteria=None,
+        o_ipaanchoruuid=None,
+        o_description=None,
+        o_cn=None,
+        o_gidnumber=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for an Group ID override.
@@ -11497,20 +11497,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverridegroup_mod(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_description=None,
-            o_cn=None,
-            o_gidnumber=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
-            o_rename=None,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_description=None,
+        o_cn=None,
+        o_gidnumber=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
+        o_rename=None,
     ):
         """
         Modify an Group ID override.
@@ -11581,13 +11581,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverridegroup_show(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_rights=False,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_rights=False,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about an Group ID override.
@@ -11626,24 +11626,24 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverrideuser_add(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_description=None,
-            o_uid=None,
-            o_uidnumber=None,
-            o_gecos=None,
-            o_gidnumber=None,
-            o_homedirectory=None,
-            o_loginshell=None,
-            o_ipaoriginaluid=None,
-            o_ipasshpubkey=None,
-            o_usercertificate=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_description=None,
+        o_uid=None,
+        o_uidnumber=None,
+        o_gecos=None,
+        o_gidnumber=None,
+        o_homedirectory=None,
+        o_loginshell=None,
+        o_ipaoriginaluid=None,
+        o_ipasshpubkey=None,
+        o_usercertificate=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new User ID override.
@@ -11729,13 +11729,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverrideuser_add_cert(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_usercertificate,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_usercertificate,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add one or more certificates to the idoverrideuser entry
@@ -11773,11 +11773,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverrideuser_del(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_continue=False,
-            o_fallback_to_ldap=False,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_continue=False,
+        o_fallback_to_ldap=False,
     ):
         """
         Delete an User ID override.
@@ -11807,24 +11807,24 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverrideuser_find(
-            self,
-            a_idviewcn,
-            a_criteria=None,
-            o_ipaanchoruuid=None,
-            o_description=None,
-            o_uid=None,
-            o_uidnumber=None,
-            o_gecos=None,
-            o_gidnumber=None,
-            o_homedirectory=None,
-            o_loginshell=None,
-            o_ipaoriginaluid=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_idviewcn,
+        a_criteria=None,
+        o_ipaanchoruuid=None,
+        o_description=None,
+        o_uid=None,
+        o_uidnumber=None,
+        o_gecos=None,
+        o_gidnumber=None,
+        o_homedirectory=None,
+        o_loginshell=None,
+        o_ipaoriginaluid=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for an User ID override.
@@ -11909,27 +11909,27 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverrideuser_mod(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_description=None,
-            o_uid=None,
-            o_uidnumber=None,
-            o_gecos=None,
-            o_gidnumber=None,
-            o_homedirectory=None,
-            o_loginshell=None,
-            o_ipaoriginaluid=None,
-            o_ipasshpubkey=None,
-            o_usercertificate=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
-            o_rename=None,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_description=None,
+        o_uid=None,
+        o_uidnumber=None,
+        o_gecos=None,
+        o_gidnumber=None,
+        o_homedirectory=None,
+        o_loginshell=None,
+        o_ipaoriginaluid=None,
+        o_ipasshpubkey=None,
+        o_usercertificate=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
+        o_rename=None,
     ):
         """
         Modify an User ID override.
@@ -12028,13 +12028,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverrideuser_remove_cert(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_usercertificate,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_usercertificate,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Remove one or more certificates to the idoverrideuser entry
@@ -12072,13 +12072,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idoverrideuser_show(
-            self,
-            a_idviewcn,
-            a_ipaanchoruuid,
-            o_rights=False,
-            o_fallback_to_ldap=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idviewcn,
+        a_ipaanchoruuid,
+        o_rights=False,
+        o_fallback_to_ldap=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about an User ID override.
@@ -12117,19 +12117,19 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idrange_add(
-            self,
-            a_cn,
-            o_ipabaseid,
-            o_ipaidrangesize,
-            o_ipabaserid=None,
-            o_ipasecondarybaserid=None,
-            o_ipanttrusteddomainsid=None,
-            o_ipanttrusteddomainname=None,
-            o_iparangetype=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_ipabaseid,
+        o_ipaidrangesize,
+        o_ipabaserid=None,
+        o_ipasecondarybaserid=None,
+        o_ipanttrusteddomainsid=None,
+        o_ipanttrusteddomainname=None,
+        o_iparangetype=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
             Add new ID range.
@@ -12223,9 +12223,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idrange_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete an ID range.
@@ -12247,20 +12247,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idrange_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_ipabaseid=None,
-            o_ipaidrangesize=None,
-            o_ipabaserid=None,
-            o_ipasecondarybaserid=None,
-            o_ipanttrusteddomainsid=None,
-            o_iparangetype=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_ipabaseid=None,
+        o_ipaidrangesize=None,
+        o_ipabaserid=None,
+        o_ipasecondarybaserid=None,
+        o_ipanttrusteddomainsid=None,
+        o_iparangetype=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for ranges.
@@ -12329,20 +12329,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idrange_mod(
-            self,
-            a_cn,
-            o_ipabaseid=None,
-            o_ipaidrangesize=None,
-            o_ipabaserid=None,
-            o_ipasecondarybaserid=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_ipanttrusteddomainsid=None,
-            o_ipanttrusteddomainname=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_ipabaseid=None,
+        o_ipaidrangesize=None,
+        o_ipabaserid=None,
+        o_ipasecondarybaserid=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_ipanttrusteddomainsid=None,
+        o_ipanttrusteddomainname=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify ID range.
@@ -12426,11 +12426,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idrange_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a range.
@@ -12461,14 +12461,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idview_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipadomainresolutionorder=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipadomainresolutionorder=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new ID View.
@@ -12515,10 +12515,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idview_apply(
-            self,
-            a_cn,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Applies ID View to specified hosts or current members of specified hostgroups. If any other ID View is applied to the host, it is overridden.
@@ -12547,9 +12547,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idview_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete an ID View.
@@ -12571,15 +12571,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idview_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for an ID View.
@@ -12628,17 +12628,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idview_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipadomainresolutionorder=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipadomainresolutionorder=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_rename=None,
     ):
         """
         Modify an ID View.
@@ -12698,12 +12698,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idview_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_show_hosts=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_show_hosts=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about an ID View.
@@ -12738,9 +12738,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def idview_unapply(
-            self,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Clears ID View from specified hosts or current members of specified hostgroups.
@@ -12766,11 +12766,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def join(
-            self,
-            a_cn,
-            o_realm,
-            o_nshardwareplatform=None,
-            o_nsosversion=None,
+        self,
+        a_cn,
+        o_realm,
+        o_nshardwareplatform=None,
+        o_nsosversion=None,
     ):
         """
         Join an IPA domain
@@ -12802,12 +12802,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def json_metadata(
-            self,
-            a_objname=None,
-            a_methodname=None,
-            o_object=None,
-            o_method=None,
-            o_command=None,
+        self,
+        a_objname=None,
+        a_methodname=None,
+        o_object=None,
+        o_method=None,
+        o_command=None,
     ):
         """
         Export plugin meta-data for the webUI.
@@ -12841,7 +12841,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def kra_is_enabled(
-            self,
+        self,
     ):
         """
         Checks if any of the servers has the KRA service enabled
@@ -12857,16 +12857,24 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def krbtpolicy_mod(
-            self,
-            a_uid=None,
-            o_krbmaxticketlife=None,
-            o_krbmaxrenewableage=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_uid=None,
+        o_krbmaxticketlife=None,
+        o_krbmaxrenewableage=None,
+        o_krbauthindmaxticketlife_otp=None,
+        o_krbauthindmaxrenewableage_otp=None,
+        o_krbauthindmaxticketlife_radius=None,
+        o_krbauthindmaxrenewableage_radius=None,
+        o_krbauthindmaxticketlife_pkinit=None,
+        o_krbauthindmaxrenewableage_pkinit=None,
+        o_krbauthindmaxticketlife_hardened=None,
+        o_krbauthindmaxrenewableage_hardened=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify Kerberos ticket policy.
@@ -12878,6 +12886,30 @@ class ClientMeta(Client):
         :type  o_krbmaxticketlife: int, min value 1, max value 2147483647
         :param o_krbmaxrenewableage: Maximum renewable age (seconds)
         :type  o_krbmaxrenewableage: int, min value 1, max value 2147483647
+        :param o_krbauthindmaxticketlife_otp: OTP token maximum ticket life
+            (seconds)
+        :type  o_krbauthindmaxticketlife_otp: int, min value 1, max value 2147483647
+        :param o_krbauthindmaxrenewableage_otp: OTP token ticket maximum
+            renewable age (seconds)
+        :type  o_krbauthindmaxrenewableage_otp: int, min value 1, max value 2147483647
+        :param o_krbauthindmaxticketlife_radius: RADIUS maximum ticket life
+            (seconds)
+        :type  o_krbauthindmaxticketlife_radius: int, min value 1, max value 2147483647
+        :param o_krbauthindmaxrenewableage_radius: RADIUS ticket maximum
+            renewable age (seconds)
+        :type  o_krbauthindmaxrenewableage_radius: int, min value 1, max value 2147483647
+        :param o_krbauthindmaxticketlife_pkinit: PKINIT maximum ticket life
+            (seconds)
+        :type  o_krbauthindmaxticketlife_pkinit: int, min value 1, max value 2147483647
+        :param o_krbauthindmaxrenewableage_pkinit: PKINIT ticket maximum
+            renewable age (seconds)
+        :type  o_krbauthindmaxrenewableage_pkinit: int, min value 1, max value 2147483647
+        :param o_krbauthindmaxticketlife_hardened: Hardened ticket maximum
+            ticket life (seconds)
+        :type  o_krbauthindmaxticketlife_hardened: int, min value 1, max value 2147483647
+        :param o_krbauthindmaxrenewableage_hardened: Hardened ticket maximum
+            renewable age (seconds)
+        :type  o_krbauthindmaxrenewableage_hardened: int, min value 1, max value 2147483647
         :param o_setattr: Set an attribute to a name/value pair. Format is
             attr=value. For multi-valued attributes, the command replaces the
             values already present.
@@ -12908,6 +12940,22 @@ class ClientMeta(Client):
             _params['krbmaxticketlife'] = o_krbmaxticketlife
         if o_krbmaxrenewableage is not None:
             _params['krbmaxrenewableage'] = o_krbmaxrenewableage
+        if o_krbauthindmaxticketlife_otp is not None:
+            _params['krbauthindmaxticketlife_otp'] = o_krbauthindmaxticketlife_otp
+        if o_krbauthindmaxrenewableage_otp is not None:
+            _params['krbauthindmaxrenewableage_otp'] = o_krbauthindmaxrenewableage_otp
+        if o_krbauthindmaxticketlife_radius is not None:
+            _params['krbauthindmaxticketlife_radius'] = o_krbauthindmaxticketlife_radius
+        if o_krbauthindmaxrenewableage_radius is not None:
+            _params['krbauthindmaxrenewableage_radius'] = o_krbauthindmaxrenewableage_radius
+        if o_krbauthindmaxticketlife_pkinit is not None:
+            _params['krbauthindmaxticketlife_pkinit'] = o_krbauthindmaxticketlife_pkinit
+        if o_krbauthindmaxrenewableage_pkinit is not None:
+            _params['krbauthindmaxrenewableage_pkinit'] = o_krbauthindmaxrenewableage_pkinit
+        if o_krbauthindmaxticketlife_hardened is not None:
+            _params['krbauthindmaxticketlife_hardened'] = o_krbauthindmaxticketlife_hardened
+        if o_krbauthindmaxrenewableage_hardened is not None:
+            _params['krbauthindmaxrenewableage_hardened'] = o_krbauthindmaxrenewableage_hardened
         if o_setattr is not None:
             _params['setattr'] = o_setattr
         if o_addattr is not None:
@@ -12921,10 +12969,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def krbtpolicy_reset(
-            self,
-            a_uid=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_uid=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Reset Kerberos ticket policy to the default values.
@@ -12951,11 +12999,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def krbtpolicy_show(
-            self,
-            a_uid=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_uid=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display the current Kerberos ticket policy.
@@ -12986,13 +13034,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def location_add(
-            self,
-            a_idnsname,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new IPA location.
@@ -13034,9 +13082,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def location_del(
-            self,
-            a_idnsname,
-            o_continue=False,
+        self,
+        a_idnsname,
+        o_continue=False,
     ):
         """
         Delete an IPA location.
@@ -13058,15 +13106,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def location_find(
-            self,
-            a_criteria=None,
-            o_idnsname=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_idnsname=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for IPA locations.
@@ -13115,15 +13163,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def location_mod(
-            self,
-            a_idnsname,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify information about an IPA location.
@@ -13174,11 +13222,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def location_show(
-            self,
-            a_idnsname,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_idnsname,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about an IPA location.
@@ -13209,28 +13257,28 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def migrate_ds(
-            self,
-            a_ldapuri,
-            a_bindpw,
-            o_binddn='cn=directory manager',
-            o_usercontainer='ou=people',
-            o_groupcontainer='ou=groups',
-            o_userobjectclass=None,
-            o_groupobjectclass=None,
-            o_userignoreobjectclass=None,
-            o_userignoreattribute=None,
-            o_groupignoreobjectclass=None,
-            o_groupignoreattribute=None,
-            o_groupoverwritegid=False,
-            o_schema='RFC2307bis',
-            o_continue=False,
-            o_basedn=None,
-            o_compat=False,
-            o_cacertfile=None,
-            o_use_def_group=True,
-            o_scope='onelevel',
-            o_exclude_users=None,
-            o_exclude_groups=None,
+        self,
+        a_ldapuri,
+        a_bindpw,
+        o_binddn='cn=directory manager',
+        o_usercontainer='ou=people',
+        o_groupcontainer='ou=groups',
+        o_userobjectclass=None,
+        o_groupobjectclass=None,
+        o_userignoreobjectclass=None,
+        o_userignoreattribute=None,
+        o_groupignoreobjectclass=None,
+        o_groupignoreattribute=None,
+        o_groupoverwritegid=False,
+        o_schema='RFC2307bis',
+        o_continue=False,
+        o_basedn=None,
+        o_compat=False,
+        o_cacertfile=None,
+        o_use_def_group=True,
+        o_scope='onelevel',
+        o_exclude_users=None,
+        o_exclude_groups=None,
     ):
         """
         Migrate users and groups from DS to IPA.
@@ -13335,18 +13383,18 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def netgroup_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_nisdomainname=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_externalhost=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_nisdomainname=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_externalhost=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new netgroup.
@@ -13407,16 +13455,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def netgroup_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
-            o_netgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
+        o_netgroup=None,
     ):
         """
         Add members to a netgroup.
@@ -13466,9 +13514,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def netgroup_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a netgroup.
@@ -13490,35 +13538,35 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def netgroup_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_nisdomainname=None,
-            o_ipauniqueid=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_externalhost=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_private=False,
-            o_managed=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
-            o_netgroup=None,
-            o_no_netgroup=None,
-            o_user=None,
-            o_no_user=None,
-            o_group=None,
-            o_no_group=None,
-            o_host=None,
-            o_no_host=None,
-            o_hostgroup=None,
-            o_no_hostgroup=None,
-            o_in_netgroup=None,
-            o_not_in_netgroup=None,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_nisdomainname=None,
+        o_ipauniqueid=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_externalhost=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_private=False,
+        o_managed=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
+        o_netgroup=None,
+        o_no_netgroup=None,
+        o_user=None,
+        o_no_user=None,
+        o_group=None,
+        o_no_group=None,
+        o_host=None,
+        o_no_host=None,
+        o_hostgroup=None,
+        o_no_hostgroup=None,
+        o_in_netgroup=None,
+        o_not_in_netgroup=None,
     ):
         """
         Search for a netgroup.
@@ -13649,20 +13697,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def netgroup_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_nisdomainname=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_externalhost=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_nisdomainname=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_externalhost=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify a netgroup.
@@ -13732,16 +13780,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def netgroup_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
-            o_netgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
+        o_netgroup=None,
     ):
         """
         Remove members from a netgroup.
@@ -13791,12 +13839,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def netgroup_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a netgroup.
@@ -13830,17 +13878,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otpconfig_mod(
-            self,
-            o_ipatokentotpauthwindow=None,
-            o_ipatokentotpsyncwindow=None,
-            o_ipatokenhotpauthwindow=None,
-            o_ipatokenhotpsyncwindow=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_ipatokentotpauthwindow=None,
+        o_ipatokentotpsyncwindow=None,
+        o_ipatokenhotpauthwindow=None,
+        o_ipatokenhotpsyncwindow=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify OTP configuration options.
@@ -13902,10 +13950,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otpconfig_show(
-            self,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Show the current OTP configuration.
@@ -13933,30 +13981,30 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otptoken_add(
-            self,
-            a_ipatokenuniqueid=None,
-            o_type='totp',
-            o_description=None,
-            o_ipatokenowner=None,
-            o_ipatokendisabled=None,
-            o_ipatokennotbefore=None,
-            o_ipatokennotafter=None,
-            o_ipatokenvendor=None,
-            o_ipatokenmodel=None,
-            o_ipatokenserial=None,
-            o_ipatokenotpkey=None,
-            o_ipatokenotpalgorithm='sha1',
-            o_ipatokenotpdigits=6,
-            o_ipatokentotpclockoffset=0,
-            o_ipatokentotptimestep=30,
-            o_ipatokenhotpcounter=0,
-            o_setattr=None,
-            o_addattr=None,
-            o_qrcode=False,
-            o_no_qrcode=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_ipatokenuniqueid=None,
+        o_type='totp',
+        o_description=None,
+        o_ipatokenowner=None,
+        o_ipatokendisabled=None,
+        o_ipatokennotbefore=None,
+        o_ipatokennotafter=None,
+        o_ipatokenvendor=None,
+        o_ipatokenmodel=None,
+        o_ipatokenserial=None,
+        o_ipatokenotpkey=None,
+        o_ipatokenotpalgorithm='sha1',
+        o_ipatokenotpdigits=6,
+        o_ipatokentotpclockoffset=0,
+        o_ipatokentotptimestep=30,
+        o_ipatokenhotpcounter=0,
+        o_setattr=None,
+        o_addattr=None,
+        o_qrcode=False,
+        o_no_qrcode=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new OTP token.
@@ -14065,12 +14113,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otptoken_add_managedby(
-            self,
-            a_ipatokenuniqueid,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
+        self,
+        a_ipatokenuniqueid,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
     ):
         """
         Add users that can manage this token.
@@ -14104,9 +14152,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otptoken_del(
-            self,
-            a_ipatokenuniqueid,
-            o_continue=False,
+        self,
+        a_ipatokenuniqueid,
+        o_continue=False,
     ):
         """
         Delete an OTP token.
@@ -14128,29 +14176,29 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otptoken_find(
-            self,
-            a_criteria=None,
-            o_ipatokenuniqueid=None,
-            o_type='totp',
-            o_description=None,
-            o_ipatokenowner=None,
-            o_ipatokendisabled=None,
-            o_ipatokennotbefore=None,
-            o_ipatokennotafter=None,
-            o_ipatokenvendor=None,
-            o_ipatokenmodel=None,
-            o_ipatokenserial=None,
-            o_ipatokenotpalgorithm='sha1',
-            o_ipatokenotpdigits=6,
-            o_ipatokentotpclockoffset=0,
-            o_ipatokentotptimestep=30,
-            o_ipatokenhotpcounter=0,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_ipatokenuniqueid=None,
+        o_type='totp',
+        o_description=None,
+        o_ipatokenowner=None,
+        o_ipatokendisabled=None,
+        o_ipatokennotbefore=None,
+        o_ipatokennotafter=None,
+        o_ipatokenvendor=None,
+        o_ipatokenmodel=None,
+        o_ipatokenserial=None,
+        o_ipatokenotpalgorithm='sha1',
+        o_ipatokenotpdigits=6,
+        o_ipatokentotpclockoffset=0,
+        o_ipatokentotptimestep=30,
+        o_ipatokenhotpcounter=0,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for OTP token.
@@ -14255,24 +14303,24 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otptoken_mod(
-            self,
-            a_ipatokenuniqueid,
-            o_description=None,
-            o_ipatokenowner=None,
-            o_ipatokendisabled=None,
-            o_ipatokennotbefore=None,
-            o_ipatokennotafter=None,
-            o_ipatokenvendor=None,
-            o_ipatokenmodel=None,
-            o_ipatokenserial=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_ipatokenuniqueid,
+        o_description=None,
+        o_ipatokenowner=None,
+        o_ipatokendisabled=None,
+        o_ipatokennotbefore=None,
+        o_ipatokennotafter=None,
+        o_ipatokenvendor=None,
+        o_ipatokenmodel=None,
+        o_ipatokenserial=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify a OTP token.
@@ -14358,12 +14406,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otptoken_remove_managedby(
-            self,
-            a_ipatokenuniqueid,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
+        self,
+        a_ipatokenuniqueid,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
     ):
         """
         Remove users that can manage this token.
@@ -14397,12 +14445,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def otptoken_show(
-            self,
-            a_ipatokenuniqueid,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_ipatokenuniqueid,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about an OTP token.
@@ -14436,12 +14484,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def output_find(
-            self,
-            a_commandfull_name,
-            a_criteria=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_commandfull_name,
+        a_criteria=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for command outputs.
@@ -14476,11 +14524,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def output_show(
-            self,
-            a_commandfull_name,
-            a_name,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_commandfull_name,
+        a_name,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a command output.
@@ -14510,12 +14558,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def param_find(
-            self,
-            a_metaobjectfull_name,
-            a_criteria=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_metaobjectfull_name,
+        a_criteria=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search command parameters.
@@ -14550,11 +14598,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def param_show(
-            self,
-            a_metaobjectfull_name,
-            a_name,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_metaobjectfull_name,
+        a_name,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a command parameter.
@@ -14584,11 +14632,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def passwd(
-            self,
-            a_principal,
-            a_password,
-            a_current_password,
-            o_otp=None,
+        self,
+        a_principal,
+        a_password,
+        a_current_password,
+        o_otp=None,
     ):
         """
         Set a user's password.
@@ -14617,28 +14665,28 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def permission_add(
-            self,
-            a_cn,
-            o_ipapermright=None,
-            o_attrs=None,
-            o_ipapermbindruletype='permission',
-            o_ipapermlocation=None,
-            o_extratargetfilter=None,
-            o_ipapermtargetfilter=None,
-            o_ipapermtarget=None,
-            o_ipapermtargetto=None,
-            o_ipapermtargetfrom=None,
-            o_memberof=None,
-            o_targetgroup=None,
-            o_type=None,
-            o_permissions=None,
-            o_filter=None,
-            o_subtree=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_ipapermright=None,
+        o_attrs=None,
+        o_ipapermbindruletype='permission',
+        o_ipapermlocation=None,
+        o_extratargetfilter=None,
+        o_ipapermtargetfilter=None,
+        o_ipapermtarget=None,
+        o_ipapermtargetto=None,
+        o_ipapermtargetfrom=None,
+        o_memberof=None,
+        o_targetgroup=None,
+        o_type=None,
+        o_permissions=None,
+        o_filter=None,
+        o_subtree=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new permission.
@@ -14745,12 +14793,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def permission_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_privilege=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_privilege=None,
     ):
         """
         Add members to a permission.
@@ -14784,12 +14832,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def permission_add_noaci(
-            self,
-            a_cn,
-            o_ipapermissiontype,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_ipapermissiontype,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a system permission without an ACI (internal command)
@@ -14822,10 +14870,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def permission_del(
-            self,
-            a_cn,
-            o_continue=False,
-            o_force=False,
+        self,
+        a_cn,
+        o_continue=False,
+        o_force=False,
     ):
         """
         Delete a permission.
@@ -14850,33 +14898,33 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def permission_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_ipapermright=None,
-            o_attrs=None,
-            o_ipapermincludedattr=None,
-            o_ipapermexcludedattr=None,
-            o_ipapermdefaultattr=None,
-            o_ipapermbindruletype='permission',
-            o_ipapermlocation=None,
-            o_extratargetfilter=None,
-            o_ipapermtargetfilter=None,
-            o_ipapermtarget=None,
-            o_ipapermtargetto=None,
-            o_ipapermtargetfrom=None,
-            o_memberof=None,
-            o_targetgroup=None,
-            o_type=None,
-            o_permissions=None,
-            o_filter=None,
-            o_subtree=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_ipapermright=None,
+        o_attrs=None,
+        o_ipapermincludedattr=None,
+        o_ipapermexcludedattr=None,
+        o_ipapermdefaultattr=None,
+        o_ipapermbindruletype='permission',
+        o_ipapermlocation=None,
+        o_extratargetfilter=None,
+        o_ipapermtargetfilter=None,
+        o_ipapermtarget=None,
+        o_ipapermtargetto=None,
+        o_ipapermtargetfrom=None,
+        o_memberof=None,
+        o_targetgroup=None,
+        o_type=None,
+        o_permissions=None,
+        o_filter=None,
+        o_subtree=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for permissions.
@@ -15006,33 +15054,33 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def permission_mod(
-            self,
-            a_cn,
-            o_ipapermright=None,
-            o_attrs=None,
-            o_ipapermincludedattr=None,
-            o_ipapermexcludedattr=None,
-            o_ipapermbindruletype='permission',
-            o_ipapermlocation=None,
-            o_extratargetfilter=None,
-            o_ipapermtargetfilter=None,
-            o_ipapermtarget=None,
-            o_ipapermtargetto=None,
-            o_ipapermtargetfrom=None,
-            o_memberof=None,
-            o_targetgroup=None,
-            o_type=None,
-            o_permissions=None,
-            o_filter=None,
-            o_subtree=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_ipapermright=None,
+        o_attrs=None,
+        o_ipapermincludedattr=None,
+        o_ipapermexcludedattr=None,
+        o_ipapermbindruletype='permission',
+        o_ipapermlocation=None,
+        o_extratargetfilter=None,
+        o_ipapermtargetfilter=None,
+        o_ipapermtarget=None,
+        o_ipapermtargetto=None,
+        o_ipapermtargetfrom=None,
+        o_memberof=None,
+        o_targetgroup=None,
+        o_type=None,
+        o_permissions=None,
+        o_filter=None,
+        o_subtree=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify a permission.
@@ -15163,12 +15211,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def permission_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_privilege=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_privilege=None,
     ):
         """
         Remove members from a permission.
@@ -15202,12 +15250,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def permission_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a permission.
@@ -15241,7 +15289,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def ping(
-            self,
+        self,
     ):
         """
         Ping a remote server.
@@ -15257,14 +15305,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def pkinit_status(
-            self,
-            a_criteria=None,
-            o_server_server=None,
-            o_status=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_criteria=None,
+        o_server_server=None,
+        o_status=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Report PKINIT status on the IPA masters
@@ -15308,9 +15356,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def plugins(
-            self,
-            o_server=False,
-            o_all=True,
+        self,
+        o_server=False,
+        o_all=True,
     ):
         """
         Show all loaded plugins.
@@ -15334,14 +15382,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new privilege.
@@ -15386,12 +15434,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_role=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_role=None,
     ):
         """
         Add members to a privilege.
@@ -15425,12 +15473,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_add_permission(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_permission=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_permission=None,
     ):
         """
         Add permissions to a privilege.
@@ -15464,9 +15512,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a privilege.
@@ -15488,16 +15536,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for privileges.
@@ -15549,17 +15597,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify a privilege.
@@ -15617,12 +15665,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_role=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_role=None,
     ):
         """
         Remove members from a privilege
@@ -15656,12 +15704,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_remove_permission(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_permission=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_permission=None,
     ):
         """
         Remove permissions from a privilege.
@@ -15695,12 +15743,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def privilege_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a privilege.
@@ -15734,21 +15782,21 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def pwpolicy_add(
-            self,
-            a_cn,
-            o_cospriority,
-            o_krbmaxpwdlife=None,
-            o_krbminpwdlife=None,
-            o_krbpwdhistorylength=None,
-            o_krbpwdmindiffchars=None,
-            o_krbpwdminlength=None,
-            o_krbpwdmaxfailure=None,
-            o_krbpwdfailurecountinterval=None,
-            o_krbpwdlockoutduration=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_cospriority,
+        o_krbmaxpwdlife=None,
+        o_krbminpwdlife=None,
+        o_krbpwdhistorylength=None,
+        o_krbpwdmindiffchars=None,
+        o_krbpwdminlength=None,
+        o_krbpwdmaxfailure=None,
+        o_krbpwdfailurecountinterval=None,
+        o_krbpwdlockoutduration=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new group password policy.
@@ -15824,9 +15872,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def pwpolicy_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a group password policy.
@@ -15848,23 +15896,23 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def pwpolicy_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_krbmaxpwdlife=None,
-            o_krbminpwdlife=None,
-            o_krbpwdhistorylength=None,
-            o_krbpwdmindiffchars=None,
-            o_krbpwdminlength=None,
-            o_cospriority=None,
-            o_krbpwdmaxfailure=None,
-            o_krbpwdfailurecountinterval=None,
-            o_krbpwdlockoutduration=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_krbmaxpwdlife=None,
+        o_krbminpwdlife=None,
+        o_krbpwdhistorylength=None,
+        o_krbpwdmindiffchars=None,
+        o_krbpwdminlength=None,
+        o_cospriority=None,
+        o_krbpwdmaxfailure=None,
+        o_krbpwdfailurecountinterval=None,
+        o_krbpwdlockoutduration=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for group password policies.
@@ -15948,23 +15996,23 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def pwpolicy_mod(
-            self,
-            a_cn=None,
-            o_krbmaxpwdlife=None,
-            o_krbminpwdlife=None,
-            o_krbpwdhistorylength=None,
-            o_krbpwdmindiffchars=None,
-            o_krbpwdminlength=None,
-            o_cospriority=None,
-            o_krbpwdmaxfailure=None,
-            o_krbpwdfailurecountinterval=None,
-            o_krbpwdlockoutduration=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn=None,
+        o_krbmaxpwdlife=None,
+        o_krbminpwdlife=None,
+        o_krbpwdhistorylength=None,
+        o_krbpwdmindiffchars=None,
+        o_krbpwdminlength=None,
+        o_cospriority=None,
+        o_krbpwdmaxfailure=None,
+        o_krbpwdfailurecountinterval=None,
+        o_krbpwdlockoutduration=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify a group password policy.
@@ -16050,12 +16098,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def pwpolicy_show(
-            self,
-            a_cn=None,
-            o_rights=False,
-            o_user=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn=None,
+        o_rights=False,
+        o_user=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about password policy.
@@ -16090,18 +16138,18 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def radiusproxy_add(
-            self,
-            a_cn,
-            o_ipatokenradiusserver,
-            o_ipatokenradiussecret,
-            o_description=None,
-            o_ipatokenradiustimeout=None,
-            o_ipatokenradiusretries=None,
-            o_ipatokenusermapattribute=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_ipatokenradiusserver,
+        o_ipatokenradiussecret,
+        o_description=None,
+        o_ipatokenradiustimeout=None,
+        o_ipatokenradiusretries=None,
+        o_ipatokenusermapattribute=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new RADIUS proxy server.
@@ -16165,9 +16213,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def radiusproxy_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a RADIUS proxy server.
@@ -16189,20 +16237,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def radiusproxy_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_ipatokenradiusserver=None,
-            o_ipatokenradiussecret=None,
-            o_ipatokenradiustimeout=None,
-            o_ipatokenradiusretries=None,
-            o_ipatokenusermapattribute=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_ipatokenradiusserver=None,
+        o_ipatokenradiussecret=None,
+        o_ipatokenradiustimeout=None,
+        o_ipatokenradiusretries=None,
+        o_ipatokenusermapattribute=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for RADIUS proxy servers.
@@ -16275,21 +16323,21 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def radiusproxy_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipatokenradiusserver=None,
-            o_ipatokenradiussecret=None,
-            o_ipatokenradiustimeout=None,
-            o_ipatokenradiusretries=None,
-            o_ipatokenusermapattribute=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipatokenradiusserver=None,
+        o_ipatokenradiussecret=None,
+        o_ipatokenradiustimeout=None,
+        o_ipatokenradiusretries=None,
+        o_ipatokenusermapattribute=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_rename=None,
     ):
         """
         Modify a RADIUS proxy server.
@@ -16368,11 +16416,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def radiusproxy_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a RADIUS proxy server.
@@ -16403,17 +16451,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def realmdomains_mod(
-            self,
-            o_associateddomain=None,
-            o_add_domain=None,
-            o_del_domain=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_force=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_associateddomain=None,
+        o_add_domain=None,
+        o_del_domain=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_force=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify realm domains
@@ -16483,10 +16531,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def realmdomains_show(
-            self,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display the list of realm domains.
@@ -16514,14 +16562,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new role.
@@ -16566,16 +16614,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
-            o_service=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
+        o_service=None,
     ):
         """
         Add members to a role.
@@ -16625,12 +16673,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_add_privilege(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_privilege=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_privilege=None,
     ):
         """
         Add privileges to a role.
@@ -16664,9 +16712,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a role.
@@ -16688,16 +16736,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for roles.
@@ -16749,17 +16797,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify a role.
@@ -16817,16 +16865,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
-            o_service=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
+        o_service=None,
     ):
         """
         Remove members from a role.
@@ -16876,12 +16924,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_remove_privilege(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_privilege=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_privilege=None,
     ):
         """
         Remove privileges from a role.
@@ -16915,12 +16963,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def role_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a role.
@@ -16954,8 +17002,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def schema(
-            self,
-            o_known_fingerprints=None,
+        self,
+        o_known_fingerprints=None,
     ):
         """
         Store and provide schema for commands and topics
@@ -16975,12 +17023,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selfservice_add(
-            self,
-            a_aciname,
-            o_attrs,
-            o_permissions=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_attrs,
+        o_permissions=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new self-service permission.
@@ -17015,8 +17063,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selfservice_del(
-            self,
-            a_aciname,
+        self,
+        a_aciname,
     ):
         """
         Delete a self-service permission.
@@ -17035,14 +17083,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selfservice_find(
-            self,
-            a_criteria=None,
-            o_aciname=None,
-            o_permissions=None,
-            o_attrs=None,
-            o_pkey_only=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_criteria=None,
+        o_aciname=None,
+        o_permissions=None,
+        o_attrs=None,
+        o_pkey_only=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Search for a self-service permission.
@@ -17087,12 +17135,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selfservice_mod(
-            self,
-            a_aciname,
-            o_permissions=None,
-            o_attrs=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_permissions=None,
+        o_attrs=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify a self-service permission.
@@ -17128,10 +17176,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selfservice_show(
-            self,
-            a_aciname,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_aciname,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a self-service permission.
@@ -17158,19 +17206,19 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_add(
-            self,
-            a_cn,
-            o_ipaselinuxuser,
-            o_seealso=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_ipaselinuxuser,
+        o_seealso=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Create a new SELinux User Map.
@@ -17235,13 +17283,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_add_host(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Add target hosts and hostgroups to an SELinux User Map rule.
@@ -17279,13 +17327,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_add_user(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Add users and groups to an SELinux User Map rule.
@@ -17323,9 +17371,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a SELinux User Map.
@@ -17347,8 +17395,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_disable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Disable an SELinux User Map rule.
@@ -17367,8 +17415,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_enable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Enable an SELinux User Map rule.
@@ -17387,21 +17435,21 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_ipaselinuxuser=None,
-            o_seealso=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_ipaselinuxuser=None,
+        o_seealso=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for SELinux User Maps.
@@ -17474,21 +17522,21 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_mod(
-            self,
-            a_cn,
-            o_ipaselinuxuser=None,
-            o_seealso=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_ipaselinuxuser=None,
+        o_seealso=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify a SELinux User Map.
@@ -17563,13 +17611,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_remove_host(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Remove target hosts and hostgroups from an SELinux User Map rule.
@@ -17607,13 +17655,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_remove_user(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Remove users and groups from an SELinux User Map rule.
@@ -17651,12 +17699,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def selinuxusermap_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display the properties of a SELinux User Map rule.
@@ -17690,9 +17738,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def server_conncheck(
-            self,
-            a_cn,
-            a_remote_cn,
+        self,
+        a_cn,
+        a_remote_cn,
     ):
         """
         Check connection to remote IPA server.
@@ -17714,12 +17762,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def server_del(
-            self,
-            a_cn,
-            o_continue=False,
-            o_ignore_topology_disconnect=False,
-            o_ignore_last_of_role=False,
-            o_force=False,
+        self,
+        a_cn,
+        o_continue=False,
+        o_ignore_topology_disconnect=False,
+        o_ignore_last_of_role=False,
+        o_force=False,
     ):
         """
         Delete IPA server.
@@ -17755,22 +17803,22 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def server_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_ipamindomainlevel=None,
-            o_ipamaxdomainlevel=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
-            o_topologysuffix=None,
-            o_no_topologysuffix=None,
-            o_in_location=None,
-            o_not_in_location=None,
-            o_servrole=None,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_ipamindomainlevel=None,
+        o_ipamaxdomainlevel=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
+        o_topologysuffix=None,
+        o_no_topologysuffix=None,
+        o_in_location=None,
+        o_not_in_location=None,
+        o_servrole=None,
     ):
         """
         Search for IPA servers.
@@ -17849,17 +17897,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def server_mod(
-            self,
-            a_cn,
-            o_ipalocation_location=None,
-            o_ipaserviceweight=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_ipalocation_location=None,
+        o_ipaserviceweight=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify information about an IPA server.
@@ -17917,16 +17965,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def server_role_find(
-            self,
-            a_criteria=None,
-            o_server_server=None,
-            o_role_servrole=None,
-            o_status='enabled',
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_include_master=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_criteria=None,
+        o_server_server=None,
+        o_role_servrole=None,
+        o_status='enabled',
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_include_master=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Find a server role on a server(s)
@@ -17977,11 +18025,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def server_role_show(
-            self,
-            a_server_server,
-            a_role_servrole,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_server_server,
+        a_role_servrole,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Show role status on a server
@@ -18011,12 +18059,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def server_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Show IPA server.
@@ -18050,9 +18098,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def server_state(
-            self,
-            a_cn,
-            o_state,
+        self,
+        a_cn,
+        o_state,
     ):
         """
         Set enabled/hidden state of a server.
@@ -18074,21 +18122,21 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_add(
-            self,
-            a_krbcanonicalname,
-            o_usercertificate=None,
-            o_ipakrbauthzdata=None,
-            o_krbprincipalauthind=None,
-            o_ipakrbrequirespreauth=None,
-            o_ipakrbokasdelegate=None,
-            o_ipakrboktoauthasdelegate=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_force=False,
-            o_skip_host_check=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_krbcanonicalname,
+        o_usercertificate=None,
+        o_ipakrbauthzdata=None,
+        o_krbprincipalauthind=None,
+        o_ipakrbrequirespreauth=None,
+        o_ipakrbokasdelegate=None,
+        o_ipakrboktoauthasdelegate=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_force=False,
+        o_skip_host_check=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new IPA service.
@@ -18170,12 +18218,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_add_cert(
-            self,
-            a_krbcanonicalname,
-            o_usercertificate,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_krbcanonicalname,
+        o_usercertificate,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add new certificates to a service
@@ -18208,12 +18256,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_add_host(
-            self,
-            a_krbcanonicalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
+        self,
+        a_krbcanonicalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
     ):
         """
         Add hosts that can manage this service.
@@ -18247,12 +18295,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_add_principal(
-            self,
-            a_krbcanonicalname,
-            a_krbprincipalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_krbcanonicalname,
+        a_krbprincipalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add new principal alias to a service
@@ -18285,17 +18333,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_add_smb(
-            self,
-            a_fqdn,
-            a_ipantflatname=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_usercertificate=None,
-            o_ipakrbokasdelegate=None,
-            o_ipakrboktoauthasdelegate=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_fqdn,
+        a_ipantflatname=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_usercertificate=None,
+        o_ipakrbokasdelegate=None,
+        o_ipakrboktoauthasdelegate=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new SMB service.
@@ -18353,15 +18401,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_allow_create_keytab(
-            self,
-            a_krbcanonicalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_krbcanonicalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Allow users, groups, hosts or host groups to create a keytab of this service.
@@ -18407,15 +18455,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_allow_retrieve_keytab(
-            self,
-            a_krbcanonicalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_krbcanonicalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Allow users, groups, hosts or host groups to retrieve a keytab of this service.
@@ -18461,9 +18509,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_del(
-            self,
-            a_krbcanonicalname,
-            o_continue=False,
+        self,
+        a_krbcanonicalname,
+        o_continue=False,
     ):
         """
         Delete an IPA service.
@@ -18485,8 +18533,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_disable(
-            self,
-            a_krbcanonicalname,
+        self,
+        a_krbcanonicalname,
     ):
         """
         Disable the Kerberos key and SSL certificate of a service.
@@ -18505,15 +18553,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_disallow_create_keytab(
-            self,
-            a_krbcanonicalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_krbcanonicalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Disallow users, groups, hosts or host groups to create a keytab of this service.
@@ -18559,15 +18607,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_disallow_retrieve_keytab(
-            self,
-            a_krbcanonicalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_host=None,
-            o_hostgroup=None,
+        self,
+        a_krbcanonicalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_host=None,
+        o_hostgroup=None,
     ):
         """
         Disallow users, groups, hosts or host groups to retrieve a keytab of this service.
@@ -18613,20 +18661,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_find(
-            self,
-            a_criteria=None,
-            o_krbcanonicalname=None,
-            o_krbprincipalname=None,
-            o_ipakrbauthzdata=None,
-            o_krbprincipalauthind=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
-            o_man_by_host=None,
-            o_not_man_by_host=None,
+        self,
+        a_criteria=None,
+        o_krbcanonicalname=None,
+        o_krbprincipalname=None,
+        o_ipakrbauthzdata=None,
+        o_krbprincipalauthind=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
+        o_man_by_host=None,
+        o_not_man_by_host=None,
     ):
         """
         Search for IPA services.
@@ -18702,22 +18750,22 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_mod(
-            self,
-            a_krbcanonicalname,
-            o_krbprincipalname=None,
-            o_usercertificate=None,
-            o_ipakrbauthzdata=None,
-            o_krbprincipalauthind=None,
-            o_ipakrbrequirespreauth=None,
-            o_ipakrbokasdelegate=None,
-            o_ipakrboktoauthasdelegate=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_krbcanonicalname,
+        o_krbprincipalname=None,
+        o_usercertificate=None,
+        o_ipakrbauthzdata=None,
+        o_krbprincipalauthind=None,
+        o_ipakrbrequirespreauth=None,
+        o_ipakrbokasdelegate=None,
+        o_ipakrboktoauthasdelegate=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify an existing IPA service.
@@ -18805,12 +18853,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_remove_cert(
-            self,
-            a_krbcanonicalname,
-            o_usercertificate,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_krbcanonicalname,
+        o_usercertificate,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove certificates from a service
@@ -18843,12 +18891,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_remove_host(
-            self,
-            a_krbcanonicalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
+        self,
+        a_krbcanonicalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
     ):
         """
         Remove hosts that can manage this service.
@@ -18882,12 +18930,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_remove_principal(
-            self,
-            a_krbcanonicalname,
-            a_krbprincipalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_krbcanonicalname,
+        a_krbprincipalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove principal alias from a service
@@ -18920,13 +18968,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def service_show(
-            self,
-            a_krbcanonicalname,
-            o_rights=False,
-            o_out=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_krbcanonicalname,
+        o_rights=False,
+        o_out=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about an IPA service.
@@ -18964,13 +19012,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationrule_add(
-            self,
-            a_cn,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Create a new service delegation rule.
@@ -19011,12 +19059,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationrule_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_principal=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_principal=None,
     ):
         """
         Add member to a named service delegation rule.
@@ -19050,12 +19098,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationrule_add_target(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_servicedelegationtarget=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_servicedelegationtarget=None,
     ):
         """
         Add target to a named service delegation rule.
@@ -19089,9 +19137,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationrule_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete service delegation.
@@ -19113,15 +19161,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationrule_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for service delegations rule.
@@ -19169,12 +19217,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationrule_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_principal=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_principal=None,
     ):
         """
         Remove member from a named service delegation rule.
@@ -19208,12 +19256,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationrule_remove_target(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_servicedelegationtarget=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_servicedelegationtarget=None,
     ):
         """
         Remove target from a named service delegation rule.
@@ -19247,12 +19295,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationrule_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a named service delegation rule.
@@ -19286,12 +19334,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_add(
-            self,
-            a_cn,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Create a new service delegation target.
@@ -19329,11 +19377,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_principal=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_principal=None,
     ):
         """
         Add member to a named service delegation target.
@@ -19364,9 +19412,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete service delegation target.
@@ -19388,14 +19436,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for service delegation target.
@@ -19440,11 +19488,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_principal=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_principal=None,
     ):
         """
         Remove member from a named service delegation target.
@@ -19475,11 +19523,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a named service delegation target.
@@ -19510,7 +19558,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def session_logout(
-            self,
+        self,
     ):
         """
         RPC command used to log the current user out of their session.
@@ -19526,7 +19574,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sidgen_was_run(
-            self,
+        self,
     ):
         """
         Determine whether ipa-adtrust-install has been run with sidgen task
@@ -19542,11 +19590,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_activate(
-            self,
-            a_uid,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Activate a stage user.
@@ -19576,52 +19624,52 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_add(
-            self,
-            a_uid,
-            o_givenname,
-            o_sn,
-            o_cn,
-            o_displayname=None,
-            o_initials=None,
-            o_homedirectory=None,
-            o_gecos=None,
-            o_loginshell=None,
-            o_krbprincipalname=None,
-            o_krbprincipalexpiration=None,
-            o_krbpasswordexpiration=None,
-            o_mail=None,
-            o_userpassword=None,
-            o_random=False,
-            o_uidnumber=None,
-            o_gidnumber=None,
-            o_street=None,
-            o_l=None,
-            o_st=None,
-            o_postalcode=None,
-            o_telephonenumber=None,
-            o_mobile=None,
-            o_pager=None,
-            o_facsimiletelephonenumber=None,
-            o_ou=None,
-            o_title=None,
-            o_manager=None,
-            o_carlicense=None,
-            o_ipasshpubkey=None,
-            o_ipauserauthtype=None,
-            o_userclass=None,
-            o_ipatokenradiusconfiglink=None,
-            o_ipatokenradiususername=None,
-            o_departmentnumber=None,
-            o_employeenumber=None,
-            o_employeetype=None,
-            o_preferredlanguage=None,
-            o_usercertificate=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_from_delete=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_givenname,
+        o_sn,
+        o_cn,
+        o_displayname=None,
+        o_initials=None,
+        o_homedirectory=None,
+        o_gecos=None,
+        o_loginshell=None,
+        o_krbprincipalname=None,
+        o_krbprincipalexpiration=None,
+        o_krbpasswordexpiration=None,
+        o_mail=None,
+        o_userpassword=None,
+        o_random=False,
+        o_uidnumber=None,
+        o_gidnumber=None,
+        o_street=None,
+        o_l=None,
+        o_st=None,
+        o_postalcode=None,
+        o_telephonenumber=None,
+        o_mobile=None,
+        o_pager=None,
+        o_facsimiletelephonenumber=None,
+        o_ou=None,
+        o_title=None,
+        o_manager=None,
+        o_carlicense=None,
+        o_ipasshpubkey=None,
+        o_ipauserauthtype=None,
+        o_userclass=None,
+        o_ipatokenradiusconfiglink=None,
+        o_ipatokenradiususername=None,
+        o_departmentnumber=None,
+        o_employeenumber=None,
+        o_employeetype=None,
+        o_preferredlanguage=None,
+        o_usercertificate=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_from_delete=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new stage user.
@@ -19817,12 +19865,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_add_cert(
-            self,
-            a_uid,
-            o_usercertificate,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_usercertificate,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add one or more certificates to the stageuser entry
@@ -19855,15 +19903,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_add_certmapdata(
-            self,
-            a_uid,
-            a_ipacertmapdata=None,
-            o_issuer=None,
-            o_subject=None,
-            o_certificate=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        a_ipacertmapdata=None,
+        o_issuer=None,
+        o_subject=None,
+        o_certificate=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add one or more certificate mappings to the stage user entry.
@@ -19908,12 +19956,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_add_manager(
-            self,
-            a_uid,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
+        self,
+        a_uid,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
     ):
         """
         Add a manager to the stage user entry
@@ -19947,12 +19995,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_add_principal(
-            self,
-            a_uid,
-            a_krbprincipalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        a_krbprincipalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add new principal alias to the stageuser entry
@@ -19985,9 +20033,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_del(
-            self,
-            a_uid,
-            o_continue=False,
+        self,
+        a_uid,
+        o_continue=False,
     ):
         """
         Delete a stage user.
@@ -20009,65 +20057,65 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_find(
-            self,
-            a_criteria=None,
-            o_uid=None,
-            o_givenname=None,
-            o_sn=None,
-            o_cn=None,
-            o_displayname=None,
-            o_initials=None,
-            o_homedirectory=None,
-            o_gecos=None,
-            o_loginshell=None,
-            o_krbprincipalname=None,
-            o_krbprincipalexpiration=None,
-            o_krbpasswordexpiration=None,
-            o_mail=None,
-            o_userpassword=None,
-            o_uidnumber=None,
-            o_gidnumber=None,
-            o_street=None,
-            o_l=None,
-            o_st=None,
-            o_postalcode=None,
-            o_telephonenumber=None,
-            o_mobile=None,
-            o_pager=None,
-            o_facsimiletelephonenumber=None,
-            o_ou=None,
-            o_title=None,
-            o_manager=None,
-            o_carlicense=None,
-            o_ipauserauthtype=None,
-            o_userclass=None,
-            o_ipatokenradiusconfiglink=None,
-            o_ipatokenradiususername=None,
-            o_departmentnumber=None,
-            o_employeenumber=None,
-            o_employeetype=None,
-            o_preferredlanguage=None,
-            o_usercertificate=None,
-            o_ipantlogonscript=None,
-            o_ipantprofilepath=None,
-            o_ipanthomedirectory=None,
-            o_ipanthomedirectoryrive=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
-            o_in_group=None,
-            o_not_in_group=None,
-            o_in_netgroup=None,
-            o_not_in_netgroup=None,
-            o_in_role=None,
-            o_not_in_role=None,
-            o_in_hbacrule=None,
-            o_not_in_hbacrule=None,
-            o_in_sudorule=None,
-            o_not_in_sudorule=None,
+        self,
+        a_criteria=None,
+        o_uid=None,
+        o_givenname=None,
+        o_sn=None,
+        o_cn=None,
+        o_displayname=None,
+        o_initials=None,
+        o_homedirectory=None,
+        o_gecos=None,
+        o_loginshell=None,
+        o_krbprincipalname=None,
+        o_krbprincipalexpiration=None,
+        o_krbpasswordexpiration=None,
+        o_mail=None,
+        o_userpassword=None,
+        o_uidnumber=None,
+        o_gidnumber=None,
+        o_street=None,
+        o_l=None,
+        o_st=None,
+        o_postalcode=None,
+        o_telephonenumber=None,
+        o_mobile=None,
+        o_pager=None,
+        o_facsimiletelephonenumber=None,
+        o_ou=None,
+        o_title=None,
+        o_manager=None,
+        o_carlicense=None,
+        o_ipauserauthtype=None,
+        o_userclass=None,
+        o_ipatokenradiusconfiglink=None,
+        o_ipatokenradiususername=None,
+        o_departmentnumber=None,
+        o_employeenumber=None,
+        o_employeetype=None,
+        o_preferredlanguage=None,
+        o_usercertificate=None,
+        o_ipantlogonscript=None,
+        o_ipantprofilepath=None,
+        o_ipanthomedirectory=None,
+        o_ipanthomedirectoryrive=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
+        o_in_group=None,
+        o_not_in_group=None,
+        o_in_netgroup=None,
+        o_not_in_netgroup=None,
+        o_in_role=None,
+        o_not_in_role=None,
+        o_in_hbacrule=None,
+        o_not_in_hbacrule=None,
+        o_in_sudorule=None,
+        o_not_in_sudorule=None,
     ):
         """
         Search for stage users.
@@ -20325,58 +20373,58 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_mod(
-            self,
-            a_uid,
-            o_givenname=None,
-            o_sn=None,
-            o_cn=None,
-            o_displayname=None,
-            o_initials=None,
-            o_homedirectory=None,
-            o_gecos=None,
-            o_loginshell=None,
-            o_krbprincipalname=None,
-            o_krbprincipalexpiration=None,
-            o_krbpasswordexpiration=None,
-            o_mail=None,
-            o_userpassword=None,
-            o_random=False,
-            o_uidnumber=None,
-            o_gidnumber=None,
-            o_street=None,
-            o_l=None,
-            o_st=None,
-            o_postalcode=None,
-            o_telephonenumber=None,
-            o_mobile=None,
-            o_pager=None,
-            o_facsimiletelephonenumber=None,
-            o_ou=None,
-            o_title=None,
-            o_manager=None,
-            o_carlicense=None,
-            o_ipasshpubkey=None,
-            o_ipauserauthtype=None,
-            o_userclass=None,
-            o_ipatokenradiusconfiglink=None,
-            o_ipatokenradiususername=None,
-            o_departmentnumber=None,
-            o_employeenumber=None,
-            o_employeetype=None,
-            o_preferredlanguage=None,
-            o_usercertificate=None,
-            o_ipantlogonscript=None,
-            o_ipantprofilepath=None,
-            o_ipanthomedirectory=None,
-            o_ipanthomedirectoryrive=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_uid,
+        o_givenname=None,
+        o_sn=None,
+        o_cn=None,
+        o_displayname=None,
+        o_initials=None,
+        o_homedirectory=None,
+        o_gecos=None,
+        o_loginshell=None,
+        o_krbprincipalname=None,
+        o_krbprincipalexpiration=None,
+        o_krbpasswordexpiration=None,
+        o_mail=None,
+        o_userpassword=None,
+        o_random=False,
+        o_uidnumber=None,
+        o_gidnumber=None,
+        o_street=None,
+        o_l=None,
+        o_st=None,
+        o_postalcode=None,
+        o_telephonenumber=None,
+        o_mobile=None,
+        o_pager=None,
+        o_facsimiletelephonenumber=None,
+        o_ou=None,
+        o_title=None,
+        o_manager=None,
+        o_carlicense=None,
+        o_ipasshpubkey=None,
+        o_ipauserauthtype=None,
+        o_userclass=None,
+        o_ipatokenradiusconfiglink=None,
+        o_ipatokenradiususername=None,
+        o_departmentnumber=None,
+        o_employeenumber=None,
+        o_employeetype=None,
+        o_preferredlanguage=None,
+        o_usercertificate=None,
+        o_ipantlogonscript=None,
+        o_ipantprofilepath=None,
+        o_ipanthomedirectory=None,
+        o_ipanthomedirectoryrive=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify a stage user.
@@ -20600,12 +20648,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_remove_cert(
-            self,
-            a_uid,
-            o_usercertificate,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_usercertificate,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove one or more certificates to the stageuser entry
@@ -20638,15 +20686,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_remove_certmapdata(
-            self,
-            a_uid,
-            a_ipacertmapdata=None,
-            o_issuer=None,
-            o_subject=None,
-            o_certificate=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        a_ipacertmapdata=None,
+        o_issuer=None,
+        o_subject=None,
+        o_certificate=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove one or more certificate mappings from the stage user entry.
@@ -20691,12 +20739,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_remove_manager(
-            self,
-            a_uid,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
+        self,
+        a_uid,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
     ):
         """
         Remove a manager to the stage user entry
@@ -20730,12 +20778,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_remove_principal(
-            self,
-            a_uid,
-            a_krbprincipalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        a_krbprincipalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove principal alias from the stageuser entry
@@ -20768,12 +20816,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_show(
-            self,
-            a_uid,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a stage user.
@@ -20807,14 +20855,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmd_add(
-            self,
-            a_sudocmd,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_sudocmd,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Create new Sudo Command.
@@ -20859,9 +20907,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmd_del(
-            self,
-            a_sudocmd,
-            o_continue=False,
+        self,
+        a_sudocmd,
+        o_continue=False,
     ):
         """
         Delete Sudo Command.
@@ -20883,16 +20931,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmd_find(
-            self,
-            a_criteria=None,
-            o_sudocmd=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_sudocmd=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for Sudo Commands.
@@ -20944,16 +20992,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmd_mod(
-            self,
-            a_sudocmd,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_sudocmd,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify Sudo Command.
@@ -21007,12 +21055,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmd_show(
-            self,
-            a_sudocmd,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_sudocmd,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display Sudo Command.
@@ -21046,14 +21094,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmdgroup_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Create new Sudo Command Group.
@@ -21098,12 +21146,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmdgroup_add_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_sudocmd=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_sudocmd=None,
     ):
         """
         Add members to Sudo Command Group.
@@ -21137,9 +21185,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmdgroup_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete Sudo Command Group.
@@ -21161,16 +21209,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmdgroup_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for Sudo Command Groups.
@@ -21222,16 +21270,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmdgroup_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify Sudo Command Group.
@@ -21285,12 +21333,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmdgroup_remove_member(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_sudocmd=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_sudocmd=None,
     ):
         """
         Remove members from Sudo Command Group.
@@ -21324,12 +21372,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudocmdgroup_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display Sudo Command Group.
@@ -21363,25 +21411,25 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_add(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_cmdcategory=None,
-            o_ipasudorunasusercategory=None,
-            o_ipasudorunasgroupcategory=None,
-            o_sudoorder=0,
-            o_externaluser=None,
-            o_externalhost=None,
-            o_ipasudorunasextuser=None,
-            o_ipasudorunasextgroup=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_cmdcategory=None,
+        o_ipasudorunasusercategory=None,
+        o_ipasudorunasgroupcategory=None,
+        o_sudoorder=0,
+        o_externaluser=None,
+        o_externalhost=None,
+        o_ipasudorunasextuser=None,
+        o_ipasudorunasextgroup=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Create new Sudo Rule.
@@ -21475,13 +21523,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_add_allow_command(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_sudocmd=None,
-            o_sudocmdgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_sudocmd=None,
+        o_sudocmdgroup=None,
     ):
         """
         Add commands and sudo command groups affected by Sudo Rule.
@@ -21519,13 +21567,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_add_deny_command(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_sudocmd=None,
-            o_sudocmdgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_sudocmd=None,
+        o_sudocmdgroup=None,
     ):
         """
         Add commands and sudo command groups affected by Sudo Rule.
@@ -21563,14 +21611,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_add_host(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
-            o_hostmask=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
+        o_hostmask=None,
     ):
         """
         Add hosts and hostgroups affected by Sudo Rule.
@@ -21612,12 +21660,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_add_option(
-            self,
-            a_cn,
-            o_ipasudoopt,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_ipasudoopt,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add an option to the Sudo Rule.
@@ -21650,12 +21698,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_add_runasgroup(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_group=None,
     ):
         """
         Add group for Sudo to execute as.
@@ -21689,13 +21737,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_add_runasuser(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Add users and groups for Sudo to execute as.
@@ -21733,13 +21781,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_add_user(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Add users and groups affected by Sudo Rule.
@@ -21777,9 +21825,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete Sudo Rule.
@@ -21801,8 +21849,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_disable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Disable a Sudo Rule.
@@ -21821,8 +21869,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_enable(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Enable a Sudo Rule.
@@ -21841,27 +21889,27 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_cmdcategory=None,
-            o_ipasudorunasusercategory=None,
-            o_ipasudorunasgroupcategory=None,
-            o_sudoorder=0,
-            o_externaluser=None,
-            o_externalhost=None,
-            o_ipasudorunasextuser=None,
-            o_ipasudorunasextgroup=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_cmdcategory=None,
+        o_ipasudorunasusercategory=None,
+        o_ipasudorunasgroupcategory=None,
+        o_sudoorder=0,
+        o_externaluser=None,
+        o_externalhost=None,
+        o_ipasudorunasextuser=None,
+        o_ipasudorunasextgroup=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for Sudo Rule.
@@ -21962,28 +22010,28 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_mod(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipaenabledflag=None,
-            o_usercategory=None,
-            o_hostcategory=None,
-            o_cmdcategory=None,
-            o_ipasudorunasusercategory=None,
-            o_ipasudorunasgroupcategory=None,
-            o_sudoorder=0,
-            o_externaluser=None,
-            o_externalhost=None,
-            o_ipasudorunasextuser=None,
-            o_ipasudorunasextgroup=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipaenabledflag=None,
+        o_usercategory=None,
+        o_hostcategory=None,
+        o_cmdcategory=None,
+        o_ipasudorunasusercategory=None,
+        o_ipasudorunasgroupcategory=None,
+        o_sudoorder=0,
+        o_externaluser=None,
+        o_externalhost=None,
+        o_ipasudorunasextuser=None,
+        o_ipasudorunasextgroup=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify Sudo Rule.
@@ -22090,13 +22138,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_remove_allow_command(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_sudocmd=None,
-            o_sudocmdgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_sudocmd=None,
+        o_sudocmdgroup=None,
     ):
         """
         Remove commands and sudo command groups affected by Sudo Rule.
@@ -22134,13 +22182,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_remove_deny_command(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_sudocmd=None,
-            o_sudocmdgroup=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_sudocmd=None,
+        o_sudocmdgroup=None,
     ):
         """
         Remove commands and sudo command groups affected by Sudo Rule.
@@ -22178,14 +22226,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_remove_host(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_host=None,
-            o_hostgroup=None,
-            o_hostmask=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_host=None,
+        o_hostgroup=None,
+        o_hostmask=None,
     ):
         """
         Remove hosts and hostgroups affected by Sudo Rule.
@@ -22227,12 +22275,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_remove_option(
-            self,
-            a_cn,
-            o_ipasudoopt,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_ipasudoopt,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove an option from Sudo Rule.
@@ -22265,12 +22313,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_remove_runasgroup(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_group=None,
     ):
         """
         Remove group for Sudo to execute as.
@@ -22304,13 +22352,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_remove_runasuser(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Remove users and groups for Sudo to execute as.
@@ -22348,13 +22396,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_remove_user(
-            self,
-            a_cn,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
+        self,
+        a_cn,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
     ):
         """
         Remove users and groups affected by Sudo Rule.
@@ -22392,12 +22440,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def sudorule_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display Sudo Rule.
@@ -22431,11 +22479,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topic_find(
-            self,
-            a_criteria=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for help topics.
@@ -22467,10 +22515,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topic_show(
-            self,
-            a_full_name,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_full_name,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a help topic.
@@ -22497,21 +22545,21 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysegment_add(
-            self,
-            a_topologysuffixcn,
-            a_cn,
-            o_iparepltoposegmentleftnode,
-            o_iparepltoposegmentrightnode,
-            o_iparepltoposegmentdirection='both',
-            o_nsds5replicastripattrs=None,
-            o_nsds5replicatedattributelist=None,
-            o_nsds5replicatedattributelisttotal=None,
-            o_nsds5replicatimeout=None,
-            o_nsds5replicaenabled=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_topologysuffixcn,
+        a_cn,
+        o_iparepltoposegmentleftnode,
+        o_iparepltoposegmentrightnode,
+        o_iparepltoposegmentdirection='both',
+        o_nsds5replicastripattrs=None,
+        o_nsds5replicatedattributelist=None,
+        o_nsds5replicatedattributelisttotal=None,
+        o_nsds5replicatimeout=None,
+        o_nsds5replicaenabled=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new segment.
@@ -22592,10 +22640,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysegment_del(
-            self,
-            a_topologysuffixcn,
-            a_cn,
-            o_continue=False,
+        self,
+        a_topologysuffixcn,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a segment.
@@ -22620,23 +22668,23 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysegment_find(
-            self,
-            a_topologysuffixcn,
-            a_criteria=None,
-            o_cn=None,
-            o_iparepltoposegmentleftnode=None,
-            o_iparepltoposegmentrightnode=None,
-            o_iparepltoposegmentdirection='both',
-            o_nsds5replicastripattrs=None,
-            o_nsds5replicatedattributelist=None,
-            o_nsds5replicatedattributelisttotal=None,
-            o_nsds5replicatimeout=None,
-            o_nsds5replicaenabled=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_topologysuffixcn,
+        a_criteria=None,
+        o_cn=None,
+        o_iparepltoposegmentleftnode=None,
+        o_iparepltoposegmentrightnode=None,
+        o_iparepltoposegmentdirection='both',
+        o_nsds5replicastripattrs=None,
+        o_nsds5replicatedattributelist=None,
+        o_nsds5replicatedattributelisttotal=None,
+        o_nsds5replicatimeout=None,
+        o_nsds5replicaenabled=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for topology segments.
@@ -22727,20 +22775,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysegment_mod(
-            self,
-            a_topologysuffixcn,
-            a_cn,
-            o_nsds5replicastripattrs=None,
-            o_nsds5replicatedattributelist=None,
-            o_nsds5replicatedattributelisttotal=None,
-            o_nsds5replicatimeout=None,
-            o_nsds5replicaenabled=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_topologysuffixcn,
+        a_cn,
+        o_nsds5replicastripattrs=None,
+        o_nsds5replicatedattributelist=None,
+        o_nsds5replicatedattributelisttotal=None,
+        o_nsds5replicatimeout=None,
+        o_nsds5replicaenabled=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify a segment.
@@ -22818,12 +22866,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysegment_reinitialize(
-            self,
-            a_topologysuffixcn,
-            a_cn,
-            o_left=False,
-            o_right=False,
-            o_stop=False,
+        self,
+        a_topologysuffixcn,
+        a_cn,
+        o_left=False,
+        o_right=False,
+        o_stop=False,
     ):
         """
         Request a full re-initialization of the node retrieving data from the other node.
@@ -22857,12 +22905,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysegment_show(
-            self,
-            a_topologysuffixcn,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_topologysuffixcn,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display a segment.
@@ -22896,13 +22944,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysuffix_add(
-            self,
-            a_cn,
-            o_iparepltopoconfroot,
-            o_setattr=None,
-            o_addattr=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_iparepltopoconfroot,
+        o_setattr=None,
+        o_addattr=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add a new topology suffix to be managed.
@@ -22943,9 +22991,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysuffix_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a topology suffix.
@@ -22967,15 +23015,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysuffix_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_iparepltopoconfroot=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_iparepltopoconfroot=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for topology suffixes.
@@ -23024,15 +23072,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysuffix_mod(
-            self,
-            a_cn,
-            o_iparepltopoconfroot=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_iparepltopoconfroot=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify a topology suffix.
@@ -23083,11 +23131,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysuffix_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Show managed suffix.
@@ -23118,8 +23166,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def topologysuffix_verify(
-            self,
-            a_cn,
+        self,
+        a_cn,
     ):
         """
         Verify replication topology for suffix.
@@ -23144,22 +23192,22 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trust_add(
-            self,
-            a_cn,
-            o_setattr=None,
-            o_addattr=None,
-            o_trust_type='ad',
-            o_realm_admin=None,
-            o_realm_passwd=None,
-            o_realm_server=None,
-            o_trust_secret=None,
-            o_base_id=None,
-            o_range_size=None,
-            o_range_type=None,
-            o_bidirectional=False,
-            o_external=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_setattr=None,
+        o_addattr=None,
+        o_trust_type='ad',
+        o_realm_admin=None,
+        o_realm_passwd=None,
+        o_realm_server=None,
+        o_trust_secret=None,
+        o_base_id=None,
+        o_range_size=None,
+        o_range_type=None,
+        o_bidirectional=False,
+        o_external=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Add new trust to use.
@@ -23258,9 +23306,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trust_del(
-            self,
-            a_cn,
-            o_continue=False,
+        self,
+        a_cn,
+        o_continue=False,
     ):
         """
         Delete a trust.
@@ -23282,14 +23330,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trust_fetch_domains(
-            self,
-            a_cn,
-            o_rights=False,
-            o_realm_admin=None,
-            o_realm_passwd=None,
-            o_realm_server=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_realm_admin=None,
+        o_realm_passwd=None,
+        o_realm_server=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Refresh list of the domains associated with the trust
@@ -23334,18 +23382,18 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trust_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_ipantflatname=None,
-            o_ipanttrusteddomainsid=None,
-            o_ipantsidblacklistincoming=None,
-            o_ipantsidblacklistoutgoing=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_ipantflatname=None,
+        o_ipanttrusteddomainsid=None,
+        o_ipantsidblacklistincoming=None,
+        o_ipantsidblacklistoutgoing=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search for trusts.
@@ -23406,17 +23454,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trust_mod(
-            self,
-            a_cn,
-            o_ipantsidblacklistincoming=None,
-            o_ipantsidblacklistoutgoing=None,
-            o_ipantadditionalsuffixes=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_ipantsidblacklistincoming=None,
+        o_ipantsidblacklistoutgoing=None,
+        o_ipantadditionalsuffixes=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify a trust (for future use).
@@ -23478,10 +23526,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trust_resolve(
-            self,
-            o_sids,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_sids,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Resolve security identifiers of users and groups in trusted domains
@@ -23508,11 +23556,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trust_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Display information about a trust.
@@ -23543,15 +23591,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trustconfig_mod(
-            self,
-            o_ipantfallbackprimarygroup=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_trust_type='ad',
-            o_all=True,
-            o_raw=False,
+        self,
+        o_ipantfallbackprimarygroup=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_trust_type='ad',
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify global trust configuration.
@@ -23602,11 +23650,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trustconfig_show(
-            self,
-            o_rights=False,
-            o_trust_type='ad',
-            o_all=True,
-            o_raw=False,
+        self,
+        o_rights=False,
+        o_trust_type='ad',
+        o_all=True,
+        o_raw=False,
     ):
         """
         Show global trust configuration.
@@ -23637,16 +23685,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trustdomain_add(
-            self,
-            a_trustcn,
-            a_cn,
-            o_ipantflatname=None,
-            o_ipanttrusteddomainsid=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_trust_type='ad',
-            o_all=True,
-            o_raw=False,
+        self,
+        a_trustcn,
+        a_cn,
+        o_ipantflatname=None,
+        o_ipanttrusteddomainsid=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_trust_type='ad',
+        o_all=True,
+        o_raw=False,
     ):
         """
         Allow access from the trusted domain
@@ -23698,10 +23746,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trustdomain_del(
-            self,
-            a_trustcn,
-            a_cn,
-            o_continue=False,
+        self,
+        a_trustcn,
+        a_cn,
+        o_continue=False,
     ):
         """
         Remove information about the domain associated with the trust.
@@ -23726,9 +23774,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trustdomain_disable(
-            self,
-            a_trustcn,
-            a_cn,
+        self,
+        a_trustcn,
+        a_cn,
     ):
         """
         Disable use of IPA resources by the domain of the trust
@@ -23750,9 +23798,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trustdomain_enable(
-            self,
-            a_trustcn,
-            a_cn,
+        self,
+        a_trustcn,
+        a_cn,
     ):
         """
         Allow use of IPA resources by the domain of the trust
@@ -23774,17 +23822,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trustdomain_find(
-            self,
-            a_trustcn,
-            a_criteria=None,
-            o_cn=None,
-            o_ipantflatname=None,
-            o_ipanttrusteddomainsid=None,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_all=True,
-            o_raw=False,
-            o_pkey_only=False,
+        self,
+        a_trustcn,
+        a_criteria=None,
+        o_cn=None,
+        o_ipantflatname=None,
+        o_ipanttrusteddomainsid=None,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_all=True,
+        o_raw=False,
+        o_pkey_only=False,
     ):
         """
         Search domains of the trust
@@ -23840,18 +23888,18 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def trustdomain_mod(
-            self,
-            a_trustcn,
-            a_cn,
-            o_ipantflatname=None,
-            o_ipanttrusteddomainsid=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_trust_type='ad',
-            o_all=True,
-            o_raw=False,
+        self,
+        a_trustcn,
+        a_cn,
+        o_ipantflatname=None,
+        o_ipanttrusteddomainsid=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_trust_type='ad',
+        o_all=True,
+        o_raw=False,
     ):
         """
         Modify trustdomain of the trust
@@ -23912,53 +23960,53 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_add(
-            self,
-            a_uid,
-            o_givenname,
-            o_sn,
-            o_cn,
-            o_displayname=None,
-            o_initials=None,
-            o_homedirectory=None,
-            o_gecos=None,
-            o_loginshell=None,
-            o_krbprincipalname=None,
-            o_krbprincipalexpiration=None,
-            o_krbpasswordexpiration=None,
-            o_mail=None,
-            o_userpassword=None,
-            o_random=False,
-            o_uidnumber=None,
-            o_gidnumber=None,
-            o_street=None,
-            o_l=None,
-            o_st=None,
-            o_postalcode=None,
-            o_telephonenumber=None,
-            o_mobile=None,
-            o_pager=None,
-            o_facsimiletelephonenumber=None,
-            o_ou=None,
-            o_title=None,
-            o_manager=None,
-            o_carlicense=None,
-            o_ipasshpubkey=None,
-            o_ipauserauthtype=None,
-            o_userclass=None,
-            o_ipatokenradiusconfiglink=None,
-            o_ipatokenradiususername=None,
-            o_departmentnumber=None,
-            o_employeenumber=None,
-            o_employeetype=None,
-            o_preferredlanguage=None,
-            o_usercertificate=None,
-            o_nsaccountlock=False,
-            o_setattr=None,
-            o_addattr=None,
-            o_noprivate=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_givenname,
+        o_sn,
+        o_cn,
+        o_displayname=None,
+        o_initials=None,
+        o_homedirectory=None,
+        o_gecos=None,
+        o_loginshell=None,
+        o_krbprincipalname=None,
+        o_krbprincipalexpiration=None,
+        o_krbpasswordexpiration=None,
+        o_mail=None,
+        o_userpassword=None,
+        o_random=False,
+        o_uidnumber=None,
+        o_gidnumber=None,
+        o_street=None,
+        o_l=None,
+        o_st=None,
+        o_postalcode=None,
+        o_telephonenumber=None,
+        o_mobile=None,
+        o_pager=None,
+        o_facsimiletelephonenumber=None,
+        o_ou=None,
+        o_title=None,
+        o_manager=None,
+        o_carlicense=None,
+        o_ipasshpubkey=None,
+        o_ipauserauthtype=None,
+        o_userclass=None,
+        o_ipatokenradiusconfiglink=None,
+        o_ipatokenradiususername=None,
+        o_departmentnumber=None,
+        o_employeenumber=None,
+        o_employeetype=None,
+        o_preferredlanguage=None,
+        o_usercertificate=None,
+        o_nsaccountlock=False,
+        o_setattr=None,
+        o_addattr=None,
+        o_noprivate=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a new user.
@@ -24157,12 +24205,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_add_cert(
-            self,
-            a_uid,
-            o_usercertificate,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_usercertificate,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add one or more certificates to the user entry
@@ -24195,15 +24243,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_add_certmapdata(
-            self,
-            a_uid,
-            a_ipacertmapdata=None,
-            o_issuer=None,
-            o_subject=None,
-            o_certificate=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        a_ipacertmapdata=None,
+        o_issuer=None,
+        o_subject=None,
+        o_certificate=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add one or more certificate mappings to the user entry.
@@ -24248,12 +24296,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_add_manager(
-            self,
-            a_uid,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
+        self,
+        a_uid,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
     ):
         """
         Add a manager to the user entry
@@ -24287,12 +24335,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_add_principal(
-            self,
-            a_uid,
-            a_krbprincipalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        a_krbprincipalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add new principal alias to the user entry
@@ -24325,10 +24373,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_del(
-            self,
-            a_uid,
-            o_continue=False,
-            o_preserve=None,
+        self,
+        a_uid,
+        o_continue=False,
+        o_preserve=None,
     ):
         """
         Delete a user.
@@ -24354,8 +24402,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_disable(
-            self,
-            a_uid,
+        self,
+        a_uid,
     ):
         """
         Disable a user account.
@@ -24374,8 +24422,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_enable(
-            self,
-            a_uid,
+        self,
+        a_uid,
     ):
         """
         Enable a user account.
@@ -24394,68 +24442,68 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_find(
-            self,
-            a_criteria=None,
-            o_uid=None,
-            o_givenname=None,
-            o_sn=None,
-            o_cn=None,
-            o_displayname=None,
-            o_initials=None,
-            o_homedirectory=None,
-            o_gecos=None,
-            o_loginshell=None,
-            o_krbprincipalname=None,
-            o_krbprincipalexpiration=None,
-            o_krbpasswordexpiration=None,
-            o_mail=None,
-            o_userpassword=None,
-            o_uidnumber=None,
-            o_gidnumber=None,
-            o_street=None,
-            o_l=None,
-            o_st=None,
-            o_postalcode=None,
-            o_telephonenumber=None,
-            o_mobile=None,
-            o_pager=None,
-            o_facsimiletelephonenumber=None,
-            o_ou=None,
-            o_title=None,
-            o_manager=None,
-            o_carlicense=None,
-            o_ipauserauthtype=None,
-            o_userclass=None,
-            o_ipatokenradiusconfiglink=None,
-            o_ipatokenradiususername=None,
-            o_departmentnumber=None,
-            o_employeenumber=None,
-            o_employeetype=None,
-            o_preferredlanguage=None,
-            o_usercertificate=None,
-            o_ipantlogonscript=None,
-            o_ipantprofilepath=None,
-            o_ipanthomedirectory=None,
-            o_ipanthomedirectoryrive=None,
-            o_nsaccountlock=False,
-            o_preserved=False,
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_whoami=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
-            o_in_group=None,
-            o_not_in_group=None,
-            o_in_netgroup=None,
-            o_not_in_netgroup=None,
-            o_in_role=None,
-            o_not_in_role=None,
-            o_in_hbacrule=None,
-            o_not_in_hbacrule=None,
-            o_in_sudorule=None,
-            o_not_in_sudorule=None,
+        self,
+        a_criteria=None,
+        o_uid=None,
+        o_givenname=None,
+        o_sn=None,
+        o_cn=None,
+        o_displayname=None,
+        o_initials=None,
+        o_homedirectory=None,
+        o_gecos=None,
+        o_loginshell=None,
+        o_krbprincipalname=None,
+        o_krbprincipalexpiration=None,
+        o_krbpasswordexpiration=None,
+        o_mail=None,
+        o_userpassword=None,
+        o_uidnumber=None,
+        o_gidnumber=None,
+        o_street=None,
+        o_l=None,
+        o_st=None,
+        o_postalcode=None,
+        o_telephonenumber=None,
+        o_mobile=None,
+        o_pager=None,
+        o_facsimiletelephonenumber=None,
+        o_ou=None,
+        o_title=None,
+        o_manager=None,
+        o_carlicense=None,
+        o_ipauserauthtype=None,
+        o_userclass=None,
+        o_ipatokenradiusconfiglink=None,
+        o_ipatokenradiususername=None,
+        o_departmentnumber=None,
+        o_employeenumber=None,
+        o_employeetype=None,
+        o_preferredlanguage=None,
+        o_usercertificate=None,
+        o_ipantlogonscript=None,
+        o_ipantprofilepath=None,
+        o_ipanthomedirectory=None,
+        o_ipanthomedirectoryrive=None,
+        o_nsaccountlock=False,
+        o_preserved=False,
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_whoami=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
+        o_in_group=None,
+        o_not_in_group=None,
+        o_in_netgroup=None,
+        o_not_in_netgroup=None,
+        o_in_role=None,
+        o_not_in_role=None,
+        o_in_hbacrule=None,
+        o_not_in_hbacrule=None,
+        o_in_sudorule=None,
+        o_not_in_sudorule=None,
     ):
         """
         Search for users.
@@ -24722,59 +24770,59 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_mod(
-            self,
-            a_uid,
-            o_givenname=None,
-            o_sn=None,
-            o_cn=None,
-            o_displayname=None,
-            o_initials=None,
-            o_homedirectory=None,
-            o_gecos=None,
-            o_loginshell=None,
-            o_krbprincipalname=None,
-            o_krbprincipalexpiration=None,
-            o_krbpasswordexpiration=None,
-            o_mail=None,
-            o_userpassword=None,
-            o_random=False,
-            o_uidnumber=None,
-            o_gidnumber=None,
-            o_street=None,
-            o_l=None,
-            o_st=None,
-            o_postalcode=None,
-            o_telephonenumber=None,
-            o_mobile=None,
-            o_pager=None,
-            o_facsimiletelephonenumber=None,
-            o_ou=None,
-            o_title=None,
-            o_manager=None,
-            o_carlicense=None,
-            o_ipasshpubkey=None,
-            o_ipauserauthtype=None,
-            o_userclass=None,
-            o_ipatokenradiusconfiglink=None,
-            o_ipatokenradiususername=None,
-            o_departmentnumber=None,
-            o_employeenumber=None,
-            o_employeetype=None,
-            o_preferredlanguage=None,
-            o_usercertificate=None,
-            o_ipantlogonscript=None,
-            o_ipantprofilepath=None,
-            o_ipanthomedirectory=None,
-            o_ipanthomedirectoryrive=None,
-            o_nsaccountlock=False,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_rename=None,
+        self,
+        a_uid,
+        o_givenname=None,
+        o_sn=None,
+        o_cn=None,
+        o_displayname=None,
+        o_initials=None,
+        o_homedirectory=None,
+        o_gecos=None,
+        o_loginshell=None,
+        o_krbprincipalname=None,
+        o_krbprincipalexpiration=None,
+        o_krbpasswordexpiration=None,
+        o_mail=None,
+        o_userpassword=None,
+        o_random=False,
+        o_uidnumber=None,
+        o_gidnumber=None,
+        o_street=None,
+        o_l=None,
+        o_st=None,
+        o_postalcode=None,
+        o_telephonenumber=None,
+        o_mobile=None,
+        o_pager=None,
+        o_facsimiletelephonenumber=None,
+        o_ou=None,
+        o_title=None,
+        o_manager=None,
+        o_carlicense=None,
+        o_ipasshpubkey=None,
+        o_ipauserauthtype=None,
+        o_userclass=None,
+        o_ipatokenradiusconfiglink=None,
+        o_ipatokenradiususername=None,
+        o_departmentnumber=None,
+        o_employeenumber=None,
+        o_employeetype=None,
+        o_preferredlanguage=None,
+        o_usercertificate=None,
+        o_ipantlogonscript=None,
+        o_ipantprofilepath=None,
+        o_ipanthomedirectory=None,
+        o_ipanthomedirectoryrive=None,
+        o_nsaccountlock=False,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_rename=None,
     ):
         """
         Modify a user.
@@ -25002,12 +25050,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_remove_cert(
-            self,
-            a_uid,
-            o_usercertificate,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_usercertificate,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove one or more certificates to the user entry
@@ -25040,15 +25088,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_remove_certmapdata(
-            self,
-            a_uid,
-            a_ipacertmapdata=None,
-            o_issuer=None,
-            o_subject=None,
-            o_certificate=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        a_ipacertmapdata=None,
+        o_issuer=None,
+        o_subject=None,
+        o_certificate=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove one or more certificate mappings from the user entry.
@@ -25093,12 +25141,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_remove_manager(
-            self,
-            a_uid,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
+        self,
+        a_uid,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
     ):
         """
         Remove a manager to the user entry
@@ -25132,12 +25180,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_remove_principal(
-            self,
-            a_uid,
-            a_krbprincipalname,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        a_krbprincipalname,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Remove principal alias from the user entry
@@ -25170,13 +25218,13 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_show(
-            self,
-            a_uid,
-            o_rights=False,
-            o_out=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_uid,
+        o_rights=False,
+        o_out=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a user.
@@ -25214,9 +25262,9 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_stage(
-            self,
-            a_uid,
-            o_continue=False,
+        self,
+        a_uid,
+        o_continue=False,
     ):
         """
         Move deleted user into staged area
@@ -25238,10 +25286,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_status(
-            self,
-            a_useruid,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_useruid,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Lockout status of a user account
@@ -25287,8 +25335,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_undel(
-            self,
-            a_uid,
+        self,
+        a_uid,
     ):
         """
         Undelete a delete user account.
@@ -25307,8 +25355,8 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def user_unlock(
-            self,
-            a_uid,
+        self,
+        a_uid,
     ):
         """
         Unlock a user account
@@ -25332,20 +25380,20 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_add_internal(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipavaulttype='symmetric',
-            o_ipavaultsalt=None,
-            o_ipavaultpublickey=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipavaulttype='symmetric',
+        o_ipavaultsalt=None,
+        o_ipavaultpublickey=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Add a vault.
@@ -25414,17 +25462,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_add_member(
-            self,
-            a_cn,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_services=None,
+        self,
+        a_cn,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_services=None,
     ):
         """
         Add members to a vault.
@@ -25478,17 +25526,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_add_owner(
-            self,
-            a_cn,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_services=None,
+        self,
+        a_cn,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_services=None,
     ):
         """
         Add owners to a vault.
@@ -25542,16 +25590,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_archive_internal(
-            self,
-            a_cn,
-            o_session_key,
-            o_vault_data,
-            o_nonce,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_session_key,
+        o_vault_data,
+        o_nonce,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Archive data into a vault.
@@ -25599,12 +25647,12 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_del(
-            self,
-            a_cn,
-            o_continue=False,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
+        self,
+        a_cn,
+        o_continue=False,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
     ):
         """
         Delete a vault.
@@ -25638,22 +25686,22 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_find(
-            self,
-            a_criteria=None,
-            o_cn=None,
-            o_description=None,
-            o_ipavaulttype='symmetric',
-            o_timelimit=None,
-            o_sizelimit=None,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_services=False,
-            o_users=False,
-            o_all=True,
-            o_raw=False,
-            o_no_members=True,
-            o_pkey_only=False,
+        self,
+        a_criteria=None,
+        o_cn=None,
+        o_description=None,
+        o_ipavaulttype='symmetric',
+        o_timelimit=None,
+        o_sizelimit=None,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_services=False,
+        o_users=False,
+        o_all=True,
+        o_raw=False,
+        o_no_members=True,
+        o_pkey_only=False,
     ):
         """
         Search for vaults.
@@ -25729,22 +25777,22 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_mod_internal(
-            self,
-            a_cn,
-            o_description=None,
-            o_ipavaulttype='symmetric',
-            o_ipavaultsalt=None,
-            o_ipavaultpublickey=None,
-            o_setattr=None,
-            o_addattr=None,
-            o_delattr=None,
-            o_rights=False,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_description=None,
+        o_ipavaulttype='symmetric',
+        o_ipavaultsalt=None,
+        o_ipavaultpublickey=None,
+        o_setattr=None,
+        o_addattr=None,
+        o_delattr=None,
+        o_rights=False,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Modify a vault.
@@ -25822,17 +25870,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_remove_member(
-            self,
-            a_cn,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_services=None,
+        self,
+        a_cn,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_services=None,
     ):
         """
         Remove members from a vault.
@@ -25886,17 +25934,17 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_remove_owner(
-            self,
-            a_cn,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_services=None,
+        self,
+        a_cn,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_services=None,
     ):
         """
         Remove owners from a vault.
@@ -25950,14 +25998,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_retrieve_internal(
-            self,
-            a_cn,
-            o_session_key,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        a_cn,
+        o_session_key,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Retrieve data from a vault.
@@ -25999,15 +26047,15 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vault_show(
-            self,
-            a_cn,
-            o_rights=False,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        a_cn,
+        o_rights=False,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a vault.
@@ -26053,10 +26101,10 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vaultconfig_show(
-            self,
-            o_transport_out=None,
-            o_all=True,
-            o_raw=False,
+        self,
+        o_transport_out=None,
+        o_all=True,
+        o_raw=False,
     ):
         """
         Show vault configuration.
@@ -26084,16 +26132,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vaultcontainer_add_owner(
-            self,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_services=None,
+        self,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_services=None,
     ):
         """
         Add owners to a vault container.
@@ -26144,11 +26192,11 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vaultcontainer_del(
-            self,
-            o_continue=False,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
+        self,
+        o_continue=False,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
     ):
         """
         Delete a vault container.
@@ -26179,16 +26227,16 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vaultcontainer_remove_owner(
-            self,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
-            o_user=None,
-            o_group=None,
-            o_services=None,
+        self,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
+        o_user=None,
+        o_group=None,
+        o_services=None,
     ):
         """
         Remove owners from a vault container.
@@ -26239,14 +26287,14 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def vaultcontainer_show(
-            self,
-            o_rights=False,
-            o_service=None,
-            o_shared=False,
-            o_username=None,
-            o_all=True,
-            o_raw=False,
-            o_no_members=False,
+        self,
+        o_rights=False,
+        o_service=None,
+        o_shared=False,
+        o_username=None,
+        o_all=True,
+        o_raw=False,
+        o_no_members=False,
     ):
         """
         Display information about a vault container.
@@ -26289,7 +26337,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def whoami(
-            self,
+        self,
     ):
         """
         Describe currently authenticated identity.
