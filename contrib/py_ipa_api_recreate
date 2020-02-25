@@ -75,7 +75,6 @@ class MetaAPICreator:
             self._client.login_kerberos()
         return self._client
 
-
     @property
     def meta_api(self):
         return self._meta_api
@@ -110,8 +109,6 @@ class MetaAPICreator:
             self.log.fatal("could not fetch version from upstream server")
             sys.exit(1)
         return self._version
-
-
 
     def sort_spec(self, od):
         res = OrderedDict()
