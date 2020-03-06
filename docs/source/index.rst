@@ -15,7 +15,7 @@ Client using Username and Password to connect to specific IPA Server.
 .. code-block:: python
 
     from python_freeipa import ClientMeta
-    client = ClientMeta('ipa.demo1.freeipa.org', version='2.215')
+    client = ClientMeta('ipa.demo1.freeipa.org')
     client.login('admin', 'Secret123')
     user = client.user_add('test3', 'John', 'Doe', 'John Doe', o_preferredlanguage='EN')
     print(user)
@@ -29,7 +29,7 @@ For DNS service discovery, you need to have the "srvlookup" module installed
 .. code-block:: python
 
     from python_freeipa import ClientMeta
-    client = ClientMeta(version='2.215', dns_lookup=True)
+    client = ClientMeta(dns_lookup=True)
     client.login('admin', 'Secret123')
     user = client.user_add('test3', 'John', 'Doe', 'John Doe', o_preferredlanguage='EN')
     print(user)
