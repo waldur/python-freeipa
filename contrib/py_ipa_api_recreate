@@ -75,7 +75,6 @@ class MetaAPICreator:
             self._client.login_kerberos()
         return self._client
 
-
     @property
     def meta_api(self):
         return self._meta_api
@@ -110,8 +109,6 @@ class MetaAPICreator:
             self.log.fatal("could not fetch version from upstream server")
             sys.exit(1)
         return self._version
-
-
 
     def sort_spec(self, od):
         res = OrderedDict()
@@ -162,7 +159,7 @@ class MetaAPICreator:
     def _func_add(self, command, spec):
         self.append('')
         self.append('def {0}('.format(command), 1)
-        self.append('    self,'.format(command), 2)
+        self.append('    self,', 1)
         self.log.info("adding function {0}".format(command))
 
         args_body, args_options = self.func_add_args(spec['takes_args'])
@@ -175,20 +172,20 @@ class MetaAPICreator:
                 head_later.append(i['head'])
             else:
                 for line in i['head']:
-                    self.append(line, 3)
+                    self.append(line, 2)
 
         for i in opts_options:
             if i['default_value']:
                 head_later.append(i['head'])
             else:
                 for line in i['head']:
-                    self.append(line, 3)
+                    self.append(line, 2)
 
         for i in head_later:
             for line in i:
-                self.append(line, 3)
+                self.append(line, 2)
 
-        self.append('):'.format(command), 1)
+        self.append('):', 1)
         try:
             self.append(textwrap.indent('"""\n' + textwrap.dedent(spec['doc'].lstrip('\n')), '    ' * 2))
         except AttributeError:
