@@ -14,10 +14,10 @@ Client using username and password to connect to specific IPA server.
 
 .. code-block:: python
 
-    from python_freeipa import Client
-    client = Client('ipa.demo1.freeipa.org', version='2.215')
+    from python_freeipa import ClientMeta
+    client = ClientMeta('ipa.demo1.freeipa.org')
     client.login('admin', 'Secret123')
-    user = client.user_add('test3', 'John', 'Doe', 'John Doe', preferred_language='EN')
+    user = client.user_add('test3', 'John', 'Doe', 'John Doe', o_preferredlanguage='EN')
     print(user)
 
 Client using DNS service discovery.
@@ -29,10 +29,10 @@ For DNS service discovery, you need to have the `srvlookup` module installed.
 
 .. code-block:: python
 
-    from python_freeipa import Client
-    client = Client(version='2.215', dns_discovery=True)
+    from python_freeipa import ClientMeta
+    client = ClientMeta(dns_lookup=True)
     client.login('admin', 'Secret123')
-    user = client.user_add('test3', 'John', 'Doe', 'John Doe', preferred_language='EN')
+    user = client.user_add('test3', 'John', 'Doe', 'John Doe', o_preferredlanguage='EN')
     print(user)
 
 Breaking changes in 1.0 release
