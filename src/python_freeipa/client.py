@@ -323,7 +323,7 @@ class Client(object):
         else:
             return result['result']
 
-    def change_password(self, username, new_password, old_password):
+    def change_password(self, username, new_password, old_password, otp=None):
         """
         Set the password of a user. (Does not expire)
 
@@ -333,6 +333,8 @@ class Client(object):
         :type new_password: str
         :param old_password: Users old password
         :type old_password: str
+        :param otp: User's OTP token if they have one
+        :type old_password: str or None
         """
 
         password_url = 'https://{0}/ipa/session/change_password'.format(self.current_host)
@@ -342,6 +344,8 @@ class Client(object):
         }
 
         data = {'user': username, 'new_password': new_password, 'old_password': old_password}
+        if otp:
+            data['otp'] = otp
         response = self._session.post(password_url, headers=headers, data=data, verify=self._verify_ssl)
 
         if not response.ok:
