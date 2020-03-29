@@ -6,6 +6,19 @@ import socket
 
 import requests
 
+from python_freeipa.exceptions import (
+    Denied,
+    FreeIPAError,
+    InvalidSessionPassword,
+    KrbPrincipalExpired,
+    PasswordExpired,
+    PWChangeInvalidPassword,
+    PWChangePolicyError,
+    Unauthorized,
+    UserLocked,
+    parse_error,
+)
+
 try:
     import requests_kerberos
 except ImportError as e:
@@ -18,22 +31,12 @@ except ImportError as e:
     # Will raise if the user tires to do dns service discovery.
     srvlookup = e
 
-from python_freeipa.exceptions import Denied
-from python_freeipa.exceptions import FreeIPAError
-from python_freeipa.exceptions import InvalidSessionPassword
-from python_freeipa.exceptions import KrbPrincipalExpired
-from python_freeipa.exceptions import PWChangeInvalidPassword
-from python_freeipa.exceptions import PWChangePolicyError
-from python_freeipa.exceptions import PasswordExpired
-from python_freeipa.exceptions import Unauthorized
-from python_freeipa.exceptions import UserLocked
-from python_freeipa.exceptions import parse_error
-
 
 class AuthenticatedSession(object):
     """
     Context manager class that automatically logs out upon exit.
     """
+
     def __init__(self, client, *login_arguments, **kwargs):
         """
         Constructs a new authenticated session with optional login arguments.
@@ -114,11 +117,11 @@ class Client(object):
         :type verify_ssl: bool
         :param version: default client version, may be overwritten in individual requests
         :type version: str
-        :param dns_discovery: if set to True, will try to use the current hosts domainname for dns discovery.
+        :param dns_discovery: if set to True, will try to use the current hosts domain name for dns discovery.
                            if set to a string, will use this string for dns discovery.
                            in both cases, it will try to strip as many parts left from a dot (.),
                            until it finds an idm server.
-                           discoverd IPA servers will by tried in order (priority, weight),
+                           discovered IPA servers will by tried in order (priority, weight),
                            until one is found that will respond to our login request.
                            if host param is set, host param will always win, and no dns discovery is performed.
         :type dns_discovery: str
@@ -176,8 +179,10 @@ class Client(object):
                     self._current_host = host.hostname
                     return self._login(host.hostname, username, password)
                 except requests.exceptions.ConnectionError as err:
-                    self.log.warning("could not connect discovered host: {0}".format(err))
-            raise FreeIPAError("could not connect to any host")
+                    self.log.warning(
+                        "Could not connect discovered host: {0}".format(err)
+                    )
+            raise FreeIPAError("Could not connect to any host")
 
     def _login(self, host, username, password):
         """
@@ -187,10 +192,12 @@ class Client(object):
         headers = {
             'Referer': login_url,
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain'
+            'Accept': 'text/plain',
         }
         data = {'user': username, 'password': password}
-        response = self._session.post(login_url, headers=headers, data=data, verify=self._verify_ssl)
+        response = self._session.post(
+            login_url, headers=headers, data=data, verify=self._verify_ssl
+        )
 
         if not response.ok:
             reason = response.headers.get('X-IPA-Rejection-Reason', None)
@@ -233,8 +240,10 @@ class Client(object):
                     self._current_host = host.hostname
                     return self._login_kerberos(host.hostname)
                 except requests.exceptions.ConnectionError as err:
-                    self.log.warning("could not connect discovered host: {0}".format(err))
-            raise FreeIPAError("could not connect to any host")
+                    self.log.warning(
+                        "Could not connect discovered host: {0}".format(err)
+                    )
+            raise FreeIPAError("Could not connect to any host")
 
     def _login_kerberos(self, host):
         """
@@ -244,16 +253,20 @@ class Client(object):
             raise requests_kerberos
 
         login_url = 'https://{0}/ipa/session/login_kerberos'.format(host)
-        headers = {
-            'Referer': 'https://{0}/ipa'.format(host)
-        }
-        response = self._session.post(login_url, headers=headers, verify=self._verify_ssl,
-                                      auth=requests_kerberos.HTTPKerberosAuth())
+        headers = {'Referer': 'https://{0}/ipa'.format(host)}
+        response = self._session.post(
+            login_url,
+            headers=headers,
+            verify=self._verify_ssl,
+            auth=requests_kerberos.HTTPKerberosAuth(),
+        )
 
         if not response.ok:
             raise Unauthorized(response.text)
 
-        self.log.info('Successfully logged to {0} using Kerberos credentials.'.format(host))
+        self.log.info(
+            'Successfully logged to {0} using Kerberos credentials.'.format(host)
+        )
 
         return AuthenticatedSession(self, logged_in=True)
 
@@ -281,7 +294,7 @@ class Client(object):
         headers = {
             'Referer': 'https://{0}/ipa'.format(self.current_host),
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Accept': 'application/json',
         }
 
         if not args:
@@ -295,19 +308,16 @@ class Client(object):
         if self._version:
             params.setdefault('version', self._version)
 
-        data = {
-            'method': method,
-            'params': [args, params]
-        }
+        data = {'method': method, 'params': [args, params]}
 
-        self.log.debug('Making {method} request to {url} with arguments {args} and params {params}'.format(
-            method=method, url=session_url, args=args, params=params))
+        self.log.debug(
+            'Making {method} request to {url} with arguments {args} and params {params}'.format(
+                method=method, url=session_url, args=args, params=params
+            )
+        )
 
         response = self._session.post(
-            session_url,
-            headers=headers,
-            data=json.dumps(data),
-            verify=self._verify_ssl
+            session_url, headers=headers, data=json.dumps(data), verify=self._verify_ssl
         )
 
         if response.status_code == 401:
@@ -334,19 +344,28 @@ class Client(object):
         :param old_password: Users old password
         :type old_password: str
         :param otp: User's OTP token if they have one
-        :type old_password: str or None
+        :type otp: str or None
         """
 
-        password_url = 'https://{0}/ipa/session/change_password'.format(self.current_host)
+        password_url = 'https://{0}/ipa/session/change_password'.format(
+            self.current_host
+        )
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain'
+            'Accept': 'text/plain',
         }
 
-        data = {'user': username, 'new_password': new_password, 'old_password': old_password}
+        data = {
+            'user': username,
+            'new_password': new_password,
+            'old_password': old_password,
+        }
         if otp:
             data['otp'] = otp
-        response = self._session.post(password_url, headers=headers, data=data, verify=self._verify_ssl)
+
+        response = self._session.post(
+            password_url, headers=headers, data=data, verify=self._verify_ssl
+        )
 
         if not response.ok:
             raise FreeIPAError(message=response.text, code=response.status_code)
@@ -354,10 +373,16 @@ class Client(object):
         pwchange_result = response.headers.get('X-IPA-Pwchange-Result', None)
         if pwchange_result != 'ok':
             if pwchange_result == 'invalid-password':
-                raise PWChangeInvalidPassword(message=response.text, code=response.status_code)
+                raise PWChangeInvalidPassword(
+                    message=response.text, code=response.status_code
+                )
             elif pwchange_result == 'policy-error':
                 policy_error = response.headers.get('X-IPA-Pwchange-Policy-Error', None)
-                raise PWChangePolicyError(message=response.text, code=response.status_code, policy_error=policy_error)
+                raise PWChangePolicyError(
+                    message=response.text,
+                    code=response.status_code,
+                    policy_error=policy_error,
+                )
             else:
                 raise FreeIPAError(message=response.text, code=response.status_code)
         return response

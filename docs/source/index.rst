@@ -53,21 +53,24 @@ For example:
 Contributing
 ------------
 
-The only dependency is Python Requests library (http://docs.python-requests.org/)
+1) Install `pre-commit` and `tox`
 
-See also API documentation: https://ipa.demo1.freeipa.org/ipa/ui/#/p/apibrowser/
+.. code-block:: bash
 
-Install python-freeipa in development mode along with dependencies:
+    pip install tox pre-commit
+    pre-commit install
+
+2) Install python-freeipa in development mode along with dependencies:
 
   .. code-block:: bash
 
     pip install -e .[tests]
 
-Run tests suite:
+3) Run tests suite:
 
   .. code-block:: bash
 
-    python setup.py test
+    tox
 
 Recreation of MetaClient
 ------------------------

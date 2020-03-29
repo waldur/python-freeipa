@@ -1,6 +1,7 @@
 import json
-import responses
 import unittest
+
+import responses
 
 from python_freeipa import ClientLegacy as Client
 
@@ -8,7 +9,7 @@ from python_freeipa import ClientLegacy as Client
 class UsersTest(unittest.TestCase):
     def setUp(self):
         self.client = Client('ipa.demo1.freeipa.org', version='2.215')
-        self.client._current_host='ipa.demo1.freeipa.org'
+        self.client._current_host = 'ipa.demo1.freeipa.org'
         self.url = 'https://ipa.demo1.freeipa.org/ipa/session/json'
         self.maxDiff = None
 
@@ -24,9 +25,9 @@ class UsersTest(unittest.TestCase):
                     'sn': 'Lebowski',
                     'cn': 'Alice Lebowski',
                     'preferredlanguage': 'EN',
-                    'version': '2.215'
-                }
-            ]
+                    'version': '2.215',
+                },
+            ],
         }
 
         response_json = {
@@ -35,48 +36,22 @@ class UsersTest(unittest.TestCase):
             'principal': 'admin@DEMO1.FREEIPA.ORG',
             'result': {
                 'result': {
-                    'cn': [
-                        'Alice Lebowski'
-                    ],
-                    'displayname': [
-                        'Alice Lebowski'
-                    ],
+                    'cn': ['Alice Lebowski'],
+                    'displayname': ['Alice Lebowski'],
                     'dn': 'uid=alice,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org',
-                    'gecos': [
-                        'Alice Lebowski'
-                    ],
-                    'gidnumber': [
-                        '1120000017'
-                    ],
-                    'givenname': [
-                        'Alice'
-                    ],
+                    'gecos': ['Alice Lebowski'],
+                    'gidnumber': ['1120000017'],
+                    'givenname': ['Alice'],
                     'has_keytab': False,
                     'has_password': False,
-                    'homedirectory': [
-                        '/home/alice'
-                    ],
-                    'initials': [
-                        'AL'
-                    ],
-                    'ipauniqueid': [
-                        'e413c980-409e-11e7-b15d-fa163e0a8415'
-                    ],
-                    'krbcanonicalname': [
-                        'alice@DEMO1.FREEIPA.ORG'
-                    ],
-                    'krbprincipalname': [
-                        'alice@DEMO1.FREEIPA.ORG'
-                    ],
-                    'loginshell': [
-                        '/bin/sh'
-                    ],
-                    'mail': [
-                        'alice@demo1.freeipa.org'
-                    ],
-                    'memberof_group': [
-                        'ipausers'
-                    ],
+                    'homedirectory': ['/home/alice'],
+                    'initials': ['AL'],
+                    'ipauniqueid': ['e413c980-409e-11e7-b15d-fa163e0a8415'],
+                    'krbcanonicalname': ['alice@DEMO1.FREEIPA.ORG'],
+                    'krbprincipalname': ['alice@DEMO1.FREEIPA.ORG'],
+                    'loginshell': ['/bin/sh'],
+                    'mail': ['alice@demo1.freeipa.org'],
+                    'memberof_group': ['ipausers'],
                     'mepmanagedentry': [
                         'cn=alice,cn=groups,cn=accounts,dc=demo1,dc=freeipa,dc=org'
                     ],
@@ -92,26 +67,22 @@ class UsersTest(unittest.TestCase):
                         'krbticketpolicyaux',
                         'krbprincipalaux',
                         'inetuser',
-                        'posixaccount'
+                        'posixaccount',
                     ],
-                    'sn': [
-                        'Lebowski'
-                    ],
-                    'uid': [
-                        'alice'
-                    ],
-                    'uidnumber': [
-                        '1120000017'
-                    ]
+                    'sn': ['Lebowski'],
+                    'uid': ['alice'],
+                    'uidnumber': ['1120000017'],
                 },
                 'summary': 'Added user \'alice\'',
-                'value': 'alice'
+                'value': 'alice',
             },
-            'version': '4.4.2'
+            'version': '4.4.2',
         }
 
         responses.add(responses.POST, self.url, json=response_json, status=200)
-        self.client.user_add('alice', 'Alice', 'Lebowski', 'Alice Lebowski', preferred_language='EN')
+        self.client.user_add(
+            'alice', 'Alice', 'Lebowski', 'Alice Lebowski', preferred_language='EN'
+        )
         self.assertEqual(1, len(responses.calls))
         self.assertEqual(json.loads(responses.calls[0].request.body), request_json)
 
@@ -119,10 +90,7 @@ class UsersTest(unittest.TestCase):
     def test_user_disable(self):
         request_json = {
             'method': 'user_disable',
-            'params': [
-                ['test1'],
-                {'version': '2.215'}
-            ]
+            'params': [['test1'], {'version': '2.215'}],
         }
 
         response_json = {
@@ -132,9 +100,9 @@ class UsersTest(unittest.TestCase):
             'result': {
                 'result': True,
                 'summary': 'Disabled user account \'test1\'',
-                'value': 'test1'
+                'value': 'test1',
             },
-            'version': '4.4.2'
+            'version': '4.4.2',
         }
 
         responses.add(responses.POST, self.url, json=response_json, status=200)
