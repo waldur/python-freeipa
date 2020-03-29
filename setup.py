@@ -13,7 +13,7 @@ tests_requires = [
 
 setup(
     name='python-freeipa',
-    version='1.0.1',
+    version='1.0.2',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://waldur.com',
