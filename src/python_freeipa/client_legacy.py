@@ -1,24 +1,60 @@
 from python_freeipa.client import Client
-
-from python_freeipa.exceptions import DuplicateEntry
-from python_freeipa.exceptions import parse_group_management_error
-from python_freeipa.exceptions import parse_hostgroup_management_error
+from python_freeipa.exceptions import (
+    DuplicateEntry,
+    parse_group_management_error,
+    parse_hostgroup_management_error,
+)
 
 
 class ClientLegacy(Client):
     """Lightweight FreeIPA JSON RPC client."""
 
     def __init__(self, host, verify_ssl=True, version=None):
-        super(ClientLegacy, self).__init__(host=host, verify_ssl=verify_ssl, version=version)
+        super(ClientLegacy, self).__init__(
+            host=host, verify_ssl=verify_ssl, version=version
+        )
 
-    def user_add(self, username, first_name, last_name, full_name, display_name=None,
-                 noprivate=False, mail=None, ssh_key=None, job_title=None, gid_number=None, uid_number=None,
-                 preferred_language=None, disabled=False, random_pass=False, initials=None, home_directory=None,
-                 gecos=None, login_shell=None, user_password=None, street_address=None, city=None, state=None,
-                 postal_code=None, telephone_number=None, mobile_number=None, pager_number=None, fax_number=None,
-                 organization_unit=None, manager=None, car_license=None, user_auth_type=None,
-                 user_class=None, radius_proxy_config=None, radius_proxy_username=None, department_number=None,
-                 employee_number=None, employee_type=None, **kwargs):
+    def user_add(
+        self,
+        username,
+        first_name,
+        last_name,
+        full_name,
+        display_name=None,
+        noprivate=False,
+        mail=None,
+        ssh_key=None,
+        job_title=None,
+        gid_number=None,
+        uid_number=None,
+        preferred_language=None,
+        disabled=False,
+        random_pass=False,
+        initials=None,
+        home_directory=None,
+        gecos=None,
+        login_shell=None,
+        user_password=None,
+        street_address=None,
+        city=None,
+        state=None,
+        postal_code=None,
+        telephone_number=None,
+        mobile_number=None,
+        pager_number=None,
+        fax_number=None,
+        organization_unit=None,
+        manager=None,
+        car_license=None,
+        user_auth_type=None,
+        user_class=None,
+        radius_proxy_config=None,
+        radius_proxy_username=None,
+        department_number=None,
+        employee_number=None,
+        employee_type=None,
+        **kwargs
+    ):
         """
         Add a new user. Username corresponds to UID field of user.
 
@@ -219,7 +255,7 @@ class ClientLegacy(Client):
             'all': True,
             'no_members': False,  # Suppress processing of membership attributes.
             'sizelimit': 0,  # Maximum number of entries returned (0 is unlimited)
-            'whoami': False  # Display user record for current Kerberos principal.
+            'whoami': False,  # Display user record for current Kerberos principal.
         }
         params.update(kwargs)
         return self._request('user_find', criteria, params)
@@ -261,14 +297,45 @@ class ClientLegacy(Client):
         """
         self._request('user_enable', username)
 
-    def user_mod(self, username, first_name=None, last_name=None, full_name=None, display_name=None,
-                 noprivate=False, mail=None, ssh_key=None, job_title=None,
-                 preferred_language=None, disabled=False, random_pass=False, initials=None, home_directory=None,
-                 gecos=None, login_shell=None, user_password=None, street_address=None, city=None, state=None,
-                 postal_code=None, telephone_number=None, mobile_number=None, pager_number=None, fax_number=None,
-                 organization_unit=None, manager=None, car_license=None, user_auth_type=None,
-                 user_class=None, radius_proxy_config=None, radius_proxy_username=None, department_number=None,
-                 employee_number=None, employee_type=None, **kwargs):
+    def user_mod(
+        self,
+        username,
+        first_name=None,
+        last_name=None,
+        full_name=None,
+        display_name=None,
+        noprivate=False,
+        mail=None,
+        ssh_key=None,
+        job_title=None,
+        preferred_language=None,
+        disabled=False,
+        random_pass=False,
+        initials=None,
+        home_directory=None,
+        gecos=None,
+        login_shell=None,
+        user_password=None,
+        street_address=None,
+        city=None,
+        state=None,
+        postal_code=None,
+        telephone_number=None,
+        mobile_number=None,
+        pager_number=None,
+        fax_number=None,
+        organization_unit=None,
+        manager=None,
+        car_license=None,
+        user_auth_type=None,
+        user_class=None,
+        radius_proxy_config=None,
+        radius_proxy_username=None,
+        department_number=None,
+        employee_number=None,
+        employee_type=None,
+        **kwargs
+    ):
         """
         Modify a user.
 
@@ -502,7 +569,15 @@ class ClientLegacy(Client):
         data = self._request('passwd', args=[login, password], params=params)
         return data['result']
 
-    def group_add(self, group, description=None, non_posix=False, external=False, no_members=False, **kwargs):
+    def group_add(
+        self,
+        group,
+        description=None,
+        non_posix=False,
+        external=False,
+        no_members=False,
+        **kwargs
+    ):
         """
         Create a new group.
 
@@ -546,7 +621,9 @@ class ClientLegacy(Client):
         params = {'continue': skip_errors}
         self._request('group_del', group, params)
 
-    def group_add_member(self, group, users=None, groups=None, skip_errors=False, **kwargs):
+    def group_add_member(
+        self, group, users=None, groups=None, skip_errors=False, **kwargs
+    ):
         """
         Add members to a group.
 
@@ -570,7 +647,9 @@ class ClientLegacy(Client):
             parse_group_management_error(data)
         return data['result']
 
-    def group_remove_member(self, group, users=None, groups=None, skip_errors=False, **kwargs):
+    def group_remove_member(
+        self, group, users=None, groups=None, skip_errors=False, **kwargs
+    ):
         """
         Remove members from a group.
 
@@ -602,10 +681,7 @@ class ClientLegacy(Client):
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: str
         """
-        params = {
-            'all': True,
-            'sizelimit': 0
-        }
+        params = {'all': True, 'sizelimit': 0}
         params.update(kwargs)
         return self._request('group_find', criteria, params)
 
@@ -615,15 +691,21 @@ class ClientLegacy(Client):
 
         :param group: Group name.
         """
-        params = {
-            'all': True,
-            'raw': False
-        }
+        params = {'all': True, 'raw': False}
         params.update(kwargs)
         data = self._request('group_show', group, params)
         return data['result']
 
-    def group_mod(self, group, description=None, posix=False, external=False, no_members=False, rename=None, **kwargs):
+    def group_mod(
+        self,
+        group,
+        description=None,
+        posix=False,
+        external=False,
+        no_members=False,
+        rename=None,
+        **kwargs
+    ):
         """
         Modify a group.
 
@@ -664,7 +746,9 @@ class ClientLegacy(Client):
         data = self._request('group_mod', group, params)
         return data['result']
 
-    def automountkey_find(self, location, automount_map, key=None, criteria=None, **kwargs):
+    def automountkey_find(
+        self, location, automount_map, key=None, criteria=None, **kwargs
+    ):
         """
         Search for the automount key.
 
@@ -679,10 +763,7 @@ class ClientLegacy(Client):
         :return:
         :rtype: dict
         """
-        args = [
-            location,
-            automount_map
-        ]
+        args = [location, automount_map]
 
         if criteria:
             args.append(criteria)
@@ -718,16 +799,13 @@ class ClientLegacy(Client):
         if self.automountkey_find(location, automount_map, key):
             raise DuplicateEntry()
 
-        args = [
-            location,
-            automount_map
-        ]
+        args = [location, automount_map]
 
         params = {
             'all': True,
             'raw': False,
             'automountkey': key,
-            'automountinformation': mount_info
+            'automountinformation': mount_info,
         }
         params.update(kwargs)
 
@@ -749,17 +827,14 @@ class ClientLegacy(Client):
         :return: automount key data
         :rtype: dict
         """
-        args = [
-            automount_location,
-            automount_map
-        ]
+        args = [automount_location, automount_map]
 
         params = {
             'all': True,
             'raw': False,
             'rights': False,
             'automountkey': key,
-            'automountinformation': mount_info
+            'automountinformation': mount_info,
         }
 
         data = self._request('automountkey_mod', args, params)
@@ -772,10 +847,7 @@ class ClientLegacy(Client):
         :param location: Automount location name.
         :type location: str
         """
-        params = {
-            'all': True,
-            'raw': False
-        }
+        params = {'all': True, 'raw': False}
         params.update(kwargs)
 
         data = self._request('automountlocation_add', location, params)
@@ -799,11 +871,7 @@ class ClientLegacy(Client):
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: str
         """
-        params = {
-            'all': True,
-            'raw': False,
-            'sizelimit': 0
-        }
+        params = {'all': True, 'raw': False, 'sizelimit': 0}
         params.update(kwargs)
 
         data = self._request('automountlocation_find', criteria, params)
@@ -816,11 +884,7 @@ class ClientLegacy(Client):
         :param location: Automount location name.
         :type location: str
         """
-        params = {
-            'all': True,
-            'raw': False,
-            'rights': False
-        }
+        params = {'all': True, 'raw': False, 'rights': False}
 
         data = self._request('automountlocation_show', location, params)
         return data['result']
@@ -844,15 +908,9 @@ class ClientLegacy(Client):
         :param automount_map: Automount map name
         :type automount_map: str
         """
-        args = [
-            location,
-            automount_map
-        ]
+        args = [location, automount_map]
 
-        params = {
-            'all': True,
-            'raw': False
-        }
+        params = {'all': True, 'raw': False}
         params.update(kwargs)
 
         data = self._request('automountmap_add', args, params)
@@ -886,11 +944,7 @@ class ClientLegacy(Client):
         if criteria:
             args.append(criteria)
 
-        params = {
-            'all': True,
-            'raw': False,
-            'sizelimit': 0
-        }
+        params = {'all': True, 'raw': False, 'sizelimit': 0}
         params.update(kwargs)
 
         data = self._request('automountmap_find', args, params)
@@ -905,10 +959,7 @@ class ClientLegacy(Client):
         :param automount_map: Automount map name
         :type automount_map: str
         """
-        args = [
-            location,
-            automount_map
-        ]
+        args = [location, automount_map]
 
         params = {
             'all': True,
@@ -933,16 +984,9 @@ class ClientLegacy(Client):
         :param automount_map: Automount map name
         :type automount_map: str
         """
-        args = [
-            location,
-            automount_map
-        ]
+        args = [location, automount_map]
 
-        params = {
-            'all': True,
-            'raw': False,
-            'rights': False
-        }
+        params = {'all': True, 'raw': False, 'rights': False}
         params.update(kwargs)
 
         data = self._request('automountmap_show', args, params)
@@ -955,9 +999,7 @@ class ClientLegacy(Client):
         :param host: Host name which should be alphanumeric and maximum length is 255
         :type host: str
         """
-        params = {
-            'all': True
-        }
+        params = {'all': True}
         params.update(kwargs)
 
         data = self._request('host_add', host, params)
@@ -974,9 +1016,7 @@ class ClientLegacy(Client):
         :param updatedns: Remove A, AAAA, SSHFP and PTR records of the host(s) managed by IPA DNS
         :type updatedns: bool
         """
-        params = {
-            "continue": skip_errors
-        }
+        params = {"continue": skip_errors}
 
         if updatedns:
             params['updatedns'] = updatedns
@@ -984,7 +1024,15 @@ class ClientLegacy(Client):
         data = self._request('host_del', fqdn, params)
         return data['result']
 
-    def host_find(self, criteria=None, allattr=True, no_members=False, sizelimit=0, raw=False, **kwargs):
+    def host_find(
+        self,
+        criteria=None,
+        allattr=True,
+        no_members=False,
+        sizelimit=0,
+        raw=False,
+        **kwargs
+    ):
         """
         Search for hosts.
 
@@ -1000,10 +1048,10 @@ class ClientLegacy(Client):
         :type raw: bool
         """
         params = {
-            'all': allattr,             # Retrieve and print all attributes from the server. Affects command output
-            'no_members': no_members,   # Suppress processing of membership attributes
-            'sizelimit': sizelimit,     # Maximum number of entries returned (0 is unlimited)
-            'raw': raw                  # Print entries as stored on the server. Only affects output format
+            'all': allattr,  # Retrieve and print all attributes from the server. Affects command output
+            'no_members': no_members,  # Suppress processing of membership attributes
+            'sizelimit': sizelimit,  # Maximum number of entries returned (0 is unlimited)
+            'raw': raw,  # Print entries as stored on the server. Only affects output format
         }
         params.update(kwargs)
         return self._request('host_find', criteria, params)
@@ -1023,8 +1071,11 @@ class ClientLegacy(Client):
         :param raw: Print entries as stored on the server. Only affects output format
         :type raw: bool
         """
-        data = self._request('host_show', fqdn, {'all': allattr, 'rights': rights, 'no_members': no_members,
-                                                 'raw': raw})
+        data = self._request(
+            'host_show',
+            fqdn,
+            {'all': allattr, 'rights': rights, 'no_members': no_members, 'raw': raw},
+        )
         return data['result']
 
     def hostgroup_add(self, hostgroup, description=None, no_members=False, **kwargs):
@@ -1063,7 +1114,15 @@ class ClientLegacy(Client):
         data = self._request('hostgroup_del', hostgroup_name, {'continue': skip_errors})
         return data['result']
 
-    def hostgroup_find(self, criteria=None, allattr=True, no_members=False, sizelimit=0, raw=False, **kwargs):
+    def hostgroup_find(
+        self,
+        criteria=None,
+        allattr=True,
+        no_members=False,
+        sizelimit=0,
+        raw=False,
+        **kwargs
+    ):
         """
         Search for hostgroups
 
@@ -1079,15 +1138,17 @@ class ClientLegacy(Client):
         :type raw: bool
         """
         params = {
-            'all': allattr,             # Retrieve and print all attributes from the server. Affects command output
-            'no_members': no_members,   # Suppress processing of membership attributes
-            'sizelimit': sizelimit,     # Maximum number of entries returned (0 is unlimited)
-            'raw': raw                  # Print entries as stored on the server. Only affects output format
+            'all': allattr,  # Retrieve and print all attributes from the server. Affects command output
+            'no_members': no_members,  # Suppress processing of membership attributes
+            'sizelimit': sizelimit,  # Maximum number of entries returned (0 is unlimited)
+            'raw': raw,  # Print entries as stored on the server. Only affects output format
         }
         params.update(kwargs)
         return self._request('hostgroup_find', criteria, params)
 
-    def hostgroup_show(self, hostgroup, rights=False, no_members=False, allattr=True, raw=False):
+    def hostgroup_show(
+        self, hostgroup, rights=False, no_members=False, allattr=True, raw=False
+    ):
         """
         Display information about a host.
 
@@ -1102,12 +1163,23 @@ class ClientLegacy(Client):
         :param raw: Print entries as stored on the server. Only affects output format
         :type raw: bool
         """
-        data = self._request('hostgroup_show', hostgroup, {'all': allattr, 'rights': rights, 'no_members': no_members,
-                             'raw': raw})
+        data = self._request(
+            'hostgroup_show',
+            hostgroup,
+            {'all': allattr, 'rights': rights, 'no_members': no_members, 'raw': raw},
+        )
         return data['result']
 
-    def hostgroup_mod(self, hostgroup, description=None, no_members=False, rights=False, allattr=False, raw=False,
-                      **kwargs):
+    def hostgroup_mod(
+        self,
+        hostgroup,
+        description=None,
+        no_members=False,
+        rights=False,
+        allattr=False,
+        raw=False,
+        **kwargs
+    ):
         """
         Modify a hostgroup.
 
@@ -1128,7 +1200,7 @@ class ClientLegacy(Client):
             'all': allattr,
             'raw': raw,
             'rights': rights,
-            'no_members': no_members
+            'no_members': no_members,
         }
         if description:
             params['description'] = description
@@ -1137,8 +1209,15 @@ class ClientLegacy(Client):
         data = self._request('hostgroup_mod', hostgroup, params)
         return data['result']
 
-    def hostgroup_add_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False,
-                              **kwargs):
+    def hostgroup_add_members(
+        self,
+        hostgroup,
+        no_members=False,
+        host=None,
+        hostgroups=None,
+        skip_errors=False,
+        **kwargs
+    ):
         """
         Add members to a hostgroup.
 
@@ -1170,8 +1249,15 @@ class ClientLegacy(Client):
             parse_hostgroup_management_error(data)
         return data['result']
 
-    def hostgroup_remove_members(self, hostgroup, no_members=False, host=None, hostgroups=None, skip_errors=False,
-                                 **kwargs):
+    def hostgroup_remove_members(
+        self,
+        hostgroup,
+        no_members=False,
+        host=None,
+        hostgroups=None,
+        skip_errors=False,
+        **kwargs
+    ):
         """
         Remove members from a hostgroup.
 
@@ -1241,10 +1327,7 @@ class ClientLegacy(Client):
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: str
         """
-        params = {
-            'all': True,
-            'sizelimit': 0
-        }
+        params = {'all': True, 'sizelimit': 0}
         params.update(kwargs)
         return self._request('dnsrecord_find', [zone_name, criteria], params)
 
@@ -1317,10 +1400,7 @@ class ClientLegacy(Client):
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: str
         """
-        params = {
-            'all': True,
-            'sizelimit': 0
-        }
+        params = {'all': True, 'sizelimit': 0}
         params.update(kwargs)
         return self._request('dnszone_find', criteria, params)
 

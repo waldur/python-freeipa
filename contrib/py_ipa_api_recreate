@@ -1,48 +1,70 @@
 #!/usr/bin/env python
 __author__ = 'schlitzer'
 import argparse
-from collections import OrderedDict
 import json
 import logging
 import sys
 import textwrap
+from collections import OrderedDict
 
 from python_freeipa import Client
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Recreate API Commands from JSON api spec")
+    parser = argparse.ArgumentParser(
+        description="Recreate API Commands from JSON api spec"
+    )
 
     source_group = parser.add_mutually_exclusive_group(required=True)
 
     source_group.add_argument(
-        "--source-json", dest="source_json", action="store", default=None,
-        help="Full path to json document, describing the API")
+        "--source-json",
+        dest="source_json",
+        action="store",
+        default=None,
+        help="Full path to json document, describing the API",
+    )
 
     parser.add_argument(
-        "--source-json-version", dest="source_json_version", action="store", default=None,
-        help="api_version this schema file uses")
+        "--source-json-version",
+        dest="source_json_version",
+        action="store",
+        default=None,
+        help="api_version this schema file uses",
+    )
 
     source_group.add_argument(
-        "--source-url", dest="source_url", action="store", default=None,
-        help="fqdn of ipa server, to fetch the API from")
+        "--source-url",
+        dest="source_url",
+        action="store",
+        default=None,
+        help="fqdn of ipa server, to fetch the API from",
+    )
 
     parser.add_argument(
-        "--source-url-user", dest="source_url_user", action="store", default=None,
-        help="username for remote server, omit if TGT present")
+        "--source-url-user",
+        dest="source_url_user",
+        action="store",
+        default=None,
+        help="username for remote server, omit if TGT present",
+    )
 
     parser.add_argument(
-        "--source-url-pass", dest="source_url_pass", action="store", default=None,
-        help="password for remote server, omit if TGT present")
+        "--source-url-pass",
+        dest="source_url_pass",
+        action="store",
+        default=None,
+        help="password for remote server, omit if TGT present",
+    )
 
     parsed_args = parser.parse_args()
 
     creator = MetaAPICreator(
         src_json=parsed_args.source_json,
         src_url=parsed_args.source_url,
-        src_url_pass = parsed_args.source_url_pass,
-        src_url_user = parsed_args.source_url_user,
-        version = parsed_args.source_json_version,
+        src_url_pass=parsed_args.source_url_pass,
+        src_url_user=parsed_args.source_url_user,
+        version=parsed_args.source_json_version,
     )
     creator.run()
 
@@ -101,7 +123,7 @@ class MetaAPICreator:
     def version(self):
         if self._version:
             return self._version
-        for key, value in self.client._request('env',[], {})['result'].items():
+        for key, value in self.client._request('env', [], {})['result'].items():
             self.log.info(key)
             if key == 'api_version':
                 self._version = value
@@ -153,8 +175,12 @@ class MetaAPICreator:
         self.append('class ClientMeta(Client):')
         self.append('    version = \'{0}\''.format(self.version))
         self.append('')
-        self.append('    def __init__(self, host=None, verify_ssl=True, dns_discovery=True):')
-        self.append('        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version, dns_discovery=dns_discovery)')
+        self.append(
+            '    def __init__(self, host=None, verify_ssl=True, dns_discovery=True):'
+        )
+        self.append(
+            '        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version, dns_discovery=dns_discovery)'
+        )
 
     def _func_add(self, command, spec):
         self.append('')
@@ -187,7 +213,11 @@ class MetaAPICreator:
 
         self.append('):', 1)
         try:
-            self.append(textwrap.indent('"""\n' + textwrap.dedent(spec['doc'].lstrip('\n')), '    ' * 2))
+            self.append(
+                textwrap.indent(
+                    '"""\n' + textwrap.dedent(spec['doc'].lstrip('\n')), '    ' * 2
+                )
+            )
         except AttributeError:
             self.append('"""\n', 2)
         self.meta_api.append('\n')
@@ -243,11 +273,15 @@ class MetaAPICreator:
         if 'default' in spec:
             result['default_value'] = True
             if isinstance(spec['default'], str):
-                result['head'].append("{0}='{1}',".format(mapped_arg_name, spec['default']))
+                result['head'].append(
+                    "{0}='{1}',".format(mapped_arg_name, spec['default'])
+                )
             elif isinstance(spec['default'], list):
                 result['head'].append("{0}=None,".format(mapped_arg_name))
             else:
-                result['head'].append("{0}={1},".format(mapped_arg_name, spec['default']))
+                result['head'].append(
+                    "{0}={1},".format(mapped_arg_name, spec['default'])
+                )
         elif spec['required']:
             result['head'].append("{0},".format(mapped_arg_name))
         else:
@@ -258,7 +292,13 @@ class MetaAPICreator:
 
     def func_add_arg_doc(self, arg_name, spec, result, _prefix):
         mapped_arg_name = self._name_mapping(arg_name, _prefix)
-        lines = textwrap.wrap(' '.join(':param {0}: {1}'.format(mapped_arg_name, spec['doc'].replace('\\n', r'\\n')).splitlines()))
+        lines = textwrap.wrap(
+            ' '.join(
+                ':param {0}: {1}'.format(
+                    mapped_arg_name, spec['doc'].replace('\\n', r'\\n')
+                ).splitlines()
+            )
+        )
         result['doc'].append(lines[0])
         for line in lines[1:]:
             result['doc'].append('    ' + line)
@@ -269,8 +309,7 @@ class MetaAPICreator:
             _class = 'dict'
         elif _class == 'Int':
             _class = 'int, min value {0}, max value {1}'.format(
-                spec['minvalue'],
-                spec['maxvalue']
+                spec['minvalue'], spec['maxvalue']
             )
         elif _class == "IntEnum":
             _class = 'int, valid values {0}'.format(spec['cli_metavar'])
@@ -307,7 +346,9 @@ class MetaAPICreator:
         result['head'] = list()
         result['default_value'] = False
         if not isinstance(spec, dict):
-            self.log.warning("found option spec, that is not a dictionary, adding **kwargs?")
+            self.log.warning(
+                "found option spec, that is not a dictionary, adding **kwargs?"
+            )
             return result
         self.func_add_option_head(spec, result)
         return result
@@ -321,11 +362,15 @@ class MetaAPICreator:
         elif 'default' in spec:
             result['default_value'] = True
             if isinstance(spec['default'], str):
-                result['head'].append("{0}='{1}',".format(mapped_arg_name, spec['default']))
+                result['head'].append(
+                    "{0}='{1}',".format(mapped_arg_name, spec['default'])
+                )
             elif isinstance(spec['default'], list):
                 result['head'].append("{0}=None,".format(mapped_arg_name))
             else:
-                result['head'].append("{0}={1},".format(mapped_arg_name, spec['default']))
+                result['head'].append(
+                    "{0}={1},".format(mapped_arg_name, spec['default'])
+                )
         elif spec['required']:
             result['head'].append("{0},".format(mapped_arg_name))
         else:
@@ -337,10 +382,14 @@ class MetaAPICreator:
     def func_add_option_body(self, arg_name, spec, result):
         mapped_arg_name = self._name_mapping(arg_name, 'o')
         if spec['required']:
-            result['body'].append("_params['{0}'] = {1}".format(arg_name, mapped_arg_name))
+            result['body'].append(
+                "_params['{0}'] = {1}".format(arg_name, mapped_arg_name)
+            )
         else:
             result['body'].append("if {0} is not None:".format(mapped_arg_name))
-            result['body'].append("    _params['{0}'] = {1}".format(arg_name, mapped_arg_name))
+            result['body'].append(
+                "    _params['{0}'] = {1}".format(arg_name, mapped_arg_name)
+            )
 
     def _render(self):
         meta_api = '\n'.join(self.meta_api)

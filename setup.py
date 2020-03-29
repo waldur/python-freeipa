@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
-
+from setuptools import find_packages, setup
 
 install_requires = [
     'requests',
@@ -14,16 +13,14 @@ tests_requires = [
 
 setup(
     name='python-freeipa',
-    version='1.0.1',
+    version='1.0.2',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://waldur.com',
     description='Lightweight FreeIPA client',
     long_description=open('README.rst').read(),
     install_requires=install_requires,
-    extras_require={
-        'tests': tests_requires,
-    },
+    extras_require={'tests': tests_requires,},
     package_dir={'': 'src'},
     packages=find_packages('src', exclude=['*.tests', '*.tests.*', 'tests.*', 'tests']),
     test_suite='python_freeipa.tests.suite',
@@ -35,6 +32,6 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        'Topic :: System :: Systems Administration :: Authentication/Directory'
-    )
+        'Topic :: System :: Systems Administration :: Authentication/Directory',
+    ),
 )
