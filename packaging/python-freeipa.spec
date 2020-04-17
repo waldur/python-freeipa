@@ -1,40 +1,47 @@
+# Use Python 2 for RHEL/CentOS 7 and Python 3 for everything else
+%if 0%{?el7}
+%global __python %{__python2}
+%global python_pkgversion %{nil}
+%else
+%global __python %{__python3}
+%global python_pkgversion %{python3_pkgversion}
+%endif
+
 Name: python-freeipa
 Summary: Lightweight FreeIPA client
 Group: Development/Libraries
-Version: 1.0.2
+Version: 1.0.3
 Release: 1.el7
 License: MIT
-Url: https://waldur.com
+Url: https://python-freeipa.readthedocs.io/
 Source0: python-freeipa-%{version}.tar.gz
 
-Requires: python-requests
+Requires: python%{python_pkgversion}-requests
 
 BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
-BuildRequires: python-setuptools
+BuildRequires: python%{python_pkgversion}-devel
+BuildRequires: python%{python_pkgversion}-setuptools
 
 %description
 Lightweight FreeIPA client.
 
 %prep
-%setup -q -n python-freeipa-%{version}
+%autosetup
 
 %build
-python setup.py build
+%py_build
 
 %install
-rm -rf %{buildroot}
-%{__python} setup.py install -O1 --root=%{buildroot}
-
-%clean
-rm -rf %{buildroot}
+%py_install
 
 %files
-%defattr(-,root,root)
 %{python_sitelib}/*
 
 %changelog
+* Fri Apr 17 2020 Jenkins <jenkins@opennodecloud.com> - 1.0.3-1.el7
+- New upstream release
+
 * Sun Mar 29 2020 Jenkins <jenkins@opennodecloud.com> - 1.0.2-1.el7
 - New upstream release
 

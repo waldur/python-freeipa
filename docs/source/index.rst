@@ -30,7 +30,7 @@ For DNS service discovery, you need to have the `srvlookup` module installed.
 .. code-block:: python
 
     from python_freeipa import ClientMeta
-    client = ClientMeta(dns_lookup=True)
+    client = ClientMeta(dns_discovery=True)
     client.login('admin', 'Secret123')
     user = client.user_add('test3', 'John', 'Doe', 'John Doe', o_preferredlanguage='EN')
     print(user)
