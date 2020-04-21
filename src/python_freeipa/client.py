@@ -160,6 +160,31 @@ class Client(object):
     def log(self):
         return self._log
 
+    def _wrap_in_dns_discovery(self, function, *args, **kwargs):
+        """
+        Wrap a function in DNS discovery.
+
+        :param function: the function to wrap
+        :type function: callable
+        :param args: the function's arguments
+        :type args: list
+        :param kwargs: the function's keyword arguments
+        :type kwargs: dict
+        """
+        if self._host:
+            self._current_host = self._host
+            return function(*args, **kwargs)
+        else:
+            for host in self.dns_discovered:
+                try:
+                    self._current_host = host.hostname
+                    return function(*args, **kwargs)
+                except requests.exceptions.ConnectionError as err:
+                    self.log.warning(
+                        "Could not connect discovered host: {0}".format(err)
+                    )
+            raise FreeIPAError("Could not connect to any host")
+
     def login(self, username, password):
         """
         Login to FreeIPA server using username and password.
@@ -170,25 +195,13 @@ class Client(object):
         :type password: str
         :raises Unauthorized: raised if credentials are invalid.
         """
-        if self._host:
-            self._current_host = self._host
-            return self._login(self._host, username, password)
-        else:
-            for host in self.dns_discovered:
-                try:
-                    self._current_host = host.hostname
-                    return self._login(host.hostname, username, password)
-                except requests.exceptions.ConnectionError as err:
-                    self.log.warning(
-                        "Could not connect discovered host: {0}".format(err)
-                    )
-            raise FreeIPAError("Could not connect to any host")
+        return self._wrap_in_dns_discovery(self._login, username, password)
 
-    def _login(self, host, username, password):
+    def _login(self, username, password):
         """
         private function, use login instead
         """
-        login_url = 'https://{0}/ipa/session/login_password'.format(host)
+        login_url = 'https://{0}/ipa/session/login_password'.format(self._current_host)
         headers = {
             'Referer': login_url,
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -231,29 +244,17 @@ class Client(object):
         :raises Unauthorized: raised if credentials are invalid.
         :raises ImportError: raised if the ``requests_kerberos`` module is unavailable.
         """
-        if self._host:
-            self._current_host = self._host
-            return self._login_kerberos(self._host)
-        else:
-            for host in self.dns_discovered:
-                try:
-                    self._current_host = host.hostname
-                    return self._login_kerberos(host.hostname)
-                except requests.exceptions.ConnectionError as err:
-                    self.log.warning(
-                        "Could not connect discovered host: {0}".format(err)
-                    )
-            raise FreeIPAError("Could not connect to any host")
+        return self._wrap_in_dns_discovery(self._login_kerberos)
 
-    def _login_kerberos(self, host):
+    def _login_kerberos(self):
         """
         private function, use login_kerberos instead
         """
         if isinstance(requests_kerberos, ImportError):
             raise requests_kerberos
 
-        login_url = 'https://{0}/ipa/session/login_kerberos'.format(host)
-        headers = {'Referer': 'https://{0}/ipa'.format(host)}
+        login_url = 'https://{0}/ipa/session/login_kerberos'.format(self._current_host)
+        headers = {'Referer': 'https://{0}/ipa'.format(self._current_host)}
         response = self._session.post(
             login_url,
             headers=headers,
@@ -265,7 +266,9 @@ class Client(object):
             raise Unauthorized(response.text)
 
         self.log.info(
-            'Successfully logged to {0} using Kerberos credentials.'.format(host)
+            'Successfully logged to {0} using Kerberos credentials.'.format(
+                self._current_host
+            )
         )
 
         return AuthenticatedSession(self, logged_in=True)
@@ -346,7 +349,14 @@ class Client(object):
         :param otp: User's OTP token if they have one
         :type otp: str or None
         """
+        return self._wrap_in_dns_discovery(
+            self._change_password, username, new_password, old_password, otp
+        )
 
+    def _change_password(self, username, new_password, old_password, otp=None):
+        """
+        private function, use change_password instead
+        """
         password_url = 'https://{0}/ipa/session/change_password'.format(
             self.current_host
         )
