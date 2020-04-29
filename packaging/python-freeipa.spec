@@ -10,7 +10,7 @@
 Name: python-freeipa
 Summary: Lightweight FreeIPA client
 Group: Development/Libraries
-Version: 1.0.4
+Version: 1.0.5
 Release: 1.el7
 License: MIT
 Url: https://python-freeipa.readthedocs.io/
@@ -39,6 +39,9 @@ Lightweight FreeIPA client.
 %{python_sitelib}/*
 
 %changelog
+* Wed Apr 29 2020 Jenkins <jenkins@opennodecloud.com> - 1.0.5-1.el7
+- New upstream release
+
 * Wed Apr 22 2020 Jenkins <jenkins@opennodecloud.com> - 1.0.4-1.el7
 - New upstream release
 
