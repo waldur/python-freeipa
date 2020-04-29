@@ -211,6 +211,7 @@ class MetaAPICreator:
             for line in i:
                 self.append(line, 2)
 
+        self.append('**kwargs', 2)
         self.append('):', 1)
         try:
             self.append(
@@ -241,6 +242,8 @@ class MetaAPICreator:
             for line in i['body']:
                 self.append(line, 2)
 
+        self.append('')
+        self.append('_params.update(kwargs)', 2)
         self.append('')
         self.append('return self._request(method, _args, _params)', 2)
 

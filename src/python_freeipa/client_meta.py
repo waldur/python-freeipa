@@ -24,6 +24,7 @@ class ClientMeta(Client):
         o_test=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create new ACI.
@@ -96,12 +97,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def aci_del(
         self,
         a_aciname,
         o_aciprefix,
+        **kwargs
     ):
         """
         Delete ACI.
@@ -120,6 +124,8 @@ class ClientMeta(Client):
 
         _params = dict()
         _params['aciprefix'] = o_aciprefix
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -141,6 +147,7 @@ class ClientMeta(Client):
         o_pkey_only=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Search for ACIs.
@@ -236,6 +243,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def aci_mod(
@@ -254,6 +263,7 @@ class ClientMeta(Client):
         o_selfaci=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify ACI.
@@ -323,6 +333,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def aci_rename(
@@ -342,6 +354,7 @@ class ClientMeta(Client):
         o_selfaci=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Rename an ACI.
@@ -414,6 +427,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def aci_show(
@@ -423,6 +438,7 @@ class ClientMeta(Client):
         o_location=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display a single ACI given an ACI name.
@@ -454,10 +470,13 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def adtrust_is_enabled(
         self,
+        **kwargs
     ):
         """
         Determine whether ipa-adtrust-install has been run on this system
@@ -470,6 +489,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_add(
@@ -481,6 +502,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add an automember rule.
@@ -522,6 +544,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_add_condition(
@@ -534,6 +558,7 @@ class ClientMeta(Client):
         o_automemberexclusiveregex=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add conditions to an automember rule.
@@ -576,6 +601,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_default_group_remove(
@@ -584,6 +611,7 @@ class ClientMeta(Client):
         o_description=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Remove default (fallback) group for all unmatched entries.
@@ -611,6 +639,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_default_group_set(
@@ -620,6 +650,7 @@ class ClientMeta(Client):
         o_description=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Set default (fallback) group for all unmatched entries.
@@ -651,6 +682,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_default_group_show(
@@ -658,6 +691,7 @@ class ClientMeta(Client):
         o_type,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about the default (fallback) automember groups.
@@ -681,12 +715,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_del(
         self,
         a_cn,
         o_type,
+        **kwargs
     ):
         """
         Delete an automember rule.
@@ -705,6 +742,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['type'] = o_type
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_find(
@@ -715,6 +754,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for automember rules.
@@ -750,6 +790,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_find_orphans(
@@ -761,6 +803,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for orphan automember rules. The command might need to be run as
@@ -801,6 +844,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_mod(
@@ -814,6 +859,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify an automember rule.
@@ -864,6 +910,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_rebuild(
@@ -874,6 +922,7 @@ class ClientMeta(Client):
         o_no_wait=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Rebuild auto membership.
@@ -910,6 +959,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_remove_condition(
@@ -922,6 +973,7 @@ class ClientMeta(Client):
         o_automemberexclusiveregex=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Remove conditions from an automember rule.
@@ -964,6 +1016,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automember_show(
@@ -972,6 +1026,7 @@ class ClientMeta(Client):
         o_type,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about an automember rule.
@@ -998,6 +1053,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountkey_add(
@@ -1010,6 +1067,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create a new automount key.
@@ -1053,6 +1111,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountkey_del(
@@ -1062,6 +1122,7 @@ class ClientMeta(Client):
         o_automountkey,
         o_continue=False,
         o_automountinformation=None,
+        **kwargs
     ):
         """
         Delete an automount key.
@@ -1090,6 +1151,8 @@ class ClientMeta(Client):
         if o_automountinformation is not None:
             _params['automountinformation'] = o_automountinformation
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountkey_find(
@@ -1103,6 +1166,7 @@ class ClientMeta(Client):
         o_sizelimit=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Search for an automount key.
@@ -1149,6 +1213,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountkey_mod(
@@ -1165,6 +1231,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify an automount key.
@@ -1226,6 +1293,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountkey_show(
@@ -1237,6 +1306,7 @@ class ClientMeta(Client):
         o_automountinformation=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display an automount key.
@@ -1274,6 +1344,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountlocation_add(
@@ -1283,6 +1355,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create a new automount location.
@@ -1317,12 +1390,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountlocation_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an automount location.
@@ -1341,6 +1417,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountlocation_find(
@@ -1352,6 +1430,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for an automount location.
@@ -1393,6 +1472,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountlocation_show(
@@ -1401,6 +1482,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display an automount location.
@@ -1428,11 +1510,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountlocation_tofiles(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Generate automount files for a specific location.
@@ -1448,6 +1533,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountmap_add(
@@ -1459,6 +1546,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create a new automount map.
@@ -1500,6 +1588,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountmap_add_indirect(
@@ -1513,6 +1603,7 @@ class ClientMeta(Client):
         o_parentmap='auto.master',
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create a new indirect mount point.
@@ -1562,6 +1653,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountmap_del(
@@ -1569,6 +1662,7 @@ class ClientMeta(Client):
         a_automountlocationcn,
         a_automountmapname,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an automount map.
@@ -1590,6 +1684,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountmap_find(
@@ -1603,6 +1699,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for an automount map.
@@ -1651,6 +1748,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountmap_mod(
@@ -1664,6 +1763,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify an automount map.
@@ -1714,6 +1814,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def automountmap_show(
@@ -1723,6 +1825,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display an automount map.
@@ -1753,11 +1856,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def batch(
         self,
         a_methods=None,
+        **kwargs
     ):
         """
         Make multiple ipa calls via one remote procedure call
@@ -1773,6 +1879,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def ca_add(
@@ -1785,6 +1893,7 @@ class ClientMeta(Client):
         o_chain=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create a CA.
@@ -1829,12 +1938,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def ca_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a CA.
@@ -1853,11 +1965,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def ca_disable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Disable a CA.
@@ -1873,11 +1988,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def ca_enable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Enable a CA.
@@ -1892,6 +2010,8 @@ class ClientMeta(Client):
         _args.append(a_cn)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -1908,6 +2028,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for CAs.
@@ -1965,10 +2086,13 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def ca_is_enabled(
         self,
+        **kwargs
     ):
         """
         Checks if any of the servers has the CA service enabled.
@@ -1980,6 +2104,8 @@ class ClientMeta(Client):
         _args = list()
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -1994,6 +2120,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify CA configuration.
@@ -2045,6 +2172,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def ca_show(
@@ -2054,6 +2183,7 @@ class ClientMeta(Client):
         o_chain=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display the properties of a CA.
@@ -2084,6 +2214,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_add(
@@ -2101,6 +2233,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Create a new CA ACL.
@@ -2166,6 +2299,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_add_ca(
@@ -2175,6 +2310,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_ca=None,
+        **kwargs
     ):
         """
         Add CAs to a CA ACL.
@@ -2205,6 +2341,8 @@ class ClientMeta(Client):
         if o_ca is not None:
             _params['ca'] = o_ca
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_add_host(
@@ -2215,6 +2353,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Add target hosts and hostgroups to a CA ACL.
@@ -2249,6 +2388,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_add_profile(
@@ -2258,6 +2399,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_certprofile=None,
+        **kwargs
     ):
         """
         Add profiles to a CA ACL.
@@ -2288,6 +2430,8 @@ class ClientMeta(Client):
         if o_certprofile is not None:
             _params['certprofile'] = o_certprofile
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_add_service(
@@ -2297,6 +2441,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_service=None,
+        **kwargs
     ):
         """
         Add services to a CA ACL.
@@ -2327,6 +2472,8 @@ class ClientMeta(Client):
         if o_service is not None:
             _params['service'] = o_service
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_add_user(
@@ -2337,6 +2484,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Add users and groups to a CA ACL.
@@ -2371,12 +2519,15 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a CA ACL.
@@ -2395,11 +2546,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_disable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Disable a CA ACL.
@@ -2415,11 +2569,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_enable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Enable a CA ACL.
@@ -2434,6 +2591,8 @@ class ClientMeta(Client):
         _args.append(a_cn)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -2454,6 +2613,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for CA ACLs.
@@ -2526,6 +2686,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_mod(
@@ -2545,6 +2707,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify a CA ACL.
@@ -2619,6 +2782,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_remove_ca(
@@ -2628,6 +2793,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_ca=None,
+        **kwargs
     ):
         """
         Remove CAs from a CA ACL.
@@ -2658,6 +2824,8 @@ class ClientMeta(Client):
         if o_ca is not None:
             _params['ca'] = o_ca
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_remove_host(
@@ -2668,6 +2836,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Remove target hosts and hostgroups from a CA ACL.
@@ -2702,6 +2871,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_remove_profile(
@@ -2711,6 +2882,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_certprofile=None,
+        **kwargs
     ):
         """
         Remove profiles from a CA ACL.
@@ -2741,6 +2913,8 @@ class ClientMeta(Client):
         if o_certprofile is not None:
             _params['certprofile'] = o_certprofile
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_remove_service(
@@ -2750,6 +2924,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_service=None,
+        **kwargs
     ):
         """
         Remove services from a CA ACL.
@@ -2780,6 +2955,8 @@ class ClientMeta(Client):
         if o_service is not None:
             _params['service'] = o_service
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_remove_user(
@@ -2790,6 +2967,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Remove users and groups from a CA ACL.
@@ -2824,6 +3002,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def caacl_show(
@@ -2833,6 +3013,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display the properties of a CA ACL.
@@ -2862,6 +3043,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -2896,6 +3079,7 @@ class ClientMeta(Client):
         o_no_host=None,
         o_service=None,
         o_no_service=None,
+        **kwargs
     ):
         """
         Search for existing certificates.
@@ -3028,12 +3212,15 @@ class ClientMeta(Client):
         if o_no_service is not None:
             _params['no_service'] = o_no_service
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cert_remove_hold(
         self,
         a_serial_number,
         o_cacn='ipa',
+        **kwargs
     ):
         """
         Take a revoked certificate off hold.
@@ -3054,6 +3241,8 @@ class ClientMeta(Client):
         if o_cacn is not None:
             _params['cacn'] = o_cacn
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cert_request(
@@ -3067,6 +3256,7 @@ class ClientMeta(Client):
         o_chain=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Submit a certificate signing request.
@@ -3112,6 +3302,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cert_revoke(
@@ -3119,6 +3311,7 @@ class ClientMeta(Client):
         a_serial_number,
         o_revocation_reason=0,
         o_cacn='ipa',
+        **kwargs
     ):
         """
         Revoke a certificate.
@@ -3143,6 +3336,8 @@ class ClientMeta(Client):
         if o_cacn is not None:
             _params['cacn'] = o_cacn
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cert_show(
@@ -3154,6 +3349,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Retrieve an existing certificate.
@@ -3192,6 +3388,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cert_status(
@@ -3200,6 +3398,7 @@ class ClientMeta(Client):
         o_cacn='ipa',
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Check the status of a certificate signing request.
@@ -3227,6 +3426,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmap_match(
@@ -3234,6 +3435,7 @@ class ClientMeta(Client):
         a_certificate,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Search for users matching the provided certificate.
@@ -3261,6 +3463,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmapconfig_mod(
@@ -3272,6 +3476,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify Certificate Identity Mapping configuration.
@@ -3317,6 +3522,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmapconfig_show(
@@ -3324,6 +3531,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Show the current Certificate Identity Mapping configuration.
@@ -3348,6 +3556,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmaprule_add(
@@ -3363,6 +3573,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create a new Certificate Identity Mapping Rule.
@@ -3425,12 +3636,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmaprule_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a Certificate Identity Mapping Rule.
@@ -3449,11 +3663,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmaprule_disable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Disable a Certificate Identity Mapping Rule.
@@ -3469,11 +3686,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmaprule_enable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Enable a Certificate Identity Mapping Rule.
@@ -3488,6 +3708,8 @@ class ClientMeta(Client):
         _args.append(a_cn)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -3506,6 +3728,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for Certificate Identity Mapping Rules.
@@ -3575,6 +3798,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmaprule_mod(
@@ -3592,6 +3817,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify a Certificate Identity Mapping Rule.
@@ -3663,6 +3889,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certmaprule_show(
@@ -3671,6 +3899,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a Certificate Identity Mapping Rule.
@@ -3698,12 +3927,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certprofile_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a Certificate Profile.
@@ -3722,6 +3954,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certprofile_find(
@@ -3735,6 +3969,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for Certificate Profiles.
@@ -3785,6 +4020,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certprofile_import(
@@ -3795,6 +4032,7 @@ class ClientMeta(Client):
         o_ipacertprofilestoreissued=True,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Import a Certificate Profile.
@@ -3829,6 +4067,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certprofile_mod(
@@ -3843,6 +4083,7 @@ class ClientMeta(Client):
         o_file=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify Certificate Profile configuration.
@@ -3899,6 +4140,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def certprofile_show(
@@ -3908,6 +4151,7 @@ class ClientMeta(Client):
         o_out=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display the properties of a Certificate Profile.
@@ -3939,6 +4183,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def class_find(
@@ -3947,6 +4193,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for classes.
@@ -3975,6 +4222,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def class_show(
@@ -3982,6 +4231,7 @@ class ClientMeta(Client):
         a_full_name,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a class.
@@ -4005,6 +4255,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def command_defaults(
@@ -4012,6 +4264,7 @@ class ClientMeta(Client):
         a_full_name,
         o_params=None,
         o_kw=None,
+        **kwargs
     ):
         """
         Return command defaults
@@ -4035,6 +4288,8 @@ class ClientMeta(Client):
         if o_kw is not None:
             _params['kw'] = o_kw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def command_find(
@@ -4043,6 +4298,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for commands.
@@ -4071,6 +4327,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def command_show(
@@ -4078,6 +4336,7 @@ class ClientMeta(Client):
         a_full_name,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a command.
@@ -4101,10 +4360,13 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def compat_is_enabled(
         self,
+        **kwargs
     ):
         """
         Determine whether Schema Compatibility plugin is configured to serve trusted domain users and groups
@@ -4116,6 +4378,8 @@ class ClientMeta(Client):
         _args = list()
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -4148,6 +4412,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify configuration options.
@@ -4284,6 +4549,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def config_show(
@@ -4291,6 +4558,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Show the current configuration.
@@ -4315,6 +4583,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cosentry_add(
@@ -4326,6 +4596,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add Class of Service entry
@@ -4366,12 +4637,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cosentry_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete Class of Service entry
@@ -4390,6 +4664,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cosentry_find(
@@ -4403,6 +4679,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for Class of Service entry
@@ -4452,6 +4729,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cosentry_mod(
@@ -4465,6 +4744,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify Class of Service entry
@@ -4516,6 +4796,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def cosentry_show(
@@ -4524,6 +4806,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display Class of Service entry
@@ -4551,6 +4834,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def delegation_add(
@@ -4562,6 +4847,7 @@ class ClientMeta(Client):
         o_permissions=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new delegation.
@@ -4599,11 +4885,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def delegation_del(
         self,
         a_aciname,
+        **kwargs
     ):
         """
         Delete a delegation.
@@ -4619,6 +4908,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def delegation_find(
@@ -4632,6 +4923,7 @@ class ClientMeta(Client):
         o_pkey_only=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Search for delegations.
@@ -4681,6 +4973,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def delegation_mod(
@@ -4692,6 +4986,7 @@ class ClientMeta(Client):
         o_group=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify a delegation.
@@ -4732,6 +5027,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def delegation_show(
@@ -4739,6 +5036,7 @@ class ClientMeta(Client):
         a_aciname,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a delegation.
@@ -4762,10 +5060,13 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dns_is_enabled(
         self,
+        **kwargs
     ):
         """
         Checks if any of the servers has the DNS service enabled.
@@ -4778,11 +5079,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dns_resolve(
         self,
         a_hostname,
+        **kwargs
     ):
         """
         Resolve a host name in DNS. (Deprecated)
@@ -4798,6 +5102,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dns_update_system_records(
@@ -4805,6 +5111,7 @@ class ClientMeta(Client):
         o_dry_run=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Update location and IPA server DNS records
@@ -4828,6 +5135,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsconfig_mod(
@@ -4843,6 +5152,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify global DNS configuration.
@@ -4908,6 +5218,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsconfig_show(
@@ -4915,6 +5227,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Show the current global DNS configuration.
@@ -4939,6 +5252,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsforwardzone_add(
@@ -4952,6 +5267,7 @@ class ClientMeta(Client):
         o_skip_overlap_check=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create new DNS forward zone.
@@ -5006,11 +5322,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsforwardzone_add_permission(
         self,
         a_idnsname,
+        **kwargs
     ):
         """
         Add a permission for per-forward zone access delegation.
@@ -5026,12 +5345,15 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsforwardzone_del(
         self,
         a_idnsname,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete DNS forward zone.
@@ -5050,11 +5372,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsforwardzone_disable(
         self,
         a_idnsname,
+        **kwargs
     ):
         """
         Disable DNS Forward Zone.
@@ -5070,11 +5395,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsforwardzone_enable(
         self,
         a_idnsname,
+        **kwargs
     ):
         """
         Enable DNS Forward Zone.
@@ -5089,6 +5417,8 @@ class ClientMeta(Client):
         _args.append(a_idnsname)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -5105,6 +5435,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for DNS forward zones.
@@ -5166,6 +5497,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsforwardzone_mod(
@@ -5180,6 +5513,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify DNS forward zone.
@@ -5239,11 +5573,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsforwardzone_remove_permission(
         self,
         a_idnsname,
+        **kwargs
     ):
         """
         Remove a permission for per-forward zone access delegation.
@@ -5259,6 +5596,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsforwardzone_show(
@@ -5267,6 +5606,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a DNS forward zone.
@@ -5293,6 +5633,8 @@ class ClientMeta(Client):
         _params['rights'] = o_rights
         _params['all'] = o_all
         _params['raw'] = o_raw
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -5398,6 +5740,7 @@ class ClientMeta(Client):
         o_structured=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add new DNS resource record.
@@ -5825,6 +6168,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsrecord_del(
@@ -5866,6 +6211,7 @@ class ClientMeta(Client):
         o_del_all=False,
         o_structured=False,
         o_raw=False,
+        **kwargs
     ):
         """
         Delete DNS resource record.
@@ -6022,6 +6368,8 @@ class ClientMeta(Client):
         _params['structured'] = o_structured
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsrecord_delentry(
@@ -6029,6 +6377,7 @@ class ClientMeta(Client):
         a_dnszoneidnsname,
         a_idnsname,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete DNS record entry.
@@ -6049,6 +6398,8 @@ class ClientMeta(Client):
 
         _params = dict()
         _params['continue'] = o_continue
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -6095,6 +6446,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for DNS resources.
@@ -6271,6 +6623,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsrecord_mod(
@@ -6375,6 +6729,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a DNS resource record.
@@ -6801,6 +7156,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsrecord_show(
@@ -6811,6 +7168,7 @@ class ClientMeta(Client):
         o_structured=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display DNS resource.
@@ -6845,12 +7203,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsrecord_split_parts(
         self,
         a_name,
         a_value,
+        **kwargs
     ):
         """
         Split DNS record to parts
@@ -6869,6 +7230,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsserver_find(
@@ -6883,6 +7246,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for DNS servers.
@@ -6940,6 +7304,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsserver_mod(
@@ -6954,6 +7320,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify DNS server configuration
@@ -7013,6 +7380,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnsserver_show(
@@ -7021,6 +7390,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display configuration of a DNS server.
@@ -7047,6 +7417,8 @@ class ClientMeta(Client):
         _params['rights'] = o_rights
         _params['all'] = o_all
         _params['raw'] = o_raw
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -7081,6 +7453,7 @@ class ClientMeta(Client):
         o_ip_address=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create new DNS zone (SOA record).
@@ -7215,11 +7588,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnszone_add_permission(
         self,
         a_idnsname,
+        **kwargs
     ):
         """
         Add a permission for per-zone access delegation.
@@ -7235,12 +7611,15 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnszone_del(
         self,
         a_idnsname,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete DNS zone (SOA record).
@@ -7259,11 +7638,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnszone_disable(
         self,
         a_idnsname,
+        **kwargs
     ):
         """
         Disable DNS Zone.
@@ -7279,11 +7661,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnszone_enable(
         self,
         a_idnsname,
+        **kwargs
     ):
         """
         Enable DNS Zone.
@@ -7298,6 +7683,8 @@ class ClientMeta(Client):
         _args.append(a_idnsname)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -7332,6 +7719,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for DNS zones (SOA records).
@@ -7470,6 +7858,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnszone_mod(
@@ -7502,6 +7892,7 @@ class ClientMeta(Client):
         o_force=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify DNS zone (SOA record).
@@ -7638,11 +8029,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnszone_remove_permission(
         self,
         a_idnsname,
+        **kwargs
     ):
         """
         Remove a permission for per-zone access delegation.
@@ -7658,6 +8052,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def dnszone_show(
@@ -7666,6 +8062,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a DNS zone (SOA record).
@@ -7693,10 +8090,13 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def domainlevel_get(
         self,
+        **kwargs
     ):
         """
         Query current Domain Level.
@@ -7709,11 +8109,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def domainlevel_set(
         self,
         a_ipadomainlevel,
+        **kwargs
     ):
         """
         Change current Domain Level.
@@ -7729,12 +8132,15 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def env(
         self,
         o_server=False,
         o_all=True,
+        **kwargs
     ):
         """
         Show environment variables.
@@ -7755,6 +8161,8 @@ class ClientMeta(Client):
             _params['server'] = o_server
         _params['all'] = o_all
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_add(
@@ -7769,6 +8177,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Create a new group.
@@ -7821,6 +8230,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_add_member(
@@ -7833,6 +8244,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_service=None,
+        **kwargs
     ):
         """
         Add members to a group.
@@ -7876,6 +8288,8 @@ class ClientMeta(Client):
         if o_service is not None:
             _params['service'] = o_service
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_add_member_manager(
@@ -7886,6 +8300,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Add users that can manage members of this group.
@@ -7920,12 +8335,15 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete group.
@@ -7944,11 +8362,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_detach(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Detach a managed group from a user.
@@ -7963,6 +8384,8 @@ class ClientMeta(Client):
         _args.append(a_cn)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -8002,6 +8425,7 @@ class ClientMeta(Client):
         o_not_membermanager_user=None,
         o_membermanager_group=None,
         o_not_membermanager_group=None,
+        **kwargs
     ):
         """
         Search for groups.
@@ -8158,6 +8582,8 @@ class ClientMeta(Client):
         if o_not_membermanager_group is not None:
             _params['not_membermanager_group'] = o_not_membermanager_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_mod(
@@ -8175,6 +8601,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a group.
@@ -8240,6 +8667,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_remove_member(
@@ -8252,6 +8681,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_service=None,
+        **kwargs
     ):
         """
         Remove members from a group.
@@ -8295,6 +8725,8 @@ class ClientMeta(Client):
         if o_service is not None:
             _params['service'] = o_service
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_remove_member_manager(
@@ -8305,6 +8737,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Remove users that can manage members of this group.
@@ -8339,6 +8772,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def group_show(
@@ -8348,6 +8783,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a named group.
@@ -8378,6 +8814,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_add(
@@ -8396,6 +8834,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Create a new HBAC rule.
@@ -8464,6 +8903,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_add_host(
@@ -8474,6 +8915,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Add target hosts and hostgroups to an HBAC rule.
@@ -8508,6 +8950,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_add_service(
@@ -8518,6 +8962,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_hbacsvc=None,
         o_hbacsvcgroup=None,
+        **kwargs
     ):
         """
         Add services to an HBAC rule.
@@ -8552,6 +8997,8 @@ class ClientMeta(Client):
         if o_hbacsvcgroup is not None:
             _params['hbacsvcgroup'] = o_hbacsvcgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_add_sourcehost(
@@ -8562,6 +9009,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Add source hosts and hostgroups to an HBAC rule.
@@ -8596,6 +9044,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_add_user(
@@ -8606,6 +9056,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Add users and groups to an HBAC rule.
@@ -8640,12 +9091,15 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an HBAC rule.
@@ -8664,11 +9118,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_disable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Disable an HBAC rule.
@@ -8684,11 +9141,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_enable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Enable an HBAC rule.
@@ -8703,6 +9163,8 @@ class ClientMeta(Client):
         _args.append(a_cn)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -8724,6 +9186,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for HBAC rules.
@@ -8800,6 +9263,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_mod(
@@ -8821,6 +9286,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify an HBAC rule.
@@ -8903,6 +9369,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_remove_host(
@@ -8913,6 +9381,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Remove target hosts and hostgroups from an HBAC rule.
@@ -8947,6 +9416,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_remove_service(
@@ -8957,6 +9428,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_hbacsvc=None,
         o_hbacsvcgroup=None,
+        **kwargs
     ):
         """
         Remove service and service groups from an HBAC rule.
@@ -8991,6 +9463,8 @@ class ClientMeta(Client):
         if o_hbacsvcgroup is not None:
             _params['hbacsvcgroup'] = o_hbacsvcgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_remove_sourcehost(
@@ -9001,6 +9475,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Remove source hosts and hostgroups from an HBAC rule.
@@ -9035,6 +9510,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_remove_user(
@@ -9045,6 +9522,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Remove users and groups from an HBAC rule.
@@ -9079,6 +9557,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacrule_show(
@@ -9088,6 +9568,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display the properties of an HBAC rule.
@@ -9118,6 +9599,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvc_add(
@@ -9129,6 +9612,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new HBAC service.
@@ -9170,12 +9654,15 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvc_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an existing HBAC service.
@@ -9194,6 +9681,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvc_find(
@@ -9207,6 +9696,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for HBAC services.
@@ -9255,6 +9745,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvc_mod(
@@ -9268,6 +9760,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify an HBAC service.
@@ -9318,6 +9811,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvc_show(
@@ -9327,6 +9822,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about an HBAC service.
@@ -9357,6 +9853,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_add(
@@ -9368,6 +9866,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new HBAC service group.
@@ -9409,6 +9908,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_add_member(
@@ -9418,6 +9919,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_hbacsvc=None,
+        **kwargs
     ):
         """
         Add members to an HBAC service group.
@@ -9448,12 +9950,15 @@ class ClientMeta(Client):
         if o_hbacsvc is not None:
             _params['hbacsvc'] = o_hbacsvc
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an HBAC service group.
@@ -9472,6 +9977,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_find(
@@ -9485,6 +9992,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for an HBAC service group.
@@ -9533,6 +10041,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_mod(
@@ -9546,6 +10056,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify an HBAC service group.
@@ -9596,6 +10107,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_remove_member(
@@ -9605,6 +10118,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_hbacsvc=None,
+        **kwargs
     ):
         """
         Remove members from an HBAC service group.
@@ -9635,6 +10149,8 @@ class ClientMeta(Client):
         if o_hbacsvc is not None:
             _params['hbacsvc'] = o_hbacsvc
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbacsvcgroup_show(
@@ -9644,6 +10160,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about an HBAC service group.
@@ -9674,6 +10191,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hbactest(
@@ -9687,6 +10206,7 @@ class ClientMeta(Client):
         o_enabled=False,
         o_disabled=False,
         o_sizelimit=None,
+        **kwargs
     ):
         """
         Simulate use of Host-based access controls
@@ -9734,6 +10254,8 @@ class ClientMeta(Client):
         if o_sizelimit is not None:
             _params['sizelimit'] = o_sizelimit
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_add(
@@ -9763,6 +10285,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new host.
@@ -9886,6 +10409,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_add_cert(
@@ -9895,6 +10420,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add certificates to host entry
@@ -9924,6 +10450,8 @@ class ClientMeta(Client):
         _params['no_members'] = o_no_members
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_add_managedby(
@@ -9933,6 +10461,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_host=None,
+        **kwargs
     ):
         """
         Add hosts that can manage this host.
@@ -9963,6 +10492,8 @@ class ClientMeta(Client):
         if o_host is not None:
             _params['host'] = o_host
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_add_principal(
@@ -9972,6 +10503,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add new principal alias to host entry
@@ -10001,6 +10533,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_allow_create_keytab(
@@ -10013,6 +10547,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Allow users, groups, hosts or host groups to create a keytab of this host.
@@ -10055,6 +10590,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_allow_retrieve_keytab(
@@ -10067,6 +10604,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Allow users, groups, hosts or host groups to retrieve a keytab of this host.
@@ -10109,6 +10647,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_del(
@@ -10116,6 +10656,7 @@ class ClientMeta(Client):
         a_fqdn,
         o_continue=False,
         o_updatedns=False,
+        **kwargs
     ):
         """
         Delete a host.
@@ -10139,11 +10680,14 @@ class ClientMeta(Client):
         if o_updatedns is not None:
             _params['updatedns'] = o_updatedns
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_disable(
         self,
         a_fqdn,
+        **kwargs
     ):
         """
         Disable the Kerberos key, SSL certificate and all services of a host.
@@ -10159,6 +10703,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_disallow_create_keytab(
@@ -10171,6 +10717,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Disallow users, groups, hosts or host groups to create a keytab of this host.
@@ -10213,6 +10760,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_disallow_retrieve_keytab(
@@ -10225,6 +10774,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Disallow users, groups, hosts or host groups to retrieve a keytab of this host.
@@ -10267,6 +10817,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_find(
@@ -10305,6 +10857,7 @@ class ClientMeta(Client):
         o_not_man_by_host=None,
         o_man_host=None,
         o_not_man_host=None,
+        **kwargs
     ):
         """
         Search for hosts.
@@ -10471,6 +11024,8 @@ class ClientMeta(Client):
         if o_not_man_host is not None:
             _params['not_man_host'] = o_not_man_host
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_mod(
@@ -10501,6 +11056,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify information about a host.
@@ -10631,6 +11187,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_remove_cert(
@@ -10640,6 +11198,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove certificates from host entry
@@ -10669,6 +11228,8 @@ class ClientMeta(Client):
         _params['no_members'] = o_no_members
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_remove_managedby(
@@ -10678,6 +11239,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_host=None,
+        **kwargs
     ):
         """
         Remove hosts that can manage this host.
@@ -10708,6 +11270,8 @@ class ClientMeta(Client):
         if o_host is not None:
             _params['host'] = o_host
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_remove_principal(
@@ -10717,6 +11281,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove principal alias from a host entry
@@ -10746,6 +11311,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def host_show(
@@ -10756,6 +11323,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a host.
@@ -10790,6 +11358,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hostgroup_add(
@@ -10801,6 +11371,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new hostgroup.
@@ -10842,6 +11413,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hostgroup_add_member(
@@ -10852,6 +11425,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Add members to a hostgroup.
@@ -10886,6 +11460,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hostgroup_add_member_manager(
@@ -10896,6 +11472,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Add users that can manage members of this hostgroup.
@@ -10930,12 +11507,15 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hostgroup_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a hostgroup.
@@ -10953,6 +11533,8 @@ class ClientMeta(Client):
 
         _params = dict()
         _params['continue'] = o_continue
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -10983,6 +11565,7 @@ class ClientMeta(Client):
         o_not_membermanager_user=None,
         o_membermanager_group=None,
         o_not_membermanager_group=None,
+        **kwargs
     ):
         """
         Search for hostgroups.
@@ -11109,6 +11692,8 @@ class ClientMeta(Client):
         if o_not_membermanager_group is not None:
             _params['not_membermanager_group'] = o_not_membermanager_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hostgroup_mod(
@@ -11122,6 +11707,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify a hostgroup.
@@ -11172,6 +11758,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hostgroup_remove_member(
@@ -11182,6 +11770,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Remove members from a hostgroup.
@@ -11216,6 +11805,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hostgroup_remove_member_manager(
@@ -11226,6 +11817,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Remove users that can manage members of this hostgroup.
@@ -11260,6 +11852,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def hostgroup_show(
@@ -11269,6 +11863,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a hostgroup.
@@ -11299,10 +11894,13 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def i18n_messages(
         self,
+        **kwargs
     ):
         """
         Internationalization messages
@@ -11314,6 +11912,8 @@ class ClientMeta(Client):
         _args = list()
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -11329,6 +11929,7 @@ class ClientMeta(Client):
         o_fallback_to_ldap=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new Group ID override.
@@ -11383,6 +11984,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverridegroup_del(
@@ -11391,6 +11994,7 @@ class ClientMeta(Client):
         a_ipaanchoruuid,
         o_continue=False,
         o_fallback_to_ldap=False,
+        **kwargs
     ):
         """
         Delete an Group ID override.
@@ -11417,6 +12021,8 @@ class ClientMeta(Client):
         if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverridegroup_find(
@@ -11433,6 +12039,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for an Group ID override.
@@ -11494,6 +12101,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverridegroup_mod(
@@ -11511,6 +12120,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify an Group ID override.
@@ -11578,6 +12188,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverridegroup_show(
@@ -11588,6 +12200,7 @@ class ClientMeta(Client):
         o_fallback_to_ldap=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about an Group ID override.
@@ -11623,6 +12236,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverrideuser_add(
@@ -11644,6 +12259,7 @@ class ClientMeta(Client):
         o_fallback_to_ldap=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new User ID override.
@@ -11726,6 +12342,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverrideuser_add_cert(
@@ -11736,6 +12354,7 @@ class ClientMeta(Client):
         o_fallback_to_ldap=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add one or more certificates to the idoverrideuser entry
@@ -11770,6 +12389,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverrideuser_del(
@@ -11778,6 +12399,7 @@ class ClientMeta(Client):
         a_ipaanchoruuid,
         o_continue=False,
         o_fallback_to_ldap=False,
+        **kwargs
     ):
         """
         Delete an User ID override.
@@ -11804,6 +12426,8 @@ class ClientMeta(Client):
         if o_fallback_to_ldap is not None:
             _params['fallback_to_ldap'] = o_fallback_to_ldap
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverrideuser_find(
@@ -11825,6 +12449,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for an User ID override.
@@ -11906,6 +12531,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverrideuser_mod(
@@ -11930,6 +12557,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify an User ID override.
@@ -12025,6 +12653,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverrideuser_remove_cert(
@@ -12035,6 +12665,7 @@ class ClientMeta(Client):
         o_fallback_to_ldap=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Remove one or more certificates to the idoverrideuser entry
@@ -12069,6 +12700,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idoverrideuser_show(
@@ -12079,6 +12712,7 @@ class ClientMeta(Client):
         o_fallback_to_ldap=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about an User ID override.
@@ -12114,6 +12748,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idrange_add(
@@ -12130,6 +12766,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
             Add new ID range.
@@ -12220,12 +12857,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idrange_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an ID range.
@@ -12244,6 +12884,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idrange_find(
@@ -12261,6 +12903,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for ranges.
@@ -12326,6 +12969,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idrange_mod(
@@ -12343,6 +12988,7 @@ class ClientMeta(Client):
         o_ipanttrusteddomainname=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify ID range.
@@ -12423,6 +13069,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idrange_show(
@@ -12431,6 +13079,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a range.
@@ -12458,6 +13107,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idview_add(
@@ -12469,6 +13120,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new ID View.
@@ -12512,6 +13164,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idview_apply(
@@ -12519,6 +13173,7 @@ class ClientMeta(Client):
         a_cn,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Applies ID View to specified hosts or current members of specified hostgroups. If any other ID View is applied to the host, it is overridden.
@@ -12544,12 +13199,15 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idview_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an ID View.
@@ -12568,6 +13226,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idview_find(
@@ -12580,6 +13240,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for an ID View.
@@ -12625,6 +13286,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idview_mod(
@@ -12639,6 +13302,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify an ID View.
@@ -12695,6 +13359,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idview_show(
@@ -12704,6 +13370,7 @@ class ClientMeta(Client):
         o_show_hosts=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about an ID View.
@@ -12735,12 +13402,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def idview_unapply(
         self,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Clears ID View from specified hosts or current members of specified hostgroups.
@@ -12763,6 +13433,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def join(
@@ -12771,6 +13443,7 @@ class ClientMeta(Client):
         o_realm,
         o_nshardwareplatform=None,
         o_nsosversion=None,
+        **kwargs
     ):
         """
         Join an IPA domain
@@ -12799,6 +13472,8 @@ class ClientMeta(Client):
         if o_nsosversion is not None:
             _params['nsosversion'] = o_nsosversion
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def json_metadata(
@@ -12808,6 +13483,7 @@ class ClientMeta(Client):
         o_object=None,
         o_method=None,
         o_command=None,
+        **kwargs
     ):
         """
         Export plugin meta-data for the webUI.
@@ -12838,10 +13514,13 @@ class ClientMeta(Client):
         if o_command is not None:
             _params['command'] = o_command
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def kra_is_enabled(
         self,
+        **kwargs
     ):
         """
         Checks if any of the servers has the KRA service enabled
@@ -12853,6 +13532,8 @@ class ClientMeta(Client):
         _args = list()
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -12875,6 +13556,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify Kerberos ticket policy.
@@ -12966,6 +13648,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def krbtpolicy_reset(
@@ -12973,6 +13657,7 @@ class ClientMeta(Client):
         a_uid=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Reset Kerberos ticket policy to the default values.
@@ -12996,6 +13681,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def krbtpolicy_show(
@@ -13004,6 +13691,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display the current Kerberos ticket policy.
@@ -13031,6 +13719,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def location_add(
@@ -13041,6 +13731,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new IPA location.
@@ -13079,12 +13770,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def location_del(
         self,
         a_idnsname,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an IPA location.
@@ -13103,6 +13797,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def location_find(
@@ -13115,6 +13811,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for IPA locations.
@@ -13160,6 +13857,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def location_mod(
@@ -13172,6 +13871,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify information about an IPA location.
@@ -13219,6 +13919,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def location_show(
@@ -13227,6 +13929,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about an IPA location.
@@ -13254,6 +13957,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def migrate_ds(
@@ -13279,6 +13984,7 @@ class ClientMeta(Client):
         o_scope='onelevel',
         o_exclude_users=None,
         o_exclude_groups=None,
+        **kwargs
     ):
         """
         Migrate users and groups from DS to IPA.
@@ -13380,6 +14086,8 @@ class ClientMeta(Client):
         if o_exclude_groups is not None:
             _params['exclude_groups'] = o_exclude_groups
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def netgroup_add(
@@ -13395,6 +14103,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new netgroup.
@@ -13452,6 +14161,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def netgroup_add_member(
@@ -13465,6 +14176,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_netgroup=None,
+        **kwargs
     ):
         """
         Add members to a netgroup.
@@ -13511,12 +14223,15 @@ class ClientMeta(Client):
         if o_netgroup is not None:
             _params['netgroup'] = o_netgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def netgroup_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a netgroup.
@@ -13534,6 +14249,8 @@ class ClientMeta(Client):
 
         _params = dict()
         _params['continue'] = o_continue
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -13567,6 +14284,7 @@ class ClientMeta(Client):
         o_no_hostgroup=None,
         o_in_netgroup=None,
         o_not_in_netgroup=None,
+        **kwargs
     ):
         """
         Search for a netgroup.
@@ -13694,6 +14412,8 @@ class ClientMeta(Client):
         if o_not_in_netgroup is not None:
             _params['not_in_netgroup'] = o_not_in_netgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def netgroup_mod(
@@ -13711,6 +14431,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify a netgroup.
@@ -13777,6 +14498,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def netgroup_remove_member(
@@ -13790,6 +14513,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_netgroup=None,
+        **kwargs
     ):
         """
         Remove members from a netgroup.
@@ -13836,6 +14560,8 @@ class ClientMeta(Client):
         if o_netgroup is not None:
             _params['netgroup'] = o_netgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def netgroup_show(
@@ -13845,6 +14571,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a netgroup.
@@ -13875,6 +14602,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def otpconfig_mod(
@@ -13889,6 +14618,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify OTP configuration options.
@@ -13947,6 +14677,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def otpconfig_show(
@@ -13954,6 +14686,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Show the current OTP configuration.
@@ -13977,6 +14710,8 @@ class ClientMeta(Client):
         _params['rights'] = o_rights
         _params['all'] = o_all
         _params['raw'] = o_raw
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -14005,6 +14740,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new OTP token.
@@ -14110,6 +14846,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def otptoken_add_managedby(
@@ -14119,6 +14857,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_user=None,
+        **kwargs
     ):
         """
         Add users that can manage this token.
@@ -14149,12 +14888,15 @@ class ClientMeta(Client):
         if o_user is not None:
             _params['user'] = o_user
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def otptoken_del(
         self,
         a_ipatokenuniqueid,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an OTP token.
@@ -14172,6 +14914,8 @@ class ClientMeta(Client):
 
         _params = dict()
         _params['continue'] = o_continue
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -14199,6 +14943,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for OTP token.
@@ -14300,6 +15045,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def otptoken_mod(
@@ -14321,6 +15068,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a OTP token.
@@ -14403,6 +15151,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def otptoken_remove_managedby(
@@ -14412,6 +15162,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_user=None,
+        **kwargs
     ):
         """
         Remove users that can manage this token.
@@ -14442,6 +15193,8 @@ class ClientMeta(Client):
         if o_user is not None:
             _params['user'] = o_user
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def otptoken_show(
@@ -14451,6 +15204,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about an OTP token.
@@ -14481,6 +15235,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def output_find(
@@ -14490,6 +15246,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for command outputs.
@@ -14521,6 +15278,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def output_show(
@@ -14529,6 +15288,7 @@ class ClientMeta(Client):
         a_name,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a command output.
@@ -14555,6 +15315,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def param_find(
@@ -14564,6 +15326,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search command parameters.
@@ -14595,6 +15358,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def param_show(
@@ -14603,6 +15368,7 @@ class ClientMeta(Client):
         a_name,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a command parameter.
@@ -14629,6 +15395,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def passwd(
@@ -14637,6 +15405,7 @@ class ClientMeta(Client):
         a_password,
         a_current_password,
         o_otp=None,
+        **kwargs
     ):
         """
         Set a user's password.
@@ -14661,6 +15430,8 @@ class ClientMeta(Client):
         _params = dict()
         if o_otp is not None:
             _params['otp'] = o_otp
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -14687,6 +15458,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new permission.
@@ -14790,6 +15562,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def permission_add_member(
@@ -14799,6 +15573,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_privilege=None,
+        **kwargs
     ):
         """
         Add members to a permission.
@@ -14829,6 +15604,8 @@ class ClientMeta(Client):
         if o_privilege is not None:
             _params['privilege'] = o_privilege
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def permission_add_noaci(
@@ -14838,6 +15615,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a system permission without an ACI (internal command)
@@ -14867,6 +15645,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def permission_del(
@@ -14874,6 +15654,7 @@ class ClientMeta(Client):
         a_cn,
         o_continue=False,
         o_force=False,
+        **kwargs
     ):
         """
         Delete a permission.
@@ -14894,6 +15675,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
         _params['force'] = o_force
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -14925,6 +15708,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for permissions.
@@ -15051,6 +15835,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def permission_mod(
@@ -15081,6 +15867,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a permission.
@@ -15208,6 +15995,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def permission_remove_member(
@@ -15217,6 +16006,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_privilege=None,
+        **kwargs
     ):
         """
         Remove members from a permission.
@@ -15247,6 +16037,8 @@ class ClientMeta(Client):
         if o_privilege is not None:
             _params['privilege'] = o_privilege
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def permission_show(
@@ -15256,6 +16048,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a permission.
@@ -15286,10 +16079,13 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def ping(
         self,
+        **kwargs
     ):
         """
         Ping a remote server.
@@ -15302,6 +16098,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def pkinit_status(
@@ -15313,6 +16111,7 @@ class ClientMeta(Client):
         o_sizelimit=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Report PKINIT status on the IPA masters
@@ -15353,12 +16152,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def plugins(
         self,
         o_server=False,
         o_all=True,
+        **kwargs
     ):
         """
         Show all loaded plugins.
@@ -15379,6 +16181,8 @@ class ClientMeta(Client):
             _params['server'] = o_server
         _params['all'] = o_all
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_add(
@@ -15390,6 +16194,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new privilege.
@@ -15431,6 +16236,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_add_member(
@@ -15440,6 +16247,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_role=None,
+        **kwargs
     ):
         """
         Add members to a privilege.
@@ -15470,6 +16278,8 @@ class ClientMeta(Client):
         if o_role is not None:
             _params['role'] = o_role
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_add_permission(
@@ -15479,6 +16289,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_permission=None,
+        **kwargs
     ):
         """
         Add permissions to a privilege.
@@ -15509,12 +16320,15 @@ class ClientMeta(Client):
         if o_permission is not None:
             _params['permission'] = o_permission
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a privilege.
@@ -15533,6 +16347,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_find(
@@ -15546,6 +16362,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for privileges.
@@ -15594,6 +16411,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_mod(
@@ -15608,6 +16427,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a privilege.
@@ -15662,6 +16482,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_remove_member(
@@ -15671,6 +16493,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_role=None,
+        **kwargs
     ):
         """
         Remove members from a privilege
@@ -15701,6 +16524,8 @@ class ClientMeta(Client):
         if o_role is not None:
             _params['role'] = o_role
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_remove_permission(
@@ -15710,6 +16535,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_permission=None,
+        **kwargs
     ):
         """
         Remove permissions from a privilege.
@@ -15740,6 +16566,8 @@ class ClientMeta(Client):
         if o_permission is not None:
             _params['permission'] = o_permission
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def privilege_show(
@@ -15749,6 +16577,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a privilege.
@@ -15779,6 +16608,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def pwpolicy_add(
@@ -15797,6 +16628,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new group password policy.
@@ -15869,12 +16701,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def pwpolicy_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a group password policy.
@@ -15892,6 +16727,8 @@ class ClientMeta(Client):
 
         _params = dict()
         _params['continue'] = o_continue
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -15913,6 +16750,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for group password policies.
@@ -15993,6 +16831,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def pwpolicy_mod(
@@ -16013,6 +16853,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify a group password policy.
@@ -16095,6 +16936,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def pwpolicy_show(
@@ -16104,6 +16947,7 @@ class ClientMeta(Client):
         o_user=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about password policy.
@@ -16135,6 +16979,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def radiusproxy_add(
@@ -16150,6 +16996,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new RADIUS proxy server.
@@ -16210,12 +17057,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def radiusproxy_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a RADIUS proxy server.
@@ -16234,6 +17084,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def radiusproxy_find(
@@ -16251,6 +17103,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for RADIUS proxy servers.
@@ -16320,6 +17173,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def radiusproxy_mod(
@@ -16338,6 +17193,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a RADIUS proxy server.
@@ -16413,6 +17269,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def radiusproxy_show(
@@ -16421,6 +17279,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a RADIUS proxy server.
@@ -16448,6 +17307,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def realmdomains_mod(
@@ -16462,6 +17323,7 @@ class ClientMeta(Client):
         o_force=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify realm domains
@@ -16528,6 +17390,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def realmdomains_show(
@@ -16535,6 +17399,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display the list of realm domains.
@@ -16559,6 +17424,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_add(
@@ -16570,6 +17437,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new role.
@@ -16611,6 +17479,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_add_member(
@@ -16624,6 +17494,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_service=None,
+        **kwargs
     ):
         """
         Add members to a role.
@@ -16670,6 +17541,8 @@ class ClientMeta(Client):
         if o_service is not None:
             _params['service'] = o_service
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_add_privilege(
@@ -16679,6 +17552,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_privilege=None,
+        **kwargs
     ):
         """
         Add privileges to a role.
@@ -16709,12 +17583,15 @@ class ClientMeta(Client):
         if o_privilege is not None:
             _params['privilege'] = o_privilege
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a role.
@@ -16733,6 +17610,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_find(
@@ -16746,6 +17625,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for roles.
@@ -16794,6 +17674,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_mod(
@@ -16808,6 +17690,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a role.
@@ -16862,6 +17745,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_remove_member(
@@ -16875,6 +17760,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_service=None,
+        **kwargs
     ):
         """
         Remove members from a role.
@@ -16921,6 +17807,8 @@ class ClientMeta(Client):
         if o_service is not None:
             _params['service'] = o_service
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_remove_privilege(
@@ -16930,6 +17818,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_privilege=None,
+        **kwargs
     ):
         """
         Remove privileges from a role.
@@ -16960,6 +17849,8 @@ class ClientMeta(Client):
         if o_privilege is not None:
             _params['privilege'] = o_privilege
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def role_show(
@@ -16969,6 +17860,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a role.
@@ -16999,11 +17891,14 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def schema(
         self,
         o_known_fingerprints=None,
+        **kwargs
     ):
         """
         Store and provide schema for commands and topics
@@ -17020,6 +17915,8 @@ class ClientMeta(Client):
         if o_known_fingerprints is not None:
             _params['known_fingerprints'] = o_known_fingerprints
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selfservice_add(
@@ -17029,6 +17926,7 @@ class ClientMeta(Client):
         o_permissions=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new self-service permission.
@@ -17060,11 +17958,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selfservice_del(
         self,
         a_aciname,
+        **kwargs
     ):
         """
         Delete a self-service permission.
@@ -17080,6 +17981,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selfservice_find(
@@ -17091,6 +17994,7 @@ class ClientMeta(Client):
         o_pkey_only=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Search for a self-service permission.
@@ -17132,6 +18036,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selfservice_mod(
@@ -17141,6 +18047,7 @@ class ClientMeta(Client):
         o_attrs=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify a self-service permission.
@@ -17173,6 +18080,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selfservice_show(
@@ -17180,6 +18089,7 @@ class ClientMeta(Client):
         a_aciname,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a self-service permission.
@@ -17203,6 +18113,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_add(
@@ -17219,6 +18131,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Create a new SELinux User Map.
@@ -17280,6 +18193,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_add_host(
@@ -17290,6 +18205,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Add target hosts and hostgroups to an SELinux User Map rule.
@@ -17324,6 +18240,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_add_user(
@@ -17334,6 +18252,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Add users and groups to an SELinux User Map rule.
@@ -17368,12 +18287,15 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a SELinux User Map.
@@ -17392,11 +18314,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_disable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Disable an SELinux User Map rule.
@@ -17412,11 +18337,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_enable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Enable an SELinux User Map rule.
@@ -17431,6 +18359,8 @@ class ClientMeta(Client):
         _args.append(a_cn)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -17450,6 +18380,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for SELinux User Maps.
@@ -17519,6 +18450,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_mod(
@@ -17537,6 +18470,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify a SELinux User Map.
@@ -17608,6 +18542,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_remove_host(
@@ -17618,6 +18554,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Remove target hosts and hostgroups from an SELinux User Map rule.
@@ -17652,6 +18589,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_remove_user(
@@ -17662,6 +18601,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Remove users and groups from an SELinux User Map rule.
@@ -17696,6 +18636,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def selinuxusermap_show(
@@ -17705,6 +18647,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display the properties of a SELinux User Map rule.
@@ -17735,12 +18678,15 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def server_conncheck(
         self,
         a_cn,
         a_remote_cn,
+        **kwargs
     ):
         """
         Check connection to remote IPA server.
@@ -17759,6 +18705,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def server_del(
@@ -17768,6 +18716,7 @@ class ClientMeta(Client):
         o_ignore_topology_disconnect=False,
         o_ignore_last_of_role=False,
         o_force=False,
+        **kwargs
     ):
         """
         Delete IPA server.
@@ -17800,6 +18749,8 @@ class ClientMeta(Client):
         if o_force is not None:
             _params['force'] = o_force
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def server_find(
@@ -17819,6 +18770,7 @@ class ClientMeta(Client):
         o_in_location=None,
         o_not_in_location=None,
         o_servrole=None,
+        **kwargs
     ):
         """
         Search for IPA servers.
@@ -17894,6 +18846,8 @@ class ClientMeta(Client):
         if o_servrole is not None:
             _params['servrole'] = o_servrole
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def server_mod(
@@ -17908,6 +18862,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify information about an IPA server.
@@ -17962,6 +18917,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def server_role_find(
@@ -17975,6 +18932,7 @@ class ClientMeta(Client):
         o_include_master=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Find a server role on a server(s)
@@ -18022,6 +18980,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def server_role_show(
@@ -18030,6 +18990,7 @@ class ClientMeta(Client):
         a_role_servrole,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Show role status on a server
@@ -18056,6 +19017,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def server_show(
@@ -18065,6 +19028,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Show IPA server.
@@ -18095,12 +19059,15 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def server_state(
         self,
         a_cn,
         o_state,
+        **kwargs
     ):
         """
         Set enabled/hidden state of a server.
@@ -18118,6 +19085,8 @@ class ClientMeta(Client):
 
         _params = dict()
         _params['state'] = o_state
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -18137,6 +19106,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new IPA service.
@@ -18215,6 +19185,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_add_cert(
@@ -18224,6 +19196,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add new certificates to a service
@@ -18253,6 +19226,8 @@ class ClientMeta(Client):
         _params['no_members'] = o_no_members
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_add_host(
@@ -18262,6 +19237,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_host=None,
+        **kwargs
     ):
         """
         Add hosts that can manage this service.
@@ -18292,6 +19268,8 @@ class ClientMeta(Client):
         if o_host is not None:
             _params['host'] = o_host
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_add_principal(
@@ -18301,6 +19279,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add new principal alias to a service
@@ -18330,6 +19309,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_add_smb(
@@ -18344,6 +19325,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new SMB service.
@@ -18398,6 +19380,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_allow_create_keytab(
@@ -18410,6 +19394,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Allow users, groups, hosts or host groups to create a keytab of this service.
@@ -18452,6 +19437,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_allow_retrieve_keytab(
@@ -18464,6 +19451,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Allow users, groups, hosts or host groups to retrieve a keytab of this service.
@@ -18506,12 +19494,15 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_del(
         self,
         a_krbcanonicalname,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete an IPA service.
@@ -18530,11 +19521,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_disable(
         self,
         a_krbcanonicalname,
+        **kwargs
     ):
         """
         Disable the Kerberos key and SSL certificate of a service.
@@ -18550,6 +19544,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_disallow_create_keytab(
@@ -18562,6 +19558,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Disallow users, groups, hosts or host groups to create a keytab of this service.
@@ -18604,6 +19601,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_disallow_retrieve_keytab(
@@ -18616,6 +19615,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
+        **kwargs
     ):
         """
         Disallow users, groups, hosts or host groups to retrieve a keytab of this service.
@@ -18658,6 +19658,8 @@ class ClientMeta(Client):
         if o_hostgroup is not None:
             _params['hostgroup'] = o_hostgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_find(
@@ -18675,6 +19677,7 @@ class ClientMeta(Client):
         o_pkey_only=False,
         o_man_by_host=None,
         o_not_man_by_host=None,
+        **kwargs
     ):
         """
         Search for IPA services.
@@ -18747,6 +19750,8 @@ class ClientMeta(Client):
         if o_not_man_by_host is not None:
             _params['not_man_by_host'] = o_not_man_by_host
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_mod(
@@ -18766,6 +19771,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify an existing IPA service.
@@ -18850,6 +19856,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_remove_cert(
@@ -18859,6 +19867,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove certificates from a service
@@ -18888,6 +19897,8 @@ class ClientMeta(Client):
         _params['no_members'] = o_no_members
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_remove_host(
@@ -18897,6 +19908,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_host=None,
+        **kwargs
     ):
         """
         Remove hosts that can manage this service.
@@ -18927,6 +19939,8 @@ class ClientMeta(Client):
         if o_host is not None:
             _params['host'] = o_host
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_remove_principal(
@@ -18936,6 +19950,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove principal alias from a service
@@ -18965,6 +19980,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def service_show(
@@ -18975,6 +19992,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about an IPA service.
@@ -19009,6 +20027,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationrule_add(
@@ -19019,6 +20039,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Create a new service delegation rule.
@@ -19056,6 +20077,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationrule_add_member(
@@ -19065,6 +20088,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_principal=None,
+        **kwargs
     ):
         """
         Add member to a named service delegation rule.
@@ -19095,6 +20119,8 @@ class ClientMeta(Client):
         if o_principal is not None:
             _params['principal'] = o_principal
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationrule_add_target(
@@ -19104,6 +20130,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_servicedelegationtarget=None,
+        **kwargs
     ):
         """
         Add target to a named service delegation rule.
@@ -19134,12 +20161,15 @@ class ClientMeta(Client):
         if o_servicedelegationtarget is not None:
             _params['servicedelegationtarget'] = o_servicedelegationtarget
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationrule_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete service delegation.
@@ -19158,6 +20188,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationrule_find(
@@ -19170,6 +20202,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for service delegations rule.
@@ -19214,6 +20247,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationrule_remove_member(
@@ -19223,6 +20258,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_principal=None,
+        **kwargs
     ):
         """
         Remove member from a named service delegation rule.
@@ -19253,6 +20289,8 @@ class ClientMeta(Client):
         if o_principal is not None:
             _params['principal'] = o_principal
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationrule_remove_target(
@@ -19262,6 +20300,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_servicedelegationtarget=None,
+        **kwargs
     ):
         """
         Remove target from a named service delegation rule.
@@ -19292,6 +20331,8 @@ class ClientMeta(Client):
         if o_servicedelegationtarget is not None:
             _params['servicedelegationtarget'] = o_servicedelegationtarget
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationrule_show(
@@ -19301,6 +20342,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a named service delegation rule.
@@ -19331,6 +20373,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_add(
@@ -19340,6 +20384,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Create a new service delegation target.
@@ -19374,6 +20419,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_add_member(
@@ -19382,6 +20429,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_principal=None,
+        **kwargs
     ):
         """
         Add member to a named service delegation target.
@@ -19409,12 +20457,15 @@ class ClientMeta(Client):
         if o_principal is not None:
             _params['principal'] = o_principal
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete service delegation target.
@@ -19433,6 +20484,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_find(
@@ -19444,6 +20497,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for service delegation target.
@@ -19485,6 +20539,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_remove_member(
@@ -19493,6 +20549,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_principal=None,
+        **kwargs
     ):
         """
         Remove member from a named service delegation target.
@@ -19520,6 +20577,8 @@ class ClientMeta(Client):
         if o_principal is not None:
             _params['principal'] = o_principal
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_show(
@@ -19528,6 +20587,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a named service delegation target.
@@ -19555,10 +20615,13 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def session_logout(
         self,
+        **kwargs
     ):
         """
         RPC command used to log the current user out of their session.
@@ -19571,10 +20634,13 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sidgen_was_run(
         self,
+        **kwargs
     ):
         """
         Determine whether ipa-adtrust-install has been run with sidgen task
@@ -19587,6 +20653,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_activate(
@@ -19595,6 +20663,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Activate a stage user.
@@ -19620,6 +20689,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -19670,6 +20741,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new stage user.
@@ -19862,6 +20934,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_add_cert(
@@ -19871,6 +20945,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add one or more certificates to the stageuser entry
@@ -19900,6 +20975,8 @@ class ClientMeta(Client):
         _params['no_members'] = o_no_members
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_add_certmapdata(
@@ -19912,6 +20989,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add one or more certificate mappings to the stage user entry.
@@ -19953,6 +21031,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_add_manager(
@@ -19962,6 +21042,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_user=None,
+        **kwargs
     ):
         """
         Add a manager to the stage user entry
@@ -19992,6 +21073,8 @@ class ClientMeta(Client):
         if o_user is not None:
             _params['user'] = o_user
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_add_principal(
@@ -20001,6 +21084,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add new principal alias to the stageuser entry
@@ -20030,12 +21114,15 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_del(
         self,
         a_uid,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a stage user.
@@ -20053,6 +21140,8 @@ class ClientMeta(Client):
 
         _params = dict()
         _params['continue'] = o_continue
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -20116,6 +21205,7 @@ class ClientMeta(Client):
         o_not_in_hbacrule=None,
         o_in_sudorule=None,
         o_not_in_sudorule=None,
+        **kwargs
     ):
         """
         Search for stage users.
@@ -20370,6 +21460,8 @@ class ClientMeta(Client):
         if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_mod(
@@ -20425,6 +21517,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a stage user.
@@ -20645,6 +21738,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_remove_cert(
@@ -20654,6 +21749,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove one or more certificates to the stageuser entry
@@ -20683,6 +21779,8 @@ class ClientMeta(Client):
         _params['no_members'] = o_no_members
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_remove_certmapdata(
@@ -20695,6 +21793,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove one or more certificate mappings from the stage user entry.
@@ -20736,6 +21835,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_remove_manager(
@@ -20745,6 +21846,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_user=None,
+        **kwargs
     ):
         """
         Remove a manager to the stage user entry
@@ -20775,6 +21877,8 @@ class ClientMeta(Client):
         if o_user is not None:
             _params['user'] = o_user
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_remove_principal(
@@ -20784,6 +21888,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove principal alias from the stageuser entry
@@ -20813,6 +21918,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def stageuser_show(
@@ -20822,6 +21929,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a stage user.
@@ -20852,6 +21960,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmd_add(
@@ -20863,6 +21973,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Create new Sudo Command.
@@ -20904,12 +22015,15 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmd_del(
         self,
         a_sudocmd,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete Sudo Command.
@@ -20928,6 +22042,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmd_find(
@@ -20941,6 +22057,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for Sudo Commands.
@@ -20989,6 +22106,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmd_mod(
@@ -21002,6 +22121,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify Sudo Command.
@@ -21052,6 +22172,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmd_show(
@@ -21061,6 +22183,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display Sudo Command.
@@ -21091,6 +22214,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmdgroup_add(
@@ -21102,6 +22227,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Create new Sudo Command Group.
@@ -21143,6 +22269,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmdgroup_add_member(
@@ -21152,6 +22280,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_sudocmd=None,
+        **kwargs
     ):
         """
         Add members to Sudo Command Group.
@@ -21182,12 +22311,15 @@ class ClientMeta(Client):
         if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmdgroup_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete Sudo Command Group.
@@ -21206,6 +22338,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmdgroup_find(
@@ -21219,6 +22353,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for Sudo Command Groups.
@@ -21267,6 +22402,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmdgroup_mod(
@@ -21280,6 +22417,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify Sudo Command Group.
@@ -21330,6 +22468,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmdgroup_remove_member(
@@ -21339,6 +22479,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_sudocmd=None,
+        **kwargs
     ):
         """
         Remove members from Sudo Command Group.
@@ -21369,6 +22510,8 @@ class ClientMeta(Client):
         if o_sudocmd is not None:
             _params['sudocmd'] = o_sudocmd
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudocmdgroup_show(
@@ -21378,6 +22521,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display Sudo Command Group.
@@ -21408,6 +22552,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_add(
@@ -21430,6 +22576,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Create new Sudo Rule.
@@ -21520,6 +22667,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_add_allow_command(
@@ -21530,6 +22679,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_sudocmd=None,
         o_sudocmdgroup=None,
+        **kwargs
     ):
         """
         Add commands and sudo command groups affected by Sudo Rule.
@@ -21564,6 +22714,8 @@ class ClientMeta(Client):
         if o_sudocmdgroup is not None:
             _params['sudocmdgroup'] = o_sudocmdgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_add_deny_command(
@@ -21574,6 +22726,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_sudocmd=None,
         o_sudocmdgroup=None,
+        **kwargs
     ):
         """
         Add commands and sudo command groups affected by Sudo Rule.
@@ -21608,6 +22761,8 @@ class ClientMeta(Client):
         if o_sudocmdgroup is not None:
             _params['sudocmdgroup'] = o_sudocmdgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_add_host(
@@ -21619,6 +22774,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_hostmask=None,
+        **kwargs
     ):
         """
         Add hosts and hostgroups affected by Sudo Rule.
@@ -21657,6 +22813,8 @@ class ClientMeta(Client):
         if o_hostmask is not None:
             _params['hostmask'] = o_hostmask
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_add_option(
@@ -21666,6 +22824,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add an option to the Sudo Rule.
@@ -21695,6 +22854,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_add_runasgroup(
@@ -21704,6 +22865,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_group=None,
+        **kwargs
     ):
         """
         Add group for Sudo to execute as.
@@ -21734,6 +22896,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_add_runasuser(
@@ -21744,6 +22908,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Add users and groups for Sudo to execute as.
@@ -21778,6 +22943,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_add_user(
@@ -21788,6 +22955,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Add users and groups affected by Sudo Rule.
@@ -21822,12 +22990,15 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete Sudo Rule.
@@ -21846,11 +23017,14 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_disable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Disable a Sudo Rule.
@@ -21866,11 +23040,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_enable(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Enable a Sudo Rule.
@@ -21885,6 +23062,8 @@ class ClientMeta(Client):
         _args.append(a_cn)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -21910,6 +23089,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for Sudo Rule.
@@ -22007,6 +23187,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_mod(
@@ -22032,6 +23214,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify Sudo Rule.
@@ -22135,6 +23318,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_remove_allow_command(
@@ -22145,6 +23330,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_sudocmd=None,
         o_sudocmdgroup=None,
+        **kwargs
     ):
         """
         Remove commands and sudo command groups affected by Sudo Rule.
@@ -22179,6 +23365,8 @@ class ClientMeta(Client):
         if o_sudocmdgroup is not None:
             _params['sudocmdgroup'] = o_sudocmdgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_remove_deny_command(
@@ -22189,6 +23377,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_sudocmd=None,
         o_sudocmdgroup=None,
+        **kwargs
     ):
         """
         Remove commands and sudo command groups affected by Sudo Rule.
@@ -22223,6 +23412,8 @@ class ClientMeta(Client):
         if o_sudocmdgroup is not None:
             _params['sudocmdgroup'] = o_sudocmdgroup
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_remove_host(
@@ -22234,6 +23425,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_hostmask=None,
+        **kwargs
     ):
         """
         Remove hosts and hostgroups affected by Sudo Rule.
@@ -22272,6 +23464,8 @@ class ClientMeta(Client):
         if o_hostmask is not None:
             _params['hostmask'] = o_hostmask
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_remove_option(
@@ -22281,6 +23475,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove an option from Sudo Rule.
@@ -22310,6 +23505,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_remove_runasgroup(
@@ -22319,6 +23516,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_group=None,
+        **kwargs
     ):
         """
         Remove group for Sudo to execute as.
@@ -22349,6 +23547,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_remove_runasuser(
@@ -22359,6 +23559,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Remove users and groups for Sudo to execute as.
@@ -22393,6 +23594,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_remove_user(
@@ -22403,6 +23606,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
+        **kwargs
     ):
         """
         Remove users and groups affected by Sudo Rule.
@@ -22437,6 +23641,8 @@ class ClientMeta(Client):
         if o_group is not None:
             _params['group'] = o_group
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def sudorule_show(
@@ -22446,6 +23652,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display Sudo Rule.
@@ -22476,6 +23683,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topic_find(
@@ -22484,6 +23693,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for help topics.
@@ -22512,6 +23722,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topic_show(
@@ -22519,6 +23731,7 @@ class ClientMeta(Client):
         a_full_name,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a help topic.
@@ -22542,6 +23755,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysegment_add(
@@ -22560,6 +23775,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new segment.
@@ -22637,6 +23853,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysegment_del(
@@ -22644,6 +23862,7 @@ class ClientMeta(Client):
         a_topologysuffixcn,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a segment.
@@ -22665,6 +23884,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysegment_find(
@@ -22685,6 +23906,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for topology segments.
@@ -22772,6 +23994,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysegment_mod(
@@ -22789,6 +24013,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify a segment.
@@ -22863,6 +24088,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysegment_reinitialize(
@@ -22872,6 +24099,7 @@ class ClientMeta(Client):
         o_left=False,
         o_right=False,
         o_stop=False,
+        **kwargs
     ):
         """
         Request a full re-initialization of the node retrieving data from the other node.
@@ -22902,6 +24130,8 @@ class ClientMeta(Client):
         if o_stop is not None:
             _params['stop'] = o_stop
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysegment_show(
@@ -22911,6 +24141,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display a segment.
@@ -22941,6 +24172,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysuffix_add(
@@ -22951,6 +24184,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add a new topology suffix to be managed.
@@ -22988,12 +24222,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysuffix_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a topology suffix.
@@ -23012,6 +24249,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysuffix_find(
@@ -23024,6 +24263,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for topology suffixes.
@@ -23069,6 +24309,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysuffix_mod(
@@ -23081,6 +24323,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify a topology suffix.
@@ -23128,6 +24371,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysuffix_show(
@@ -23136,6 +24381,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Show managed suffix.
@@ -23163,11 +24409,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def topologysuffix_verify(
         self,
         a_cn,
+        **kwargs
     ):
         """
         Verify replication topology for suffix.
@@ -23189,6 +24438,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trust_add(
@@ -23208,6 +24459,7 @@ class ClientMeta(Client):
         o_external=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Add new trust to use.
@@ -23303,12 +24555,15 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trust_del(
         self,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Delete a trust.
@@ -23327,6 +24582,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trust_fetch_domains(
@@ -23338,6 +24595,7 @@ class ClientMeta(Client):
         o_realm_server=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Refresh list of the domains associated with the trust
@@ -23379,6 +24637,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trust_find(
@@ -23394,6 +24654,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for trusts.
@@ -23451,6 +24712,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trust_mod(
@@ -23465,6 +24728,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify a trust (for future use).
@@ -23523,6 +24787,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trust_resolve(
@@ -23530,6 +24796,7 @@ class ClientMeta(Client):
         o_sids,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Resolve security identifiers of users and groups in trusted domains
@@ -23553,6 +24820,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trust_show(
@@ -23561,6 +24830,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Display information about a trust.
@@ -23588,6 +24858,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trustconfig_mod(
@@ -23600,6 +24872,7 @@ class ClientMeta(Client):
         o_trust_type='ad',
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify global trust configuration.
@@ -23647,6 +24920,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trustconfig_show(
@@ -23655,6 +24930,7 @@ class ClientMeta(Client):
         o_trust_type='ad',
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Show global trust configuration.
@@ -23682,6 +24958,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trustdomain_add(
@@ -23695,6 +24973,7 @@ class ClientMeta(Client):
         o_trust_type='ad',
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Allow access from the trusted domain
@@ -23743,6 +25022,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trustdomain_del(
@@ -23750,6 +25031,7 @@ class ClientMeta(Client):
         a_trustcn,
         a_cn,
         o_continue=False,
+        **kwargs
     ):
         """
         Remove information about the domain associated with the trust.
@@ -23771,12 +25053,15 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trustdomain_disable(
         self,
         a_trustcn,
         a_cn,
+        **kwargs
     ):
         """
         Disable use of IPA resources by the domain of the trust
@@ -23795,12 +25080,15 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trustdomain_enable(
         self,
         a_trustcn,
         a_cn,
+        **kwargs
     ):
         """
         Allow use of IPA resources by the domain of the trust
@@ -23819,6 +25107,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trustdomain_find(
@@ -23833,6 +25123,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search domains of the trust
@@ -23885,6 +25176,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def trustdomain_mod(
@@ -23900,6 +25193,7 @@ class ClientMeta(Client):
         o_trust_type='ad',
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Modify trustdomain of the trust
@@ -23957,6 +25251,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_add(
@@ -24007,6 +25303,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a new user.
@@ -24202,6 +25499,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_add_cert(
@@ -24211,6 +25510,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add one or more certificates to the user entry
@@ -24240,6 +25540,8 @@ class ClientMeta(Client):
         _params['no_members'] = o_no_members
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_add_certmapdata(
@@ -24252,6 +25554,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add one or more certificate mappings to the user entry.
@@ -24293,6 +25596,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_add_manager(
@@ -24302,6 +25607,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_user=None,
+        **kwargs
     ):
         """
         Add a manager to the user entry
@@ -24332,6 +25638,8 @@ class ClientMeta(Client):
         if o_user is not None:
             _params['user'] = o_user
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_add_principal(
@@ -24341,6 +25649,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add new principal alias to the user entry
@@ -24370,6 +25679,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_del(
@@ -24377,6 +25688,7 @@ class ClientMeta(Client):
         a_uid,
         o_continue=False,
         o_preserve=None,
+        **kwargs
     ):
         """
         Delete a user.
@@ -24399,11 +25711,14 @@ class ClientMeta(Client):
         if o_preserve is not None:
             _params['preserve'] = o_preserve
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_disable(
         self,
         a_uid,
+        **kwargs
     ):
         """
         Disable a user account.
@@ -24419,11 +25734,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_enable(
         self,
         a_uid,
+        **kwargs
     ):
         """
         Enable a user account.
@@ -24438,6 +25756,8 @@ class ClientMeta(Client):
         _args.append(a_uid)
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
@@ -24504,6 +25824,7 @@ class ClientMeta(Client):
         o_not_in_hbacrule=None,
         o_in_sudorule=None,
         o_not_in_sudorule=None,
+        **kwargs
     ):
         """
         Search for users.
@@ -24767,6 +26088,8 @@ class ClientMeta(Client):
         if o_not_in_sudorule is not None:
             _params['not_in_sudorule'] = o_not_in_sudorule
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_mod(
@@ -24823,6 +26146,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
+        **kwargs
     ):
         """
         Modify a user.
@@ -25047,6 +26371,8 @@ class ClientMeta(Client):
         if o_rename is not None:
             _params['rename'] = o_rename
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_remove_cert(
@@ -25056,6 +26382,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove one or more certificates to the user entry
@@ -25085,6 +26412,8 @@ class ClientMeta(Client):
         _params['no_members'] = o_no_members
         _params['usercertificate'] = o_usercertificate
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_remove_certmapdata(
@@ -25097,6 +26426,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove one or more certificate mappings from the user entry.
@@ -25138,6 +26468,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_remove_manager(
@@ -25147,6 +26479,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_user=None,
+        **kwargs
     ):
         """
         Remove a manager to the user entry
@@ -25177,6 +26510,8 @@ class ClientMeta(Client):
         if o_user is not None:
             _params['user'] = o_user
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_remove_principal(
@@ -25186,6 +26521,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Remove principal alias from the user entry
@@ -25215,6 +26551,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_show(
@@ -25225,6 +26563,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a user.
@@ -25259,12 +26598,15 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_stage(
         self,
         a_uid,
         o_continue=False,
+        **kwargs
     ):
         """
         Move deleted user into staged area
@@ -25283,6 +26625,8 @@ class ClientMeta(Client):
         _params = dict()
         _params['continue'] = o_continue
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_status(
@@ -25290,6 +26634,7 @@ class ClientMeta(Client):
         a_useruid,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Lockout status of a user account
@@ -25332,11 +26677,14 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_undel(
         self,
         a_uid,
+        **kwargs
     ):
         """
         Undelete a delete user account.
@@ -25352,11 +26700,14 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def user_unlock(
         self,
         a_uid,
+        **kwargs
     ):
         """
         Unlock a user account
@@ -25377,6 +26728,8 @@ class ClientMeta(Client):
 
         _params = dict()
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_add_internal(
@@ -25394,6 +26747,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Add a vault.
@@ -25459,6 +26813,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_add_member(
@@ -25473,6 +26829,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
+        **kwargs
     ):
         """
         Add members to a vault.
@@ -25523,6 +26880,8 @@ class ClientMeta(Client):
         if o_services is not None:
             _params['services'] = o_services
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_add_owner(
@@ -25537,6 +26896,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
+        **kwargs
     ):
         """
         Add owners to a vault.
@@ -25587,6 +26947,8 @@ class ClientMeta(Client):
         if o_services is not None:
             _params['services'] = o_services
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_archive_internal(
@@ -25600,6 +26962,7 @@ class ClientMeta(Client):
         o_username=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Archive data into a vault.
@@ -25644,6 +27007,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_del(
@@ -25653,6 +27018,7 @@ class ClientMeta(Client):
         o_service=None,
         o_shared=False,
         o_username=None,
+        **kwargs
     ):
         """
         Delete a vault.
@@ -25683,6 +27049,8 @@ class ClientMeta(Client):
         if o_username is not None:
             _params['username'] = o_username
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_find(
@@ -25702,6 +27070,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
+        **kwargs
     ):
         """
         Search for vaults.
@@ -25774,6 +27143,8 @@ class ClientMeta(Client):
         if o_pkey_only is not None:
             _params['pkey_only'] = o_pkey_only
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_mod_internal(
@@ -25793,6 +27164,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Modify a vault.
@@ -25867,6 +27239,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_remove_member(
@@ -25881,6 +27255,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
+        **kwargs
     ):
         """
         Remove members from a vault.
@@ -25931,6 +27306,8 @@ class ClientMeta(Client):
         if o_services is not None:
             _params['services'] = o_services
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_remove_owner(
@@ -25945,6 +27322,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
+        **kwargs
     ):
         """
         Remove owners from a vault.
@@ -25995,6 +27373,8 @@ class ClientMeta(Client):
         if o_services is not None:
             _params['services'] = o_services
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_retrieve_internal(
@@ -26006,6 +27386,7 @@ class ClientMeta(Client):
         o_username=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Retrieve data from a vault.
@@ -26044,6 +27425,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vault_show(
@@ -26056,6 +27439,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a vault.
@@ -26098,6 +27482,8 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vaultconfig_show(
@@ -26105,6 +27491,7 @@ class ClientMeta(Client):
         o_transport_out=None,
         o_all=True,
         o_raw=False,
+        **kwargs
     ):
         """
         Show vault configuration.
@@ -26129,6 +27516,8 @@ class ClientMeta(Client):
         _params['all'] = o_all
         _params['raw'] = o_raw
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vaultcontainer_add_owner(
@@ -26142,6 +27531,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
+        **kwargs
     ):
         """
         Add owners to a vault container.
@@ -26189,6 +27579,8 @@ class ClientMeta(Client):
         if o_services is not None:
             _params['services'] = o_services
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vaultcontainer_del(
@@ -26197,6 +27589,7 @@ class ClientMeta(Client):
         o_service=None,
         o_shared=False,
         o_username=None,
+        **kwargs
     ):
         """
         Delete a vault container.
@@ -26224,6 +27617,8 @@ class ClientMeta(Client):
         if o_username is not None:
             _params['username'] = o_username
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vaultcontainer_remove_owner(
@@ -26237,6 +27632,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
+        **kwargs
     ):
         """
         Remove owners from a vault container.
@@ -26284,6 +27680,8 @@ class ClientMeta(Client):
         if o_services is not None:
             _params['services'] = o_services
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def vaultcontainer_show(
@@ -26295,6 +27693,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
+        **kwargs
     ):
         """
         Display information about a vault container.
@@ -26334,10 +27733,13 @@ class ClientMeta(Client):
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
 
+        _params.update(kwargs)
+
         return self._request(method, _args, _params)
 
     def whoami(
         self,
+        **kwargs
     ):
         """
         Describe currently authenticated identity.
@@ -26349,5 +27751,7 @@ class ClientMeta(Client):
         _args = list()
 
         _params = dict()
+
+        _params.update(kwargs)
 
         return self._request(method, _args, _params)
