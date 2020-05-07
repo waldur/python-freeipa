@@ -20,10 +20,10 @@ from python_freeipa.exceptions import (
 )
 
 try:
-    import requests_kerberos
+    import requests_gssapi
 except ImportError as e:
     # Will raise if the user tries to login via Kerberos.
-    requests_kerberos = e
+    requests_gssapi = e
 
 try:
     import srvlookup
@@ -235,14 +235,14 @@ class Client(object):
         """
         Login to FreeIPA server using existing Kerberos credentials.
 
-        In order to use this method, the package ```requests_kerberos`` <https://pypi.org/project/requests-kerberos/>`_
+        In order to use this method, the package ```requests_gssapi`` <https://pypi.org/project/requests-gssapi/>`_
         must be installed. There must already be a Kerberos Ticket-Granting Ticket (TGT) cached in a Kerberos credential
         cache. Whether a TGT is available can be easily determined by running the klist command. If no TGT is available,
         then it first must be obtained by running the kinit command, or pointing the ``$KRB5CCNAME`` environment
         variable to a credential cache with a valid TGT.
 
         :raises Unauthorized: raised if credentials are invalid.
-        :raises ImportError: raised if the ``requests_kerberos`` module is unavailable.
+        :raises ImportError: raised if the ``requests_gssapi`` module is unavailable.
         """
         return self._wrap_in_dns_discovery(self._login_kerberos)
 
@@ -250,8 +250,8 @@ class Client(object):
         """
         private function, use login_kerberos instead
         """
-        if isinstance(requests_kerberos, ImportError):
-            raise requests_kerberos
+        if isinstance(requests_gssapi, ImportError):
+            raise requests_gssapi
 
         login_url = 'https://{0}/ipa/session/login_kerberos'.format(self._current_host)
         headers = {'Referer': 'https://{0}/ipa'.format(self._current_host)}
@@ -259,7 +259,7 @@ class Client(object):
             login_url,
             headers=headers,
             verify=self._verify_ssl,
-            auth=requests_kerberos.HTTPKerberosAuth(),
+            auth=requests_gssapi.HTTPSPNEGOAuth(),
         )
 
         if not response.ok:
