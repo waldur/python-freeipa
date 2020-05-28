@@ -19181,6 +19181,8 @@ class ClientMeta(Client):
         if o_addattr is not None:
             _params['addattr'] = o_addattr
         _params['force'] = o_force
+        if self.env()['result']['version'] >= "4.7":
+            _params['skip_host_check'] = o_skip_host_check
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
