@@ -5,7 +5,8 @@ class ClientMeta(Client):
     version = '2.235'
 
     def __init__(self, host=None, verify_ssl=True, dns_discovery=True):
-        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version, dns_discovery=dns_discovery)
+        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl,
+                                         version=self.version, dns_discovery=dns_discovery)
 
     def aci_add(
         self,
@@ -19180,7 +19181,6 @@ class ClientMeta(Client):
         if o_addattr is not None:
             _params['addattr'] = o_addattr
         _params['force'] = o_force
-        _params['skip_host_check'] = o_skip_host_check
         _params['all'] = o_all
         _params['raw'] = o_raw
         _params['no_members'] = o_no_members
