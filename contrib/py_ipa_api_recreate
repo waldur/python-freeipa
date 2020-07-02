@@ -273,7 +273,7 @@ class MetaAPICreator:
     def func_add_arg_head(self, spec, result):
         arg_name = spec['name']
         mapped_arg_name = self._name_mapping(arg_name, 'a')
-        if 'default' in spec:
+        if 'default' in spec and (spec['required'] or spec['autofill']):
             result['default_value'] = True
             if isinstance(spec['default'], str):
                 result['head'].append(
@@ -362,7 +362,7 @@ class MetaAPICreator:
         if arg_name == 'all':
             result['default_value'] = True
             result['head'].append("{0}=True,".format(mapped_arg_name))
-        elif 'default' in spec:
+        elif 'default' in spec and (spec['required'] or spec['autofill']):
             result['default_value'] = True
             if isinstance(spec['default'], str):
                 result['head'].append(

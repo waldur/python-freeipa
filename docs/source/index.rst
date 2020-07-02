@@ -88,7 +88,7 @@ Here is what you need to do:
   cd python-freeipa
   python3 -m venv venv
   source venv/bin/activate
-  pip install requests-kerberos python-freeipa
+  pip install requests-gssapi python-freeipa
   # recreate the ClientMeta class
   contrib/py_ipa_api_recreate --source-url ipa.demo1.freeipa.org --source-url-user admin --source-url-pass Secret123
   # move the file where it belongs
