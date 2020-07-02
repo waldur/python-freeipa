@@ -13,7 +13,7 @@ tests_requires = [
 
 setup(
     name='python-freeipa',
-    version='1.0.5',
+    version='1.0.6',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='https://python-freeipa.readthedocs.io/',
