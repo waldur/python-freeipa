@@ -4,6 +4,8 @@ include:
   - project: "waldur/waldur-pipelines"
     file: "/templates/test/check-merge-compatibility.yml"
   - project: "waldur/waldur-pipelines"
+    file: "/templates/release/sync-to-github.yml"
+  - project: "waldur/waldur-pipelines"
     file: "/templates/release/python-module-release.yml"
 
 image: 'python:3.6-alpine'
