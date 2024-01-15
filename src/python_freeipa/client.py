@@ -361,6 +361,7 @@ class Client(object):
             self.current_host
         )
         headers = {
+            'Referer': password_url,
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'text/plain',
         }
