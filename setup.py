@@ -20,7 +20,9 @@ setup(
     description='Lightweight FreeIPA client',
     long_description=open('README.rst').read(),
     install_requires=install_requires,
-    extras_require={'tests': tests_requires,},
+    extras_require={
+        'tests': tests_requires,
+    },
     package_dir={'': 'src'},
     packages=find_packages('src', exclude=['*.tests', '*.tests.*', 'tests.*', 'tests']),
     test_suite='python_freeipa.tests.suite',
