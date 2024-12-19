@@ -1,3 +1,42 @@
-[tool.black]
-line-length = 88
-skip-string-normalization = true
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "python-freeipa"
+version = "1.0.9"
+description = "Lightweight FreeIPA client"
+authors = ["OpenNode Team <info@opennodecloud.com>"]
+readme = "README.rst"
+documentation = "https://python-freeipa.readthedocs.io/"
+packages = [{include = "python_freeipa", from = "src"}]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration :: Authentication/Directory",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "*"
+srvlookup = "*"
+requests-gssapi = "*"
+
+[tool.poetry.group.test.dependencies]
+responses = "*"
+pytest = "^8.3.4"
+pytest-cov = "^5.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.5.0"
+
+[tool.pytest.ini_options]
+addopts = "--cov=src/python_freeipa/"
