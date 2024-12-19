@@ -53,7 +53,7 @@ class ClientLegacy(Client):
         department_number=None,
         employee_number=None,
         employee_type=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new user. Username corresponds to UID field of user.
@@ -134,114 +134,114 @@ class ClientLegacy(Client):
         :type employee_type: str
         """
         params = {
-            'all': True,
-            'givenname': first_name,
-            'sn': last_name,
-            'cn': full_name,
+            "all": True,
+            "givenname": first_name,
+            "sn": last_name,
+            "cn": full_name,
         }
 
         if gid_number:
-            params['gidnumber'] = gid_number
+            params["gidnumber"] = gid_number
 
         if uid_number:
-            params['uidnumber'] = uid_number
+            params["uidnumber"] = uid_number
 
         if display_name:
-            params['displayname'] = display_name
+            params["displayname"] = display_name
 
         if noprivate:
-            params['noprivate'] = noprivate
+            params["noprivate"] = noprivate
 
         if mail:
-            params['mail'] = mail
+            params["mail"] = mail
 
         if ssh_key:
-            params['ipasshpubkey'] = ssh_key
+            params["ipasshpubkey"] = ssh_key
 
         if job_title:
-            params['title'] = job_title
+            params["title"] = job_title
 
         if preferred_language:
-            params['preferredlanguage'] = preferred_language
+            params["preferredlanguage"] = preferred_language
 
         if disabled:
-            params['nsaccountlock'] = disabled
+            params["nsaccountlock"] = disabled
 
         if random_pass:
-            params['random'] = True
+            params["random"] = True
 
         if initials:
-            params['initials'] = initials
+            params["initials"] = initials
 
         if home_directory:
-            params['homedirectory'] = home_directory
+            params["homedirectory"] = home_directory
 
         if gecos:
-            params['gecos'] = gecos
+            params["gecos"] = gecos
 
         if login_shell:
-            params['loginshell'] = login_shell
+            params["loginshell"] = login_shell
 
         if user_password:
-            params['userpassword'] = user_password
+            params["userpassword"] = user_password
 
         if street_address:
-            params['street'] = street_address
+            params["street"] = street_address
 
         if city:
-            params['l'] = city
+            params["l"] = city
 
         if state:
-            params['st'] = state
+            params["st"] = state
 
         if postal_code:
-            params['postalcode'] = postal_code
+            params["postalcode"] = postal_code
 
         if telephone_number:
-            params['telephonenumber'] = telephone_number
+            params["telephonenumber"] = telephone_number
 
         if mobile_number:
-            params['mobile'] = mobile_number
+            params["mobile"] = mobile_number
 
         if pager_number:
-            params['pager'] = pager_number
+            params["pager"] = pager_number
 
         if fax_number:
-            params['facsimiletelephonenumber'] = fax_number
+            params["facsimiletelephonenumber"] = fax_number
 
         if organization_unit:
-            params['ou'] = organization_unit
+            params["ou"] = organization_unit
 
         if manager:
-            params['manager'] = manager
+            params["manager"] = manager
 
         if car_license:
-            params['carlicense'] = car_license
+            params["carlicense"] = car_license
 
         if user_auth_type:
-            params['ipauserauthtype'] = user_auth_type
+            params["ipauserauthtype"] = user_auth_type
 
         if user_class:
-            params['userclass'] = user_class
+            params["userclass"] = user_class
 
         if radius_proxy_config:
-            params['ipatokenradiusconfiglink'] = radius_proxy_config
+            params["ipatokenradiusconfiglink"] = radius_proxy_config
 
         if radius_proxy_username:
-            params['ipatokenradiususername'] = radius_proxy_username
+            params["ipatokenradiususername"] = radius_proxy_username
 
         if department_number:
-            params['departmentnumber'] = department_number
+            params["departmentnumber"] = department_number
 
         if employee_number:
-            params['employeenumber'] = employee_number
+            params["employeenumber"] = employee_number
 
         if employee_type:
-            params['employeetype'] = employee_type
+            params["employeetype"] = employee_type
 
         params.update(kwargs)
-        data = self._request('user_add', username, params)
-        return data['result']
+        data = self._request("user_add", username, params)
+        return data["result"]
 
     def user_find(self, criteria=None, **kwargs):
         """
@@ -252,13 +252,13 @@ class ClientLegacy(Client):
 
         """
         params = {
-            'all': True,
-            'no_members': False,  # Suppress processing of membership attributes.
-            'sizelimit': 0,  # Maximum number of entries returned (0 is unlimited)
-            'whoami': False,  # Display user record for current Kerberos principal.
+            "all": True,
+            "no_members": False,  # Suppress processing of membership attributes.
+            "sizelimit": 0,  # Maximum number of entries returned (0 is unlimited)
+            "whoami": False,  # Display user record for current Kerberos principal.
         }
         params.update(kwargs)
-        return self._request('user_find', criteria, params)
+        return self._request("user_find", criteria, params)
 
     def user_show(self, username):
         """
@@ -267,8 +267,8 @@ class ClientLegacy(Client):
         :param username: User login.
         :type username: str
         """
-        data = self._request('user_show', username, {'all': True, 'raw': False})
-        return data['result']
+        data = self._request("user_show", username, {"all": True, "raw": False})
+        return data["result"]
 
     def user_status(self, username):
         """
@@ -277,7 +277,7 @@ class ClientLegacy(Client):
         :param username: User login.
         :type username: str
         """
-        return self._request('user_status', username, {'all': True, 'raw': False})
+        return self._request("user_status", username, {"all": True, "raw": False})
 
     def user_disable(self, username):
         """
@@ -286,7 +286,7 @@ class ClientLegacy(Client):
         :param username: User login.
         :type username: str
         """
-        self._request('user_disable', username)
+        self._request("user_disable", username)
 
     def user_enable(self, username):
         """
@@ -295,7 +295,7 @@ class ClientLegacy(Client):
         :param username: User login.
         :type username: str
         """
-        self._request('user_enable', username)
+        self._request("user_enable", username)
 
     def user_mod(
         self,
@@ -334,7 +334,7 @@ class ClientLegacy(Client):
         department_number=None,
         employee_number=None,
         employee_type=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a user.
@@ -411,116 +411,116 @@ class ClientLegacy(Client):
         :type employee_type: str
         """
         params = {
-            'all': False,  # Retrieve and print all attributes from the server.
-            'no_members': False,  # Suppress processing of membership attributes.
-            'raw': False,  # Print entries as stored on the server.
-            'rights': False,  # Display the access rights of this entry.
+            "all": False,  # Retrieve and print all attributes from the server.
+            "no_members": False,  # Suppress processing of membership attributes.
+            "raw": False,  # Print entries as stored on the server.
+            "rights": False,  # Display the access rights of this entry.
         }
 
         if first_name:
-            params['givenname'] = first_name
+            params["givenname"] = first_name
 
         if last_name:
-            params['sn'] = last_name
+            params["sn"] = last_name
 
         if full_name:
-            params['cn'] = full_name
+            params["cn"] = full_name
 
         if display_name:
-            params['displayname'] = display_name
+            params["displayname"] = display_name
 
         if noprivate:
-            params['noprivate'] = noprivate
+            params["noprivate"] = noprivate
 
         if mail:
-            params['mail'] = mail
+            params["mail"] = mail
 
         if ssh_key:
-            params['ipasshpubkey'] = ssh_key
+            params["ipasshpubkey"] = ssh_key
 
         if job_title:
-            params['title'] = job_title
+            params["title"] = job_title
 
         if preferred_language:
-            params['preferredlanguage'] = preferred_language
+            params["preferredlanguage"] = preferred_language
 
         if disabled:
-            params['nsaccountlock'] = disabled
+            params["nsaccountlock"] = disabled
 
         if random_pass:
-            params['random'] = True
+            params["random"] = True
 
         if initials:
-            params['initials'] = initials
+            params["initials"] = initials
 
         if home_directory:
-            params['homedirectory'] = home_directory
+            params["homedirectory"] = home_directory
 
         if gecos:
-            params['gecos'] = gecos
+            params["gecos"] = gecos
 
         if login_shell:
-            params['loginshell'] = login_shell
+            params["loginshell"] = login_shell
 
         if user_password:
-            params['userpassword'] = user_password
+            params["userpassword"] = user_password
 
         if street_address:
-            params['street'] = street_address
+            params["street"] = street_address
 
         if city:
-            params['l'] = city
+            params["l"] = city
 
         if state:
-            params['st'] = state
+            params["st"] = state
 
         if postal_code:
-            params['postalcode'] = postal_code
+            params["postalcode"] = postal_code
 
         if telephone_number:
-            params['telephonenumber'] = telephone_number
+            params["telephonenumber"] = telephone_number
 
         if mobile_number:
-            params['mobile'] = mobile_number
+            params["mobile"] = mobile_number
 
         if pager_number:
-            params['pager'] = pager_number
+            params["pager"] = pager_number
 
         if fax_number:
-            params['facsimiletelephonenumber'] = fax_number
+            params["facsimiletelephonenumber"] = fax_number
 
         if organization_unit:
-            params['ou'] = organization_unit
+            params["ou"] = organization_unit
 
         if manager:
-            params['manager'] = manager
+            params["manager"] = manager
 
         if car_license:
-            params['carlicense'] = car_license
+            params["carlicense"] = car_license
 
         if user_auth_type:
-            params['ipauserauthtype'] = user_auth_type
+            params["ipauserauthtype"] = user_auth_type
 
         if user_class:
-            params['userclass'] = user_class
+            params["userclass"] = user_class
 
         if radius_proxy_config:
-            params['ipatokenradiusconfiglink'] = radius_proxy_config
+            params["ipatokenradiusconfiglink"] = radius_proxy_config
 
         if radius_proxy_username:
-            params['ipatokenradiususername'] = radius_proxy_username
+            params["ipatokenradiususername"] = radius_proxy_username
 
         if department_number:
-            params['departmentnumber'] = department_number
+            params["departmentnumber"] = department_number
 
         if employee_number:
-            params['employeenumber'] = employee_number
+            params["employeenumber"] = employee_number
 
         if employee_type:
-            params['employeetype'] = employee_type
+            params["employeetype"] = employee_type
         params.update(kwargs)
-        data = self._request('user_mod', username, params)
-        return data['result']
+        data = self._request("user_mod", username, params)
+        return data["result"]
 
     def user_del(self, username, skip_errors=False, soft_delete=False):
         """
@@ -534,10 +534,10 @@ class ClientLegacy(Client):
         :type soft_delete: bool
         """
         params = {
-            'continue': skip_errors,
-            'preserve': soft_delete,
+            "continue": skip_errors,
+            "preserve": soft_delete,
         }
-        return self._request('user_del', username, params)
+        return self._request("user_del", username, params)
 
     def user_undel(self, username):
         """
@@ -546,7 +546,7 @@ class ClientLegacy(Client):
         :param username: User login.
         :type username: str
         """
-        return self._request('user_undel', username)
+        return self._request("user_undel", username)
 
     def passwd(self, login, password, current_password=None):
         """
@@ -564,10 +564,10 @@ class ClientLegacy(Client):
         if not current_password:  # resetting for another user
             params = {}
         else:  # resetting for current user
-            params = {'current_password': current_password}
+            params = {"current_password": current_password}
 
-        data = self._request('passwd', args=[login, password], params=params)
-        return data['result']
+        data = self._request("passwd", args=[login, password], params=params)
+        return data["result"]
 
     def group_add(
         self,
@@ -576,7 +576,7 @@ class ClientLegacy(Client):
         non_posix=False,
         external=False,
         no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new group.
@@ -592,23 +592,23 @@ class ClientLegacy(Client):
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         """
-        params = {'all': True}
+        params = {"all": True}
 
         if description is not None:
-            params['description'] = description
+            params["description"] = description
 
         if non_posix is not None:
-            params['nonposix'] = non_posix
+            params["nonposix"] = non_posix
 
         if external is not None:
-            params['external'] = external
+            params["external"] = external
 
         if no_members is not None:
-            params['no_members'] = no_members
+            params["no_members"] = no_members
 
         params.update(kwargs)
-        data = self._request('group_add', group, params)
-        return data['result']
+        data = self._request("group_add", group, params)
+        return data["result"]
 
     def group_del(self, group, skip_errors=False):
         """
@@ -618,8 +618,8 @@ class ClientLegacy(Client):
         :param skip_errors: Continuous mode: Don't stop on errors.
         :type skip_errors: bool
         """
-        params = {'continue': skip_errors}
-        self._request('group_del', group, params)
+        params = {"continue": skip_errors}
+        self._request("group_del", group, params)
 
     def group_add_member(
         self, group, users=None, groups=None, skip_errors=False, **kwargs
@@ -636,16 +636,16 @@ class ClientLegacy(Client):
         :type skip_errors: bool
         """
         params = {
-            'all': True,
-            'raw': True,
-            'user': users,
-            'group': groups,
+            "all": True,
+            "raw": True,
+            "user": users,
+            "group": groups,
         }
         params.update(kwargs)
-        data = self._request('group_add_member', group, params)
+        data = self._request("group_add_member", group, params)
         if not skip_errors:
             parse_group_management_error(data)
-        return data['result']
+        return data["result"]
 
     def group_remove_member(
         self, group, users=None, groups=None, skip_errors=False, **kwargs
@@ -662,17 +662,17 @@ class ClientLegacy(Client):
         :type skip_errors: bool
         """
         params = {
-            'all': False,
-            'no_members': False,
-            'raw': False,
-            'user': users,
-            'group': groups,
+            "all": False,
+            "no_members": False,
+            "raw": False,
+            "user": users,
+            "group": groups,
         }
         params.update(kwargs)
-        data = self._request('group_remove_member', group, params)
+        data = self._request("group_remove_member", group, params)
         if not skip_errors:
             parse_group_management_error(data)
-        return data['result']
+        return data["result"]
 
     def group_find(self, criteria=None, **kwargs):
         """
@@ -681,9 +681,9 @@ class ClientLegacy(Client):
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: str
         """
-        params = {'all': True, 'sizelimit': 0}
+        params = {"all": True, "sizelimit": 0}
         params.update(kwargs)
-        return self._request('group_find', criteria, params)
+        return self._request("group_find", criteria, params)
 
     def group_show(self, group, **kwargs):
         """
@@ -691,10 +691,10 @@ class ClientLegacy(Client):
 
         :param group: Group name.
         """
-        params = {'all': True, 'raw': False}
+        params = {"all": True, "raw": False}
         params.update(kwargs)
-        data = self._request('group_show', group, params)
-        return data['result']
+        data = self._request("group_show", group, params)
+        return data["result"]
 
     def group_mod(
         self,
@@ -704,7 +704,7 @@ class ClientLegacy(Client):
         external=False,
         no_members=False,
         rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a group.
@@ -723,28 +723,28 @@ class ClientLegacy(Client):
         :type rename: str
         """
         params = {
-            'all': False,
-            'raw': False,
-            'rights': False,
+            "all": False,
+            "raw": False,
+            "rights": False,
         }
         if description:
-            params['description'] = description
+            params["description"] = description
 
         if posix:
-            params['posix'] = posix
+            params["posix"] = posix
 
         if external:
-            params['external'] = external
+            params["external"] = external
 
         if no_members:
-            params['no_members'] = no_members
+            params["no_members"] = no_members
 
         if rename:
-            params['rename'] = rename
+            params["rename"] = rename
 
         params.update(kwargs)
-        data = self._request('group_mod', group, params)
-        return data['result']
+        data = self._request("group_mod", group, params)
+        return data["result"]
 
     def automountkey_find(
         self, location, automount_map, key=None, criteria=None, **kwargs
@@ -769,17 +769,17 @@ class ClientLegacy(Client):
             args.append(criteria)
 
         params = {
-            'all': True,
-            'raw': False,
+            "all": True,
+            "raw": False,
         }
 
         if key:
-            params['automountkey'] = key
+            params["automountkey"] = key
 
         params.update(kwargs)
 
-        data = self._request('automountkey_find', args, params)
-        return data['result']
+        data = self._request("automountkey_find", args, params)
+        return data["result"]
 
     def automountkey_add(self, key, mount_info, location, automount_map, **kwargs):
         """
@@ -802,14 +802,14 @@ class ClientLegacy(Client):
         args = [location, automount_map]
 
         params = {
-            'all': True,
-            'raw': False,
-            'automountkey': key,
-            'automountinformation': mount_info,
+            "all": True,
+            "raw": False,
+            "automountkey": key,
+            "automountinformation": mount_info,
         }
         params.update(kwargs)
 
-        data = self._request('automountkey_add', args, params)
+        data = self._request("automountkey_add", args, params)
         return data
 
     def automountkey_mod(self, key, mount_info, automount_location, automount_map):
@@ -830,14 +830,14 @@ class ClientLegacy(Client):
         args = [automount_location, automount_map]
 
         params = {
-            'all': True,
-            'raw': False,
-            'rights': False,
-            'automountkey': key,
-            'automountinformation': mount_info,
+            "all": True,
+            "raw": False,
+            "rights": False,
+            "automountkey": key,
+            "automountinformation": mount_info,
         }
 
-        data = self._request('automountkey_mod', args, params)
+        data = self._request("automountkey_mod", args, params)
         return data
 
     def automountlocation_add(self, location, **kwargs):
@@ -847,10 +847,10 @@ class ClientLegacy(Client):
         :param location: Automount location name.
         :type location: str
         """
-        params = {'all': True, 'raw': False}
+        params = {"all": True, "raw": False}
         params.update(kwargs)
 
-        data = self._request('automountlocation_add', location, params)
+        data = self._request("automountlocation_add", location, params)
         return data
 
     def automountlocation_del(self, location, skip_errors=False):
@@ -860,8 +860,8 @@ class ClientLegacy(Client):
         :param location: Automount location name.
         :type location: str
         """
-        params = {'continue': skip_errors}
-        data = self._request('automountlocation_del', location, params)
+        params = {"continue": skip_errors}
+        data = self._request("automountlocation_del", location, params)
         return data
 
     def automountlocation_find(self, criteria=None, **kwargs):
@@ -871,11 +871,11 @@ class ClientLegacy(Client):
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: str
         """
-        params = {'all': True, 'raw': False, 'sizelimit': 0}
+        params = {"all": True, "raw": False, "sizelimit": 0}
         params.update(kwargs)
 
-        data = self._request('automountlocation_find', criteria, params)
-        return data['result']
+        data = self._request("automountlocation_find", criteria, params)
+        return data["result"]
 
     def automountlocation_show(self, location, **kwargs):
         """
@@ -884,10 +884,10 @@ class ClientLegacy(Client):
         :param location: Automount location name.
         :type location: str
         """
-        params = {'all': True, 'raw': False, 'rights': False}
+        params = {"all": True, "raw": False, "rights": False}
 
-        data = self._request('automountlocation_show', location, params)
-        return data['result']
+        data = self._request("automountlocation_show", location, params)
+        return data["result"]
 
     def automountlocation_tofiles(self, location):
         """
@@ -896,8 +896,8 @@ class ClientLegacy(Client):
         :param location: Automount location name
         :type location: str
         """
-        data = self._request('automountlocation_tofiles', location)
-        return data['result']
+        data = self._request("automountlocation_tofiles", location)
+        return data["result"]
 
     def automountmap_add(self, location, automount_map, **kwargs):
         """
@@ -910,10 +910,10 @@ class ClientLegacy(Client):
         """
         args = [location, automount_map]
 
-        params = {'all': True, 'raw': False}
+        params = {"all": True, "raw": False}
         params.update(kwargs)
 
-        data = self._request('automountmap_add', args, params)
+        data = self._request("automountmap_add", args, params)
         return data
 
     def automountmap_del(self, location, automount_map, skip_errors=False):
@@ -926,9 +926,9 @@ class ClientLegacy(Client):
         :type automount_map: str
         """
         args = [location, automount_map]
-        params = {'continue': skip_errors}
+        params = {"continue": skip_errors}
 
-        data = self._request('automountmap_del', args, params)
+        data = self._request("automountmap_del", args, params)
         return data
 
     def automountmap_find(self, location, criteria=None, **kwargs):
@@ -944,11 +944,11 @@ class ClientLegacy(Client):
         if criteria:
             args.append(criteria)
 
-        params = {'all': True, 'raw': False, 'sizelimit': 0}
+        params = {"all": True, "raw": False, "sizelimit": 0}
         params.update(kwargs)
 
-        data = self._request('automountmap_find', args, params)
-        return data['result']
+        data = self._request("automountmap_find", args, params)
+        return data["result"]
 
     def automountmap_mod(self, location, automount_map, description=None, **kwargs):
         """
@@ -962,17 +962,17 @@ class ClientLegacy(Client):
         args = [location, automount_map]
 
         params = {
-            'all': True,
-            'raw': False,
-            'rights': False,
+            "all": True,
+            "raw": False,
+            "rights": False,
         }
 
         if description:
-            params['description'] = description
+            params["description"] = description
 
         params.update(kwargs)
 
-        data = self._request('automountmap_mod', args, params)
+        data = self._request("automountmap_mod", args, params)
         return data
 
     def automountmap_show(self, location, automount_map, **kwargs):
@@ -986,11 +986,11 @@ class ClientLegacy(Client):
         """
         args = [location, automount_map]
 
-        params = {'all': True, 'raw': False, 'rights': False}
+        params = {"all": True, "raw": False, "rights": False}
         params.update(kwargs)
 
-        data = self._request('automountmap_show', args, params)
-        return data['result']
+        data = self._request("automountmap_show", args, params)
+        return data["result"]
 
     def host_add(self, host, **kwargs):
         """
@@ -999,11 +999,11 @@ class ClientLegacy(Client):
         :param host: Host name which should be alphanumeric and maximum length is 255
         :type host: str
         """
-        params = {'all': True}
+        params = {"all": True}
         params.update(kwargs)
 
-        data = self._request('host_add', host, params)
-        return data['result']
+        data = self._request("host_add", host, params)
+        return data["result"]
 
     def host_del(self, fqdn, skip_errors=False, updatedns=None):
         """
@@ -1019,10 +1019,10 @@ class ClientLegacy(Client):
         params = {"continue": skip_errors}
 
         if updatedns:
-            params['updatedns'] = updatedns
+            params["updatedns"] = updatedns
 
-        data = self._request('host_del', fqdn, params)
-        return data['result']
+        data = self._request("host_del", fqdn, params)
+        return data["result"]
 
     def host_find(
         self,
@@ -1031,7 +1031,7 @@ class ClientLegacy(Client):
         no_members=False,
         sizelimit=0,
         raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for hosts.
@@ -1048,13 +1048,13 @@ class ClientLegacy(Client):
         :type raw: bool
         """
         params = {
-            'all': allattr,  # Retrieve and print all attributes from the server. Affects command output
-            'no_members': no_members,  # Suppress processing of membership attributes
-            'sizelimit': sizelimit,  # Maximum number of entries returned (0 is unlimited)
-            'raw': raw,  # Print entries as stored on the server. Only affects output format
+            "all": allattr,  # Retrieve and print all attributes from the server. Affects command output
+            "no_members": no_members,  # Suppress processing of membership attributes
+            "sizelimit": sizelimit,  # Maximum number of entries returned (0 is unlimited)
+            "raw": raw,  # Print entries as stored on the server. Only affects output format
         }
         params.update(kwargs)
-        return self._request('host_find', criteria, params)
+        return self._request("host_find", criteria, params)
 
     def host_show(self, fqdn, rights=False, no_members=False, allattr=True, raw=False):
         """
@@ -1072,11 +1072,11 @@ class ClientLegacy(Client):
         :type raw: bool
         """
         data = self._request(
-            'host_show',
+            "host_show",
             fqdn,
-            {'all': allattr, 'rights': rights, 'no_members': no_members, 'raw': raw},
+            {"all": allattr, "rights": rights, "no_members": no_members, "raw": raw},
         )
-        return data['result']
+        return data["result"]
 
     def hostgroup_add(self, hostgroup, description=None, no_members=False, **kwargs):
         """
@@ -1089,17 +1089,17 @@ class ClientLegacy(Client):
         :param no_members: Suppress processing of membership attributes
         :type no_members: bool
         """
-        params = {'all': True}
+        params = {"all": True}
 
         if description:
-            params['description'] = description
+            params["description"] = description
 
         if no_members:
-            params['no_members'] = no_members
+            params["no_members"] = no_members
 
         params.update(kwargs)
-        data = self._request('hostgroup_add', hostgroup, params)
-        return data['result']
+        data = self._request("hostgroup_add", hostgroup, params)
+        return data["result"]
 
     def hostgroup_del(self, hostgroup_name, skip_errors=False):
         """
@@ -1111,8 +1111,8 @@ class ClientLegacy(Client):
         :type skip_errors: bool
         """
 
-        data = self._request('hostgroup_del', hostgroup_name, {'continue': skip_errors})
-        return data['result']
+        data = self._request("hostgroup_del", hostgroup_name, {"continue": skip_errors})
+        return data["result"]
 
     def hostgroup_find(
         self,
@@ -1121,7 +1121,7 @@ class ClientLegacy(Client):
         no_members=False,
         sizelimit=0,
         raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for hostgroups
@@ -1138,13 +1138,13 @@ class ClientLegacy(Client):
         :type raw: bool
         """
         params = {
-            'all': allattr,  # Retrieve and print all attributes from the server. Affects command output
-            'no_members': no_members,  # Suppress processing of membership attributes
-            'sizelimit': sizelimit,  # Maximum number of entries returned (0 is unlimited)
-            'raw': raw,  # Print entries as stored on the server. Only affects output format
+            "all": allattr,  # Retrieve and print all attributes from the server. Affects command output
+            "no_members": no_members,  # Suppress processing of membership attributes
+            "sizelimit": sizelimit,  # Maximum number of entries returned (0 is unlimited)
+            "raw": raw,  # Print entries as stored on the server. Only affects output format
         }
         params.update(kwargs)
-        return self._request('hostgroup_find', criteria, params)
+        return self._request("hostgroup_find", criteria, params)
 
     def hostgroup_show(
         self, hostgroup, rights=False, no_members=False, allattr=True, raw=False
@@ -1164,11 +1164,11 @@ class ClientLegacy(Client):
         :type raw: bool
         """
         data = self._request(
-            'hostgroup_show',
+            "hostgroup_show",
             hostgroup,
-            {'all': allattr, 'rights': rights, 'no_members': no_members, 'raw': raw},
+            {"all": allattr, "rights": rights, "no_members": no_members, "raw": raw},
         )
-        return data['result']
+        return data["result"]
 
     def hostgroup_mod(
         self,
@@ -1178,7 +1178,7 @@ class ClientLegacy(Client):
         rights=False,
         allattr=False,
         raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a hostgroup.
@@ -1197,17 +1197,17 @@ class ClientLegacy(Client):
         :type raw: bool
         """
         params = {
-            'all': allattr,
-            'raw': raw,
-            'rights': rights,
-            'no_members': no_members,
+            "all": allattr,
+            "raw": raw,
+            "rights": rights,
+            "no_members": no_members,
         }
         if description:
-            params['description'] = description
+            params["description"] = description
 
         params.update(kwargs)
-        data = self._request('hostgroup_mod', hostgroup, params)
-        return data['result']
+        data = self._request("hostgroup_mod", hostgroup, params)
+        return data["result"]
 
     def hostgroup_add_members(
         self,
@@ -1216,7 +1216,7 @@ class ClientLegacy(Client):
         host=None,
         hostgroups=None,
         skip_errors=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to a hostgroup.
@@ -1232,22 +1232,22 @@ class ClientLegacy(Client):
         :param skip_errors: Skip processing errors.
         :type skip_errors: bool
         """
-        params = {'all': True}
+        params = {"all": True}
 
         if no_members:
-            params['no_members'] = no_members
+            params["no_members"] = no_members
 
         if host:
-            params['host'] = host
+            params["host"] = host
 
         if hostgroups:
-            params['hostgroup'] = hostgroups
+            params["hostgroup"] = hostgroups
 
         params.update(kwargs)
-        data = self._request('hostgroup_add_member', hostgroup, params)
+        data = self._request("hostgroup_add_member", hostgroup, params)
         if not skip_errors:
             parse_hostgroup_management_error(data)
-        return data['result']
+        return data["result"]
 
     def hostgroup_remove_members(
         self,
@@ -1256,7 +1256,7 @@ class ClientLegacy(Client):
         host=None,
         hostgroups=None,
         skip_errors=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from a hostgroup.
@@ -1272,22 +1272,22 @@ class ClientLegacy(Client):
         :param skip_errors: Skip processing errors.
         :type skip_errors: bool
         """
-        params = {'all': True}
+        params = {"all": True}
 
         if no_members:
-            params['no_members'] = no_members
+            params["no_members"] = no_members
 
         if host:
-            params['host'] = host
+            params["host"] = host
 
         if hostgroups:
-            params['hostgroup'] = hostgroups
+            params["hostgroup"] = hostgroups
 
         params.update(kwargs)
-        data = self._request('hostgroup_remove_member', hostgroup, params)
+        data = self._request("hostgroup_remove_member", hostgroup, params)
         if not skip_errors:
             parse_hostgroup_management_error(data)
-        return data['result']
+        return data["result"]
 
     def dnsrecord_add(self, zone_name, record_name, **kwargs):
         """
@@ -1298,11 +1298,11 @@ class ClientLegacy(Client):
         :param record_name: DNS record name (e.g., host1)
         :type record_name: str
         """
-        params = {'all': True}
+        params = {"all": True}
 
         params.update(kwargs)
-        data = self._request('dnsrecord_add', [zone_name, record_name], params)
-        return data['result']
+        data = self._request("dnsrecord_add", [zone_name, record_name], params)
+        return data["result"]
 
     def dnsrecord_del(self, zone_name, record_name, **kwargs):
         """
@@ -1316,7 +1316,7 @@ class ClientLegacy(Client):
         params = {}
 
         params.update(kwargs)
-        self._request('dnsrecord_del', [zone_name, record_name], params)
+        self._request("dnsrecord_del", [zone_name, record_name], params)
 
     def dnsrecord_find(self, zone_name, criteria=None, **kwargs):
         """
@@ -1327,9 +1327,9 @@ class ClientLegacy(Client):
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: str
         """
-        params = {'all': True, 'sizelimit': 0}
+        params = {"all": True, "sizelimit": 0}
         params.update(kwargs)
-        return self._request('dnsrecord_find', [zone_name, criteria], params)
+        return self._request("dnsrecord_find", [zone_name, criteria], params)
 
     def dnsrecord_show(self, zone_name, record_name, **kwargs):
         """
@@ -1341,13 +1341,13 @@ class ClientLegacy(Client):
         :type record_name: str
         """
         params = {
-            'all': True,
-            'raw': False,
-            'rights': False,
+            "all": True,
+            "raw": False,
+            "rights": False,
         }
         params.update(kwargs)
-        data = self._request('dnsrecord_show', [zone_name, record_name], params)
-        return data['result']
+        data = self._request("dnsrecord_show", [zone_name, record_name], params)
+        return data["result"]
 
     def dnsrecord_mod(self, zone_name, record_name, **kwargs):
         """
@@ -1359,14 +1359,14 @@ class ClientLegacy(Client):
         :type record_name: str
         """
         params = {
-            'all': False,
-            'raw': False,
-            'rights': False,
+            "all": False,
+            "raw": False,
+            "rights": False,
         }
 
         params.update(kwargs)
-        data = self._request('dnsrecord_mod', [zone_name, record_name], params)
-        return data['result']
+        data = self._request("dnsrecord_mod", [zone_name, record_name], params)
+        return data["result"]
 
     def dnszone_add(self, zone_name, **kwargs):
         """
@@ -1375,11 +1375,11 @@ class ClientLegacy(Client):
         :param zone_name: DNS zone name (e.g., example.com)
         :type zone_name: str
         """
-        params = {'all': True}
+        params = {"all": True}
 
         params.update(kwargs)
-        data = self._request('dnszone_add', zone_name, params)
-        return data['result']
+        data = self._request("dnszone_add", zone_name, params)
+        return data["result"]
 
     def dnszone_del(self, zone_name, **kwargs):
         """
@@ -1391,7 +1391,7 @@ class ClientLegacy(Client):
         params = {}
 
         params.update(kwargs)
-        self._request('dnszone_del', zone_name, params)
+        self._request("dnszone_del", zone_name, params)
 
     def dnszone_find(self, criteria=None, **kwargs):
         """
@@ -1400,9 +1400,9 @@ class ClientLegacy(Client):
         :param criteria: A string searched in all relevant object attributes.
         :type criteria: str
         """
-        params = {'all': True, 'sizelimit': 0}
+        params = {"all": True, "sizelimit": 0}
         params.update(kwargs)
-        return self._request('dnszone_find', criteria, params)
+        return self._request("dnszone_find", criteria, params)
 
     def dnszone_show(self, zone_name, **kwargs):
         """
@@ -1412,13 +1412,13 @@ class ClientLegacy(Client):
         :type zone_name: str
         """
         params = {
-            'all': True,
-            'raw': False,
-            'rights': False,
+            "all": True,
+            "raw": False,
+            "rights": False,
         }
         params.update(kwargs)
-        data = self._request('dnszone_show', zone_name, params)
-        return data['result']
+        data = self._request("dnszone_show", zone_name, params)
+        return data["result"]
 
     def dnszone_mod(self, zone_name, **kwargs):
         """
@@ -1428,11 +1428,11 @@ class ClientLegacy(Client):
         :type zone_name: str
         """
         params = {
-            'all': False,
-            'raw': False,
-            'rights': False,
+            "all": False,
+            "raw": False,
+            "rights": False,
         }
 
         params.update(kwargs)
-        data = self._request('dnszone_mod', zone_name, params)
-        return data['result']
+        data = self._request("dnszone_mod", zone_name, params)
+        return data["result"]

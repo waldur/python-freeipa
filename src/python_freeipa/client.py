@@ -53,7 +53,7 @@ class AuthenticatedSession(object):
         """
         self._client = client
         self._login_args = login_arguments
-        self._logged_in = kwargs.get('logged_in', False)
+        self._logged_in = kwargs.get("logged_in", False)
         self._login_exception = None
 
     @property
@@ -129,7 +129,7 @@ class Client(object):
         self._dns_discovery = dns_discovery
         self._host = host
         self._current_host = None
-        self._base_url = 'https://{0}/ipa'.format(self._host)
+        self._base_url = "https://{0}/ipa".format(self._host)
         self._verify_ssl = verify_ssl
         self._version = version
         self._session = requests.Session()
@@ -146,15 +146,15 @@ class Client(object):
         elif self._dns_discovery:
             _domain = socket.getfqdn()
         else:
-            raise FreeIPAError('neither host specified, not dns_discovery enabled')
+            raise FreeIPAError("neither host specified, not dns_discovery enabled")
         while True:
             try:
-                return srvlookup.lookup('ldap', 'tcp', _domain)
+                return srvlookup.lookup("ldap", "tcp", _domain)
             except srvlookup.SRVQueryFailure:
                 try:
-                    _domain = _domain.split('.', 1)[1]
+                    _domain = _domain.split(".", 1)[1]
                 except IndexError:
-                    raise FreeIPAError('could not find any IPA Server using DNS lookup')
+                    raise FreeIPAError("could not find any IPA Server using DNS lookup")
 
     @property
     def log(self):
@@ -201,33 +201,33 @@ class Client(object):
         """
         private function, use login instead
         """
-        login_url = 'https://{0}/ipa/session/login_password'.format(self._current_host)
+        login_url = "https://{0}/ipa/session/login_password".format(self._current_host)
         headers = {
-            'Referer': login_url,
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain',
+            "Referer": login_url,
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept": "text/plain",
         }
-        data = {'user': username, 'password': password}
+        data = {"user": username, "password": password}
         response = self._session.post(
             login_url, headers=headers, data=data, verify=self._verify_ssl
         )
 
         if not response.ok:
-            reason = response.headers.get('X-IPA-Rejection-Reason', None)
+            reason = response.headers.get("X-IPA-Rejection-Reason", None)
             if reason:
-                if reason == 'password-expired':
+                if reason == "password-expired":
                     raise PasswordExpired()
-                elif reason == 'krbprincipal-expired':
+                elif reason == "krbprincipal-expired":
                     raise KrbPrincipalExpired()
-                elif reason == 'denied':
+                elif reason == "denied":
                     raise Denied()
-                elif reason == 'invalid-password':
+                elif reason == "invalid-password":
                     raise InvalidSessionPassword()
-                elif reason == 'user-locked':
+                elif reason == "user-locked":
                     raise UserLocked()
             raise Unauthorized(response.text)
 
-        self.log.info('Successfully logged in as {0}'.format(username))
+        self.log.info("Successfully logged in as {0}".format(username))
 
         return AuthenticatedSession(self, username, password, logged_in=True)
 
@@ -253,8 +253,8 @@ class Client(object):
         if isinstance(requests_gssapi, ImportError):
             raise requests_gssapi
 
-        login_url = 'https://{0}/ipa/session/login_kerberos'.format(self._current_host)
-        headers = {'Referer': 'https://{0}/ipa'.format(self._current_host)}
+        login_url = "https://{0}/ipa/session/login_kerberos".format(self._current_host)
+        headers = {"Referer": "https://{0}/ipa".format(self._current_host)}
         response = self._session.post(
             login_url,
             headers=headers,
@@ -266,7 +266,7 @@ class Client(object):
             raise Unauthorized(response.text)
 
         self.log.info(
-            'Successfully logged to {0} using Kerberos credentials.'.format(
+            "Successfully logged to {0} using Kerberos credentials.".format(
                 self._current_host
             )
         )
@@ -277,7 +277,7 @@ class Client(object):
         """
         Logs out of the FreeIPA session.
         """
-        self._request('session_logout')
+        self._request("session_logout")
 
     def _request(self, method, args=None, params=None):
         """
@@ -293,11 +293,11 @@ class Client(object):
         :rtype: dict
         :raises FreeIPAError: if the response code is not OK
         """
-        session_url = 'https://{0}/ipa/session/json'.format(self.current_host)
+        session_url = "https://{0}/ipa/session/json".format(self.current_host)
         headers = {
-            'Referer': 'https://{0}/ipa'.format(self.current_host),
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            "Referer": "https://{0}/ipa".format(self.current_host),
+            "Content-Type": "application/json",
+            "Accept": "application/json",
         }
 
         if not args:
@@ -309,12 +309,12 @@ class Client(object):
             params = {}
 
         if self._version:
-            params.setdefault('version', self._version)
+            params.setdefault("version", self._version)
 
-        data = {'method': method, 'params': [args, params]}
+        data = {"method": method, "params": [args, params]}
 
         self.log.debug(
-            'Making {method} request to {url} with arguments {args} and params {params}'.format(
+            "Making {method} request to {url} with arguments {args} and params {params}".format(
                 method=method, url=session_url, args=args, params=params
             )
         )
@@ -330,11 +330,11 @@ class Client(object):
             raise FreeIPAError(message=response.text, code=response.status_code)
 
         result = response.json()
-        error = result['error']
+        error = result["error"]
         if error:
             parse_error(error)
         else:
-            return result['result']
+            return result["result"]
 
     def change_password(self, username, new_password, old_password, otp=None):
         """
@@ -357,22 +357,22 @@ class Client(object):
         """
         private function, use change_password instead
         """
-        password_url = 'https://{0}/ipa/session/change_password'.format(
+        password_url = "https://{0}/ipa/session/change_password".format(
             self.current_host
         )
         headers = {
-            'Referer': password_url,
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain',
+            "Referer": password_url,
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept": "text/plain",
         }
 
         data = {
-            'user': username,
-            'new_password': new_password,
-            'old_password': old_password,
+            "user": username,
+            "new_password": new_password,
+            "old_password": old_password,
         }
         if otp:
-            data['otp'] = otp
+            data["otp"] = otp
 
         response = self._session.post(
             password_url, headers=headers, data=data, verify=self._verify_ssl
@@ -381,14 +381,14 @@ class Client(object):
         if not response.ok:
             raise FreeIPAError(message=response.text, code=response.status_code)
 
-        pwchange_result = response.headers.get('X-IPA-Pwchange-Result', None)
-        if pwchange_result != 'ok':
-            if pwchange_result == 'invalid-password':
+        pwchange_result = response.headers.get("X-IPA-Pwchange-Result", None)
+        if pwchange_result != "ok":
+            if pwchange_result == "invalid-password":
                 raise PWChangeInvalidPassword(
                     message=response.text, code=response.status_code
                 )
-            elif pwchange_result == 'policy-error':
-                policy_error = response.headers.get('X-IPA-Pwchange-Policy-Error', None)
+            elif pwchange_result == "policy-error":
+                policy_error = response.headers.get("X-IPA-Pwchange-Policy-Error", None)
                 raise PWChangePolicyError(
                     message=response.text,
                     code=response.status_code,
