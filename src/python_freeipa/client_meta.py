@@ -2,10 +2,15 @@ from python_freeipa.client import Client
 
 
 class ClientMeta(Client):
-    version = '2.253'
+    version = "2.253"
 
     def __init__(self, host=None, verify_ssl=True, dns_discovery=True):
-        super(ClientMeta, self).__init__(host=host, verify_ssl=verify_ssl, version=self.version, dns_discovery=dns_discovery)
+        super(ClientMeta, self).__init__(
+            host=host,
+            verify_ssl=verify_ssl,
+            version=self.version,
+            dns_discovery=dns_discovery,
+        )
 
     def aci_add(
         self,
@@ -24,7 +29,7 @@ class ClientMeta(Client):
         o_test=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create new ACI.
@@ -66,47 +71,42 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'aci_add'
+        method = "aci_add"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
         if o_permission is not None:
-            _params['permission'] = o_permission
+            _params["permission"] = o_permission
         if o_group is not None:
-            _params['group'] = o_group
-        _params['permissions'] = o_permissions
+            _params["group"] = o_group
+        _params["permissions"] = o_permissions
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_filter is not None:
-            _params['filter'] = o_filter
+            _params["filter"] = o_filter
         if o_subtree is not None:
-            _params['subtree'] = o_subtree
+            _params["subtree"] = o_subtree
         if o_targetgroup is not None:
-            _params['targetgroup'] = o_targetgroup
+            _params["targetgroup"] = o_targetgroup
         if o_selfaci is not None:
-            _params['selfaci'] = o_selfaci
-        _params['aciprefix'] = o_aciprefix
+            _params["selfaci"] = o_selfaci
+        _params["aciprefix"] = o_aciprefix
         if o_test is not None:
-            _params['test'] = o_test
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["test"] = o_test
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def aci_del(
-        self,
-        a_aciname,
-        o_aciprefix,
-        **kwargs
-    ):
+    def aci_del(self, a_aciname, o_aciprefix, **kwargs):
         """
         Delete ACI.
 
@@ -117,13 +117,13 @@ class ClientMeta(Client):
             delegation, selfservice, none)
         :type  o_aciprefix: str, valid values ['permission', 'delegation', 'selfservice', 'none']
         """
-        method = 'aci_del'
+        method = "aci_del"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
-        _params['aciprefix'] = o_aciprefix
+        _params["aciprefix"] = o_aciprefix
 
         _params.update(kwargs)
 
@@ -147,7 +147,7 @@ class ClientMeta(Client):
         o_pkey_only=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for ACIs.
@@ -208,40 +208,40 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'aci_find'
+        method = "aci_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_aciname is not None:
-            _params['aciname'] = o_aciname
+            _params["aciname"] = o_aciname
         if o_permission is not None:
-            _params['permission'] = o_permission
+            _params["permission"] = o_permission
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_filter is not None:
-            _params['filter'] = o_filter
+            _params["filter"] = o_filter
         if o_subtree is not None:
-            _params['subtree'] = o_subtree
+            _params["subtree"] = o_subtree
         if o_targetgroup is not None:
-            _params['targetgroup'] = o_targetgroup
+            _params["targetgroup"] = o_targetgroup
         if o_selfaci is not None:
-            _params['selfaci'] = o_selfaci
+            _params["selfaci"] = o_selfaci
         if o_aciprefix is not None:
-            _params['aciprefix'] = o_aciprefix
+            _params["aciprefix"] = o_aciprefix
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["pkey_only"] = o_pkey_only
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -263,7 +263,7 @@ class ClientMeta(Client):
         o_selfaci=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify ACI.
@@ -303,35 +303,35 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'aci_mod'
+        method = "aci_mod"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
         if o_permission is not None:
-            _params['permission'] = o_permission
+            _params["permission"] = o_permission
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_filter is not None:
-            _params['filter'] = o_filter
+            _params["filter"] = o_filter
         if o_subtree is not None:
-            _params['subtree'] = o_subtree
+            _params["subtree"] = o_subtree
         if o_targetgroup is not None:
-            _params['targetgroup'] = o_targetgroup
+            _params["targetgroup"] = o_targetgroup
         if o_selfaci is not None:
-            _params['selfaci'] = o_selfaci
-        _params['aciprefix'] = o_aciprefix
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["selfaci"] = o_selfaci
+        _params["aciprefix"] = o_aciprefix
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -354,7 +354,7 @@ class ClientMeta(Client):
         o_selfaci=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Rename an ACI.
@@ -396,49 +396,43 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'aci_rename'
+        method = "aci_rename"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
         if o_permission is not None:
-            _params['permission'] = o_permission
+            _params["permission"] = o_permission
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_filter is not None:
-            _params['filter'] = o_filter
+            _params["filter"] = o_filter
         if o_subtree is not None:
-            _params['subtree'] = o_subtree
+            _params["subtree"] = o_subtree
         if o_targetgroup is not None:
-            _params['targetgroup'] = o_targetgroup
+            _params["targetgroup"] = o_targetgroup
         if o_selfaci is not None:
-            _params['selfaci'] = o_selfaci
-        _params['aciprefix'] = o_aciprefix
-        _params['newname'] = o_newname
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["selfaci"] = o_selfaci
+        _params["aciprefix"] = o_aciprefix
+        _params["newname"] = o_newname
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def aci_show(
-        self,
-        a_aciname,
-        o_aciprefix,
-        o_location=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_aciname, o_aciprefix, o_location=None, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display a single ACI given an ACI name.
@@ -458,32 +452,29 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'aci_show'
+        method = "aci_show"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
-        _params['aciprefix'] = o_aciprefix
+        _params["aciprefix"] = o_aciprefix
         if o_location is not None:
-            _params['location'] = o_location
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["location"] = o_location
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def adtrust_is_enabled(
-        self,
-        **kwargs
-    ):
+    def adtrust_is_enabled(self, **kwargs):
         """
         Determine whether ipa-adtrust-install has been run on this system
 
 
         """
-        method = 'adtrust_is_enabled'
+        method = "adtrust_is_enabled"
 
         _args = list()
 
@@ -502,7 +493,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add an automember rule.
@@ -528,21 +519,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_add'
+        method = "automember_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -558,7 +549,7 @@ class ClientMeta(Client):
         o_automemberexclusiveregex=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add conditions to an automember rule.
@@ -584,33 +575,29 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_add_condition'
+        method = "automember_add_condition"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_automemberinclusiveregex is not None:
-            _params['automemberinclusiveregex'] = o_automemberinclusiveregex
+            _params["automemberinclusiveregex"] = o_automemberinclusiveregex
         if o_automemberexclusiveregex is not None:
-            _params['automemberexclusiveregex'] = o_automemberexclusiveregex
-        _params['key'] = o_key
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["automemberexclusiveregex"] = o_automemberexclusiveregex
+        _params["key"] = o_key
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def automember_default_group_remove(
-        self,
-        o_type,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, o_type, o_all=True, o_raw=False, **kwargs
     ):
         """
         Remove default (fallback) group for all unmatched entries.
@@ -625,26 +612,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_default_group_remove'
+        method = "automember_default_group_remove"
 
         _args = list()
 
         _params = dict()
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def automember_default_group_set(
-        self,
-        o_automemberdefaultgroup,
-        o_type,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, o_automemberdefaultgroup, o_type, o_all=True, o_raw=False, **kwargs
     ):
         """
         Set default (fallback) group for all unmatched entries.
@@ -662,27 +644,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_default_group_set'
+        method = "automember_default_group_set"
 
         _args = list()
 
         _params = dict()
-        _params['automemberdefaultgroup'] = o_automemberdefaultgroup
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["automemberdefaultgroup"] = o_automemberdefaultgroup
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def automember_default_group_show(
-        self,
-        o_type,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def automember_default_group_show(self, o_type, o_all=True, o_raw=False, **kwargs):
         """
         Display information about the default (fallback) automember groups.
 
@@ -696,25 +672,20 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_default_group_show'
+        method = "automember_default_group_show"
 
         _args = list()
 
         _params = dict()
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def automember_del(
-        self,
-        a_cn,
-        o_type,
-        **kwargs
-    ):
+    def automember_del(self, a_cn, o_type, **kwargs):
         """
         Delete an automember rule.
 
@@ -724,13 +695,13 @@ class ClientMeta(Client):
         :param o_type: Grouping to which the rule applies
         :type  o_type: str, valid values ['group', 'hostgroup']
         """
-        method = 'automember_del'
+        method = "automember_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['type'] = o_type
+        _params["type"] = o_type
 
         _params.update(kwargs)
 
@@ -744,7 +715,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for automember rules.
@@ -766,19 +737,19 @@ class ClientMeta(Client):
             ("automember-rule")
         :type  o_pkey_only: bool
         """
-        method = 'automember_find'
+        method = "automember_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["description"] = o_description
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -793,7 +764,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for orphan automember rules. The command might need to be run as
@@ -818,21 +789,21 @@ class ClientMeta(Client):
             ("automember-rule")
         :type  o_pkey_only: bool
         """
-        method = 'automember_find_orphans'
+        method = "automember_find_orphans"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
-        _params['type'] = o_type
+            _params["description"] = o_description
+        _params["type"] = o_type
         if o_remove is not None:
-            _params['remove'] = o_remove
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["remove"] = o_remove
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -849,7 +820,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an automember rule.
@@ -881,24 +852,24 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_mod'
+        method = "automember_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -912,7 +883,7 @@ class ClientMeta(Client):
         o_no_wait=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Rebuild auto membership.
@@ -933,21 +904,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_rebuild'
+        method = "automember_rebuild"
 
         _args = list()
 
         _params = dict()
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_users is not None:
-            _params['users'] = o_users
+            _params["users"] = o_users
         if o_hosts is not None:
-            _params['hosts'] = o_hosts
+            _params["hosts"] = o_hosts
         if o_no_wait is not None:
-            _params['no_wait'] = o_no_wait
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["no_wait"] = o_no_wait
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -963,7 +934,7 @@ class ClientMeta(Client):
         o_automemberexclusiveregex=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove conditions from an automember rule.
@@ -989,35 +960,28 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_remove_condition'
+        method = "automember_remove_condition"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_automemberinclusiveregex is not None:
-            _params['automemberinclusiveregex'] = o_automemberinclusiveregex
+            _params["automemberinclusiveregex"] = o_automemberinclusiveregex
         if o_automemberexclusiveregex is not None:
-            _params['automemberexclusiveregex'] = o_automemberexclusiveregex
-        _params['key'] = o_key
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["automemberexclusiveregex"] = o_automemberexclusiveregex
+        _params["key"] = o_key
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def automember_show(
-        self,
-        a_cn,
-        o_type,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def automember_show(self, a_cn, o_type, o_all=True, o_raw=False, **kwargs):
         """
         Display information about an automember rule.
 
@@ -1033,15 +997,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automember_show'
+        method = "automember_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['type'] = o_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["type"] = o_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -1057,7 +1021,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new automount key.
@@ -1085,21 +1049,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountkey_add'
+        method = "automountkey_add"
 
         _args = list()
         _args.append(a_automountlocationcn)
         _args.append(a_automountmapautomountmapname)
 
         _params = dict()
-        _params['automountkey'] = o_automountkey
-        _params['automountinformation'] = o_automountinformation
+        _params["automountkey"] = o_automountkey
+        _params["automountinformation"] = o_automountinformation
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -1112,7 +1076,7 @@ class ClientMeta(Client):
         o_automountkey,
         o_continue=False,
         o_automountinformation=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Delete an automount key.
@@ -1129,17 +1093,17 @@ class ClientMeta(Client):
         :param o_automountinformation: Mount information
         :type  o_automountinformation: IA5Str
         """
-        method = 'automountkey_del'
+        method = "automountkey_del"
 
         _args = list()
         _args.append(a_automountlocationcn)
         _args.append(a_automountmapautomountmapname)
 
         _params = dict()
-        _params['continue'] = o_continue
-        _params['automountkey'] = o_automountkey
+        _params["continue"] = o_continue
+        _params["automountkey"] = o_automountkey
         if o_automountinformation is not None:
-            _params['automountinformation'] = o_automountinformation
+            _params["automountinformation"] = o_automountinformation
 
         _params.update(kwargs)
 
@@ -1156,7 +1120,7 @@ class ClientMeta(Client):
         o_sizelimit=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for an automount key.
@@ -1184,7 +1148,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountkey_find'
+        method = "automountkey_find"
 
         _args = list()
         _args.append(a_automountlocationcn)
@@ -1193,15 +1157,15 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_automountkey is not None:
-            _params['automountkey'] = o_automountkey
+            _params["automountkey"] = o_automountkey
         if o_automountinformation is not None:
-            _params['automountinformation'] = o_automountinformation
+            _params["automountinformation"] = o_automountinformation
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -1221,7 +1185,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an automount key.
@@ -1259,29 +1223,29 @@ class ClientMeta(Client):
         :param o_rename: Rename the automount key object
         :type  o_rename: str
         """
-        method = 'automountkey_mod'
+        method = "automountkey_mod"
 
         _args = list()
         _args.append(a_automountlocationcn)
         _args.append(a_automountmapautomountmapname)
 
         _params = dict()
-        _params['automountkey'] = o_automountkey
+        _params["automountkey"] = o_automountkey
         if o_automountinformation is not None:
-            _params['automountinformation'] = o_automountinformation
+            _params["automountinformation"] = o_automountinformation
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
         if o_newautomountinformation is not None:
-            _params['newautomountinformation'] = o_newautomountinformation
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["newautomountinformation"] = o_newautomountinformation
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -1296,7 +1260,7 @@ class ClientMeta(Client):
         o_automountinformation=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display an automount key.
@@ -1320,32 +1284,26 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountkey_show'
+        method = "automountkey_show"
 
         _args = list()
         _args.append(a_automountlocationcn)
         _args.append(a_automountmapautomountmapname)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['automountkey'] = o_automountkey
+        _params["rights"] = o_rights
+        _params["automountkey"] = o_automountkey
         if o_automountinformation is not None:
-            _params['automountinformation'] = o_automountinformation
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["automountinformation"] = o_automountinformation
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def automountlocation_add(
-        self,
-        a_cn,
-        o_setattr=None,
-        o_addattr=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_cn, o_setattr=None, o_addattr=None, o_all=True, o_raw=False, **kwargs
     ):
         """
         Create a new automount location.
@@ -1367,29 +1325,24 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountlocation_add'
+        method = "automountlocation_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def automountlocation_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def automountlocation_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete an automount location.
 
@@ -1399,13 +1352,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'automountlocation_del'
+        method = "automountlocation_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -1420,7 +1373,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for an automount location.
@@ -1445,34 +1398,29 @@ class ClientMeta(Client):
             ("location")
         :type  o_pkey_only: bool
         """
-        method = 'automountlocation_find'
+        method = "automountlocation_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def automountlocation_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display an automount location.
@@ -1490,25 +1438,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountlocation_show'
+        method = "automountlocation_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def automountlocation_tofiles(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def automountlocation_tofiles(self, a_cn, **kwargs):
         """
         Generate automount files for a specific location.
 
@@ -1516,7 +1460,7 @@ class ClientMeta(Client):
         :param a_cn: Automount location name.
         :type  a_cn: str
         """
-        method = 'automountlocation_tofiles'
+        method = "automountlocation_tofiles"
 
         _args = list()
         _args.append(a_cn)
@@ -1536,7 +1480,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new automount map.
@@ -1562,7 +1506,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountmap_add'
+        method = "automountmap_add"
 
         _args = list()
         _args.append(a_automountlocationcn)
@@ -1570,13 +1514,13 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -1590,10 +1534,10 @@ class ClientMeta(Client):
         o_description=None,
         o_setattr=None,
         o_addattr=None,
-        o_parentmap='auto.master',
+        o_parentmap="auto.master",
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new indirect mount point.
@@ -1624,7 +1568,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountmap_add_indirect'
+        method = "automountmap_add_indirect"
 
         _args = list()
         _args.append(a_automountlocationcn)
@@ -1632,27 +1576,23 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['key'] = o_key
+            _params["addattr"] = o_addattr
+        _params["key"] = o_key
         if o_parentmap is not None:
-            _params['parentmap'] = o_parentmap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["parentmap"] = o_parentmap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def automountmap_del(
-        self,
-        a_automountlocationcn,
-        a_automountmapname,
-        o_continue=False,
-        **kwargs
+        self, a_automountlocationcn, a_automountmapname, o_continue=False, **kwargs
     ):
         """
         Delete an automount map.
@@ -1665,14 +1605,14 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'automountmap_del'
+        method = "automountmap_del"
 
         _args = list()
         _args.append(a_automountlocationcn)
         _args.append(a_automountmapname)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -1689,7 +1629,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for an automount map.
@@ -1718,7 +1658,7 @@ class ClientMeta(Client):
             ("map")
         :type  o_pkey_only: bool
         """
-        method = 'automountmap_find'
+        method = "automountmap_find"
 
         _args = list()
         _args.append(a_automountlocationcn)
@@ -1726,17 +1666,17 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_automountmapname is not None:
-            _params['automountmapname'] = o_automountmapname
+            _params["automountmapname"] = o_automountmapname
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -1753,7 +1693,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an automount map.
@@ -1785,7 +1725,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountmap_mod'
+        method = "automountmap_mod"
 
         _args = list()
         _args.append(a_automountlocationcn)
@@ -1793,16 +1733,16 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -1815,7 +1755,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display an automount map.
@@ -1835,26 +1775,22 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'automountmap_show'
+        method = "automountmap_show"
 
         _args = list()
         _args.append(a_automountlocationcn)
         _args.append(a_automountmapname)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def batch(
-        self,
-        a_methods=None,
-        **kwargs
-    ):
+    def batch(self, a_methods=None, **kwargs):
         """
         Make multiple ipa calls via one remote procedure call
 
@@ -1862,7 +1798,7 @@ class ClientMeta(Client):
         :param a_methods: Nested Methods to execute
         :type  a_methods: dict
         """
-        method = 'batch'
+        method = "batch"
 
         _args = list()
         _args.append(a_methods)
@@ -1883,7 +1819,7 @@ class ClientMeta(Client):
         o_chain=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a CA.
@@ -1911,33 +1847,28 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'ca_add'
+        method = "ca_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
-        _params['ipacasubjectdn'] = o_ipacasubjectdn
+            _params["description"] = o_description
+        _params["ipacasubjectdn"] = o_ipacasubjectdn
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['chain'] = o_chain
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["chain"] = o_chain
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def ca_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def ca_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a CA (must be disabled first).
 
@@ -1947,23 +1878,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'ca_del'
+        method = "ca_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def ca_disable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def ca_disable(self, a_cn, **kwargs):
         """
         Disable a CA.
 
@@ -1971,7 +1898,7 @@ class ClientMeta(Client):
         :param a_cn: Name for referencing the CA
         :type  a_cn: str
         """
-        method = 'ca_disable'
+        method = "ca_disable"
 
         _args = list()
         _args.append(a_cn)
@@ -1982,11 +1909,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def ca_enable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def ca_enable(self, a_cn, **kwargs):
         """
         Enable a CA.
 
@@ -1994,7 +1917,7 @@ class ClientMeta(Client):
         :param a_cn: Name for referencing the CA
         :type  a_cn: str
         """
-        method = 'ca_enable'
+        method = "ca_enable"
 
         _args = list()
         _args.append(a_cn)
@@ -2019,7 +1942,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for CAs.
@@ -2054,47 +1977,44 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'ca_find'
+        method = "ca_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipacaid is not None:
-            _params['ipacaid'] = o_ipacaid
+            _params["ipacaid"] = o_ipacaid
         if o_ipacasubjectdn is not None:
-            _params['ipacasubjectdn'] = o_ipacasubjectdn
+            _params["ipacasubjectdn"] = o_ipacasubjectdn
         if o_ipacaissuerdn is not None:
-            _params['ipacaissuerdn'] = o_ipacaissuerdn
+            _params["ipacaissuerdn"] = o_ipacaissuerdn
         if o_ipacarandomserialnumberversion is not None:
-            _params['ipacarandomserialnumberversion'] = o_ipacarandomserialnumberversion
+            _params["ipacarandomserialnumberversion"] = o_ipacarandomserialnumberversion
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def ca_is_enabled(
-        self,
-        **kwargs
-    ):
+    def ca_is_enabled(self, **kwargs):
         """
         Checks if any of the servers has the CA service enabled.
 
 
         """
-        method = 'ca_is_enabled'
+        method = "ca_is_enabled"
 
         _args = list()
 
@@ -2115,7 +2035,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify CA configuration.
@@ -2147,38 +2067,32 @@ class ClientMeta(Client):
         :param o_rename: Rename the Certificate Authority object
         :type  o_rename: str
         """
-        method = 'ca_mod'
+        method = "ca_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def ca_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_chain=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_cn, o_rights=False, o_chain=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display the properties of a CA.
@@ -2198,16 +2112,16 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'ca_show'
+        method = "ca_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['chain'] = o_chain
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["chain"] = o_chain
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -2228,7 +2142,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new CA ACL.
@@ -2266,46 +2180,40 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'caacl_add'
+        method = "caacl_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_ipacacategory is not None:
-            _params['ipacacategory'] = o_ipacacategory
+            _params["ipacacategory"] = o_ipacacategory
         if o_ipacertprofilecategory is not None:
-            _params['ipacertprofilecategory'] = o_ipacertprofilecategory
+            _params["ipacertprofilecategory"] = o_ipacertprofilecategory
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_servicecategory is not None:
-            _params['servicecategory'] = o_servicecategory
+            _params["servicecategory"] = o_servicecategory
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def caacl_add_ca(
-        self,
-        a_cn,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_ca=None,
-        **kwargs
+        self, a_cn, o_all=True, o_raw=False, o_no_members=False, o_ca=None, **kwargs
     ):
         """
         Add CAs to a CA ACL.
@@ -2324,17 +2232,17 @@ class ClientMeta(Client):
         :param o_ca: Certificate Authorities to add
         :type  o_ca: str
         """
-        method = 'caacl_add_ca'
+        method = "caacl_add_ca"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_ca is not None:
-            _params['ca'] = o_ca
+            _params["ca"] = o_ca
 
         _params.update(kwargs)
 
@@ -2348,7 +2256,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add target hosts and hostgroups to a CA ACL.
@@ -2369,19 +2277,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'caacl_add_host'
+        method = "caacl_add_host"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -2394,7 +2302,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_certprofile=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add profiles to a CA ACL.
@@ -2413,17 +2321,17 @@ class ClientMeta(Client):
         :param o_certprofile: Certificate Profiles to add
         :type  o_certprofile: str
         """
-        method = 'caacl_add_profile'
+        method = "caacl_add_profile"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_certprofile is not None:
-            _params['certprofile'] = o_certprofile
+            _params["certprofile"] = o_certprofile
 
         _params.update(kwargs)
 
@@ -2436,7 +2344,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_service=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add services to a CA ACL.
@@ -2455,17 +2363,17 @@ class ClientMeta(Client):
         :param o_service: services to add
         :type  o_service: str
         """
-        method = 'caacl_add_service'
+        method = "caacl_add_service"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
 
         _params.update(kwargs)
 
@@ -2479,7 +2387,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add users and groups to a CA ACL.
@@ -2500,30 +2408,25 @@ class ClientMeta(Client):
         :param o_group: groups to add
         :type  o_group: str
         """
-        method = 'caacl_add_user'
+        method = "caacl_add_user"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def caacl_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def caacl_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a CA ACL.
 
@@ -2533,23 +2436,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'caacl_del'
+        method = "caacl_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def caacl_disable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def caacl_disable(self, a_cn, **kwargs):
         """
         Disable a CA ACL.
 
@@ -2557,7 +2456,7 @@ class ClientMeta(Client):
         :param a_cn: ACL name
         :type  a_cn: str
         """
-        method = 'caacl_disable'
+        method = "caacl_disable"
 
         _args = list()
         _args.append(a_cn)
@@ -2568,11 +2467,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def caacl_enable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def caacl_enable(self, a_cn, **kwargs):
         """
         Enable a CA ACL.
 
@@ -2580,7 +2475,7 @@ class ClientMeta(Client):
         :param a_cn: ACL name
         :type  a_cn: str
         """
-        method = 'caacl_enable'
+        method = "caacl_enable"
 
         _args = list()
         _args.append(a_cn)
@@ -2608,7 +2503,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for CA ACLs.
@@ -2649,37 +2544,37 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'caacl_find'
+        method = "caacl_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_ipacacategory is not None:
-            _params['ipacacategory'] = o_ipacacategory
+            _params["ipacacategory"] = o_ipacacategory
         if o_ipacertprofilecategory is not None:
-            _params['ipacertprofilecategory'] = o_ipacertprofilecategory
+            _params["ipacertprofilecategory"] = o_ipacertprofilecategory
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_servicecategory is not None:
-            _params['servicecategory'] = o_servicecategory
+            _params["servicecategory"] = o_servicecategory
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -2702,7 +2597,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a CA ACL.
@@ -2746,49 +2641,43 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'caacl_mod'
+        method = "caacl_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_ipacacategory is not None:
-            _params['ipacacategory'] = o_ipacacategory
+            _params["ipacacategory"] = o_ipacacategory
         if o_ipacertprofilecategory is not None:
-            _params['ipacertprofilecategory'] = o_ipacertprofilecategory
+            _params["ipacertprofilecategory"] = o_ipacertprofilecategory
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_servicecategory is not None:
-            _params['servicecategory'] = o_servicecategory
+            _params["servicecategory"] = o_servicecategory
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def caacl_remove_ca(
-        self,
-        a_cn,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_ca=None,
-        **kwargs
+        self, a_cn, o_all=True, o_raw=False, o_no_members=False, o_ca=None, **kwargs
     ):
         """
         Remove CAs from a CA ACL.
@@ -2807,17 +2696,17 @@ class ClientMeta(Client):
         :param o_ca: Certificate Authorities to remove
         :type  o_ca: str
         """
-        method = 'caacl_remove_ca'
+        method = "caacl_remove_ca"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_ca is not None:
-            _params['ca'] = o_ca
+            _params["ca"] = o_ca
 
         _params.update(kwargs)
 
@@ -2831,7 +2720,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove target hosts and hostgroups from a CA ACL.
@@ -2852,19 +2741,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'caacl_remove_host'
+        method = "caacl_remove_host"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -2877,7 +2766,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_certprofile=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove profiles from a CA ACL.
@@ -2896,17 +2785,17 @@ class ClientMeta(Client):
         :param o_certprofile: Certificate Profiles to remove
         :type  o_certprofile: str
         """
-        method = 'caacl_remove_profile'
+        method = "caacl_remove_profile"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_certprofile is not None:
-            _params['certprofile'] = o_certprofile
+            _params["certprofile"] = o_certprofile
 
         _params.update(kwargs)
 
@@ -2919,7 +2808,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_service=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove services from a CA ACL.
@@ -2938,17 +2827,17 @@ class ClientMeta(Client):
         :param o_service: services to remove
         :type  o_service: str
         """
-        method = 'caacl_remove_service'
+        method = "caacl_remove_service"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
 
         _params.update(kwargs)
 
@@ -2962,7 +2851,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove users and groups from a CA ACL.
@@ -2983,19 +2872,19 @@ class ClientMeta(Client):
         :param o_group: groups to remove
         :type  o_group: str
         """
-        method = 'caacl_remove_user'
+        method = "caacl_remove_user"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -3008,7 +2897,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display the properties of a CA ACL.
@@ -3028,16 +2917,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'caacl_show'
+        method = "caacl_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -3075,7 +2964,7 @@ class ClientMeta(Client):
         o_no_host=None,
         o_service=None,
         o_no_service=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for existing certificates.
@@ -3150,78 +3039,73 @@ class ClientMeta(Client):
             services.
         :type  o_no_service: Principal
         """
-        method = 'cert_find'
+        method = "cert_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_certificate is not None:
-            _params['certificate'] = o_certificate
+            _params["certificate"] = o_certificate
         if o_issuer is not None:
-            _params['issuer'] = o_issuer
+            _params["issuer"] = o_issuer
         if o_revocation_reason is not None:
-            _params['revocation_reason'] = o_revocation_reason
+            _params["revocation_reason"] = o_revocation_reason
         if o_cacn is not None:
-            _params['cacn'] = o_cacn
+            _params["cacn"] = o_cacn
         if o_subject is not None:
-            _params['subject'] = o_subject
+            _params["subject"] = o_subject
         if o_min_serial_number is not None:
-            _params['min_serial_number'] = o_min_serial_number
+            _params["min_serial_number"] = o_min_serial_number
         if o_max_serial_number is not None:
-            _params['max_serial_number'] = o_max_serial_number
+            _params["max_serial_number"] = o_max_serial_number
         if o_exactly is not None:
-            _params['exactly'] = o_exactly
+            _params["exactly"] = o_exactly
         if o_validnotafter_from is not None:
-            _params['validnotafter_from'] = o_validnotafter_from
+            _params["validnotafter_from"] = o_validnotafter_from
         if o_validnotafter_to is not None:
-            _params['validnotafter_to'] = o_validnotafter_to
+            _params["validnotafter_to"] = o_validnotafter_to
         if o_validnotbefore_from is not None:
-            _params['validnotbefore_from'] = o_validnotbefore_from
+            _params["validnotbefore_from"] = o_validnotbefore_from
         if o_validnotbefore_to is not None:
-            _params['validnotbefore_to'] = o_validnotbefore_to
+            _params["validnotbefore_to"] = o_validnotbefore_to
         if o_issuedon_from is not None:
-            _params['issuedon_from'] = o_issuedon_from
+            _params["issuedon_from"] = o_issuedon_from
         if o_issuedon_to is not None:
-            _params['issuedon_to'] = o_issuedon_to
+            _params["issuedon_to"] = o_issuedon_to
         if o_revokedon_from is not None:
-            _params['revokedon_from'] = o_revokedon_from
+            _params["revokedon_from"] = o_revokedon_from
         if o_revokedon_to is not None:
-            _params['revokedon_to'] = o_revokedon_to
+            _params["revokedon_to"] = o_revokedon_to
         if o_status is not None:
-            _params['status'] = o_status
+            _params["status"] = o_status
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_no_user is not None:
-            _params['no_user'] = o_no_user
+            _params["no_user"] = o_no_user
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_no_host is not None:
-            _params['no_host'] = o_no_host
+            _params["no_host"] = o_no_host
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_no_service is not None:
-            _params['no_service'] = o_no_service
+            _params["no_service"] = o_no_service
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def cert_remove_hold(
-        self,
-        a_serial_number,
-        o_cacn='ipa',
-        **kwargs
-    ):
+    def cert_remove_hold(self, a_serial_number, o_cacn="ipa", **kwargs):
         """
         Take a revoked certificate off hold.
 
@@ -3232,14 +3116,14 @@ class ClientMeta(Client):
         :param o_cacn: Name of issuing CA
         :type  o_cacn: str
         """
-        method = 'cert_remove_hold'
+        method = "cert_remove_hold"
 
         _args = list()
         _args.append(a_serial_number)
 
         _params = dict()
         if o_cacn is not None:
-            _params['cacn'] = o_cacn
+            _params["cacn"] = o_cacn
 
         _params.update(kwargs)
 
@@ -3249,14 +3133,14 @@ class ClientMeta(Client):
         self,
         a_csr,
         o_principal,
-        o_request_type='pkcs10',
+        o_request_type="pkcs10",
         o_profile_id=None,
-        o_cacn='ipa',
+        o_cacn="ipa",
         o_add=False,
         o_chain=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Submit a certificate signing request.
@@ -3285,33 +3169,29 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'cert_request'
+        method = "cert_request"
 
         _args = list()
         _args.append(a_csr)
 
         _params = dict()
-        _params['request_type'] = o_request_type
+        _params["request_type"] = o_request_type
         if o_profile_id is not None:
-            _params['profile_id'] = o_profile_id
+            _params["profile_id"] = o_profile_id
         if o_cacn is not None:
-            _params['cacn'] = o_cacn
-        _params['principal'] = o_principal
-        _params['add'] = o_add
-        _params['chain'] = o_chain
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["cacn"] = o_cacn
+        _params["principal"] = o_principal
+        _params["add"] = o_add
+        _params["chain"] = o_chain
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def cert_revoke(
-        self,
-        a_serial_number,
-        o_revocation_reason=0,
-        o_cacn='ipa',
-        **kwargs
+        self, a_serial_number, o_revocation_reason=0, o_cacn="ipa", **kwargs
     ):
         """
         Revoke a certificate.
@@ -3326,15 +3206,15 @@ class ClientMeta(Client):
         :param o_cacn: Name of issuing CA
         :type  o_cacn: str
         """
-        method = 'cert_revoke'
+        method = "cert_revoke"
 
         _args = list()
         _args.append(a_serial_number)
 
         _params = dict()
-        _params['revocation_reason'] = o_revocation_reason
+        _params["revocation_reason"] = o_revocation_reason
         if o_cacn is not None:
-            _params['cacn'] = o_cacn
+            _params["cacn"] = o_cacn
 
         _params.update(kwargs)
 
@@ -3343,13 +3223,13 @@ class ClientMeta(Client):
     def cert_show(
         self,
         a_serial_number,
-        o_cacn='ipa',
+        o_cacn="ipa",
         o_out=None,
         o_chain=False,
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Retrieve an existing certificate.
@@ -3373,32 +3253,27 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'cert_show'
+        method = "cert_show"
 
         _args = list()
         _args.append(a_serial_number)
 
         _params = dict()
         if o_cacn is not None:
-            _params['cacn'] = o_cacn
+            _params["cacn"] = o_cacn
         if o_out is not None:
-            _params['out'] = o_out
-        _params['chain'] = o_chain
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["out"] = o_out
+        _params["chain"] = o_chain
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def cert_status(
-        self,
-        a_request_id,
-        o_cacn='ipa',
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_request_id, o_cacn="ipa", o_all=True, o_raw=False, **kwargs
     ):
         """
         Check the status of a certificate signing request.
@@ -3415,28 +3290,22 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'cert_status'
+        method = "cert_status"
 
         _args = list()
         _args.append(a_request_id)
 
         _params = dict()
         if o_cacn is not None:
-            _params['cacn'] = o_cacn
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["cacn"] = o_cacn
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def certmap_match(
-        self,
-        a_certificate,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def certmap_match(self, a_certificate, o_all=True, o_raw=False, **kwargs):
         """
         Search for users matching the provided certificate.
 
@@ -3454,14 +3323,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certmap_match'
+        method = "certmap_match"
 
         _args = list()
         _args.append(a_certificate)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -3476,7 +3345,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify Certificate Identity Mapping configuration.
@@ -3505,34 +3374,28 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certmapconfig_mod'
+        method = "certmapconfig_mod"
 
         _args = list()
 
         _params = dict()
         if o_ipacertmappromptusername is not None:
-            _params['ipacertmappromptusername'] = o_ipacertmappromptusername
+            _params["ipacertmappromptusername"] = o_ipacertmappromptusername
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def certmapconfig_show(
-        self,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def certmapconfig_show(self, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Show the current Certificate Identity Mapping configuration.
 
@@ -3547,14 +3410,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certmapconfig_show'
+        method = "certmapconfig_show"
 
         _args = list()
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -3573,7 +3436,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new Certificate Identity Mapping Rule.
@@ -3611,41 +3474,36 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certmaprule_add'
+        method = "certmaprule_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipacertmapmaprule is not None:
-            _params['ipacertmapmaprule'] = o_ipacertmapmaprule
+            _params["ipacertmapmaprule"] = o_ipacertmapmaprule
         if o_ipacertmapmatchrule is not None:
-            _params['ipacertmapmatchrule'] = o_ipacertmapmatchrule
+            _params["ipacertmapmatchrule"] = o_ipacertmapmatchrule
         if o_associateddomain is not None:
-            _params['associateddomain'] = o_associateddomain
+            _params["associateddomain"] = o_associateddomain
         if o_ipacertmappriority is not None:
-            _params['ipacertmappriority'] = o_ipacertmappriority
+            _params["ipacertmappriority"] = o_ipacertmappriority
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def certmaprule_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def certmaprule_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a Certificate Identity Mapping Rule.
 
@@ -3655,23 +3513,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'certmaprule_del'
+        method = "certmaprule_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def certmaprule_disable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def certmaprule_disable(self, a_cn, **kwargs):
         """
         Disable a Certificate Identity Mapping Rule.
 
@@ -3679,7 +3533,7 @@ class ClientMeta(Client):
         :param a_cn: Certificate Identity Mapping Rule name
         :type  a_cn: str
         """
-        method = 'certmaprule_disable'
+        method = "certmaprule_disable"
 
         _args = list()
         _args.append(a_cn)
@@ -3690,11 +3544,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def certmaprule_enable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def certmaprule_enable(self, a_cn, **kwargs):
         """
         Enable a Certificate Identity Mapping Rule.
 
@@ -3702,7 +3552,7 @@ class ClientMeta(Client):
         :param a_cn: Certificate Identity Mapping Rule name
         :type  a_cn: str
         """
-        method = 'certmaprule_enable'
+        method = "certmaprule_enable"
 
         _args = list()
         _args.append(a_cn)
@@ -3728,7 +3578,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for Certificate Identity Mapping Rules.
@@ -3769,34 +3619,34 @@ class ClientMeta(Client):
             ("rulename")
         :type  o_pkey_only: bool
         """
-        method = 'certmaprule_find'
+        method = "certmaprule_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipacertmapmaprule is not None:
-            _params['ipacertmapmaprule'] = o_ipacertmapmaprule
+            _params["ipacertmapmaprule"] = o_ipacertmapmaprule
         if o_ipacertmapmatchrule is not None:
-            _params['ipacertmapmatchrule'] = o_ipacertmapmatchrule
+            _params["ipacertmapmatchrule"] = o_ipacertmapmatchrule
         if o_associateddomain is not None:
-            _params['associateddomain'] = o_associateddomain
+            _params["associateddomain"] = o_associateddomain
         if o_ipacertmappriority is not None:
-            _params['ipacertmappriority'] = o_ipacertmappriority
+            _params["ipacertmappriority"] = o_ipacertmappriority
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -3817,7 +3667,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a Certificate Identity Mapping Rule.
@@ -3861,46 +3711,39 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certmaprule_mod'
+        method = "certmaprule_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipacertmapmaprule is not None:
-            _params['ipacertmapmaprule'] = o_ipacertmapmaprule
+            _params["ipacertmapmaprule"] = o_ipacertmapmaprule
         if o_ipacertmapmatchrule is not None:
-            _params['ipacertmapmatchrule'] = o_ipacertmapmatchrule
+            _params["ipacertmapmatchrule"] = o_ipacertmapmatchrule
         if o_associateddomain is not None:
-            _params['associateddomain'] = o_associateddomain
+            _params["associateddomain"] = o_associateddomain
         if o_ipacertmappriority is not None:
-            _params['ipacertmappriority'] = o_ipacertmappriority
+            _params["ipacertmappriority"] = o_ipacertmappriority
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def certmaprule_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def certmaprule_show(self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a Certificate Identity Mapping Rule.
 
@@ -3917,26 +3760,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certmaprule_show'
+        method = "certmaprule_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def certprofile_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def certprofile_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a Certificate Profile.
 
@@ -3946,13 +3784,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'certprofile_del'
+        method = "certprofile_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -3969,7 +3807,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for Certificate Profiles.
@@ -3999,26 +3837,26 @@ class ClientMeta(Client):
             ("id")
         :type  o_pkey_only: bool
         """
-        method = 'certprofile_find'
+        method = "certprofile_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipacertprofilestoreissued is not None:
-            _params['ipacertprofilestoreissued'] = o_ipacertprofilestoreissued
+            _params["ipacertprofilestoreissued"] = o_ipacertprofilestoreissued
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -4032,7 +3870,7 @@ class ClientMeta(Client):
         o_ipacertprofilestoreissued=True,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Import a Certificate Profile.
@@ -4055,17 +3893,17 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certprofile_import'
+        method = "certprofile_import"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['description'] = o_description
-        _params['ipacertprofilestoreissued'] = o_ipacertprofilestoreissued
-        _params['file'] = o_file
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["description"] = o_description
+        _params["ipacertprofilestoreissued"] = o_ipacertprofilestoreissued
+        _params["file"] = o_file
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -4083,7 +3921,7 @@ class ClientMeta(Client):
         o_file=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify Certificate Profile configuration.
@@ -4118,40 +3956,34 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certprofile_mod'
+        method = "certprofile_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipacertprofilestoreissued is not None:
-            _params['ipacertprofilestoreissued'] = o_ipacertprofilestoreissued
+            _params["ipacertprofilestoreissued"] = o_ipacertprofilestoreissued
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
         if o_file is not None:
-            _params['file'] = o_file
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["file"] = o_file
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def certprofile_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_out=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_cn, o_rights=False, o_out=None, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display the properties of a Certificate Profile.
@@ -4171,29 +4003,24 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'certprofile_show'
+        method = "certprofile_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_out is not None:
-            _params['out'] = o_out
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["out"] = o_out
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def class_find(
-        self,
-        a_criteria=None,
-        o_all=True,
-        o_raw=False,
-        o_pkey_only=False,
-        **kwargs
+        self, a_criteria=None, o_all=True, o_raw=False, o_pkey_only=False, **kwargs
     ):
         """
         Search for classes.
@@ -4211,28 +4038,22 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'class_find'
+        method = "class_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def class_show(
-        self,
-        a_full_name,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def class_show(self, a_full_name, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a class.
 
@@ -4246,26 +4067,20 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'class_show'
+        method = "class_show"
 
         _args = list()
         _args.append(a_full_name)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def command_defaults(
-        self,
-        a_full_name,
-        o_params=None,
-        o_kw=None,
-        **kwargs
-    ):
+    def command_defaults(self, a_full_name, o_params=None, o_kw=None, **kwargs):
         """
         Return command defaults
 
@@ -4277,28 +4092,23 @@ class ClientMeta(Client):
         :param o_kw: <kw>
         :type  o_kw: dict
         """
-        method = 'command_defaults'
+        method = "command_defaults"
 
         _args = list()
         _args.append(a_full_name)
 
         _params = dict()
         if o_params is not None:
-            _params['params'] = o_params
+            _params["params"] = o_params
         if o_kw is not None:
-            _params['kw'] = o_kw
+            _params["kw"] = o_kw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def command_find(
-        self,
-        a_criteria=None,
-        o_all=True,
-        o_raw=False,
-        o_pkey_only=False,
-        **kwargs
+        self, a_criteria=None, o_all=True, o_raw=False, o_pkey_only=False, **kwargs
     ):
         """
         Search for commands.
@@ -4316,28 +4126,22 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'command_find'
+        method = "command_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def command_show(
-        self,
-        a_full_name,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def command_show(self, a_full_name, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a command.
 
@@ -4351,29 +4155,26 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'command_show'
+        method = "command_show"
 
         _args = list()
         _args.append(a_full_name)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def compat_is_enabled(
-        self,
-        **kwargs
-    ):
+    def compat_is_enabled(self, **kwargs):
         """
         Determine whether Schema Compatibility plugin is configured to serve trusted domain users and groups
 
 
         """
-        method = 'compat_is_enabled'
+        method = "compat_is_enabled"
 
         _args = list()
 
@@ -4416,7 +4217,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify configuration options.
@@ -4506,82 +4307,76 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'config_mod'
+        method = "config_mod"
 
         _args = list()
 
         _params = dict()
         if o_ipamaxusernamelength is not None:
-            _params['ipamaxusernamelength'] = o_ipamaxusernamelength
+            _params["ipamaxusernamelength"] = o_ipamaxusernamelength
         if o_ipamaxhostnamelength is not None:
-            _params['ipamaxhostnamelength'] = o_ipamaxhostnamelength
+            _params["ipamaxhostnamelength"] = o_ipamaxhostnamelength
         if o_ipahomesrootdir is not None:
-            _params['ipahomesrootdir'] = o_ipahomesrootdir
+            _params["ipahomesrootdir"] = o_ipahomesrootdir
         if o_ipadefaultloginshell is not None:
-            _params['ipadefaultloginshell'] = o_ipadefaultloginshell
+            _params["ipadefaultloginshell"] = o_ipadefaultloginshell
         if o_ipadefaultprimarygroup is not None:
-            _params['ipadefaultprimarygroup'] = o_ipadefaultprimarygroup
+            _params["ipadefaultprimarygroup"] = o_ipadefaultprimarygroup
         if o_ipadefaultemaildomain is not None:
-            _params['ipadefaultemaildomain'] = o_ipadefaultemaildomain
+            _params["ipadefaultemaildomain"] = o_ipadefaultemaildomain
         if o_ipasearchtimelimit is not None:
-            _params['ipasearchtimelimit'] = o_ipasearchtimelimit
+            _params["ipasearchtimelimit"] = o_ipasearchtimelimit
         if o_ipasearchrecordslimit is not None:
-            _params['ipasearchrecordslimit'] = o_ipasearchrecordslimit
+            _params["ipasearchrecordslimit"] = o_ipasearchrecordslimit
         if o_ipausersearchfields is not None:
-            _params['ipausersearchfields'] = o_ipausersearchfields
+            _params["ipausersearchfields"] = o_ipausersearchfields
         if o_ipagroupsearchfields is not None:
-            _params['ipagroupsearchfields'] = o_ipagroupsearchfields
+            _params["ipagroupsearchfields"] = o_ipagroupsearchfields
         if o_ipamigrationenabled is not None:
-            _params['ipamigrationenabled'] = o_ipamigrationenabled
+            _params["ipamigrationenabled"] = o_ipamigrationenabled
         if o_ipagroupobjectclasses is not None:
-            _params['ipagroupobjectclasses'] = o_ipagroupobjectclasses
+            _params["ipagroupobjectclasses"] = o_ipagroupobjectclasses
         if o_ipauserobjectclasses is not None:
-            _params['ipauserobjectclasses'] = o_ipauserobjectclasses
+            _params["ipauserobjectclasses"] = o_ipauserobjectclasses
         if o_ipapwdexpadvnotify is not None:
-            _params['ipapwdexpadvnotify'] = o_ipapwdexpadvnotify
+            _params["ipapwdexpadvnotify"] = o_ipapwdexpadvnotify
         if o_ipaconfigstring is not None:
-            _params['ipaconfigstring'] = o_ipaconfigstring
+            _params["ipaconfigstring"] = o_ipaconfigstring
         if o_ipaselinuxusermaporder is not None:
-            _params['ipaselinuxusermaporder'] = o_ipaselinuxusermaporder
+            _params["ipaselinuxusermaporder"] = o_ipaselinuxusermaporder
         if o_ipaselinuxusermapdefault is not None:
-            _params['ipaselinuxusermapdefault'] = o_ipaselinuxusermapdefault
+            _params["ipaselinuxusermapdefault"] = o_ipaselinuxusermapdefault
         if o_ipakrbauthzdata is not None:
-            _params['ipakrbauthzdata'] = o_ipakrbauthzdata
+            _params["ipakrbauthzdata"] = o_ipakrbauthzdata
         if o_ipauserauthtype is not None:
-            _params['ipauserauthtype'] = o_ipauserauthtype
+            _params["ipauserauthtype"] = o_ipauserauthtype
         if o_ipauserdefaultsubordinateid is not None:
-            _params['ipauserdefaultsubordinateid'] = o_ipauserdefaultsubordinateid
+            _params["ipauserdefaultsubordinateid"] = o_ipauserdefaultsubordinateid
         if o_ca_renewal_master_server is not None:
-            _params['ca_renewal_master_server'] = o_ca_renewal_master_server
+            _params["ca_renewal_master_server"] = o_ca_renewal_master_server
         if o_ipadomainresolutionorder is not None:
-            _params['ipadomainresolutionorder'] = o_ipadomainresolutionorder
+            _params["ipadomainresolutionorder"] = o_ipadomainresolutionorder
         if o_enable_sid is not None:
-            _params['enable_sid'] = o_enable_sid
+            _params["enable_sid"] = o_enable_sid
         if o_add_sids is not None:
-            _params['add_sids'] = o_add_sids
+            _params["add_sids"] = o_add_sids
         if o_netbios_name is not None:
-            _params['netbios_name'] = o_netbios_name
+            _params["netbios_name"] = o_netbios_name
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def config_show(
-        self,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def config_show(self, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Show the current configuration.
 
@@ -4596,14 +4391,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'config_show'
+        method = "config_show"
 
         _args = list()
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -4618,7 +4413,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add Class of Service entry
@@ -4644,31 +4439,26 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'cosentry_add'
+        method = "cosentry_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['krbpwdpolicyreference'] = o_krbpwdpolicyreference
-        _params['cospriority'] = o_cospriority
+        _params["krbpwdpolicyreference"] = o_krbpwdpolicyreference
+        _params["cospriority"] = o_cospriority
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def cosentry_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def cosentry_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete Class of Service entry
 
@@ -4678,13 +4468,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'cosentry_del'
+        method = "cosentry_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -4701,7 +4491,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for Class of Service entry
@@ -4730,26 +4520,26 @@ class ClientMeta(Client):
             ("cn")
         :type  o_pkey_only: bool
         """
-        method = 'cosentry_find'
+        method = "cosentry_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_krbpwdpolicyreference is not None:
-            _params['krbpwdpolicyreference'] = o_krbpwdpolicyreference
+            _params["krbpwdpolicyreference"] = o_krbpwdpolicyreference
         if o_cospriority is not None:
-            _params['cospriority'] = o_cospriority
+            _params["cospriority"] = o_cospriority
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -4766,7 +4556,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify Class of Service entry
@@ -4798,38 +4588,31 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'cosentry_mod'
+        method = "cosentry_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_krbpwdpolicyreference is not None:
-            _params['krbpwdpolicyreference'] = o_krbpwdpolicyreference
+            _params["krbpwdpolicyreference"] = o_krbpwdpolicyreference
         if o_cospriority is not None:
-            _params['cospriority'] = o_cospriority
+            _params["cospriority"] = o_cospriority
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def cosentry_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def cosentry_show(self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Display Class of Service entry
 
@@ -4846,15 +4629,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'cosentry_show'
+        method = "cosentry_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -4869,7 +4652,7 @@ class ClientMeta(Client):
         o_permissions=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new delegation.
@@ -4893,29 +4676,25 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'delegation_add'
+        method = "delegation_add"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
-        _params['attrs'] = o_attrs
-        _params['memberof'] = o_memberof
-        _params['group'] = o_group
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["permissions"] = o_permissions
+        _params["attrs"] = o_attrs
+        _params["memberof"] = o_memberof
+        _params["group"] = o_group
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def delegation_del(
-        self,
-        a_aciname,
-        **kwargs
-    ):
+    def delegation_del(self, a_aciname, **kwargs):
         """
         Delete a delegation.
 
@@ -4923,7 +4702,7 @@ class ClientMeta(Client):
         :param a_aciname: Delegation name
         :type  a_aciname: str
         """
-        method = 'delegation_del'
+        method = "delegation_del"
 
         _args = list()
         _args.append(a_aciname)
@@ -4945,7 +4724,7 @@ class ClientMeta(Client):
         o_pkey_only=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for delegations.
@@ -4974,26 +4753,26 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'delegation_find'
+        method = "delegation_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_aciname is not None:
-            _params['aciname'] = o_aciname
+            _params["aciname"] = o_aciname
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["pkey_only"] = o_pkey_only
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -5008,7 +4787,7 @@ class ClientMeta(Client):
         o_group=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a delegation.
@@ -5032,34 +4811,28 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'delegation_mod'
+        method = "delegation_mod"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_group is not None:
-            _params['group'] = o_group
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["group"] = o_group
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def delegation_show(
-        self,
-        a_aciname,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def delegation_show(self, a_aciname, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a delegation.
 
@@ -5073,29 +4846,26 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'delegation_show'
+        method = "delegation_show"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dns_is_enabled(
-        self,
-        **kwargs
-    ):
+    def dns_is_enabled(self, **kwargs):
         """
         Checks if any of the servers has the DNS service enabled.
 
 
         """
-        method = 'dns_is_enabled'
+        method = "dns_is_enabled"
 
         _args = list()
 
@@ -5105,11 +4875,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def dns_resolve(
-        self,
-        a_hostname,
-        **kwargs
-    ):
+    def dns_resolve(self, a_hostname, **kwargs):
         """
         Resolve a host name in DNS. (Deprecated)
 
@@ -5117,7 +4883,7 @@ class ClientMeta(Client):
         :param a_hostname: Hostname (FQDN)
         :type  a_hostname: str
         """
-        method = 'dns_resolve'
+        method = "dns_resolve"
 
         _args = list()
         _args.append(a_hostname)
@@ -5129,11 +4895,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dns_update_system_records(
-        self,
-        o_dry_run=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, o_dry_run=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Update location and IPA server DNS records
@@ -5148,14 +4910,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dns_update_system_records'
+        method = "dns_update_system_records"
 
         _args = list()
 
         _params = dict()
-        _params['dry_run'] = o_dry_run
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["dry_run"] = o_dry_run
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -5174,7 +4936,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify global DNS configuration.
@@ -5215,42 +4977,36 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsconfig_mod'
+        method = "dnsconfig_mod"
 
         _args = list()
 
         _params = dict()
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_idnsallowsyncptr is not None:
-            _params['idnsallowsyncptr'] = o_idnsallowsyncptr
+            _params["idnsallowsyncptr"] = o_idnsallowsyncptr
         if o_idnszonerefresh is not None:
-            _params['idnszonerefresh'] = o_idnszonerefresh
+            _params["idnszonerefresh"] = o_idnszonerefresh
         if o_ipadnsversion is not None:
-            _params['ipadnsversion'] = o_ipadnsversion
+            _params["ipadnsversion"] = o_ipadnsversion
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dnsconfig_show(
-        self,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def dnsconfig_show(self, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Show the current global DNS configuration.
 
@@ -5265,14 +5021,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsconfig_show'
+        method = "dnsconfig_show"
 
         _args = list()
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -5289,7 +5045,7 @@ class ClientMeta(Client):
         o_skip_overlap_check=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create new DNS forward zone.
@@ -5324,35 +5080,31 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsforwardzone_add'
+        method = "dnsforwardzone_add"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
         if o_name_from_ip is not None:
-            _params['name_from_ip'] = o_name_from_ip
+            _params["name_from_ip"] = o_name_from_ip
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['skip_overlap_check'] = o_skip_overlap_check
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["skip_overlap_check"] = o_skip_overlap_check
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dnsforwardzone_add_permission(
-        self,
-        a_idnsname,
-        **kwargs
-    ):
+    def dnsforwardzone_add_permission(self, a_idnsname, **kwargs):
         """
         Add a permission for per-forward zone access delegation.
 
@@ -5360,7 +5112,7 @@ class ClientMeta(Client):
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         """
-        method = 'dnsforwardzone_add_permission'
+        method = "dnsforwardzone_add_permission"
 
         _args = list()
         _args.append(a_idnsname)
@@ -5371,12 +5123,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def dnsforwardzone_del(
-        self,
-        a_idnsname,
-        o_continue=False,
-        **kwargs
-    ):
+    def dnsforwardzone_del(self, a_idnsname, o_continue=False, **kwargs):
         """
         Delete DNS forward zone.
 
@@ -5386,23 +5133,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'dnsforwardzone_del'
+        method = "dnsforwardzone_del"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dnsforwardzone_disable(
-        self,
-        a_idnsname,
-        **kwargs
-    ):
+    def dnsforwardzone_disable(self, a_idnsname, **kwargs):
         """
         Disable DNS Forward Zone.
 
@@ -5410,7 +5153,7 @@ class ClientMeta(Client):
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         """
-        method = 'dnsforwardzone_disable'
+        method = "dnsforwardzone_disable"
 
         _args = list()
         _args.append(a_idnsname)
@@ -5421,11 +5164,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def dnsforwardzone_enable(
-        self,
-        a_idnsname,
-        **kwargs
-    ):
+    def dnsforwardzone_enable(self, a_idnsname, **kwargs):
         """
         Enable DNS Forward Zone.
 
@@ -5433,7 +5172,7 @@ class ClientMeta(Client):
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         """
-        method = 'dnsforwardzone_enable'
+        method = "dnsforwardzone_enable"
 
         _args = list()
         _args.append(a_idnsname)
@@ -5457,7 +5196,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for DNS forward zones.
@@ -5494,30 +5233,30 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'dnsforwardzone_find'
+        method = "dnsforwardzone_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_idnsname is not None:
-            _params['idnsname'] = o_idnsname
+            _params["idnsname"] = o_idnsname
         if o_name_from_ip is not None:
-            _params['name_from_ip'] = o_name_from_ip
+            _params["name_from_ip"] = o_name_from_ip
         if o_idnszoneactive is not None:
-            _params['idnszoneactive'] = o_idnszoneactive
+            _params["idnszoneactive"] = o_idnszoneactive
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -5535,7 +5274,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify DNS forward zone.
@@ -5573,37 +5312,33 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsforwardzone_mod'
+        method = "dnsforwardzone_mod"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
         if o_name_from_ip is not None:
-            _params['name_from_ip'] = o_name_from_ip
+            _params["name_from_ip"] = o_name_from_ip
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dnsforwardzone_remove_permission(
-        self,
-        a_idnsname,
-        **kwargs
-    ):
+    def dnsforwardzone_remove_permission(self, a_idnsname, **kwargs):
         """
         Remove a permission for per-forward zone access delegation.
 
@@ -5611,7 +5346,7 @@ class ClientMeta(Client):
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         """
-        method = 'dnsforwardzone_remove_permission'
+        method = "dnsforwardzone_remove_permission"
 
         _args = list()
         _args.append(a_idnsname)
@@ -5623,12 +5358,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnsforwardzone_show(
-        self,
-        a_idnsname,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_idnsname, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display information about a DNS forward zone.
@@ -5646,15 +5376,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsforwardzone_show'
+        method = "dnsforwardzone_show"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -5762,7 +5492,7 @@ class ClientMeta(Client):
         o_structured=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new DNS resource record.
@@ -5990,7 +5720,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsrecord_add'
+        method = "dnsrecord_add"
 
         _args = list()
         _args.append(a_dnszoneidnsname)
@@ -5998,197 +5728,199 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_dnsttl is not None:
-            _params['dnsttl'] = o_dnsttl
+            _params["dnsttl"] = o_dnsttl
         if o_dnsclass is not None:
-            _params['dnsclass'] = o_dnsclass
+            _params["dnsclass"] = o_dnsclass
         if o_arecord is not None:
-            _params['arecord'] = o_arecord
+            _params["arecord"] = o_arecord
         if o_a_part_ip_address is not None:
-            _params['a_part_ip_address'] = o_a_part_ip_address
+            _params["a_part_ip_address"] = o_a_part_ip_address
         if o_a_extra_create_reverse is not None:
-            _params['a_extra_create_reverse'] = o_a_extra_create_reverse
+            _params["a_extra_create_reverse"] = o_a_extra_create_reverse
         if o_aaaarecord is not None:
-            _params['aaaarecord'] = o_aaaarecord
+            _params["aaaarecord"] = o_aaaarecord
         if o_aaaa_part_ip_address is not None:
-            _params['aaaa_part_ip_address'] = o_aaaa_part_ip_address
+            _params["aaaa_part_ip_address"] = o_aaaa_part_ip_address
         if o_aaaa_extra_create_reverse is not None:
-            _params['aaaa_extra_create_reverse'] = o_aaaa_extra_create_reverse
+            _params["aaaa_extra_create_reverse"] = o_aaaa_extra_create_reverse
         if o_a6record is not None:
-            _params['a6record'] = o_a6record
+            _params["a6record"] = o_a6record
         if o_a6_part_data is not None:
-            _params['a6_part_data'] = o_a6_part_data
+            _params["a6_part_data"] = o_a6_part_data
         if o_afsdbrecord is not None:
-            _params['afsdbrecord'] = o_afsdbrecord
+            _params["afsdbrecord"] = o_afsdbrecord
         if o_afsdb_part_subtype is not None:
-            _params['afsdb_part_subtype'] = o_afsdb_part_subtype
+            _params["afsdb_part_subtype"] = o_afsdb_part_subtype
         if o_afsdb_part_hostname is not None:
-            _params['afsdb_part_hostname'] = o_afsdb_part_hostname
+            _params["afsdb_part_hostname"] = o_afsdb_part_hostname
         if o_aplrecord is not None:
-            _params['aplrecord'] = o_aplrecord
+            _params["aplrecord"] = o_aplrecord
         if o_certrecord is not None:
-            _params['certrecord'] = o_certrecord
+            _params["certrecord"] = o_certrecord
         if o_cert_part_type is not None:
-            _params['cert_part_type'] = o_cert_part_type
+            _params["cert_part_type"] = o_cert_part_type
         if o_cert_part_key_tag is not None:
-            _params['cert_part_key_tag'] = o_cert_part_key_tag
+            _params["cert_part_key_tag"] = o_cert_part_key_tag
         if o_cert_part_algorithm is not None:
-            _params['cert_part_algorithm'] = o_cert_part_algorithm
+            _params["cert_part_algorithm"] = o_cert_part_algorithm
         if o_cert_part_certificate_or_crl is not None:
-            _params['cert_part_certificate_or_crl'] = o_cert_part_certificate_or_crl
+            _params["cert_part_certificate_or_crl"] = o_cert_part_certificate_or_crl
         if o_cnamerecord is not None:
-            _params['cnamerecord'] = o_cnamerecord
+            _params["cnamerecord"] = o_cnamerecord
         if o_cname_part_hostname is not None:
-            _params['cname_part_hostname'] = o_cname_part_hostname
+            _params["cname_part_hostname"] = o_cname_part_hostname
         if o_dhcidrecord is not None:
-            _params['dhcidrecord'] = o_dhcidrecord
+            _params["dhcidrecord"] = o_dhcidrecord
         if o_dlvrecord is not None:
-            _params['dlvrecord'] = o_dlvrecord
+            _params["dlvrecord"] = o_dlvrecord
         if o_dlv_part_key_tag is not None:
-            _params['dlv_part_key_tag'] = o_dlv_part_key_tag
+            _params["dlv_part_key_tag"] = o_dlv_part_key_tag
         if o_dlv_part_algorithm is not None:
-            _params['dlv_part_algorithm'] = o_dlv_part_algorithm
+            _params["dlv_part_algorithm"] = o_dlv_part_algorithm
         if o_dlv_part_digest_type is not None:
-            _params['dlv_part_digest_type'] = o_dlv_part_digest_type
+            _params["dlv_part_digest_type"] = o_dlv_part_digest_type
         if o_dlv_part_digest is not None:
-            _params['dlv_part_digest'] = o_dlv_part_digest
+            _params["dlv_part_digest"] = o_dlv_part_digest
         if o_dnamerecord is not None:
-            _params['dnamerecord'] = o_dnamerecord
+            _params["dnamerecord"] = o_dnamerecord
         if o_dname_part_target is not None:
-            _params['dname_part_target'] = o_dname_part_target
+            _params["dname_part_target"] = o_dname_part_target
         if o_dsrecord is not None:
-            _params['dsrecord'] = o_dsrecord
+            _params["dsrecord"] = o_dsrecord
         if o_ds_part_key_tag is not None:
-            _params['ds_part_key_tag'] = o_ds_part_key_tag
+            _params["ds_part_key_tag"] = o_ds_part_key_tag
         if o_ds_part_algorithm is not None:
-            _params['ds_part_algorithm'] = o_ds_part_algorithm
+            _params["ds_part_algorithm"] = o_ds_part_algorithm
         if o_ds_part_digest_type is not None:
-            _params['ds_part_digest_type'] = o_ds_part_digest_type
+            _params["ds_part_digest_type"] = o_ds_part_digest_type
         if o_ds_part_digest is not None:
-            _params['ds_part_digest'] = o_ds_part_digest
+            _params["ds_part_digest"] = o_ds_part_digest
         if o_hiprecord is not None:
-            _params['hiprecord'] = o_hiprecord
+            _params["hiprecord"] = o_hiprecord
         if o_ipseckeyrecord is not None:
-            _params['ipseckeyrecord'] = o_ipseckeyrecord
+            _params["ipseckeyrecord"] = o_ipseckeyrecord
         if o_keyrecord is not None:
-            _params['keyrecord'] = o_keyrecord
+            _params["keyrecord"] = o_keyrecord
         if o_kxrecord is not None:
-            _params['kxrecord'] = o_kxrecord
+            _params["kxrecord"] = o_kxrecord
         if o_kx_part_preference is not None:
-            _params['kx_part_preference'] = o_kx_part_preference
+            _params["kx_part_preference"] = o_kx_part_preference
         if o_kx_part_exchanger is not None:
-            _params['kx_part_exchanger'] = o_kx_part_exchanger
+            _params["kx_part_exchanger"] = o_kx_part_exchanger
         if o_locrecord is not None:
-            _params['locrecord'] = o_locrecord
+            _params["locrecord"] = o_locrecord
         if o_loc_part_lat_deg is not None:
-            _params['loc_part_lat_deg'] = o_loc_part_lat_deg
+            _params["loc_part_lat_deg"] = o_loc_part_lat_deg
         if o_loc_part_lat_min is not None:
-            _params['loc_part_lat_min'] = o_loc_part_lat_min
+            _params["loc_part_lat_min"] = o_loc_part_lat_min
         if o_loc_part_lat_sec is not None:
-            _params['loc_part_lat_sec'] = o_loc_part_lat_sec
+            _params["loc_part_lat_sec"] = o_loc_part_lat_sec
         if o_loc_part_lat_dir is not None:
-            _params['loc_part_lat_dir'] = o_loc_part_lat_dir
+            _params["loc_part_lat_dir"] = o_loc_part_lat_dir
         if o_loc_part_lon_deg is not None:
-            _params['loc_part_lon_deg'] = o_loc_part_lon_deg
+            _params["loc_part_lon_deg"] = o_loc_part_lon_deg
         if o_loc_part_lon_min is not None:
-            _params['loc_part_lon_min'] = o_loc_part_lon_min
+            _params["loc_part_lon_min"] = o_loc_part_lon_min
         if o_loc_part_lon_sec is not None:
-            _params['loc_part_lon_sec'] = o_loc_part_lon_sec
+            _params["loc_part_lon_sec"] = o_loc_part_lon_sec
         if o_loc_part_lon_dir is not None:
-            _params['loc_part_lon_dir'] = o_loc_part_lon_dir
+            _params["loc_part_lon_dir"] = o_loc_part_lon_dir
         if o_loc_part_altitude is not None:
-            _params['loc_part_altitude'] = o_loc_part_altitude
+            _params["loc_part_altitude"] = o_loc_part_altitude
         if o_loc_part_size is not None:
-            _params['loc_part_size'] = o_loc_part_size
+            _params["loc_part_size"] = o_loc_part_size
         if o_loc_part_h_precision is not None:
-            _params['loc_part_h_precision'] = o_loc_part_h_precision
+            _params["loc_part_h_precision"] = o_loc_part_h_precision
         if o_loc_part_v_precision is not None:
-            _params['loc_part_v_precision'] = o_loc_part_v_precision
+            _params["loc_part_v_precision"] = o_loc_part_v_precision
         if o_mxrecord is not None:
-            _params['mxrecord'] = o_mxrecord
+            _params["mxrecord"] = o_mxrecord
         if o_mx_part_preference is not None:
-            _params['mx_part_preference'] = o_mx_part_preference
+            _params["mx_part_preference"] = o_mx_part_preference
         if o_mx_part_exchanger is not None:
-            _params['mx_part_exchanger'] = o_mx_part_exchanger
+            _params["mx_part_exchanger"] = o_mx_part_exchanger
         if o_naptrrecord is not None:
-            _params['naptrrecord'] = o_naptrrecord
+            _params["naptrrecord"] = o_naptrrecord
         if o_naptr_part_order is not None:
-            _params['naptr_part_order'] = o_naptr_part_order
+            _params["naptr_part_order"] = o_naptr_part_order
         if o_naptr_part_preference is not None:
-            _params['naptr_part_preference'] = o_naptr_part_preference
+            _params["naptr_part_preference"] = o_naptr_part_preference
         if o_naptr_part_flags is not None:
-            _params['naptr_part_flags'] = o_naptr_part_flags
+            _params["naptr_part_flags"] = o_naptr_part_flags
         if o_naptr_part_service is not None:
-            _params['naptr_part_service'] = o_naptr_part_service
+            _params["naptr_part_service"] = o_naptr_part_service
         if o_naptr_part_regexp is not None:
-            _params['naptr_part_regexp'] = o_naptr_part_regexp
+            _params["naptr_part_regexp"] = o_naptr_part_regexp
         if o_naptr_part_replacement is not None:
-            _params['naptr_part_replacement'] = o_naptr_part_replacement
+            _params["naptr_part_replacement"] = o_naptr_part_replacement
         if o_nsrecord is not None:
-            _params['nsrecord'] = o_nsrecord
+            _params["nsrecord"] = o_nsrecord
         if o_ns_part_hostname is not None:
-            _params['ns_part_hostname'] = o_ns_part_hostname
+            _params["ns_part_hostname"] = o_ns_part_hostname
         if o_nsecrecord is not None:
-            _params['nsecrecord'] = o_nsecrecord
+            _params["nsecrecord"] = o_nsecrecord
         if o_ptrrecord is not None:
-            _params['ptrrecord'] = o_ptrrecord
+            _params["ptrrecord"] = o_ptrrecord
         if o_ptr_part_hostname is not None:
-            _params['ptr_part_hostname'] = o_ptr_part_hostname
+            _params["ptr_part_hostname"] = o_ptr_part_hostname
         if o_rrsigrecord is not None:
-            _params['rrsigrecord'] = o_rrsigrecord
+            _params["rrsigrecord"] = o_rrsigrecord
         if o_rprecord is not None:
-            _params['rprecord'] = o_rprecord
+            _params["rprecord"] = o_rprecord
         if o_sigrecord is not None:
-            _params['sigrecord'] = o_sigrecord
+            _params["sigrecord"] = o_sigrecord
         if o_spfrecord is not None:
-            _params['spfrecord'] = o_spfrecord
+            _params["spfrecord"] = o_spfrecord
         if o_srvrecord is not None:
-            _params['srvrecord'] = o_srvrecord
+            _params["srvrecord"] = o_srvrecord
         if o_srv_part_priority is not None:
-            _params['srv_part_priority'] = o_srv_part_priority
+            _params["srv_part_priority"] = o_srv_part_priority
         if o_srv_part_weight is not None:
-            _params['srv_part_weight'] = o_srv_part_weight
+            _params["srv_part_weight"] = o_srv_part_weight
         if o_srv_part_port is not None:
-            _params['srv_part_port'] = o_srv_part_port
+            _params["srv_part_port"] = o_srv_part_port
         if o_srv_part_target is not None:
-            _params['srv_part_target'] = o_srv_part_target
+            _params["srv_part_target"] = o_srv_part_target
         if o_sshfprecord is not None:
-            _params['sshfprecord'] = o_sshfprecord
+            _params["sshfprecord"] = o_sshfprecord
         if o_sshfp_part_algorithm is not None:
-            _params['sshfp_part_algorithm'] = o_sshfp_part_algorithm
+            _params["sshfp_part_algorithm"] = o_sshfp_part_algorithm
         if o_sshfp_part_fp_type is not None:
-            _params['sshfp_part_fp_type'] = o_sshfp_part_fp_type
+            _params["sshfp_part_fp_type"] = o_sshfp_part_fp_type
         if o_sshfp_part_fingerprint is not None:
-            _params['sshfp_part_fingerprint'] = o_sshfp_part_fingerprint
+            _params["sshfp_part_fingerprint"] = o_sshfp_part_fingerprint
         if o_tlsarecord is not None:
-            _params['tlsarecord'] = o_tlsarecord
+            _params["tlsarecord"] = o_tlsarecord
         if o_tlsa_part_cert_usage is not None:
-            _params['tlsa_part_cert_usage'] = o_tlsa_part_cert_usage
+            _params["tlsa_part_cert_usage"] = o_tlsa_part_cert_usage
         if o_tlsa_part_selector is not None:
-            _params['tlsa_part_selector'] = o_tlsa_part_selector
+            _params["tlsa_part_selector"] = o_tlsa_part_selector
         if o_tlsa_part_matching_type is not None:
-            _params['tlsa_part_matching_type'] = o_tlsa_part_matching_type
+            _params["tlsa_part_matching_type"] = o_tlsa_part_matching_type
         if o_tlsa_part_cert_association_data is not None:
-            _params['tlsa_part_cert_association_data'] = o_tlsa_part_cert_association_data
+            _params["tlsa_part_cert_association_data"] = (
+                o_tlsa_part_cert_association_data
+            )
         if o_txtrecord is not None:
-            _params['txtrecord'] = o_txtrecord
+            _params["txtrecord"] = o_txtrecord
         if o_txt_part_data is not None:
-            _params['txt_part_data'] = o_txt_part_data
+            _params["txt_part_data"] = o_txt_part_data
         if o_urirecord is not None:
-            _params['urirecord'] = o_urirecord
+            _params["urirecord"] = o_urirecord
         if o_uri_part_priority is not None:
-            _params['uri_part_priority'] = o_uri_part_priority
+            _params["uri_part_priority"] = o_uri_part_priority
         if o_uri_part_weight is not None:
-            _params['uri_part_weight'] = o_uri_part_weight
+            _params["uri_part_weight"] = o_uri_part_weight
         if o_uri_part_target is not None:
-            _params['uri_part_target'] = o_uri_part_target
+            _params["uri_part_target"] = o_uri_part_target
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['force'] = o_force
-        _params['structured'] = o_structured
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["force"] = o_force
+        _params["structured"] = o_structured
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -6233,7 +5965,7 @@ class ClientMeta(Client):
         o_del_all=False,
         o_structured=False,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Delete DNS resource record.
@@ -6315,7 +6047,7 @@ class ClientMeta(Client):
         :param o_raw: <raw>
         :type  o_raw: bool
         """
-        method = 'dnsrecord_del'
+        method = "dnsrecord_del"
 
         _args = list()
         _args.append(a_dnszoneidnsname)
@@ -6323,83 +6055,79 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_dnsttl is not None:
-            _params['dnsttl'] = o_dnsttl
+            _params["dnsttl"] = o_dnsttl
         if o_dnsclass is not None:
-            _params['dnsclass'] = o_dnsclass
+            _params["dnsclass"] = o_dnsclass
         if o_arecord is not None:
-            _params['arecord'] = o_arecord
+            _params["arecord"] = o_arecord
         if o_aaaarecord is not None:
-            _params['aaaarecord'] = o_aaaarecord
+            _params["aaaarecord"] = o_aaaarecord
         if o_a6record is not None:
-            _params['a6record'] = o_a6record
+            _params["a6record"] = o_a6record
         if o_afsdbrecord is not None:
-            _params['afsdbrecord'] = o_afsdbrecord
+            _params["afsdbrecord"] = o_afsdbrecord
         if o_aplrecord is not None:
-            _params['aplrecord'] = o_aplrecord
+            _params["aplrecord"] = o_aplrecord
         if o_certrecord is not None:
-            _params['certrecord'] = o_certrecord
+            _params["certrecord"] = o_certrecord
         if o_cnamerecord is not None:
-            _params['cnamerecord'] = o_cnamerecord
+            _params["cnamerecord"] = o_cnamerecord
         if o_dhcidrecord is not None:
-            _params['dhcidrecord'] = o_dhcidrecord
+            _params["dhcidrecord"] = o_dhcidrecord
         if o_dlvrecord is not None:
-            _params['dlvrecord'] = o_dlvrecord
+            _params["dlvrecord"] = o_dlvrecord
         if o_dnamerecord is not None:
-            _params['dnamerecord'] = o_dnamerecord
+            _params["dnamerecord"] = o_dnamerecord
         if o_dsrecord is not None:
-            _params['dsrecord'] = o_dsrecord
+            _params["dsrecord"] = o_dsrecord
         if o_hiprecord is not None:
-            _params['hiprecord'] = o_hiprecord
+            _params["hiprecord"] = o_hiprecord
         if o_ipseckeyrecord is not None:
-            _params['ipseckeyrecord'] = o_ipseckeyrecord
+            _params["ipseckeyrecord"] = o_ipseckeyrecord
         if o_keyrecord is not None:
-            _params['keyrecord'] = o_keyrecord
+            _params["keyrecord"] = o_keyrecord
         if o_kxrecord is not None:
-            _params['kxrecord'] = o_kxrecord
+            _params["kxrecord"] = o_kxrecord
         if o_locrecord is not None:
-            _params['locrecord'] = o_locrecord
+            _params["locrecord"] = o_locrecord
         if o_mxrecord is not None:
-            _params['mxrecord'] = o_mxrecord
+            _params["mxrecord"] = o_mxrecord
         if o_naptrrecord is not None:
-            _params['naptrrecord'] = o_naptrrecord
+            _params["naptrrecord"] = o_naptrrecord
         if o_nsrecord is not None:
-            _params['nsrecord'] = o_nsrecord
+            _params["nsrecord"] = o_nsrecord
         if o_nsecrecord is not None:
-            _params['nsecrecord'] = o_nsecrecord
+            _params["nsecrecord"] = o_nsecrecord
         if o_ptrrecord is not None:
-            _params['ptrrecord'] = o_ptrrecord
+            _params["ptrrecord"] = o_ptrrecord
         if o_rrsigrecord is not None:
-            _params['rrsigrecord'] = o_rrsigrecord
+            _params["rrsigrecord"] = o_rrsigrecord
         if o_rprecord is not None:
-            _params['rprecord'] = o_rprecord
+            _params["rprecord"] = o_rprecord
         if o_sigrecord is not None:
-            _params['sigrecord'] = o_sigrecord
+            _params["sigrecord"] = o_sigrecord
         if o_spfrecord is not None:
-            _params['spfrecord'] = o_spfrecord
+            _params["spfrecord"] = o_spfrecord
         if o_srvrecord is not None:
-            _params['srvrecord'] = o_srvrecord
+            _params["srvrecord"] = o_srvrecord
         if o_sshfprecord is not None:
-            _params['sshfprecord'] = o_sshfprecord
+            _params["sshfprecord"] = o_sshfprecord
         if o_tlsarecord is not None:
-            _params['tlsarecord'] = o_tlsarecord
+            _params["tlsarecord"] = o_tlsarecord
         if o_txtrecord is not None:
-            _params['txtrecord'] = o_txtrecord
+            _params["txtrecord"] = o_txtrecord
         if o_urirecord is not None:
-            _params['urirecord'] = o_urirecord
-        _params['del_all'] = o_del_all
-        _params['structured'] = o_structured
-        _params['raw'] = o_raw
+            _params["urirecord"] = o_urirecord
+        _params["del_all"] = o_del_all
+        _params["structured"] = o_structured
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def dnsrecord_delentry(
-        self,
-        a_dnszoneidnsname,
-        a_idnsname,
-        o_continue=False,
-        **kwargs
+        self, a_dnszoneidnsname, a_idnsname, o_continue=False, **kwargs
     ):
         """
         Delete DNS record entry.
@@ -6412,14 +6140,14 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'dnsrecord_delentry'
+        method = "dnsrecord_delentry"
 
         _args = list()
         _args.append(a_dnszoneidnsname)
         _args.append(a_idnsname)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -6468,7 +6196,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for DNS resources.
@@ -6562,7 +6290,7 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'dnsrecord_find'
+        method = "dnsrecord_find"
 
         _args = list()
         _args.append(a_dnszoneidnsname)
@@ -6570,80 +6298,80 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_idnsname is not None:
-            _params['idnsname'] = o_idnsname
+            _params["idnsname"] = o_idnsname
         if o_dnsttl is not None:
-            _params['dnsttl'] = o_dnsttl
+            _params["dnsttl"] = o_dnsttl
         if o_dnsclass is not None:
-            _params['dnsclass'] = o_dnsclass
+            _params["dnsclass"] = o_dnsclass
         if o_arecord is not None:
-            _params['arecord'] = o_arecord
+            _params["arecord"] = o_arecord
         if o_aaaarecord is not None:
-            _params['aaaarecord'] = o_aaaarecord
+            _params["aaaarecord"] = o_aaaarecord
         if o_a6record is not None:
-            _params['a6record'] = o_a6record
+            _params["a6record"] = o_a6record
         if o_afsdbrecord is not None:
-            _params['afsdbrecord'] = o_afsdbrecord
+            _params["afsdbrecord"] = o_afsdbrecord
         if o_aplrecord is not None:
-            _params['aplrecord'] = o_aplrecord
+            _params["aplrecord"] = o_aplrecord
         if o_certrecord is not None:
-            _params['certrecord'] = o_certrecord
+            _params["certrecord"] = o_certrecord
         if o_cnamerecord is not None:
-            _params['cnamerecord'] = o_cnamerecord
+            _params["cnamerecord"] = o_cnamerecord
         if o_dhcidrecord is not None:
-            _params['dhcidrecord'] = o_dhcidrecord
+            _params["dhcidrecord"] = o_dhcidrecord
         if o_dlvrecord is not None:
-            _params['dlvrecord'] = o_dlvrecord
+            _params["dlvrecord"] = o_dlvrecord
         if o_dnamerecord is not None:
-            _params['dnamerecord'] = o_dnamerecord
+            _params["dnamerecord"] = o_dnamerecord
         if o_dsrecord is not None:
-            _params['dsrecord'] = o_dsrecord
+            _params["dsrecord"] = o_dsrecord
         if o_hiprecord is not None:
-            _params['hiprecord'] = o_hiprecord
+            _params["hiprecord"] = o_hiprecord
         if o_ipseckeyrecord is not None:
-            _params['ipseckeyrecord'] = o_ipseckeyrecord
+            _params["ipseckeyrecord"] = o_ipseckeyrecord
         if o_keyrecord is not None:
-            _params['keyrecord'] = o_keyrecord
+            _params["keyrecord"] = o_keyrecord
         if o_kxrecord is not None:
-            _params['kxrecord'] = o_kxrecord
+            _params["kxrecord"] = o_kxrecord
         if o_locrecord is not None:
-            _params['locrecord'] = o_locrecord
+            _params["locrecord"] = o_locrecord
         if o_mxrecord is not None:
-            _params['mxrecord'] = o_mxrecord
+            _params["mxrecord"] = o_mxrecord
         if o_naptrrecord is not None:
-            _params['naptrrecord'] = o_naptrrecord
+            _params["naptrrecord"] = o_naptrrecord
         if o_nsrecord is not None:
-            _params['nsrecord'] = o_nsrecord
+            _params["nsrecord"] = o_nsrecord
         if o_nsecrecord is not None:
-            _params['nsecrecord'] = o_nsecrecord
+            _params["nsecrecord"] = o_nsecrecord
         if o_ptrrecord is not None:
-            _params['ptrrecord'] = o_ptrrecord
+            _params["ptrrecord"] = o_ptrrecord
         if o_rrsigrecord is not None:
-            _params['rrsigrecord'] = o_rrsigrecord
+            _params["rrsigrecord"] = o_rrsigrecord
         if o_rprecord is not None:
-            _params['rprecord'] = o_rprecord
+            _params["rprecord"] = o_rprecord
         if o_sigrecord is not None:
-            _params['sigrecord'] = o_sigrecord
+            _params["sigrecord"] = o_sigrecord
         if o_spfrecord is not None:
-            _params['spfrecord'] = o_spfrecord
+            _params["spfrecord"] = o_spfrecord
         if o_srvrecord is not None:
-            _params['srvrecord'] = o_srvrecord
+            _params["srvrecord"] = o_srvrecord
         if o_sshfprecord is not None:
-            _params['sshfprecord'] = o_sshfprecord
+            _params["sshfprecord"] = o_sshfprecord
         if o_tlsarecord is not None:
-            _params['tlsarecord'] = o_tlsarecord
+            _params["tlsarecord"] = o_tlsarecord
         if o_txtrecord is not None:
-            _params['txtrecord'] = o_txtrecord
+            _params["txtrecord"] = o_txtrecord
         if o_urirecord is not None:
-            _params['urirecord'] = o_urirecord
+            _params["urirecord"] = o_urirecord
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['structured'] = o_structured
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["structured"] = o_structured
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -6751,7 +6479,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a DNS resource record.
@@ -6978,7 +6706,7 @@ class ClientMeta(Client):
         :param o_rename: Rename the DNS resource record object
         :type  o_rename: DNSNameParam
         """
-        method = 'dnsrecord_mod'
+        method = "dnsrecord_mod"
 
         _args = list()
         _args.append(a_dnszoneidnsname)
@@ -6986,197 +6714,199 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_dnsttl is not None:
-            _params['dnsttl'] = o_dnsttl
+            _params["dnsttl"] = o_dnsttl
         if o_dnsclass is not None:
-            _params['dnsclass'] = o_dnsclass
+            _params["dnsclass"] = o_dnsclass
         if o_arecord is not None:
-            _params['arecord'] = o_arecord
+            _params["arecord"] = o_arecord
         if o_a_part_ip_address is not None:
-            _params['a_part_ip_address'] = o_a_part_ip_address
+            _params["a_part_ip_address"] = o_a_part_ip_address
         if o_aaaarecord is not None:
-            _params['aaaarecord'] = o_aaaarecord
+            _params["aaaarecord"] = o_aaaarecord
         if o_aaaa_part_ip_address is not None:
-            _params['aaaa_part_ip_address'] = o_aaaa_part_ip_address
+            _params["aaaa_part_ip_address"] = o_aaaa_part_ip_address
         if o_a6record is not None:
-            _params['a6record'] = o_a6record
+            _params["a6record"] = o_a6record
         if o_a6_part_data is not None:
-            _params['a6_part_data'] = o_a6_part_data
+            _params["a6_part_data"] = o_a6_part_data
         if o_afsdbrecord is not None:
-            _params['afsdbrecord'] = o_afsdbrecord
+            _params["afsdbrecord"] = o_afsdbrecord
         if o_afsdb_part_subtype is not None:
-            _params['afsdb_part_subtype'] = o_afsdb_part_subtype
+            _params["afsdb_part_subtype"] = o_afsdb_part_subtype
         if o_afsdb_part_hostname is not None:
-            _params['afsdb_part_hostname'] = o_afsdb_part_hostname
+            _params["afsdb_part_hostname"] = o_afsdb_part_hostname
         if o_aplrecord is not None:
-            _params['aplrecord'] = o_aplrecord
+            _params["aplrecord"] = o_aplrecord
         if o_certrecord is not None:
-            _params['certrecord'] = o_certrecord
+            _params["certrecord"] = o_certrecord
         if o_cert_part_type is not None:
-            _params['cert_part_type'] = o_cert_part_type
+            _params["cert_part_type"] = o_cert_part_type
         if o_cert_part_key_tag is not None:
-            _params['cert_part_key_tag'] = o_cert_part_key_tag
+            _params["cert_part_key_tag"] = o_cert_part_key_tag
         if o_cert_part_algorithm is not None:
-            _params['cert_part_algorithm'] = o_cert_part_algorithm
+            _params["cert_part_algorithm"] = o_cert_part_algorithm
         if o_cert_part_certificate_or_crl is not None:
-            _params['cert_part_certificate_or_crl'] = o_cert_part_certificate_or_crl
+            _params["cert_part_certificate_or_crl"] = o_cert_part_certificate_or_crl
         if o_cnamerecord is not None:
-            _params['cnamerecord'] = o_cnamerecord
+            _params["cnamerecord"] = o_cnamerecord
         if o_cname_part_hostname is not None:
-            _params['cname_part_hostname'] = o_cname_part_hostname
+            _params["cname_part_hostname"] = o_cname_part_hostname
         if o_dhcidrecord is not None:
-            _params['dhcidrecord'] = o_dhcidrecord
+            _params["dhcidrecord"] = o_dhcidrecord
         if o_dlvrecord is not None:
-            _params['dlvrecord'] = o_dlvrecord
+            _params["dlvrecord"] = o_dlvrecord
         if o_dlv_part_key_tag is not None:
-            _params['dlv_part_key_tag'] = o_dlv_part_key_tag
+            _params["dlv_part_key_tag"] = o_dlv_part_key_tag
         if o_dlv_part_algorithm is not None:
-            _params['dlv_part_algorithm'] = o_dlv_part_algorithm
+            _params["dlv_part_algorithm"] = o_dlv_part_algorithm
         if o_dlv_part_digest_type is not None:
-            _params['dlv_part_digest_type'] = o_dlv_part_digest_type
+            _params["dlv_part_digest_type"] = o_dlv_part_digest_type
         if o_dlv_part_digest is not None:
-            _params['dlv_part_digest'] = o_dlv_part_digest
+            _params["dlv_part_digest"] = o_dlv_part_digest
         if o_dnamerecord is not None:
-            _params['dnamerecord'] = o_dnamerecord
+            _params["dnamerecord"] = o_dnamerecord
         if o_dname_part_target is not None:
-            _params['dname_part_target'] = o_dname_part_target
+            _params["dname_part_target"] = o_dname_part_target
         if o_dsrecord is not None:
-            _params['dsrecord'] = o_dsrecord
+            _params["dsrecord"] = o_dsrecord
         if o_ds_part_key_tag is not None:
-            _params['ds_part_key_tag'] = o_ds_part_key_tag
+            _params["ds_part_key_tag"] = o_ds_part_key_tag
         if o_ds_part_algorithm is not None:
-            _params['ds_part_algorithm'] = o_ds_part_algorithm
+            _params["ds_part_algorithm"] = o_ds_part_algorithm
         if o_ds_part_digest_type is not None:
-            _params['ds_part_digest_type'] = o_ds_part_digest_type
+            _params["ds_part_digest_type"] = o_ds_part_digest_type
         if o_ds_part_digest is not None:
-            _params['ds_part_digest'] = o_ds_part_digest
+            _params["ds_part_digest"] = o_ds_part_digest
         if o_hiprecord is not None:
-            _params['hiprecord'] = o_hiprecord
+            _params["hiprecord"] = o_hiprecord
         if o_ipseckeyrecord is not None:
-            _params['ipseckeyrecord'] = o_ipseckeyrecord
+            _params["ipseckeyrecord"] = o_ipseckeyrecord
         if o_keyrecord is not None:
-            _params['keyrecord'] = o_keyrecord
+            _params["keyrecord"] = o_keyrecord
         if o_kxrecord is not None:
-            _params['kxrecord'] = o_kxrecord
+            _params["kxrecord"] = o_kxrecord
         if o_kx_part_preference is not None:
-            _params['kx_part_preference'] = o_kx_part_preference
+            _params["kx_part_preference"] = o_kx_part_preference
         if o_kx_part_exchanger is not None:
-            _params['kx_part_exchanger'] = o_kx_part_exchanger
+            _params["kx_part_exchanger"] = o_kx_part_exchanger
         if o_locrecord is not None:
-            _params['locrecord'] = o_locrecord
+            _params["locrecord"] = o_locrecord
         if o_loc_part_lat_deg is not None:
-            _params['loc_part_lat_deg'] = o_loc_part_lat_deg
+            _params["loc_part_lat_deg"] = o_loc_part_lat_deg
         if o_loc_part_lat_min is not None:
-            _params['loc_part_lat_min'] = o_loc_part_lat_min
+            _params["loc_part_lat_min"] = o_loc_part_lat_min
         if o_loc_part_lat_sec is not None:
-            _params['loc_part_lat_sec'] = o_loc_part_lat_sec
+            _params["loc_part_lat_sec"] = o_loc_part_lat_sec
         if o_loc_part_lat_dir is not None:
-            _params['loc_part_lat_dir'] = o_loc_part_lat_dir
+            _params["loc_part_lat_dir"] = o_loc_part_lat_dir
         if o_loc_part_lon_deg is not None:
-            _params['loc_part_lon_deg'] = o_loc_part_lon_deg
+            _params["loc_part_lon_deg"] = o_loc_part_lon_deg
         if o_loc_part_lon_min is not None:
-            _params['loc_part_lon_min'] = o_loc_part_lon_min
+            _params["loc_part_lon_min"] = o_loc_part_lon_min
         if o_loc_part_lon_sec is not None:
-            _params['loc_part_lon_sec'] = o_loc_part_lon_sec
+            _params["loc_part_lon_sec"] = o_loc_part_lon_sec
         if o_loc_part_lon_dir is not None:
-            _params['loc_part_lon_dir'] = o_loc_part_lon_dir
+            _params["loc_part_lon_dir"] = o_loc_part_lon_dir
         if o_loc_part_altitude is not None:
-            _params['loc_part_altitude'] = o_loc_part_altitude
+            _params["loc_part_altitude"] = o_loc_part_altitude
         if o_loc_part_size is not None:
-            _params['loc_part_size'] = o_loc_part_size
+            _params["loc_part_size"] = o_loc_part_size
         if o_loc_part_h_precision is not None:
-            _params['loc_part_h_precision'] = o_loc_part_h_precision
+            _params["loc_part_h_precision"] = o_loc_part_h_precision
         if o_loc_part_v_precision is not None:
-            _params['loc_part_v_precision'] = o_loc_part_v_precision
+            _params["loc_part_v_precision"] = o_loc_part_v_precision
         if o_mxrecord is not None:
-            _params['mxrecord'] = o_mxrecord
+            _params["mxrecord"] = o_mxrecord
         if o_mx_part_preference is not None:
-            _params['mx_part_preference'] = o_mx_part_preference
+            _params["mx_part_preference"] = o_mx_part_preference
         if o_mx_part_exchanger is not None:
-            _params['mx_part_exchanger'] = o_mx_part_exchanger
+            _params["mx_part_exchanger"] = o_mx_part_exchanger
         if o_naptrrecord is not None:
-            _params['naptrrecord'] = o_naptrrecord
+            _params["naptrrecord"] = o_naptrrecord
         if o_naptr_part_order is not None:
-            _params['naptr_part_order'] = o_naptr_part_order
+            _params["naptr_part_order"] = o_naptr_part_order
         if o_naptr_part_preference is not None:
-            _params['naptr_part_preference'] = o_naptr_part_preference
+            _params["naptr_part_preference"] = o_naptr_part_preference
         if o_naptr_part_flags is not None:
-            _params['naptr_part_flags'] = o_naptr_part_flags
+            _params["naptr_part_flags"] = o_naptr_part_flags
         if o_naptr_part_service is not None:
-            _params['naptr_part_service'] = o_naptr_part_service
+            _params["naptr_part_service"] = o_naptr_part_service
         if o_naptr_part_regexp is not None:
-            _params['naptr_part_regexp'] = o_naptr_part_regexp
+            _params["naptr_part_regexp"] = o_naptr_part_regexp
         if o_naptr_part_replacement is not None:
-            _params['naptr_part_replacement'] = o_naptr_part_replacement
+            _params["naptr_part_replacement"] = o_naptr_part_replacement
         if o_nsrecord is not None:
-            _params['nsrecord'] = o_nsrecord
+            _params["nsrecord"] = o_nsrecord
         if o_ns_part_hostname is not None:
-            _params['ns_part_hostname'] = o_ns_part_hostname
+            _params["ns_part_hostname"] = o_ns_part_hostname
         if o_nsecrecord is not None:
-            _params['nsecrecord'] = o_nsecrecord
+            _params["nsecrecord"] = o_nsecrecord
         if o_ptrrecord is not None:
-            _params['ptrrecord'] = o_ptrrecord
+            _params["ptrrecord"] = o_ptrrecord
         if o_ptr_part_hostname is not None:
-            _params['ptr_part_hostname'] = o_ptr_part_hostname
+            _params["ptr_part_hostname"] = o_ptr_part_hostname
         if o_rrsigrecord is not None:
-            _params['rrsigrecord'] = o_rrsigrecord
+            _params["rrsigrecord"] = o_rrsigrecord
         if o_rprecord is not None:
-            _params['rprecord'] = o_rprecord
+            _params["rprecord"] = o_rprecord
         if o_sigrecord is not None:
-            _params['sigrecord'] = o_sigrecord
+            _params["sigrecord"] = o_sigrecord
         if o_spfrecord is not None:
-            _params['spfrecord'] = o_spfrecord
+            _params["spfrecord"] = o_spfrecord
         if o_srvrecord is not None:
-            _params['srvrecord'] = o_srvrecord
+            _params["srvrecord"] = o_srvrecord
         if o_srv_part_priority is not None:
-            _params['srv_part_priority'] = o_srv_part_priority
+            _params["srv_part_priority"] = o_srv_part_priority
         if o_srv_part_weight is not None:
-            _params['srv_part_weight'] = o_srv_part_weight
+            _params["srv_part_weight"] = o_srv_part_weight
         if o_srv_part_port is not None:
-            _params['srv_part_port'] = o_srv_part_port
+            _params["srv_part_port"] = o_srv_part_port
         if o_srv_part_target is not None:
-            _params['srv_part_target'] = o_srv_part_target
+            _params["srv_part_target"] = o_srv_part_target
         if o_sshfprecord is not None:
-            _params['sshfprecord'] = o_sshfprecord
+            _params["sshfprecord"] = o_sshfprecord
         if o_sshfp_part_algorithm is not None:
-            _params['sshfp_part_algorithm'] = o_sshfp_part_algorithm
+            _params["sshfp_part_algorithm"] = o_sshfp_part_algorithm
         if o_sshfp_part_fp_type is not None:
-            _params['sshfp_part_fp_type'] = o_sshfp_part_fp_type
+            _params["sshfp_part_fp_type"] = o_sshfp_part_fp_type
         if o_sshfp_part_fingerprint is not None:
-            _params['sshfp_part_fingerprint'] = o_sshfp_part_fingerprint
+            _params["sshfp_part_fingerprint"] = o_sshfp_part_fingerprint
         if o_tlsarecord is not None:
-            _params['tlsarecord'] = o_tlsarecord
+            _params["tlsarecord"] = o_tlsarecord
         if o_tlsa_part_cert_usage is not None:
-            _params['tlsa_part_cert_usage'] = o_tlsa_part_cert_usage
+            _params["tlsa_part_cert_usage"] = o_tlsa_part_cert_usage
         if o_tlsa_part_selector is not None:
-            _params['tlsa_part_selector'] = o_tlsa_part_selector
+            _params["tlsa_part_selector"] = o_tlsa_part_selector
         if o_tlsa_part_matching_type is not None:
-            _params['tlsa_part_matching_type'] = o_tlsa_part_matching_type
+            _params["tlsa_part_matching_type"] = o_tlsa_part_matching_type
         if o_tlsa_part_cert_association_data is not None:
-            _params['tlsa_part_cert_association_data'] = o_tlsa_part_cert_association_data
+            _params["tlsa_part_cert_association_data"] = (
+                o_tlsa_part_cert_association_data
+            )
         if o_txtrecord is not None:
-            _params['txtrecord'] = o_txtrecord
+            _params["txtrecord"] = o_txtrecord
         if o_txt_part_data is not None:
-            _params['txt_part_data'] = o_txt_part_data
+            _params["txt_part_data"] = o_txt_part_data
         if o_urirecord is not None:
-            _params['urirecord'] = o_urirecord
+            _params["urirecord"] = o_urirecord
         if o_uri_part_priority is not None:
-            _params['uri_part_priority'] = o_uri_part_priority
+            _params["uri_part_priority"] = o_uri_part_priority
         if o_uri_part_weight is not None:
-            _params['uri_part_weight'] = o_uri_part_weight
+            _params["uri_part_weight"] = o_uri_part_weight
         if o_uri_part_target is not None:
-            _params['uri_part_target'] = o_uri_part_target
+            _params["uri_part_target"] = o_uri_part_target
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['structured'] = o_structured
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["structured"] = o_structured
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -7190,7 +6920,7 @@ class ClientMeta(Client):
         o_structured=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display DNS resource.
@@ -7213,28 +6943,23 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsrecord_show'
+        method = "dnsrecord_show"
 
         _args = list()
         _args.append(a_dnszoneidnsname)
         _args.append(a_idnsname)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['structured'] = o_structured
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["structured"] = o_structured
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dnsrecord_split_parts(
-        self,
-        a_name,
-        a_value,
-        **kwargs
-    ):
+    def dnsrecord_split_parts(self, a_name, a_value, **kwargs):
         """
         Split DNS record to parts
 
@@ -7244,7 +6969,7 @@ class ClientMeta(Client):
         :param a_value: <value>
         :type  a_value: str
         """
-        method = 'dnsrecord_split_parts'
+        method = "dnsrecord_split_parts"
 
         _args = list()
         _args.append(a_name)
@@ -7268,7 +6993,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for DNS servers.
@@ -7303,28 +7028,28 @@ class ClientMeta(Client):
             ("hostname")
         :type  o_pkey_only: bool
         """
-        method = 'dnsserver_find'
+        method = "dnsserver_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_idnsserverid is not None:
-            _params['idnsserverid'] = o_idnsserverid
+            _params["idnsserverid"] = o_idnsserverid
         if o_idnssoamname is not None:
-            _params['idnssoamname'] = o_idnssoamname
+            _params["idnssoamname"] = o_idnssoamname
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -7342,7 +7067,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify DNS server configuration
@@ -7380,39 +7105,34 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsserver_mod'
+        method = "dnsserver_mod"
 
         _args = list()
         _args.append(a_idnsserverid)
 
         _params = dict()
         if o_idnssoamname is not None:
-            _params['idnssoamname'] = o_idnssoamname
+            _params["idnssoamname"] = o_idnssoamname
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def dnsserver_show(
-        self,
-        a_idnsserverid,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_idnsserverid, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display configuration of a DNS server.
@@ -7430,15 +7150,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnsserver_show'
+        method = "dnsserver_show"
 
         _args = list()
         _args.append(a_idnsserverid)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -7451,7 +7171,7 @@ class ClientMeta(Client):
         o_idnsforwarders=None,
         o_idnsforwardpolicy=None,
         o_idnssoamname=None,
-        o_idnssoarname='',
+        o_idnssoarname="",
         o_idnssoaserial=None,
         o_idnssoarefresh=3600,
         o_idnssoaretry=900,
@@ -7462,8 +7182,8 @@ class ClientMeta(Client):
         o_dnsclass=None,
         o_idnsupdatepolicy=None,
         o_idnsallowdynupdate=False,
-        o_idnsallowquery='any;',
-        o_idnsallowtransfer='none;',
+        o_idnsallowquery="any;",
+        o_idnsallowtransfer="none;",
         o_idnsallowsyncptr=None,
         o_idnssecinlinesigning=None,
         o_nsec3paramrecord=None,
@@ -7475,7 +7195,7 @@ class ClientMeta(Client):
         o_ip_address=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create new DNS zone (SOA record).
@@ -7558,68 +7278,64 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnszone_add'
+        method = "dnszone_add"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
         if o_name_from_ip is not None:
-            _params['name_from_ip'] = o_name_from_ip
+            _params["name_from_ip"] = o_name_from_ip
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_idnssoamname is not None:
-            _params['idnssoamname'] = o_idnssoamname
-        _params['idnssoarname'] = o_idnssoarname
+            _params["idnssoamname"] = o_idnssoamname
+        _params["idnssoarname"] = o_idnssoarname
         if o_idnssoaserial is not None:
-            _params['idnssoaserial'] = o_idnssoaserial
-        _params['idnssoarefresh'] = o_idnssoarefresh
-        _params['idnssoaretry'] = o_idnssoaretry
-        _params['idnssoaexpire'] = o_idnssoaexpire
-        _params['idnssoaminimum'] = o_idnssoaminimum
+            _params["idnssoaserial"] = o_idnssoaserial
+        _params["idnssoarefresh"] = o_idnssoarefresh
+        _params["idnssoaretry"] = o_idnssoaretry
+        _params["idnssoaexpire"] = o_idnssoaexpire
+        _params["idnssoaminimum"] = o_idnssoaminimum
         if o_dnsttl is not None:
-            _params['dnsttl'] = o_dnsttl
+            _params["dnsttl"] = o_dnsttl
         if o_dnsdefaultttl is not None:
-            _params['dnsdefaultttl'] = o_dnsdefaultttl
+            _params["dnsdefaultttl"] = o_dnsdefaultttl
         if o_dnsclass is not None:
-            _params['dnsclass'] = o_dnsclass
+            _params["dnsclass"] = o_dnsclass
         if o_idnsupdatepolicy is not None:
-            _params['idnsupdatepolicy'] = o_idnsupdatepolicy
+            _params["idnsupdatepolicy"] = o_idnsupdatepolicy
         if o_idnsallowdynupdate is not None:
-            _params['idnsallowdynupdate'] = o_idnsallowdynupdate
+            _params["idnsallowdynupdate"] = o_idnsallowdynupdate
         if o_idnsallowquery is not None:
-            _params['idnsallowquery'] = o_idnsallowquery
+            _params["idnsallowquery"] = o_idnsallowquery
         if o_idnsallowtransfer is not None:
-            _params['idnsallowtransfer'] = o_idnsallowtransfer
+            _params["idnsallowtransfer"] = o_idnsallowtransfer
         if o_idnsallowsyncptr is not None:
-            _params['idnsallowsyncptr'] = o_idnsallowsyncptr
+            _params["idnsallowsyncptr"] = o_idnsallowsyncptr
         if o_idnssecinlinesigning is not None:
-            _params['idnssecinlinesigning'] = o_idnssecinlinesigning
+            _params["idnssecinlinesigning"] = o_idnssecinlinesigning
         if o_nsec3paramrecord is not None:
-            _params['nsec3paramrecord'] = o_nsec3paramrecord
+            _params["nsec3paramrecord"] = o_nsec3paramrecord
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['skip_overlap_check'] = o_skip_overlap_check
-        _params['force'] = o_force
-        _params['skip_nameserver_check'] = o_skip_nameserver_check
+            _params["addattr"] = o_addattr
+        _params["skip_overlap_check"] = o_skip_overlap_check
+        _params["force"] = o_force
+        _params["skip_nameserver_check"] = o_skip_nameserver_check
         if o_ip_address is not None:
-            _params['ip_address'] = o_ip_address
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["ip_address"] = o_ip_address
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dnszone_add_permission(
-        self,
-        a_idnsname,
-        **kwargs
-    ):
+    def dnszone_add_permission(self, a_idnsname, **kwargs):
         """
         Add a permission for per-zone access delegation.
 
@@ -7627,7 +7343,7 @@ class ClientMeta(Client):
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         """
-        method = 'dnszone_add_permission'
+        method = "dnszone_add_permission"
 
         _args = list()
         _args.append(a_idnsname)
@@ -7638,12 +7354,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def dnszone_del(
-        self,
-        a_idnsname,
-        o_continue=False,
-        **kwargs
-    ):
+    def dnszone_del(self, a_idnsname, o_continue=False, **kwargs):
         """
         Delete DNS zone (SOA record).
 
@@ -7653,23 +7364,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'dnszone_del'
+        method = "dnszone_del"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dnszone_disable(
-        self,
-        a_idnsname,
-        **kwargs
-    ):
+    def dnszone_disable(self, a_idnsname, **kwargs):
         """
         Disable DNS Zone.
 
@@ -7677,7 +7384,7 @@ class ClientMeta(Client):
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         """
-        method = 'dnszone_disable'
+        method = "dnszone_disable"
 
         _args = list()
         _args.append(a_idnsname)
@@ -7688,11 +7395,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def dnszone_enable(
-        self,
-        a_idnsname,
-        **kwargs
-    ):
+    def dnszone_enable(self, a_idnsname, **kwargs):
         """
         Enable DNS Zone.
 
@@ -7700,7 +7403,7 @@ class ClientMeta(Client):
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         """
-        method = 'dnszone_enable'
+        method = "dnszone_enable"
 
         _args = list()
         _args.append(a_idnsname)
@@ -7742,7 +7445,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for DNS zones (SOA records).
@@ -7821,65 +7524,65 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'dnszone_find'
+        method = "dnszone_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_idnsname is not None:
-            _params['idnsname'] = o_idnsname
+            _params["idnsname"] = o_idnsname
         if o_name_from_ip is not None:
-            _params['name_from_ip'] = o_name_from_ip
+            _params["name_from_ip"] = o_name_from_ip
         if o_idnszoneactive is not None:
-            _params['idnszoneactive'] = o_idnszoneactive
+            _params["idnszoneactive"] = o_idnszoneactive
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_idnssoamname is not None:
-            _params['idnssoamname'] = o_idnssoamname
+            _params["idnssoamname"] = o_idnssoamname
         if o_idnssoarname is not None:
-            _params['idnssoarname'] = o_idnssoarname
+            _params["idnssoarname"] = o_idnssoarname
         if o_idnssoaserial is not None:
-            _params['idnssoaserial'] = o_idnssoaserial
+            _params["idnssoaserial"] = o_idnssoaserial
         if o_idnssoarefresh is not None:
-            _params['idnssoarefresh'] = o_idnssoarefresh
+            _params["idnssoarefresh"] = o_idnssoarefresh
         if o_idnssoaretry is not None:
-            _params['idnssoaretry'] = o_idnssoaretry
+            _params["idnssoaretry"] = o_idnssoaretry
         if o_idnssoaexpire is not None:
-            _params['idnssoaexpire'] = o_idnssoaexpire
+            _params["idnssoaexpire"] = o_idnssoaexpire
         if o_idnssoaminimum is not None:
-            _params['idnssoaminimum'] = o_idnssoaminimum
+            _params["idnssoaminimum"] = o_idnssoaminimum
         if o_dnsttl is not None:
-            _params['dnsttl'] = o_dnsttl
+            _params["dnsttl"] = o_dnsttl
         if o_dnsdefaultttl is not None:
-            _params['dnsdefaultttl'] = o_dnsdefaultttl
+            _params["dnsdefaultttl"] = o_dnsdefaultttl
         if o_dnsclass is not None:
-            _params['dnsclass'] = o_dnsclass
+            _params["dnsclass"] = o_dnsclass
         if o_idnsupdatepolicy is not None:
-            _params['idnsupdatepolicy'] = o_idnsupdatepolicy
+            _params["idnsupdatepolicy"] = o_idnsupdatepolicy
         if o_idnsallowdynupdate is not None:
-            _params['idnsallowdynupdate'] = o_idnsallowdynupdate
+            _params["idnsallowdynupdate"] = o_idnsallowdynupdate
         if o_idnsallowquery is not None:
-            _params['idnsallowquery'] = o_idnsallowquery
+            _params["idnsallowquery"] = o_idnsallowquery
         if o_idnsallowtransfer is not None:
-            _params['idnsallowtransfer'] = o_idnsallowtransfer
+            _params["idnsallowtransfer"] = o_idnsallowtransfer
         if o_idnsallowsyncptr is not None:
-            _params['idnsallowsyncptr'] = o_idnsallowsyncptr
+            _params["idnsallowsyncptr"] = o_idnsallowsyncptr
         if o_idnssecinlinesigning is not None:
-            _params['idnssecinlinesigning'] = o_idnssecinlinesigning
+            _params["idnssecinlinesigning"] = o_idnssecinlinesigning
         if o_nsec3paramrecord is not None:
-            _params['nsec3paramrecord'] = o_nsec3paramrecord
+            _params["nsec3paramrecord"] = o_nsec3paramrecord
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['forward_only'] = o_forward_only
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["forward_only"] = o_forward_only
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -7915,7 +7618,7 @@ class ClientMeta(Client):
         o_force=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify DNS zone (SOA record).
@@ -7995,72 +7698,68 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnszone_mod'
+        method = "dnszone_mod"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
         if o_name_from_ip is not None:
-            _params['name_from_ip'] = o_name_from_ip
+            _params["name_from_ip"] = o_name_from_ip
         if o_idnsforwarders is not None:
-            _params['idnsforwarders'] = o_idnsforwarders
+            _params["idnsforwarders"] = o_idnsforwarders
         if o_idnsforwardpolicy is not None:
-            _params['idnsforwardpolicy'] = o_idnsforwardpolicy
+            _params["idnsforwardpolicy"] = o_idnsforwardpolicy
         if o_idnssoamname is not None:
-            _params['idnssoamname'] = o_idnssoamname
+            _params["idnssoamname"] = o_idnssoamname
         if o_idnssoarname is not None:
-            _params['idnssoarname'] = o_idnssoarname
+            _params["idnssoarname"] = o_idnssoarname
         if o_idnssoaserial is not None:
-            _params['idnssoaserial'] = o_idnssoaserial
+            _params["idnssoaserial"] = o_idnssoaserial
         if o_idnssoarefresh is not None:
-            _params['idnssoarefresh'] = o_idnssoarefresh
+            _params["idnssoarefresh"] = o_idnssoarefresh
         if o_idnssoaretry is not None:
-            _params['idnssoaretry'] = o_idnssoaretry
+            _params["idnssoaretry"] = o_idnssoaretry
         if o_idnssoaexpire is not None:
-            _params['idnssoaexpire'] = o_idnssoaexpire
+            _params["idnssoaexpire"] = o_idnssoaexpire
         if o_idnssoaminimum is not None:
-            _params['idnssoaminimum'] = o_idnssoaminimum
+            _params["idnssoaminimum"] = o_idnssoaminimum
         if o_dnsttl is not None:
-            _params['dnsttl'] = o_dnsttl
+            _params["dnsttl"] = o_dnsttl
         if o_dnsdefaultttl is not None:
-            _params['dnsdefaultttl'] = o_dnsdefaultttl
+            _params["dnsdefaultttl"] = o_dnsdefaultttl
         if o_dnsclass is not None:
-            _params['dnsclass'] = o_dnsclass
+            _params["dnsclass"] = o_dnsclass
         if o_idnsupdatepolicy is not None:
-            _params['idnsupdatepolicy'] = o_idnsupdatepolicy
+            _params["idnsupdatepolicy"] = o_idnsupdatepolicy
         if o_idnsallowdynupdate is not None:
-            _params['idnsallowdynupdate'] = o_idnsallowdynupdate
+            _params["idnsallowdynupdate"] = o_idnsallowdynupdate
         if o_idnsallowquery is not None:
-            _params['idnsallowquery'] = o_idnsallowquery
+            _params["idnsallowquery"] = o_idnsallowquery
         if o_idnsallowtransfer is not None:
-            _params['idnsallowtransfer'] = o_idnsallowtransfer
+            _params["idnsallowtransfer"] = o_idnsallowtransfer
         if o_idnsallowsyncptr is not None:
-            _params['idnsallowsyncptr'] = o_idnsallowsyncptr
+            _params["idnsallowsyncptr"] = o_idnsallowsyncptr
         if o_idnssecinlinesigning is not None:
-            _params['idnssecinlinesigning'] = o_idnssecinlinesigning
+            _params["idnssecinlinesigning"] = o_idnssecinlinesigning
         if o_nsec3paramrecord is not None:
-            _params['nsec3paramrecord'] = o_nsec3paramrecord
+            _params["nsec3paramrecord"] = o_nsec3paramrecord
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['force'] = o_force
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["force"] = o_force
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def dnszone_remove_permission(
-        self,
-        a_idnsname,
-        **kwargs
-    ):
+    def dnszone_remove_permission(self, a_idnsname, **kwargs):
         """
         Remove a permission for per-zone access delegation.
 
@@ -8068,7 +7767,7 @@ class ClientMeta(Client):
         :param a_idnsname: Zone name (FQDN)
         :type  a_idnsname: DNSNameParam
         """
-        method = 'dnszone_remove_permission'
+        method = "dnszone_remove_permission"
 
         _args = list()
         _args.append(a_idnsname)
@@ -8080,12 +7779,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def dnszone_show(
-        self,
-        a_idnsname,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_idnsname, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display information about a DNS zone (SOA record).
@@ -8103,30 +7797,27 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'dnszone_show'
+        method = "dnszone_show"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def domainlevel_get(
-        self,
-        **kwargs
-    ):
+    def domainlevel_get(self, **kwargs):
         """
         Query current Domain Level.
 
 
         """
-        method = 'domainlevel_get'
+        method = "domainlevel_get"
 
         _args = list()
 
@@ -8136,11 +7827,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def domainlevel_set(
-        self,
-        a_ipadomainlevel,
-        **kwargs
-    ):
+    def domainlevel_set(self, a_ipadomainlevel, **kwargs):
         """
         Change current Domain Level.
 
@@ -8148,7 +7835,7 @@ class ClientMeta(Client):
         :param a_ipadomainlevel: Domain Level
         :type  a_ipadomainlevel: int, min value 1, max value 2147483647
         """
-        method = 'domainlevel_set'
+        method = "domainlevel_set"
 
         _args = list()
         _args.append(a_ipadomainlevel)
@@ -8159,12 +7846,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def env(
-        self,
-        o_server=False,
-        o_all=True,
-        **kwargs
-    ):
+    def env(self, o_server=False, o_all=True, **kwargs):
         """
         Show environment variables.
 
@@ -8175,14 +7857,14 @@ class ClientMeta(Client):
             Affects command output.
         :type  o_all: bool
         """
-        method = 'env'
+        method = "env"
 
         _args = list()
 
         _params = dict()
         if o_server is not None:
-            _params['server'] = o_server
-        _params['all'] = o_all
+            _params["server"] = o_server
+        _params["all"] = o_all
 
         _params.update(kwargs)
 
@@ -8200,7 +7882,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new group.
@@ -8233,25 +7915,25 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'group_add'
+        method = "group_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['nonposix'] = o_nonposix
-        _params['external'] = o_external
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["nonposix"] = o_nonposix
+        _params["external"] = o_external
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -8268,7 +7950,7 @@ class ClientMeta(Client):
         o_group=None,
         o_service=None,
         o_idoverrideuser=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to a group.
@@ -8296,25 +7978,25 @@ class ClientMeta(Client):
         :param o_idoverrideuser: User ID overrides to add
         :type  o_idoverrideuser: str
         """
-        method = 'group_add_member'
+        method = "group_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipaexternalmember is not None:
-            _params['ipaexternalmember'] = o_ipaexternalmember
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["ipaexternalmember"] = o_ipaexternalmember
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_idoverrideuser is not None:
-            _params['idoverrideuser'] = o_idoverrideuser
+            _params["idoverrideuser"] = o_idoverrideuser
 
         _params.update(kwargs)
 
@@ -8328,7 +8010,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add users that can manage members of this group.
@@ -8349,30 +8031,25 @@ class ClientMeta(Client):
         :param o_group: groups to add
         :type  o_group: str
         """
-        method = 'group_add_member_manager'
+        method = "group_add_member_manager"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def group_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def group_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete group.
 
@@ -8382,23 +8059,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'group_del'
+        method = "group_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def group_detach(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def group_detach(self, a_cn, **kwargs):
         """
         Detach a managed group from a user.
 
@@ -8406,7 +8079,7 @@ class ClientMeta(Client):
         :param a_cn: Group name
         :type  a_cn: str
         """
-        method = 'group_detach'
+        method = "group_detach"
 
         _args = list()
         _args.append(a_cn)
@@ -8455,7 +8128,7 @@ class ClientMeta(Client):
         o_not_membermanager_user=None,
         o_membermanager_group=None,
         o_not_membermanager_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for groups.
@@ -8552,75 +8225,75 @@ class ClientMeta(Client):
             group membership managed by groups.
         :type  o_not_membermanager_group: str
         """
-        method = 'group_find'
+        method = "group_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['private'] = o_private
-        _params['posix'] = o_posix
-        _params['external'] = o_external
-        _params['nonposix'] = o_nonposix
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["private"] = o_private
+        _params["posix"] = o_posix
+        _params["external"] = o_external
+        _params["nonposix"] = o_nonposix
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_no_user is not None:
-            _params['no_user'] = o_no_user
+            _params["no_user"] = o_no_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_no_group is not None:
-            _params['no_group'] = o_no_group
+            _params["no_group"] = o_no_group
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_no_service is not None:
-            _params['no_service'] = o_no_service
+            _params["no_service"] = o_no_service
         if o_idoverrideuser is not None:
-            _params['idoverrideuser'] = o_idoverrideuser
+            _params["idoverrideuser"] = o_idoverrideuser
         if o_no_idoverrideuser is not None:
-            _params['no_idoverrideuser'] = o_no_idoverrideuser
+            _params["no_idoverrideuser"] = o_no_idoverrideuser
         if o_in_group is not None:
-            _params['in_group'] = o_in_group
+            _params["in_group"] = o_in_group
         if o_not_in_group is not None:
-            _params['not_in_group'] = o_not_in_group
+            _params["not_in_group"] = o_not_in_group
         if o_in_netgroup is not None:
-            _params['in_netgroup'] = o_in_netgroup
+            _params["in_netgroup"] = o_in_netgroup
         if o_not_in_netgroup is not None:
-            _params['not_in_netgroup'] = o_not_in_netgroup
+            _params["not_in_netgroup"] = o_not_in_netgroup
         if o_in_role is not None:
-            _params['in_role'] = o_in_role
+            _params["in_role"] = o_in_role
         if o_not_in_role is not None:
-            _params['not_in_role'] = o_not_in_role
+            _params["not_in_role"] = o_not_in_role
         if o_in_hbacrule is not None:
-            _params['in_hbacrule'] = o_in_hbacrule
+            _params["in_hbacrule"] = o_in_hbacrule
         if o_not_in_hbacrule is not None:
-            _params['not_in_hbacrule'] = o_not_in_hbacrule
+            _params["not_in_hbacrule"] = o_not_in_hbacrule
         if o_in_sudorule is not None:
-            _params['in_sudorule'] = o_in_sudorule
+            _params["in_sudorule"] = o_in_sudorule
         if o_not_in_sudorule is not None:
-            _params['not_in_sudorule'] = o_not_in_sudorule
+            _params["not_in_sudorule"] = o_not_in_sudorule
         if o_membermanager_user is not None:
-            _params['membermanager_user'] = o_membermanager_user
+            _params["membermanager_user"] = o_membermanager_user
         if o_not_membermanager_user is not None:
-            _params['not_membermanager_user'] = o_not_membermanager_user
+            _params["not_membermanager_user"] = o_not_membermanager_user
         if o_membermanager_group is not None:
-            _params['membermanager_group'] = o_membermanager_group
+            _params["membermanager_group"] = o_membermanager_group
         if o_not_membermanager_group is not None:
-            _params['not_membermanager_group'] = o_not_membermanager_group
+            _params["not_membermanager_group"] = o_not_membermanager_group
 
         _params.update(kwargs)
 
@@ -8641,7 +8314,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a group.
@@ -8682,30 +8355,30 @@ class ClientMeta(Client):
         :param o_rename: Rename the group object
         :type  o_rename: str
         """
-        method = 'group_mod'
+        method = "group_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['posix'] = o_posix
-        _params['external'] = o_external
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["posix"] = o_posix
+        _params["external"] = o_external
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -8722,7 +8395,7 @@ class ClientMeta(Client):
         o_group=None,
         o_service=None,
         o_idoverrideuser=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from a group.
@@ -8750,25 +8423,25 @@ class ClientMeta(Client):
         :param o_idoverrideuser: User ID overrides to remove
         :type  o_idoverrideuser: str
         """
-        method = 'group_remove_member'
+        method = "group_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipaexternalmember is not None:
-            _params['ipaexternalmember'] = o_ipaexternalmember
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["ipaexternalmember"] = o_ipaexternalmember
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_idoverrideuser is not None:
-            _params['idoverrideuser'] = o_idoverrideuser
+            _params["idoverrideuser"] = o_idoverrideuser
 
         _params.update(kwargs)
 
@@ -8782,7 +8455,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove users that can manage members of this group.
@@ -8803,19 +8476,19 @@ class ClientMeta(Client):
         :param o_group: groups to remove
         :type  o_group: str
         """
-        method = 'group_remove_member_manager'
+        method = "group_remove_member_manager"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -8828,7 +8501,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a named group.
@@ -8848,16 +8521,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'group_show'
+        method = "group_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -8866,7 +8539,7 @@ class ClientMeta(Client):
     def hbacrule_add(
         self,
         a_cn,
-        o_accessruletype='allow',
+        o_accessruletype="allow",
         o_usercategory=None,
         o_hostcategory=None,
         o_sourcehostcategory=None,
@@ -8879,7 +8552,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new HBAC rule.
@@ -8919,34 +8592,34 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hbacrule_add'
+        method = "hbacrule_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['accessruletype'] = o_accessruletype
+        _params["accessruletype"] = o_accessruletype
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_sourcehostcategory is not None:
-            _params['sourcehostcategory'] = o_sourcehostcategory
+            _params["sourcehostcategory"] = o_sourcehostcategory
         if o_servicecategory is not None:
-            _params['servicecategory'] = o_servicecategory
+            _params["servicecategory"] = o_servicecategory
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -8960,7 +8633,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add target hosts and hostgroups to an HBAC rule.
@@ -8981,19 +8654,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'hbacrule_add_host'
+        method = "hbacrule_add_host"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -9007,7 +8680,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_hbacsvc=None,
         o_hbacsvcgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add services to an HBAC rule.
@@ -9028,19 +8701,19 @@ class ClientMeta(Client):
         :param o_hbacsvcgroup: HBAC service groups to add
         :type  o_hbacsvcgroup: str
         """
-        method = 'hbacrule_add_service'
+        method = "hbacrule_add_service"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_hbacsvc is not None:
-            _params['hbacsvc'] = o_hbacsvc
+            _params["hbacsvc"] = o_hbacsvc
         if o_hbacsvcgroup is not None:
-            _params['hbacsvcgroup'] = o_hbacsvcgroup
+            _params["hbacsvcgroup"] = o_hbacsvcgroup
 
         _params.update(kwargs)
 
@@ -9054,7 +8727,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add source hosts and hostgroups to an HBAC rule.
@@ -9075,19 +8748,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'hbacrule_add_sourcehost'
+        method = "hbacrule_add_sourcehost"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -9101,7 +8774,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add users and groups to an HBAC rule.
@@ -9122,30 +8795,25 @@ class ClientMeta(Client):
         :param o_group: groups to add
         :type  o_group: str
         """
-        method = 'hbacrule_add_user'
+        method = "hbacrule_add_user"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def hbacrule_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def hbacrule_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete an HBAC rule.
 
@@ -9155,23 +8823,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'hbacrule_del'
+        method = "hbacrule_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def hbacrule_disable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def hbacrule_disable(self, a_cn, **kwargs):
         """
         Disable an HBAC rule.
 
@@ -9179,7 +8843,7 @@ class ClientMeta(Client):
         :param a_cn: Rule name
         :type  a_cn: str
         """
-        method = 'hbacrule_disable'
+        method = "hbacrule_disable"
 
         _args = list()
         _args.append(a_cn)
@@ -9190,11 +8854,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def hbacrule_enable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def hbacrule_enable(self, a_cn, **kwargs):
         """
         Enable an HBAC rule.
 
@@ -9202,7 +8862,7 @@ class ClientMeta(Client):
         :param a_cn: Rule name
         :type  a_cn: str
         """
-        method = 'hbacrule_enable'
+        method = "hbacrule_enable"
 
         _args = list()
         _args.append(a_cn)
@@ -9231,7 +8891,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for HBAC rules.
@@ -9274,39 +8934,39 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'hbacrule_find'
+        method = "hbacrule_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_accessruletype is not None:
-            _params['accessruletype'] = o_accessruletype
+            _params["accessruletype"] = o_accessruletype
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_sourcehostcategory is not None:
-            _params['sourcehostcategory'] = o_sourcehostcategory
+            _params["sourcehostcategory"] = o_sourcehostcategory
         if o_servicecategory is not None:
-            _params['servicecategory'] = o_servicecategory
+            _params["servicecategory"] = o_servicecategory
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -9331,7 +8991,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an HBAC rule.
@@ -9379,40 +9039,40 @@ class ClientMeta(Client):
         :param o_rename: Rename the HBAC rule object
         :type  o_rename: str
         """
-        method = 'hbacrule_mod'
+        method = "hbacrule_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_accessruletype is not None:
-            _params['accessruletype'] = o_accessruletype
+            _params["accessruletype"] = o_accessruletype
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_sourcehostcategory is not None:
-            _params['sourcehostcategory'] = o_sourcehostcategory
+            _params["sourcehostcategory"] = o_sourcehostcategory
         if o_servicecategory is not None:
-            _params['servicecategory'] = o_servicecategory
+            _params["servicecategory"] = o_servicecategory
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -9426,7 +9086,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove target hosts and hostgroups from an HBAC rule.
@@ -9447,19 +9107,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'hbacrule_remove_host'
+        method = "hbacrule_remove_host"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -9473,7 +9133,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_hbacsvc=None,
         o_hbacsvcgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove service and service groups from an HBAC rule.
@@ -9494,19 +9154,19 @@ class ClientMeta(Client):
         :param o_hbacsvcgroup: HBAC service groups to remove
         :type  o_hbacsvcgroup: str
         """
-        method = 'hbacrule_remove_service'
+        method = "hbacrule_remove_service"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_hbacsvc is not None:
-            _params['hbacsvc'] = o_hbacsvc
+            _params["hbacsvc"] = o_hbacsvc
         if o_hbacsvcgroup is not None:
-            _params['hbacsvcgroup'] = o_hbacsvcgroup
+            _params["hbacsvcgroup"] = o_hbacsvcgroup
 
         _params.update(kwargs)
 
@@ -9520,7 +9180,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove source hosts and hostgroups from an HBAC rule.
@@ -9541,19 +9201,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'hbacrule_remove_sourcehost'
+        method = "hbacrule_remove_sourcehost"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -9567,7 +9227,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove users and groups from an HBAC rule.
@@ -9588,19 +9248,19 @@ class ClientMeta(Client):
         :param o_group: groups to remove
         :type  o_group: str
         """
-        method = 'hbacrule_remove_user'
+        method = "hbacrule_remove_user"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -9613,7 +9273,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display the properties of an HBAC rule.
@@ -9633,16 +9293,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hbacrule_show'
+        method = "hbacrule_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -9657,7 +9317,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new HBAC service.
@@ -9683,32 +9343,27 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hbacsvc_add'
+        method = "hbacsvc_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def hbacsvc_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def hbacsvc_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete an existing HBAC service.
 
@@ -9718,13 +9373,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'hbacsvc_del'
+        method = "hbacsvc_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -9741,7 +9396,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for HBAC services.
@@ -9770,25 +9425,25 @@ class ClientMeta(Client):
             ("service")
         :type  o_pkey_only: bool
         """
-        method = 'hbacsvc_find'
+        method = "hbacsvc_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -9805,7 +9460,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an HBAC service.
@@ -9837,24 +9492,24 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hbacsvc_mod'
+        method = "hbacsvc_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -9867,7 +9522,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about an HBAC service.
@@ -9887,16 +9542,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hbacsvc_show'
+        method = "hbacsvc_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -9911,7 +9566,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new HBAC service group.
@@ -9937,21 +9592,21 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hbacsvcgroup_add'
+        method = "hbacsvcgroup_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -9964,7 +9619,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_hbacsvc=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to an HBAC service group.
@@ -9983,28 +9638,23 @@ class ClientMeta(Client):
         :param o_hbacsvc: HBAC services to add
         :type  o_hbacsvc: str
         """
-        method = 'hbacsvcgroup_add_member'
+        method = "hbacsvcgroup_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_hbacsvc is not None:
-            _params['hbacsvc'] = o_hbacsvc
+            _params["hbacsvc"] = o_hbacsvc
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def hbacsvcgroup_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def hbacsvcgroup_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete an HBAC service group.
 
@@ -10014,13 +9664,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'hbacsvcgroup_del'
+        method = "hbacsvcgroup_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -10037,7 +9687,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for an HBAC service group.
@@ -10066,25 +9716,25 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'hbacsvcgroup_find'
+        method = "hbacsvcgroup_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -10101,7 +9751,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an HBAC service group.
@@ -10133,24 +9783,24 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hbacsvcgroup_mod'
+        method = "hbacsvcgroup_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -10163,7 +9813,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_hbacsvc=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from an HBAC service group.
@@ -10182,17 +9832,17 @@ class ClientMeta(Client):
         :param o_hbacsvc: HBAC services to remove
         :type  o_hbacsvc: str
         """
-        method = 'hbacsvcgroup_remove_member'
+        method = "hbacsvcgroup_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_hbacsvc is not None:
-            _params['hbacsvc'] = o_hbacsvc
+            _params["hbacsvc"] = o_hbacsvc
 
         _params.update(kwargs)
 
@@ -10205,7 +9855,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about an HBAC service group.
@@ -10225,16 +9875,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hbacsvcgroup_show'
+        method = "hbacsvcgroup_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -10251,7 +9901,7 @@ class ClientMeta(Client):
         o_enabled=False,
         o_disabled=False,
         o_sizelimit=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Simulate use of Host-based access controls
@@ -10278,26 +9928,26 @@ class ClientMeta(Client):
             is specified
         :type  o_sizelimit: int, min value 0, max value 2147483647
         """
-        method = 'hbactest'
+        method = "hbactest"
 
         _args = list()
 
         _params = dict()
-        _params['user'] = o_user
+        _params["user"] = o_user
         if o_sourcehost is not None:
-            _params['sourcehost'] = o_sourcehost
-        _params['targethost'] = o_targethost
-        _params['service'] = o_service
+            _params["sourcehost"] = o_sourcehost
+        _params["targethost"] = o_targethost
+        _params["service"] = o_service
         if o_rules is not None:
-            _params['rules'] = o_rules
+            _params["rules"] = o_rules
         if o_nodetail is not None:
-            _params['nodetail'] = o_nodetail
+            _params["nodetail"] = o_nodetail
         if o_enabled is not None:
-            _params['enabled'] = o_enabled
+            _params["enabled"] = o_enabled
         if o_disabled is not None:
-            _params['disabled'] = o_disabled
+            _params["disabled"] = o_disabled
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
+            _params["sizelimit"] = o_sizelimit
 
         _params.update(kwargs)
 
@@ -10330,7 +9980,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new host.
@@ -10406,55 +10056,55 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'host_add'
+        method = "host_add"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_nshostlocation is not None:
-            _params['nshostlocation'] = o_nshostlocation
+            _params["nshostlocation"] = o_nshostlocation
         if o_nshardwareplatform is not None:
-            _params['nshardwareplatform'] = o_nshardwareplatform
+            _params["nshardwareplatform"] = o_nshardwareplatform
         if o_nsosversion is not None:
-            _params['nsosversion'] = o_nsosversion
+            _params["nsosversion"] = o_nsosversion
         if o_userpassword is not None:
-            _params['userpassword'] = o_userpassword
+            _params["userpassword"] = o_userpassword
         if o_random is not None:
-            _params['random'] = o_random
+            _params["random"] = o_random
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_macaddress is not None:
-            _params['macaddress'] = o_macaddress
+            _params["macaddress"] = o_macaddress
         if o_ipasshpubkey is not None:
-            _params['ipasshpubkey'] = o_ipasshpubkey
+            _params["ipasshpubkey"] = o_ipasshpubkey
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipaassignedidview is not None:
-            _params['ipaassignedidview'] = o_ipaassignedidview
+            _params["ipaassignedidview"] = o_ipaassignedidview
         if o_krbprincipalauthind is not None:
-            _params['krbprincipalauthind'] = o_krbprincipalauthind
+            _params["krbprincipalauthind"] = o_krbprincipalauthind
         if o_ipakrbrequirespreauth is not None:
-            _params['ipakrbrequirespreauth'] = o_ipakrbrequirespreauth
+            _params["ipakrbrequirespreauth"] = o_ipakrbrequirespreauth
         if o_ipakrbokasdelegate is not None:
-            _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
+            _params["ipakrbokasdelegate"] = o_ipakrbokasdelegate
         if o_ipakrboktoauthasdelegate is not None:
-            _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
+            _params["ipakrboktoauthasdelegate"] = o_ipakrboktoauthasdelegate
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['force'] = o_force
-        _params['no_reverse'] = o_no_reverse
+            _params["addattr"] = o_addattr
+        _params["force"] = o_force
+        _params["no_reverse"] = o_no_reverse
         if o_ip_address is not None:
-            _params['ip_address'] = o_ip_address
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["ip_address"] = o_ip_address
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -10467,7 +10117,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add certificates to host entry
@@ -10486,16 +10136,16 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded host certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'host_add_cert'
+        method = "host_add_cert"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -10508,7 +10158,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new resource delegation to a host
@@ -10527,29 +10177,23 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'host_add_delegation'
+        method = "host_add_delegation"
 
         _args = list()
         _args.append(a_fqdn)
         _args.append(a_memberprincipal)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def host_add_managedby(
-        self,
-        a_fqdn,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_host=None,
-        **kwargs
+        self, a_fqdn, o_all=True, o_raw=False, o_no_members=False, o_host=None, **kwargs
     ):
         """
         Add hosts that can manage this host.
@@ -10568,17 +10212,17 @@ class ClientMeta(Client):
         :param o_host: hosts to add
         :type  o_host: str
         """
-        method = 'host_add_managedby'
+        method = "host_add_managedby"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
 
         _params.update(kwargs)
 
@@ -10591,7 +10235,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new principal alias to host entry
@@ -10610,16 +10254,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'host_add_principal'
+        method = "host_add_principal"
 
         _args = list()
         _args.append(a_fqdn)
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -10635,7 +10279,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Allow users, groups, hosts or host groups to handle a resource delegation of this host.
@@ -10660,23 +10304,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'host_allow_add_delegation'
+        method = "host_allow_add_delegation"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -10692,7 +10336,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Allow users, groups, hosts or host groups to create a keytab of this host.
@@ -10717,23 +10361,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'host_allow_create_keytab'
+        method = "host_allow_create_keytab"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -10749,7 +10393,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Allow users, groups, hosts or host groups to retrieve a keytab of this host.
@@ -10774,35 +10418,29 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'host_allow_retrieve_keytab'
+        method = "host_allow_retrieve_keytab"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def host_del(
-        self,
-        a_fqdn,
-        o_continue=False,
-        o_updatedns=False,
-        **kwargs
-    ):
+    def host_del(self, a_fqdn, o_continue=False, o_updatedns=False, **kwargs):
         """
         Delete a host.
 
@@ -10815,25 +10453,21 @@ class ClientMeta(Client):
             host(s) managed by IPA DNS
         :type  o_updatedns: bool
         """
-        method = 'host_del'
+        method = "host_del"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
         if o_updatedns is not None:
-            _params['updatedns'] = o_updatedns
+            _params["updatedns"] = o_updatedns
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def host_disable(
-        self,
-        a_fqdn,
-        **kwargs
-    ):
+    def host_disable(self, a_fqdn, **kwargs):
         """
         Disable the Kerberos key, SSL certificate and all services of a host.
 
@@ -10841,7 +10475,7 @@ class ClientMeta(Client):
         :param a_fqdn: Host name
         :type  a_fqdn: str
         """
-        method = 'host_disable'
+        method = "host_disable"
 
         _args = list()
         _args.append(a_fqdn)
@@ -10862,7 +10496,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Disallow users, groups, hosts or host groups to handle a resource delegation of this host.
@@ -10887,23 +10521,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'host_disallow_add_delegation'
+        method = "host_disallow_add_delegation"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -10919,7 +10553,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Disallow users, groups, hosts or host groups to create a keytab of this host.
@@ -10944,23 +10578,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'host_disallow_create_keytab'
+        method = "host_disallow_create_keytab"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -10976,7 +10610,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Disallow users, groups, hosts or host groups to retrieve a keytab of this host.
@@ -11001,23 +10635,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'host_disallow_retrieve_keytab'
+        method = "host_disallow_retrieve_keytab"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -11059,7 +10693,7 @@ class ClientMeta(Client):
         o_not_man_by_host=None,
         o_man_host=None,
         o_not_man_host=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for hosts.
@@ -11158,75 +10792,75 @@ class ClientMeta(Client):
         :param o_not_man_host: Search for hosts without these managing hosts.
         :type  o_not_man_host: str
         """
-        method = 'host_find'
+        method = "host_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_fqdn is not None:
-            _params['fqdn'] = o_fqdn
+            _params["fqdn"] = o_fqdn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_nshostlocation is not None:
-            _params['nshostlocation'] = o_nshostlocation
+            _params["nshostlocation"] = o_nshostlocation
         if o_nshardwareplatform is not None:
-            _params['nshardwareplatform'] = o_nshardwareplatform
+            _params["nshardwareplatform"] = o_nshardwareplatform
         if o_nsosversion is not None:
-            _params['nsosversion'] = o_nsosversion
+            _params["nsosversion"] = o_nsosversion
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_macaddress is not None:
-            _params['macaddress'] = o_macaddress
+            _params["macaddress"] = o_macaddress
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipaassignedidview is not None:
-            _params['ipaassignedidview'] = o_ipaassignedidview
+            _params["ipaassignedidview"] = o_ipaassignedidview
         if o_krbprincipalauthind is not None:
-            _params['krbprincipalauthind'] = o_krbprincipalauthind
+            _params["krbprincipalauthind"] = o_krbprincipalauthind
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_in_hostgroup is not None:
-            _params['in_hostgroup'] = o_in_hostgroup
+            _params["in_hostgroup"] = o_in_hostgroup
         if o_not_in_hostgroup is not None:
-            _params['not_in_hostgroup'] = o_not_in_hostgroup
+            _params["not_in_hostgroup"] = o_not_in_hostgroup
         if o_in_netgroup is not None:
-            _params['in_netgroup'] = o_in_netgroup
+            _params["in_netgroup"] = o_in_netgroup
         if o_not_in_netgroup is not None:
-            _params['not_in_netgroup'] = o_not_in_netgroup
+            _params["not_in_netgroup"] = o_not_in_netgroup
         if o_in_role is not None:
-            _params['in_role'] = o_in_role
+            _params["in_role"] = o_in_role
         if o_not_in_role is not None:
-            _params['not_in_role'] = o_not_in_role
+            _params["not_in_role"] = o_not_in_role
         if o_in_hbacrule is not None:
-            _params['in_hbacrule'] = o_in_hbacrule
+            _params["in_hbacrule"] = o_in_hbacrule
         if o_not_in_hbacrule is not None:
-            _params['not_in_hbacrule'] = o_not_in_hbacrule
+            _params["not_in_hbacrule"] = o_not_in_hbacrule
         if o_in_sudorule is not None:
-            _params['in_sudorule'] = o_in_sudorule
+            _params["in_sudorule"] = o_in_sudorule
         if o_not_in_sudorule is not None:
-            _params['not_in_sudorule'] = o_not_in_sudorule
+            _params["not_in_sudorule"] = o_not_in_sudorule
         if o_enroll_by_user is not None:
-            _params['enroll_by_user'] = o_enroll_by_user
+            _params["enroll_by_user"] = o_enroll_by_user
         if o_not_enroll_by_user is not None:
-            _params['not_enroll_by_user'] = o_not_enroll_by_user
+            _params["not_enroll_by_user"] = o_not_enroll_by_user
         if o_man_by_host is not None:
-            _params['man_by_host'] = o_man_by_host
+            _params["man_by_host"] = o_man_by_host
         if o_not_man_by_host is not None:
-            _params['not_man_by_host'] = o_not_man_by_host
+            _params["not_man_by_host"] = o_not_man_by_host
         if o_man_host is not None:
-            _params['man_host'] = o_man_host
+            _params["man_host"] = o_man_host
         if o_not_man_host is not None:
-            _params['not_man_host'] = o_not_man_host
+            _params["not_man_host"] = o_not_man_host
 
         _params.update(kwargs)
 
@@ -11260,7 +10894,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify information about a host.
@@ -11340,58 +10974,58 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'host_mod'
+        method = "host_mod"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_nshostlocation is not None:
-            _params['nshostlocation'] = o_nshostlocation
+            _params["nshostlocation"] = o_nshostlocation
         if o_nshardwareplatform is not None:
-            _params['nshardwareplatform'] = o_nshardwareplatform
+            _params["nshardwareplatform"] = o_nshardwareplatform
         if o_nsosversion is not None:
-            _params['nsosversion'] = o_nsosversion
+            _params["nsosversion"] = o_nsosversion
         if o_userpassword is not None:
-            _params['userpassword'] = o_userpassword
+            _params["userpassword"] = o_userpassword
         if o_random is not None:
-            _params['random'] = o_random
+            _params["random"] = o_random
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_macaddress is not None:
-            _params['macaddress'] = o_macaddress
+            _params["macaddress"] = o_macaddress
         if o_ipasshpubkey is not None:
-            _params['ipasshpubkey'] = o_ipasshpubkey
+            _params["ipasshpubkey"] = o_ipasshpubkey
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipaassignedidview is not None:
-            _params['ipaassignedidview'] = o_ipaassignedidview
+            _params["ipaassignedidview"] = o_ipaassignedidview
         if o_krbprincipalauthind is not None:
-            _params['krbprincipalauthind'] = o_krbprincipalauthind
+            _params["krbprincipalauthind"] = o_krbprincipalauthind
         if o_ipakrbrequirespreauth is not None:
-            _params['ipakrbrequirespreauth'] = o_ipakrbrequirespreauth
+            _params["ipakrbrequirespreauth"] = o_ipakrbrequirespreauth
         if o_ipakrbokasdelegate is not None:
-            _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
+            _params["ipakrbokasdelegate"] = o_ipakrbokasdelegate
         if o_ipakrboktoauthasdelegate is not None:
-            _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
+            _params["ipakrboktoauthasdelegate"] = o_ipakrboktoauthasdelegate
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
         if o_updatedns is not None:
-            _params['updatedns'] = o_updatedns
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["updatedns"] = o_updatedns
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -11404,7 +11038,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove certificates from host entry
@@ -11423,16 +11057,16 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded host certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'host_remove_cert'
+        method = "host_remove_cert"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -11445,7 +11079,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove resource delegation from a host
@@ -11464,29 +11098,23 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'host_remove_delegation'
+        method = "host_remove_delegation"
 
         _args = list()
         _args.append(a_fqdn)
         _args.append(a_memberprincipal)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def host_remove_managedby(
-        self,
-        a_fqdn,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_host=None,
-        **kwargs
+        self, a_fqdn, o_all=True, o_raw=False, o_no_members=False, o_host=None, **kwargs
     ):
         """
         Remove hosts that can manage this host.
@@ -11505,17 +11133,17 @@ class ClientMeta(Client):
         :param o_host: hosts to remove
         :type  o_host: str
         """
-        method = 'host_remove_managedby'
+        method = "host_remove_managedby"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
 
         _params.update(kwargs)
 
@@ -11528,7 +11156,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove principal alias from a host entry
@@ -11547,16 +11175,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'host_remove_principal'
+        method = "host_remove_principal"
 
         _args = list()
         _args.append(a_fqdn)
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -11570,7 +11198,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a host.
@@ -11592,18 +11220,18 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'host_show'
+        method = "host_show"
 
         _args = list()
         _args.append(a_fqdn)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_out is not None:
-            _params['out'] = o_out
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["out"] = o_out
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -11618,7 +11246,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new hostgroup.
@@ -11644,21 +11272,21 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hostgroup_add'
+        method = "hostgroup_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -11672,7 +11300,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to a hostgroup.
@@ -11693,19 +11321,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'hostgroup_add_member'
+        method = "hostgroup_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -11719,7 +11347,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add users that can manage members of this hostgroup.
@@ -11740,30 +11368,25 @@ class ClientMeta(Client):
         :param o_group: groups to add
         :type  o_group: str
         """
-        method = 'hostgroup_add_member_manager'
+        method = "hostgroup_add_member_manager"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def hostgroup_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def hostgroup_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a hostgroup.
 
@@ -11773,13 +11396,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'hostgroup_del'
+        method = "hostgroup_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -11812,7 +11435,7 @@ class ClientMeta(Client):
         o_not_membermanager_user=None,
         o_membermanager_group=None,
         o_not_membermanager_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for hostgroups.
@@ -11887,57 +11510,57 @@ class ClientMeta(Client):
             group membership managed by groups.
         :type  o_not_membermanager_group: str
         """
-        method = 'hostgroup_find'
+        method = "hostgroup_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_no_host is not None:
-            _params['no_host'] = o_no_host
+            _params["no_host"] = o_no_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
         if o_no_hostgroup is not None:
-            _params['no_hostgroup'] = o_no_hostgroup
+            _params["no_hostgroup"] = o_no_hostgroup
         if o_in_hostgroup is not None:
-            _params['in_hostgroup'] = o_in_hostgroup
+            _params["in_hostgroup"] = o_in_hostgroup
         if o_not_in_hostgroup is not None:
-            _params['not_in_hostgroup'] = o_not_in_hostgroup
+            _params["not_in_hostgroup"] = o_not_in_hostgroup
         if o_in_netgroup is not None:
-            _params['in_netgroup'] = o_in_netgroup
+            _params["in_netgroup"] = o_in_netgroup
         if o_not_in_netgroup is not None:
-            _params['not_in_netgroup'] = o_not_in_netgroup
+            _params["not_in_netgroup"] = o_not_in_netgroup
         if o_in_hbacrule is not None:
-            _params['in_hbacrule'] = o_in_hbacrule
+            _params["in_hbacrule"] = o_in_hbacrule
         if o_not_in_hbacrule is not None:
-            _params['not_in_hbacrule'] = o_not_in_hbacrule
+            _params["not_in_hbacrule"] = o_not_in_hbacrule
         if o_in_sudorule is not None:
-            _params['in_sudorule'] = o_in_sudorule
+            _params["in_sudorule"] = o_in_sudorule
         if o_not_in_sudorule is not None:
-            _params['not_in_sudorule'] = o_not_in_sudorule
+            _params["not_in_sudorule"] = o_not_in_sudorule
         if o_membermanager_user is not None:
-            _params['membermanager_user'] = o_membermanager_user
+            _params["membermanager_user"] = o_membermanager_user
         if o_not_membermanager_user is not None:
-            _params['not_membermanager_user'] = o_not_membermanager_user
+            _params["not_membermanager_user"] = o_not_membermanager_user
         if o_membermanager_group is not None:
-            _params['membermanager_group'] = o_membermanager_group
+            _params["membermanager_group"] = o_membermanager_group
         if o_not_membermanager_group is not None:
-            _params['not_membermanager_group'] = o_not_membermanager_group
+            _params["not_membermanager_group"] = o_not_membermanager_group
 
         _params.update(kwargs)
 
@@ -11955,7 +11578,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a hostgroup.
@@ -11989,26 +11612,26 @@ class ClientMeta(Client):
         :param o_rename: Rename the host group object
         :type  o_rename: str
         """
-        method = 'hostgroup_mod'
+        method = "hostgroup_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -12022,7 +11645,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from a hostgroup.
@@ -12043,19 +11666,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'hostgroup_remove_member'
+        method = "hostgroup_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -12069,7 +11692,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove users that can manage members of this hostgroup.
@@ -12090,19 +11713,19 @@ class ClientMeta(Client):
         :param o_group: groups to remove
         :type  o_group: str
         """
-        method = 'hostgroup_remove_member_manager'
+        method = "hostgroup_remove_member_manager"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -12115,7 +11738,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a hostgroup.
@@ -12135,31 +11758,28 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'hostgroup_show'
+        method = "hostgroup_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def i18n_messages(
-        self,
-        **kwargs
-    ):
+    def i18n_messages(self, **kwargs):
         """
         Internationalization messages
 
 
         """
-        method = 'i18n_messages'
+        method = "i18n_messages"
 
         _args = list()
 
@@ -12181,7 +11801,7 @@ class ClientMeta(Client):
         o_fallback_to_ldap=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new Group ID override.
@@ -12214,7 +11834,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idoverridegroup_add'
+        method = "idoverridegroup_add"
 
         _args = list()
         _args.append(a_idviewcn)
@@ -12222,19 +11842,19 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -12246,7 +11866,7 @@ class ClientMeta(Client):
         a_ipaanchoruuid,
         o_continue=False,
         o_fallback_to_ldap=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Delete an Group ID override.
@@ -12262,16 +11882,16 @@ class ClientMeta(Client):
             resolving AD trusted objects. For two-way trusts only.
         :type  o_fallback_to_ldap: bool
         """
-        method = 'idoverridegroup_del'
+        method = "idoverridegroup_del"
 
         _args = list()
         _args.append(a_idviewcn)
         _args.append(a_ipaanchoruuid)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
 
         _params.update(kwargs)
 
@@ -12291,7 +11911,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for an Group ID override.
@@ -12327,7 +11947,7 @@ class ClientMeta(Client):
             ("anchor")
         :type  o_pkey_only: bool
         """
-        method = 'idoverridegroup_find'
+        method = "idoverridegroup_find"
 
         _args = list()
         _args.append(a_idviewcn)
@@ -12335,23 +11955,23 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_ipaanchoruuid is not None:
-            _params['ipaanchoruuid'] = o_ipaanchoruuid
+            _params["ipaanchoruuid"] = o_ipaanchoruuid
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
+            _params["sizelimit"] = o_sizelimit
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -12372,7 +11992,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an Group ID override.
@@ -12413,7 +12033,7 @@ class ClientMeta(Client):
         :param o_rename: Rename the Group ID override object
         :type  o_rename: str
         """
-        method = 'idoverridegroup_mod'
+        method = "idoverridegroup_mod"
 
         _args = list()
         _args.append(a_idviewcn)
@@ -12421,24 +12041,24 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -12452,7 +12072,7 @@ class ClientMeta(Client):
         o_fallback_to_ldap=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about an Group ID override.
@@ -12475,18 +12095,18 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idoverridegroup_show'
+        method = "idoverridegroup_show"
 
         _args = list()
         _args.append(a_idviewcn)
         _args.append(a_ipaanchoruuid)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -12512,7 +12132,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new User ID override.
@@ -12561,7 +12181,7 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'idoverrideuser_add'
+        method = "idoverrideuser_add"
 
         _args = list()
         _args.append(a_idviewcn)
@@ -12569,34 +12189,34 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_uid is not None:
-            _params['uid'] = o_uid
+            _params["uid"] = o_uid
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_ipaoriginaluid is not None:
-            _params['ipaoriginaluid'] = o_ipaoriginaluid
+            _params["ipaoriginaluid"] = o_ipaoriginaluid
         if o_ipasshpubkey is not None:
-            _params['ipasshpubkey'] = o_ipasshpubkey
+            _params["ipasshpubkey"] = o_ipasshpubkey
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -12611,7 +12231,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add one or more certificates to the idoverrideuser entry
@@ -12635,7 +12255,7 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'idoverrideuser_add_cert'
+        method = "idoverrideuser_add_cert"
 
         _args = list()
         _args.append(a_idviewcn)
@@ -12643,11 +12263,11 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -12659,7 +12279,7 @@ class ClientMeta(Client):
         a_ipaanchoruuid,
         o_continue=False,
         o_fallback_to_ldap=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Delete an User ID override.
@@ -12675,16 +12295,16 @@ class ClientMeta(Client):
             resolving AD trusted objects. For two-way trusts only.
         :type  o_fallback_to_ldap: bool
         """
-        method = 'idoverrideuser_del'
+        method = "idoverrideuser_del"
 
         _args = list()
         _args.append(a_idviewcn)
         _args.append(a_ipaanchoruuid)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
 
         _params.update(kwargs)
 
@@ -12710,7 +12330,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for an User ID override.
@@ -12758,7 +12378,7 @@ class ClientMeta(Client):
             ("anchor")
         :type  o_pkey_only: bool
         """
-        method = 'idoverrideuser_find'
+        method = "idoverrideuser_find"
 
         _args = list()
         _args.append(a_idviewcn)
@@ -12766,34 +12386,34 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_ipaanchoruuid is not None:
-            _params['ipaanchoruuid'] = o_ipaanchoruuid
+            _params["ipaanchoruuid"] = o_ipaanchoruuid
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_uid is not None:
-            _params['uid'] = o_uid
+            _params["uid"] = o_uid
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_ipaoriginaluid is not None:
-            _params['ipaoriginaluid'] = o_ipaoriginaluid
+            _params["ipaoriginaluid"] = o_ipaoriginaluid
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
+            _params["sizelimit"] = o_sizelimit
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -12822,7 +12442,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an User ID override.
@@ -12879,7 +12499,7 @@ class ClientMeta(Client):
         :param o_rename: Rename the User ID override object
         :type  o_rename: str
         """
-        method = 'idoverrideuser_mod'
+        method = "idoverrideuser_mod"
 
         _args = list()
         _args.append(a_idviewcn)
@@ -12887,39 +12507,39 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_uid is not None:
-            _params['uid'] = o_uid
+            _params["uid"] = o_uid
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_ipaoriginaluid is not None:
-            _params['ipaoriginaluid'] = o_ipaoriginaluid
+            _params["ipaoriginaluid"] = o_ipaoriginaluid
         if o_ipasshpubkey is not None:
-            _params['ipasshpubkey'] = o_ipasshpubkey
+            _params["ipasshpubkey"] = o_ipasshpubkey
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -12934,7 +12554,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove one or more certificates to the idoverrideuser entry
@@ -12958,7 +12578,7 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'idoverrideuser_remove_cert'
+        method = "idoverrideuser_remove_cert"
 
         _args = list()
         _args.append(a_idviewcn)
@@ -12966,11 +12586,11 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -12985,7 +12605,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about an User ID override.
@@ -13010,19 +12630,19 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'idoverrideuser_show'
+        method = "idoverrideuser_show"
 
         _args = list()
         _args.append(a_idviewcn)
         _args.append(a_ipaanchoruuid)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_fallback_to_ldap is not None:
-            _params['fallback_to_ldap'] = o_fallback_to_ldap
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["fallback_to_ldap"] = o_fallback_to_ldap
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -13048,7 +12668,7 @@ class ClientMeta(Client):
         o_ipaidpbaseurl=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new Identity Provider reference.
@@ -13098,54 +12718,49 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idp_add'
+        method = "idp_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipaidpauthendpoint is not None:
-            _params['ipaidpauthendpoint'] = o_ipaidpauthendpoint
+            _params["ipaidpauthendpoint"] = o_ipaidpauthendpoint
         if o_ipaidpdevauthendpoint is not None:
-            _params['ipaidpdevauthendpoint'] = o_ipaidpdevauthendpoint
+            _params["ipaidpdevauthendpoint"] = o_ipaidpdevauthendpoint
         if o_ipaidptokenendpoint is not None:
-            _params['ipaidptokenendpoint'] = o_ipaidptokenendpoint
+            _params["ipaidptokenendpoint"] = o_ipaidptokenendpoint
         if o_ipaidpuserinfoendpoint is not None:
-            _params['ipaidpuserinfoendpoint'] = o_ipaidpuserinfoendpoint
+            _params["ipaidpuserinfoendpoint"] = o_ipaidpuserinfoendpoint
         if o_ipaidpkeysendpoint is not None:
-            _params['ipaidpkeysendpoint'] = o_ipaidpkeysendpoint
+            _params["ipaidpkeysendpoint"] = o_ipaidpkeysendpoint
         if o_ipaidpissuerurl is not None:
-            _params['ipaidpissuerurl'] = o_ipaidpissuerurl
-        _params['ipaidpclientid'] = o_ipaidpclientid
+            _params["ipaidpissuerurl"] = o_ipaidpissuerurl
+        _params["ipaidpclientid"] = o_ipaidpclientid
         if o_ipaidpclientsecret is not None:
-            _params['ipaidpclientsecret'] = o_ipaidpclientsecret
+            _params["ipaidpclientsecret"] = o_ipaidpclientsecret
         if o_ipaidpscope is not None:
-            _params['ipaidpscope'] = o_ipaidpscope
+            _params["ipaidpscope"] = o_ipaidpscope
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_ipaidpprovider is not None:
-            _params['ipaidpprovider'] = o_ipaidpprovider
+            _params["ipaidpprovider"] = o_ipaidpprovider
         if o_ipaidporg is not None:
-            _params['ipaidporg'] = o_ipaidporg
+            _params["ipaidporg"] = o_ipaidporg
         if o_ipaidpbaseurl is not None:
-            _params['ipaidpbaseurl'] = o_ipaidpbaseurl
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["ipaidpbaseurl"] = o_ipaidpbaseurl
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def idp_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def idp_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete an Identity Provider reference.
 
@@ -13155,13 +12770,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'idp_del'
+        method = "idp_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -13186,7 +12801,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for Identity Provider references.
@@ -13232,42 +12847,42 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'idp_find'
+        method = "idp_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_ipaidpauthendpoint is not None:
-            _params['ipaidpauthendpoint'] = o_ipaidpauthendpoint
+            _params["ipaidpauthendpoint"] = o_ipaidpauthendpoint
         if o_ipaidpdevauthendpoint is not None:
-            _params['ipaidpdevauthendpoint'] = o_ipaidpdevauthendpoint
+            _params["ipaidpdevauthendpoint"] = o_ipaidpdevauthendpoint
         if o_ipaidptokenendpoint is not None:
-            _params['ipaidptokenendpoint'] = o_ipaidptokenendpoint
+            _params["ipaidptokenendpoint"] = o_ipaidptokenendpoint
         if o_ipaidpuserinfoendpoint is not None:
-            _params['ipaidpuserinfoendpoint'] = o_ipaidpuserinfoendpoint
+            _params["ipaidpuserinfoendpoint"] = o_ipaidpuserinfoendpoint
         if o_ipaidpkeysendpoint is not None:
-            _params['ipaidpkeysendpoint'] = o_ipaidpkeysendpoint
+            _params["ipaidpkeysendpoint"] = o_ipaidpkeysendpoint
         if o_ipaidpissuerurl is not None:
-            _params['ipaidpissuerurl'] = o_ipaidpissuerurl
+            _params["ipaidpissuerurl"] = o_ipaidpissuerurl
         if o_ipaidpclientid is not None:
-            _params['ipaidpclientid'] = o_ipaidpclientid
+            _params["ipaidpclientid"] = o_ipaidpclientid
         if o_ipaidpclientsecret is not None:
-            _params['ipaidpclientsecret'] = o_ipaidpclientsecret
+            _params["ipaidpclientsecret"] = o_ipaidpclientsecret
         if o_ipaidpscope is not None:
-            _params['ipaidpscope'] = o_ipaidpscope
+            _params["ipaidpscope"] = o_ipaidpscope
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -13293,7 +12908,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an Identity Provider reference.
@@ -13344,56 +12959,49 @@ class ClientMeta(Client):
         :param o_rename: Rename the Identity Provider reference object
         :type  o_rename: str
         """
-        method = 'idp_mod'
+        method = "idp_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipaidpauthendpoint is not None:
-            _params['ipaidpauthendpoint'] = o_ipaidpauthendpoint
+            _params["ipaidpauthendpoint"] = o_ipaidpauthendpoint
         if o_ipaidpdevauthendpoint is not None:
-            _params['ipaidpdevauthendpoint'] = o_ipaidpdevauthendpoint
+            _params["ipaidpdevauthendpoint"] = o_ipaidpdevauthendpoint
         if o_ipaidptokenendpoint is not None:
-            _params['ipaidptokenendpoint'] = o_ipaidptokenendpoint
+            _params["ipaidptokenendpoint"] = o_ipaidptokenendpoint
         if o_ipaidpuserinfoendpoint is not None:
-            _params['ipaidpuserinfoendpoint'] = o_ipaidpuserinfoendpoint
+            _params["ipaidpuserinfoendpoint"] = o_ipaidpuserinfoendpoint
         if o_ipaidpkeysendpoint is not None:
-            _params['ipaidpkeysendpoint'] = o_ipaidpkeysendpoint
+            _params["ipaidpkeysendpoint"] = o_ipaidpkeysendpoint
         if o_ipaidpissuerurl is not None:
-            _params['ipaidpissuerurl'] = o_ipaidpissuerurl
+            _params["ipaidpissuerurl"] = o_ipaidpissuerurl
         if o_ipaidpclientid is not None:
-            _params['ipaidpclientid'] = o_ipaidpclientid
+            _params["ipaidpclientid"] = o_ipaidpclientid
         if o_ipaidpclientsecret is not None:
-            _params['ipaidpclientsecret'] = o_ipaidpclientsecret
+            _params["ipaidpclientsecret"] = o_ipaidpclientsecret
         if o_ipaidpscope is not None:
-            _params['ipaidpscope'] = o_ipaidpscope
+            _params["ipaidpscope"] = o_ipaidpscope
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def idp_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def idp_show(self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Display information about an Identity Provider reference.
 
@@ -13410,15 +13018,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idp_show'
+        method = "idp_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -13439,7 +13047,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
             Add new ID range.
@@ -13513,43 +13121,38 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idrange_add'
+        method = "idrange_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['ipabaseid'] = o_ipabaseid
-        _params['ipaidrangesize'] = o_ipaidrangesize
+        _params["ipabaseid"] = o_ipabaseid
+        _params["ipaidrangesize"] = o_ipaidrangesize
         if o_ipabaserid is not None:
-            _params['ipabaserid'] = o_ipabaserid
+            _params["ipabaserid"] = o_ipabaserid
         if o_ipasecondarybaserid is not None:
-            _params['ipasecondarybaserid'] = o_ipasecondarybaserid
+            _params["ipasecondarybaserid"] = o_ipasecondarybaserid
         if o_ipanttrusteddomainsid is not None:
-            _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
+            _params["ipanttrusteddomainsid"] = o_ipanttrusteddomainsid
         if o_ipanttrusteddomainname is not None:
-            _params['ipanttrusteddomainname'] = o_ipanttrusteddomainname
+            _params["ipanttrusteddomainname"] = o_ipanttrusteddomainname
         if o_iparangetype is not None:
-            _params['iparangetype'] = o_iparangetype
+            _params["iparangetype"] = o_iparangetype
         if o_ipaautoprivategroups is not None:
-            _params['ipaautoprivategroups'] = o_ipaautoprivategroups
+            _params["ipaautoprivategroups"] = o_ipaautoprivategroups
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def idrange_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def idrange_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete an ID range.
 
@@ -13559,13 +13162,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'idrange_del'
+        method = "idrange_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -13587,7 +13190,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for ranges.
@@ -13627,36 +13230,36 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'idrange_find'
+        method = "idrange_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_ipabaseid is not None:
-            _params['ipabaseid'] = o_ipabaseid
+            _params["ipabaseid"] = o_ipabaseid
         if o_ipaidrangesize is not None:
-            _params['ipaidrangesize'] = o_ipaidrangesize
+            _params["ipaidrangesize"] = o_ipaidrangesize
         if o_ipabaserid is not None:
-            _params['ipabaserid'] = o_ipabaserid
+            _params["ipabaserid"] = o_ipabaserid
         if o_ipasecondarybaserid is not None:
-            _params['ipasecondarybaserid'] = o_ipasecondarybaserid
+            _params["ipasecondarybaserid"] = o_ipasecondarybaserid
         if o_ipanttrusteddomainsid is not None:
-            _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
+            _params["ipanttrusteddomainsid"] = o_ipanttrusteddomainsid
         if o_iparangetype is not None:
-            _params['iparangetype'] = o_iparangetype
+            _params["iparangetype"] = o_iparangetype
         if o_ipaautoprivategroups is not None:
-            _params['ipaautoprivategroups'] = o_ipaautoprivategroups
+            _params["ipaautoprivategroups"] = o_ipaautoprivategroups
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -13678,7 +13281,7 @@ class ClientMeta(Client):
         o_ipanttrusteddomainname=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify ID range.
@@ -13735,48 +13338,41 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idrange_mod'
+        method = "idrange_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipabaseid is not None:
-            _params['ipabaseid'] = o_ipabaseid
+            _params["ipabaseid"] = o_ipabaseid
         if o_ipaidrangesize is not None:
-            _params['ipaidrangesize'] = o_ipaidrangesize
+            _params["ipaidrangesize"] = o_ipaidrangesize
         if o_ipabaserid is not None:
-            _params['ipabaserid'] = o_ipabaserid
+            _params["ipabaserid"] = o_ipabaserid
         if o_ipasecondarybaserid is not None:
-            _params['ipasecondarybaserid'] = o_ipasecondarybaserid
+            _params["ipasecondarybaserid"] = o_ipasecondarybaserid
         if o_ipaautoprivategroups is not None:
-            _params['ipaautoprivategroups'] = o_ipaautoprivategroups
+            _params["ipaautoprivategroups"] = o_ipaautoprivategroups
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
         if o_ipanttrusteddomainsid is not None:
-            _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
+            _params["ipanttrusteddomainsid"] = o_ipanttrusteddomainsid
         if o_ipanttrusteddomainname is not None:
-            _params['ipanttrusteddomainname'] = o_ipanttrusteddomainname
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["ipanttrusteddomainname"] = o_ipanttrusteddomainname
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def idrange_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def idrange_show(self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a range.
 
@@ -13793,15 +13389,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idrange_show'
+        method = "idrange_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -13816,7 +13412,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new ID View.
@@ -13843,34 +13439,28 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idview_add'
+        method = "idview_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipadomainresolutionorder is not None:
-            _params['ipadomainresolutionorder'] = o_ipadomainresolutionorder
+            _params["ipadomainresolutionorder"] = o_ipadomainresolutionorder
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def idview_apply(
-        self,
-        a_cn,
-        o_host=None,
-        o_hostgroup=None,
-        **kwargs
-    ):
+    def idview_apply(self, a_cn, o_host=None, o_hostgroup=None, **kwargs):
         """
         Applies ID View to specified hosts or current members of specified hostgroups. If any other ID View is applied to the host, it is overridden.
 
@@ -13884,27 +13474,22 @@ class ClientMeta(Client):
             to the hostgroup after running the idview-apply command.
         :type  o_hostgroup: str
         """
-        method = 'idview_apply'
+        method = "idview_apply"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def idview_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def idview_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete an ID View.
 
@@ -13914,13 +13499,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'idview_del'
+        method = "idview_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -13936,7 +13521,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for an ID View.
@@ -13963,24 +13548,24 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'idview_find'
+        method = "idview_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -13998,7 +13583,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an ID View.
@@ -14033,27 +13618,27 @@ class ClientMeta(Client):
         :param o_rename: Rename the ID View object
         :type  o_rename: str
         """
-        method = 'idview_mod'
+        method = "idview_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipadomainresolutionorder is not None:
-            _params['ipadomainresolutionorder'] = o_ipadomainresolutionorder
+            _params["ipadomainresolutionorder"] = o_ipadomainresolutionorder
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -14066,7 +13651,7 @@ class ClientMeta(Client):
         o_show_hosts=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about an ID View.
@@ -14086,28 +13671,23 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'idview_show'
+        method = "idview_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_show_hosts is not None:
-            _params['show_hosts'] = o_show_hosts
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["show_hosts"] = o_show_hosts
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def idview_unapply(
-        self,
-        o_host=None,
-        o_hostgroup=None,
-        **kwargs
-    ):
+    def idview_unapply(self, o_host=None, o_hostgroup=None, **kwargs):
         """
         Clears ID View from specified hosts or current members of specified hostgroups.
 
@@ -14119,27 +13699,22 @@ class ClientMeta(Client):
             added to the hostgroup after running idview-unapply command.
         :type  o_hostgroup: str
         """
-        method = 'idview_unapply'
+        method = "idview_unapply"
 
         _args = list()
 
         _params = dict()
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def join(
-        self,
-        a_cn,
-        o_realm,
-        o_nshardwareplatform=None,
-        o_nsosversion=None,
-        **kwargs
+        self, a_cn, o_realm, o_nshardwareplatform=None, o_nsosversion=None, **kwargs
     ):
         """
         Join an IPA domain
@@ -14156,17 +13731,17 @@ class ClientMeta(Client):
             Fedora 9)
         :type  o_nsosversion: str
         """
-        method = 'join'
+        method = "join"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['realm'] = o_realm
+        _params["realm"] = o_realm
         if o_nshardwareplatform is not None:
-            _params['nshardwareplatform'] = o_nshardwareplatform
+            _params["nshardwareplatform"] = o_nshardwareplatform
         if o_nsosversion is not None:
-            _params['nsosversion'] = o_nsosversion
+            _params["nsosversion"] = o_nsosversion
 
         _params.update(kwargs)
 
@@ -14179,7 +13754,7 @@ class ClientMeta(Client):
         o_object=None,
         o_method=None,
         o_command=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Export plugin meta-data for the webUI.
@@ -14196,7 +13771,7 @@ class ClientMeta(Client):
         :param o_command: Name of command to export
         :type  o_command: str
         """
-        method = 'json_metadata'
+        method = "json_metadata"
 
         _args = list()
         _args.append(a_objname)
@@ -14204,26 +13779,23 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_object is not None:
-            _params['object'] = o_object
+            _params["object"] = o_object
         if o_method is not None:
-            _params['method'] = o_method
+            _params["method"] = o_method
         if o_command is not None:
-            _params['command'] = o_command
+            _params["command"] = o_command
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def kra_is_enabled(
-        self,
-        **kwargs
-    ):
+    def kra_is_enabled(self, **kwargs):
         """
         Checks if any of the servers has the KRA service enabled
 
 
         """
-        method = 'kra_is_enabled'
+        method = "kra_is_enabled"
 
         _args = list()
 
@@ -14256,7 +13828,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify Kerberos ticket policy.
@@ -14324,61 +13896,67 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'krbtpolicy_mod'
+        method = "krbtpolicy_mod"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
         if o_krbmaxticketlife is not None:
-            _params['krbmaxticketlife'] = o_krbmaxticketlife
+            _params["krbmaxticketlife"] = o_krbmaxticketlife
         if o_krbmaxrenewableage is not None:
-            _params['krbmaxrenewableage'] = o_krbmaxrenewableage
+            _params["krbmaxrenewableage"] = o_krbmaxrenewableage
         if o_krbauthindmaxticketlife_otp is not None:
-            _params['krbauthindmaxticketlife_otp'] = o_krbauthindmaxticketlife_otp
+            _params["krbauthindmaxticketlife_otp"] = o_krbauthindmaxticketlife_otp
         if o_krbauthindmaxrenewableage_otp is not None:
-            _params['krbauthindmaxrenewableage_otp'] = o_krbauthindmaxrenewableage_otp
+            _params["krbauthindmaxrenewableage_otp"] = o_krbauthindmaxrenewableage_otp
         if o_krbauthindmaxticketlife_radius is not None:
-            _params['krbauthindmaxticketlife_radius'] = o_krbauthindmaxticketlife_radius
+            _params["krbauthindmaxticketlife_radius"] = o_krbauthindmaxticketlife_radius
         if o_krbauthindmaxrenewableage_radius is not None:
-            _params['krbauthindmaxrenewableage_radius'] = o_krbauthindmaxrenewableage_radius
+            _params["krbauthindmaxrenewableage_radius"] = (
+                o_krbauthindmaxrenewableage_radius
+            )
         if o_krbauthindmaxticketlife_pkinit is not None:
-            _params['krbauthindmaxticketlife_pkinit'] = o_krbauthindmaxticketlife_pkinit
+            _params["krbauthindmaxticketlife_pkinit"] = o_krbauthindmaxticketlife_pkinit
         if o_krbauthindmaxrenewableage_pkinit is not None:
-            _params['krbauthindmaxrenewableage_pkinit'] = o_krbauthindmaxrenewableage_pkinit
+            _params["krbauthindmaxrenewableage_pkinit"] = (
+                o_krbauthindmaxrenewableage_pkinit
+            )
         if o_krbauthindmaxticketlife_hardened is not None:
-            _params['krbauthindmaxticketlife_hardened'] = o_krbauthindmaxticketlife_hardened
+            _params["krbauthindmaxticketlife_hardened"] = (
+                o_krbauthindmaxticketlife_hardened
+            )
         if o_krbauthindmaxrenewableage_hardened is not None:
-            _params['krbauthindmaxrenewableage_hardened'] = o_krbauthindmaxrenewableage_hardened
+            _params["krbauthindmaxrenewableage_hardened"] = (
+                o_krbauthindmaxrenewableage_hardened
+            )
         if o_krbauthindmaxticketlife_idp is not None:
-            _params['krbauthindmaxticketlife_idp'] = o_krbauthindmaxticketlife_idp
+            _params["krbauthindmaxticketlife_idp"] = o_krbauthindmaxticketlife_idp
         if o_krbauthindmaxrenewableage_idp is not None:
-            _params['krbauthindmaxrenewableage_idp'] = o_krbauthindmaxrenewableage_idp
+            _params["krbauthindmaxrenewableage_idp"] = o_krbauthindmaxrenewableage_idp
         if o_krbauthindmaxticketlife_passkey is not None:
-            _params['krbauthindmaxticketlife_passkey'] = o_krbauthindmaxticketlife_passkey
+            _params["krbauthindmaxticketlife_passkey"] = (
+                o_krbauthindmaxticketlife_passkey
+            )
         if o_krbauthindmaxrenewableage_passkey is not None:
-            _params['krbauthindmaxrenewableage_passkey'] = o_krbauthindmaxrenewableage_passkey
+            _params["krbauthindmaxrenewableage_passkey"] = (
+                o_krbauthindmaxrenewableage_passkey
+            )
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def krbtpolicy_reset(
-        self,
-        a_uid=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def krbtpolicy_reset(self, a_uid=None, o_all=True, o_raw=False, **kwargs):
         """
         Reset Kerberos ticket policy to the default values.
 
@@ -14392,26 +13970,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'krbtpolicy_reset'
+        method = "krbtpolicy_reset"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def krbtpolicy_show(
-        self,
-        a_uid=None,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_uid=None, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display the current Kerberos ticket policy.
@@ -14429,15 +14002,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'krbtpolicy_show'
+        method = "krbtpolicy_show"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -14451,7 +14024,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new IPA location.
@@ -14475,31 +14048,26 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'location_add'
+        method = "location_add"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def location_del(
-        self,
-        a_idnsname,
-        o_continue=False,
-        **kwargs
-    ):
+    def location_del(self, a_idnsname, o_continue=False, **kwargs):
         """
         Delete an IPA location.
 
@@ -14509,13 +14077,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'location_del'
+        method = "location_del"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -14531,7 +14099,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for IPA locations.
@@ -14558,24 +14126,24 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'location_find'
+        method = "location_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_idnsname is not None:
-            _params['idnsname'] = o_idnsname
+            _params["idnsname"] = o_idnsname
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -14591,7 +14159,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify information about an IPA location.
@@ -14621,35 +14189,30 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'location_mod'
+        method = "location_mod"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def location_show(
-        self,
-        a_idnsname,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_idnsname, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display information about an IPA location.
@@ -14667,15 +14230,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'location_show'
+        method = "location_show"
 
         _args = list()
         _args.append(a_idnsname)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -14685,9 +14248,9 @@ class ClientMeta(Client):
         self,
         a_ldapuri,
         a_bindpw,
-        o_binddn='cn=directory manager',
-        o_usercontainer='ou=people',
-        o_groupcontainer='ou=groups',
+        o_binddn="cn=directory manager",
+        o_usercontainer="ou=people",
+        o_groupcontainer="ou=groups",
         o_userobjectclass=None,
         o_groupobjectclass=None,
         o_userignoreobjectclass=None,
@@ -14695,16 +14258,16 @@ class ClientMeta(Client):
         o_groupignoreobjectclass=None,
         o_groupignoreattribute=None,
         o_groupoverwritegid=False,
-        o_schema='RFC2307bis',
+        o_schema="RFC2307bis",
         o_continue=False,
         o_basedn=None,
         o_compat=False,
         o_cacertfile=None,
         o_use_def_group=True,
-        o_scope='onelevel',
+        o_scope="onelevel",
         o_exclude_users=None,
         o_exclude_groups=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Migrate users and groups from DS to IPA.
@@ -14766,7 +14329,7 @@ class ClientMeta(Client):
         :param o_exclude_groups: groups to exclude from migration
         :type  o_exclude_groups: str
         """
-        method = 'migrate_ds'
+        method = "migrate_ds"
 
         _args = list()
         _args.append(a_ldapuri)
@@ -14774,37 +14337,37 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_binddn is not None:
-            _params['binddn'] = o_binddn
-        _params['usercontainer'] = o_usercontainer
-        _params['groupcontainer'] = o_groupcontainer
-        _params['userobjectclass'] = o_userobjectclass
-        _params['groupobjectclass'] = o_groupobjectclass
+            _params["binddn"] = o_binddn
+        _params["usercontainer"] = o_usercontainer
+        _params["groupcontainer"] = o_groupcontainer
+        _params["userobjectclass"] = o_userobjectclass
+        _params["groupobjectclass"] = o_groupobjectclass
         if o_userignoreobjectclass is not None:
-            _params['userignoreobjectclass'] = o_userignoreobjectclass
+            _params["userignoreobjectclass"] = o_userignoreobjectclass
         if o_userignoreattribute is not None:
-            _params['userignoreattribute'] = o_userignoreattribute
+            _params["userignoreattribute"] = o_userignoreattribute
         if o_groupignoreobjectclass is not None:
-            _params['groupignoreobjectclass'] = o_groupignoreobjectclass
+            _params["groupignoreobjectclass"] = o_groupignoreobjectclass
         if o_groupignoreattribute is not None:
-            _params['groupignoreattribute'] = o_groupignoreattribute
-        _params['groupoverwritegid'] = o_groupoverwritegid
+            _params["groupignoreattribute"] = o_groupignoreattribute
+        _params["groupoverwritegid"] = o_groupoverwritegid
         if o_schema is not None:
-            _params['schema'] = o_schema
+            _params["schema"] = o_schema
         if o_continue is not None:
-            _params['continue'] = o_continue
+            _params["continue"] = o_continue
         if o_basedn is not None:
-            _params['basedn'] = o_basedn
+            _params["basedn"] = o_basedn
         if o_compat is not None:
-            _params['compat'] = o_compat
+            _params["compat"] = o_compat
         if o_cacertfile is not None:
-            _params['cacertfile'] = o_cacertfile
+            _params["cacertfile"] = o_cacertfile
         if o_use_def_group is not None:
-            _params['use_def_group'] = o_use_def_group
-        _params['scope'] = o_scope
+            _params["use_def_group"] = o_use_def_group
+        _params["scope"] = o_scope
         if o_exclude_users is not None:
-            _params['exclude_users'] = o_exclude_users
+            _params["exclude_users"] = o_exclude_users
         if o_exclude_groups is not None:
-            _params['exclude_groups'] = o_exclude_groups
+            _params["exclude_groups"] = o_exclude_groups
 
         _params.update(kwargs)
 
@@ -14823,7 +14386,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new netgroup.
@@ -14857,29 +14420,29 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'netgroup_add'
+        method = "netgroup_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_nisdomainname is not None:
-            _params['nisdomainname'] = o_nisdomainname
+            _params["nisdomainname"] = o_nisdomainname
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -14896,7 +14459,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_netgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to a netgroup.
@@ -14923,36 +14486,31 @@ class ClientMeta(Client):
         :param o_netgroup: netgroups to add
         :type  o_netgroup: str
         """
-        method = 'netgroup_add_member'
+        method = "netgroup_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
         if o_netgroup is not None:
-            _params['netgroup'] = o_netgroup
+            _params["netgroup"] = o_netgroup
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def netgroup_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def netgroup_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a netgroup.
 
@@ -14962,13 +14520,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'netgroup_del'
+        method = "netgroup_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -15004,7 +14562,7 @@ class ClientMeta(Client):
         o_no_hostgroup=None,
         o_in_netgroup=None,
         o_not_in_netgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for a netgroup.
@@ -15076,61 +14634,61 @@ class ClientMeta(Client):
             netgroups.
         :type  o_not_in_netgroup: str
         """
-        method = 'netgroup_find'
+        method = "netgroup_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_nisdomainname is not None:
-            _params['nisdomainname'] = o_nisdomainname
+            _params["nisdomainname"] = o_nisdomainname
         if o_ipauniqueid is not None:
-            _params['ipauniqueid'] = o_ipauniqueid
+            _params["ipauniqueid"] = o_ipauniqueid
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['private'] = o_private
-        _params['managed'] = o_managed
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["private"] = o_private
+        _params["managed"] = o_managed
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_netgroup is not None:
-            _params['netgroup'] = o_netgroup
+            _params["netgroup"] = o_netgroup
         if o_no_netgroup is not None:
-            _params['no_netgroup'] = o_no_netgroup
+            _params["no_netgroup"] = o_no_netgroup
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_no_user is not None:
-            _params['no_user'] = o_no_user
+            _params["no_user"] = o_no_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_no_group is not None:
-            _params['no_group'] = o_no_group
+            _params["no_group"] = o_no_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_no_host is not None:
-            _params['no_host'] = o_no_host
+            _params["no_host"] = o_no_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
         if o_no_hostgroup is not None:
-            _params['no_hostgroup'] = o_no_hostgroup
+            _params["no_hostgroup"] = o_no_hostgroup
         if o_in_netgroup is not None:
-            _params['in_netgroup'] = o_in_netgroup
+            _params["in_netgroup"] = o_in_netgroup
         if o_not_in_netgroup is not None:
-            _params['not_in_netgroup'] = o_not_in_netgroup
+            _params["not_in_netgroup"] = o_not_in_netgroup
 
         _params.update(kwargs)
 
@@ -15151,7 +14709,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a netgroup.
@@ -15191,32 +14749,32 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'netgroup_mod'
+        method = "netgroup_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_nisdomainname is not None:
-            _params['nisdomainname'] = o_nisdomainname
+            _params["nisdomainname"] = o_nisdomainname
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -15233,7 +14791,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_netgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from a netgroup.
@@ -15260,25 +14818,25 @@ class ClientMeta(Client):
         :param o_netgroup: netgroups to remove
         :type  o_netgroup: str
         """
-        method = 'netgroup_remove_member'
+        method = "netgroup_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
         if o_netgroup is not None:
-            _params['netgroup'] = o_netgroup
+            _params["netgroup"] = o_netgroup
 
         _params.update(kwargs)
 
@@ -15291,7 +14849,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a netgroup.
@@ -15311,16 +14869,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'netgroup_show'
+        method = "netgroup_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -15338,7 +14896,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify OTP configuration options.
@@ -15374,40 +14932,34 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'otpconfig_mod'
+        method = "otpconfig_mod"
 
         _args = list()
 
         _params = dict()
         if o_ipatokentotpauthwindow is not None:
-            _params['ipatokentotpauthwindow'] = o_ipatokentotpauthwindow
+            _params["ipatokentotpauthwindow"] = o_ipatokentotpauthwindow
         if o_ipatokentotpsyncwindow is not None:
-            _params['ipatokentotpsyncwindow'] = o_ipatokentotpsyncwindow
+            _params["ipatokentotpsyncwindow"] = o_ipatokentotpsyncwindow
         if o_ipatokenhotpauthwindow is not None:
-            _params['ipatokenhotpauthwindow'] = o_ipatokenhotpauthwindow
+            _params["ipatokenhotpauthwindow"] = o_ipatokenhotpauthwindow
         if o_ipatokenhotpsyncwindow is not None:
-            _params['ipatokenhotpsyncwindow'] = o_ipatokenhotpsyncwindow
+            _params["ipatokenhotpsyncwindow"] = o_ipatokenhotpsyncwindow
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def otpconfig_show(
-        self,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def otpconfig_show(self, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Show the current OTP configuration.
 
@@ -15422,14 +14974,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'otpconfig_show'
+        method = "otpconfig_show"
 
         _args = list()
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -15438,7 +14990,7 @@ class ClientMeta(Client):
     def otptoken_add(
         self,
         a_ipatokenuniqueid=None,
-        o_type='totp',
+        o_type="totp",
         o_description=None,
         o_ipatokenowner=None,
         o_ipatokendisabled=None,
@@ -15448,7 +15000,7 @@ class ClientMeta(Client):
         o_ipatokenmodel=None,
         o_ipatokenserial=None,
         o_ipatokenotpkey=None,
-        o_ipatokenotpalgorithm='sha1',
+        o_ipatokenotpalgorithm="sha1",
         o_ipatokenotpdigits=6,
         o_ipatokentotpclockoffset=0,
         o_ipatokentotptimestep=30,
@@ -15460,7 +15012,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new OTP token.
@@ -15519,52 +15071,52 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'otptoken_add'
+        method = "otptoken_add"
 
         _args = list()
         _args.append(a_ipatokenuniqueid)
 
         _params = dict()
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipatokenowner is not None:
-            _params['ipatokenowner'] = o_ipatokenowner
+            _params["ipatokenowner"] = o_ipatokenowner
         if o_ipatokendisabled is not None:
-            _params['ipatokendisabled'] = o_ipatokendisabled
+            _params["ipatokendisabled"] = o_ipatokendisabled
         if o_ipatokennotbefore is not None:
-            _params['ipatokennotbefore'] = o_ipatokennotbefore
+            _params["ipatokennotbefore"] = o_ipatokennotbefore
         if o_ipatokennotafter is not None:
-            _params['ipatokennotafter'] = o_ipatokennotafter
+            _params["ipatokennotafter"] = o_ipatokennotafter
         if o_ipatokenvendor is not None:
-            _params['ipatokenvendor'] = o_ipatokenvendor
+            _params["ipatokenvendor"] = o_ipatokenvendor
         if o_ipatokenmodel is not None:
-            _params['ipatokenmodel'] = o_ipatokenmodel
+            _params["ipatokenmodel"] = o_ipatokenmodel
         if o_ipatokenserial is not None:
-            _params['ipatokenserial'] = o_ipatokenserial
+            _params["ipatokenserial"] = o_ipatokenserial
         if o_ipatokenotpkey is not None:
-            _params['ipatokenotpkey'] = o_ipatokenotpkey
+            _params["ipatokenotpkey"] = o_ipatokenotpkey
         if o_ipatokenotpalgorithm is not None:
-            _params['ipatokenotpalgorithm'] = o_ipatokenotpalgorithm
+            _params["ipatokenotpalgorithm"] = o_ipatokenotpalgorithm
         if o_ipatokenotpdigits is not None:
-            _params['ipatokenotpdigits'] = o_ipatokenotpdigits
+            _params["ipatokenotpdigits"] = o_ipatokenotpdigits
         if o_ipatokentotpclockoffset is not None:
-            _params['ipatokentotpclockoffset'] = o_ipatokentotpclockoffset
+            _params["ipatokentotpclockoffset"] = o_ipatokentotpclockoffset
         if o_ipatokentotptimestep is not None:
-            _params['ipatokentotptimestep'] = o_ipatokentotptimestep
+            _params["ipatokentotptimestep"] = o_ipatokentotptimestep
         if o_ipatokenhotpcounter is not None:
-            _params['ipatokenhotpcounter'] = o_ipatokenhotpcounter
+            _params["ipatokenhotpcounter"] = o_ipatokenhotpcounter
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_qrcode is not None:
-            _params['qrcode'] = o_qrcode
-        _params['no_qrcode'] = o_no_qrcode
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["qrcode"] = o_qrcode
+        _params["no_qrcode"] = o_no_qrcode
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -15577,7 +15129,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_user=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add users that can manage this token.
@@ -15596,28 +15148,23 @@ class ClientMeta(Client):
         :param o_user: users to add
         :type  o_user: str
         """
-        method = 'otptoken_add_managedby'
+        method = "otptoken_add_managedby"
 
         _args = list()
         _args.append(a_ipatokenuniqueid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def otptoken_del(
-        self,
-        a_ipatokenuniqueid,
-        o_continue=False,
-        **kwargs
-    ):
+    def otptoken_del(self, a_ipatokenuniqueid, o_continue=False, **kwargs):
         """
         Delete an OTP token.
 
@@ -15627,13 +15174,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'otptoken_del'
+        method = "otptoken_del"
 
         _args = list()
         _args.append(a_ipatokenuniqueid)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -15663,7 +15210,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for OTP token.
@@ -15719,51 +15266,51 @@ class ClientMeta(Client):
             ("id")
         :type  o_pkey_only: bool
         """
-        method = 'otptoken_find'
+        method = "otptoken_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_ipatokenuniqueid is not None:
-            _params['ipatokenuniqueid'] = o_ipatokenuniqueid
+            _params["ipatokenuniqueid"] = o_ipatokenuniqueid
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipatokenowner is not None:
-            _params['ipatokenowner'] = o_ipatokenowner
+            _params["ipatokenowner"] = o_ipatokenowner
         if o_ipatokendisabled is not None:
-            _params['ipatokendisabled'] = o_ipatokendisabled
+            _params["ipatokendisabled"] = o_ipatokendisabled
         if o_ipatokennotbefore is not None:
-            _params['ipatokennotbefore'] = o_ipatokennotbefore
+            _params["ipatokennotbefore"] = o_ipatokennotbefore
         if o_ipatokennotafter is not None:
-            _params['ipatokennotafter'] = o_ipatokennotafter
+            _params["ipatokennotafter"] = o_ipatokennotafter
         if o_ipatokenvendor is not None:
-            _params['ipatokenvendor'] = o_ipatokenvendor
+            _params["ipatokenvendor"] = o_ipatokenvendor
         if o_ipatokenmodel is not None:
-            _params['ipatokenmodel'] = o_ipatokenmodel
+            _params["ipatokenmodel"] = o_ipatokenmodel
         if o_ipatokenserial is not None:
-            _params['ipatokenserial'] = o_ipatokenserial
+            _params["ipatokenserial"] = o_ipatokenserial
         if o_ipatokenotpalgorithm is not None:
-            _params['ipatokenotpalgorithm'] = o_ipatokenotpalgorithm
+            _params["ipatokenotpalgorithm"] = o_ipatokenotpalgorithm
         if o_ipatokenotpdigits is not None:
-            _params['ipatokenotpdigits'] = o_ipatokenotpdigits
+            _params["ipatokenotpdigits"] = o_ipatokenotpdigits
         if o_ipatokentotpclockoffset is not None:
-            _params['ipatokentotpclockoffset'] = o_ipatokentotpclockoffset
+            _params["ipatokentotpclockoffset"] = o_ipatokentotpclockoffset
         if o_ipatokentotptimestep is not None:
-            _params['ipatokentotptimestep'] = o_ipatokentotptimestep
+            _params["ipatokentotptimestep"] = o_ipatokentotptimestep
         if o_ipatokenhotpcounter is not None:
-            _params['ipatokenhotpcounter'] = o_ipatokenhotpcounter
+            _params["ipatokenhotpcounter"] = o_ipatokenhotpcounter
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -15788,7 +15335,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a OTP token.
@@ -15836,40 +15383,40 @@ class ClientMeta(Client):
         :param o_rename: Rename the OTP token object
         :type  o_rename: str
         """
-        method = 'otptoken_mod'
+        method = "otptoken_mod"
 
         _args = list()
         _args.append(a_ipatokenuniqueid)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipatokenowner is not None:
-            _params['ipatokenowner'] = o_ipatokenowner
+            _params["ipatokenowner"] = o_ipatokenowner
         if o_ipatokendisabled is not None:
-            _params['ipatokendisabled'] = o_ipatokendisabled
+            _params["ipatokendisabled"] = o_ipatokendisabled
         if o_ipatokennotbefore is not None:
-            _params['ipatokennotbefore'] = o_ipatokennotbefore
+            _params["ipatokennotbefore"] = o_ipatokennotbefore
         if o_ipatokennotafter is not None:
-            _params['ipatokennotafter'] = o_ipatokennotafter
+            _params["ipatokennotafter"] = o_ipatokennotafter
         if o_ipatokenvendor is not None:
-            _params['ipatokenvendor'] = o_ipatokenvendor
+            _params["ipatokenvendor"] = o_ipatokenvendor
         if o_ipatokenmodel is not None:
-            _params['ipatokenmodel'] = o_ipatokenmodel
+            _params["ipatokenmodel"] = o_ipatokenmodel
         if o_ipatokenserial is not None:
-            _params['ipatokenserial'] = o_ipatokenserial
+            _params["ipatokenserial"] = o_ipatokenserial
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -15882,7 +15429,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_user=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove users that can manage this token.
@@ -15901,17 +15448,17 @@ class ClientMeta(Client):
         :param o_user: users to remove
         :type  o_user: str
         """
-        method = 'otptoken_remove_managedby'
+        method = "otptoken_remove_managedby"
 
         _args = list()
         _args.append(a_ipatokenuniqueid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
 
         _params.update(kwargs)
 
@@ -15924,7 +15471,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about an OTP token.
@@ -15944,16 +15491,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'otptoken_show'
+        method = "otptoken_show"
 
         _args = list()
         _args.append(a_ipatokenuniqueid)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -15966,7 +15513,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for command outputs.
@@ -15986,29 +15533,24 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'output_find'
+        method = "output_find"
 
         _args = list()
         _args.append(a_commandfull_name)
         _args.append(a_criteria)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def output_show(
-        self,
-        a_commandfull_name,
-        a_name,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_commandfull_name, a_name, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display information about a command output.
@@ -16025,15 +15567,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'output_show'
+        method = "output_show"
 
         _args = list()
         _args.append(a_commandfull_name)
         _args.append(a_name)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -16046,7 +15588,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search command parameters.
@@ -16066,29 +15608,24 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'param_find'
+        method = "param_find"
 
         _args = list()
         _args.append(a_metaobjectfull_name)
         _args.append(a_criteria)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def param_show(
-        self,
-        a_metaobjectfull_name,
-        a_name,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_metaobjectfull_name, a_name, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display information about a command parameter.
@@ -16105,15 +15642,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'param_show'
+        method = "param_show"
 
         _args = list()
         _args.append(a_metaobjectfull_name)
         _args.append(a_name)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -16128,7 +15665,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify Passkey configuration.
@@ -16157,34 +15694,28 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'passkeyconfig_mod'
+        method = "passkeyconfig_mod"
 
         _args = list()
 
         _params = dict()
         if o_iparequireuserverification is not None:
-            _params['iparequireuserverification'] = o_iparequireuserverification
+            _params["iparequireuserverification"] = o_iparequireuserverification
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def passkeyconfig_show(
-        self,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def passkeyconfig_show(self, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Show the current Passkey configuration.
 
@@ -16199,27 +15730,20 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'passkeyconfig_show'
+        method = "passkeyconfig_show"
 
         _args = list()
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def passwd(
-        self,
-        a_principal,
-        a_password,
-        a_current_password,
-        o_otp=None,
-        **kwargs
-    ):
+    def passwd(self, a_principal, a_password, a_current_password, o_otp=None, **kwargs):
         """
         Set a user's password.
 
@@ -16233,7 +15757,7 @@ class ClientMeta(Client):
         :param o_otp: The OTP if the user has a token configured
         :type  o_otp: Password
         """
-        method = 'passwd'
+        method = "passwd"
 
         _args = list()
         _args.append(a_principal)
@@ -16242,7 +15766,7 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_otp is not None:
-            _params['otp'] = o_otp
+            _params["otp"] = o_otp
 
         _params.update(kwargs)
 
@@ -16253,7 +15777,7 @@ class ClientMeta(Client):
         a_cn,
         o_ipapermright=None,
         o_attrs=None,
-        o_ipapermbindruletype='permission',
+        o_ipapermbindruletype="permission",
         o_ipapermlocation=None,
         o_extratargetfilter=None,
         o_ipapermtargetfilter=None,
@@ -16271,7 +15795,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new permission.
@@ -16332,48 +15856,48 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'permission_add'
+        method = "permission_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipapermright is not None:
-            _params['ipapermright'] = o_ipapermright
+            _params["ipapermright"] = o_ipapermright
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
-        _params['ipapermbindruletype'] = o_ipapermbindruletype
+            _params["attrs"] = o_attrs
+        _params["ipapermbindruletype"] = o_ipapermbindruletype
         if o_ipapermlocation is not None:
-            _params['ipapermlocation'] = o_ipapermlocation
+            _params["ipapermlocation"] = o_ipapermlocation
         if o_extratargetfilter is not None:
-            _params['extratargetfilter'] = o_extratargetfilter
+            _params["extratargetfilter"] = o_extratargetfilter
         if o_ipapermtargetfilter is not None:
-            _params['ipapermtargetfilter'] = o_ipapermtargetfilter
+            _params["ipapermtargetfilter"] = o_ipapermtargetfilter
         if o_ipapermtarget is not None:
-            _params['ipapermtarget'] = o_ipapermtarget
+            _params["ipapermtarget"] = o_ipapermtarget
         if o_ipapermtargetto is not None:
-            _params['ipapermtargetto'] = o_ipapermtargetto
+            _params["ipapermtargetto"] = o_ipapermtargetto
         if o_ipapermtargetfrom is not None:
-            _params['ipapermtargetfrom'] = o_ipapermtargetfrom
+            _params["ipapermtargetfrom"] = o_ipapermtargetfrom
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_targetgroup is not None:
-            _params['targetgroup'] = o_targetgroup
+            _params["targetgroup"] = o_targetgroup
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_filter is not None:
-            _params['filter'] = o_filter
+            _params["filter"] = o_filter
         if o_subtree is not None:
-            _params['subtree'] = o_subtree
+            _params["subtree"] = o_subtree
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -16386,7 +15910,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_privilege=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to a permission.
@@ -16405,17 +15929,17 @@ class ClientMeta(Client):
         :param o_privilege: privileges to add
         :type  o_privilege: str
         """
-        method = 'permission_add_member'
+        method = "permission_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_privilege is not None:
-            _params['privilege'] = o_privilege
+            _params["privilege"] = o_privilege
 
         _params.update(kwargs)
 
@@ -16428,7 +15952,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a system permission without an ACI (internal command)
@@ -16447,28 +15971,22 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'permission_add_noaci'
+        method = "permission_add_noaci"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['ipapermissiontype'] = o_ipapermissiontype
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["ipapermissiontype"] = o_ipapermissiontype
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def permission_del(
-        self,
-        a_cn,
-        o_continue=False,
-        o_force=False,
-        **kwargs
-    ):
+    def permission_del(self, a_cn, o_continue=False, o_force=False, **kwargs):
         """
         Delete a permission.
 
@@ -16480,14 +15998,14 @@ class ClientMeta(Client):
         :param o_force: force delete of SYSTEM permissions
         :type  o_force: bool
         """
-        method = 'permission_del'
+        method = "permission_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
-        _params['force'] = o_force
+        _params["continue"] = o_continue
+        _params["force"] = o_force
 
         _params.update(kwargs)
 
@@ -16521,7 +16039,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for permissions.
@@ -16594,59 +16112,59 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'permission_find'
+        method = "permission_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_ipapermright is not None:
-            _params['ipapermright'] = o_ipapermright
+            _params["ipapermright"] = o_ipapermright
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_ipapermincludedattr is not None:
-            _params['ipapermincludedattr'] = o_ipapermincludedattr
+            _params["ipapermincludedattr"] = o_ipapermincludedattr
         if o_ipapermexcludedattr is not None:
-            _params['ipapermexcludedattr'] = o_ipapermexcludedattr
+            _params["ipapermexcludedattr"] = o_ipapermexcludedattr
         if o_ipapermdefaultattr is not None:
-            _params['ipapermdefaultattr'] = o_ipapermdefaultattr
+            _params["ipapermdefaultattr"] = o_ipapermdefaultattr
         if o_ipapermbindruletype is not None:
-            _params['ipapermbindruletype'] = o_ipapermbindruletype
+            _params["ipapermbindruletype"] = o_ipapermbindruletype
         if o_ipapermlocation is not None:
-            _params['ipapermlocation'] = o_ipapermlocation
+            _params["ipapermlocation"] = o_ipapermlocation
         if o_extratargetfilter is not None:
-            _params['extratargetfilter'] = o_extratargetfilter
+            _params["extratargetfilter"] = o_extratargetfilter
         if o_ipapermtargetfilter is not None:
-            _params['ipapermtargetfilter'] = o_ipapermtargetfilter
+            _params["ipapermtargetfilter"] = o_ipapermtargetfilter
         if o_ipapermtarget is not None:
-            _params['ipapermtarget'] = o_ipapermtarget
+            _params["ipapermtarget"] = o_ipapermtarget
         if o_ipapermtargetto is not None:
-            _params['ipapermtargetto'] = o_ipapermtargetto
+            _params["ipapermtargetto"] = o_ipapermtargetto
         if o_ipapermtargetfrom is not None:
-            _params['ipapermtargetfrom'] = o_ipapermtargetfrom
+            _params["ipapermtargetfrom"] = o_ipapermtargetfrom
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_targetgroup is not None:
-            _params['targetgroup'] = o_targetgroup
+            _params["targetgroup"] = o_targetgroup
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_filter is not None:
-            _params['filter'] = o_filter
+            _params["filter"] = o_filter
         if o_subtree is not None:
-            _params['subtree'] = o_subtree
+            _params["subtree"] = o_subtree
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -16680,7 +16198,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a permission.
@@ -16755,58 +16273,58 @@ class ClientMeta(Client):
         :param o_rename: Rename the permission object
         :type  o_rename: str
         """
-        method = 'permission_mod'
+        method = "permission_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipapermright is not None:
-            _params['ipapermright'] = o_ipapermright
+            _params["ipapermright"] = o_ipapermright
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_ipapermincludedattr is not None:
-            _params['ipapermincludedattr'] = o_ipapermincludedattr
+            _params["ipapermincludedattr"] = o_ipapermincludedattr
         if o_ipapermexcludedattr is not None:
-            _params['ipapermexcludedattr'] = o_ipapermexcludedattr
+            _params["ipapermexcludedattr"] = o_ipapermexcludedattr
         if o_ipapermbindruletype is not None:
-            _params['ipapermbindruletype'] = o_ipapermbindruletype
+            _params["ipapermbindruletype"] = o_ipapermbindruletype
         if o_ipapermlocation is not None:
-            _params['ipapermlocation'] = o_ipapermlocation
+            _params["ipapermlocation"] = o_ipapermlocation
         if o_extratargetfilter is not None:
-            _params['extratargetfilter'] = o_extratargetfilter
+            _params["extratargetfilter"] = o_extratargetfilter
         if o_ipapermtargetfilter is not None:
-            _params['ipapermtargetfilter'] = o_ipapermtargetfilter
+            _params["ipapermtargetfilter"] = o_ipapermtargetfilter
         if o_ipapermtarget is not None:
-            _params['ipapermtarget'] = o_ipapermtarget
+            _params["ipapermtarget"] = o_ipapermtarget
         if o_ipapermtargetto is not None:
-            _params['ipapermtargetto'] = o_ipapermtargetto
+            _params["ipapermtargetto"] = o_ipapermtargetto
         if o_ipapermtargetfrom is not None:
-            _params['ipapermtargetfrom'] = o_ipapermtargetfrom
+            _params["ipapermtargetfrom"] = o_ipapermtargetfrom
         if o_memberof is not None:
-            _params['memberof'] = o_memberof
+            _params["memberof"] = o_memberof
         if o_targetgroup is not None:
-            _params['targetgroup'] = o_targetgroup
+            _params["targetgroup"] = o_targetgroup
         if o_type is not None:
-            _params['type'] = o_type
+            _params["type"] = o_type
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_filter is not None:
-            _params['filter'] = o_filter
+            _params["filter"] = o_filter
         if o_subtree is not None:
-            _params['subtree'] = o_subtree
+            _params["subtree"] = o_subtree
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -16819,7 +16337,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_privilege=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from a permission.
@@ -16838,17 +16356,17 @@ class ClientMeta(Client):
         :param o_privilege: privileges to remove
         :type  o_privilege: str
         """
-        method = 'permission_remove_member'
+        method = "permission_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_privilege is not None:
-            _params['privilege'] = o_privilege
+            _params["privilege"] = o_privilege
 
         _params.update(kwargs)
 
@@ -16861,7 +16379,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a permission.
@@ -16881,31 +16399,28 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'permission_show'
+        method = "permission_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def ping(
-        self,
-        **kwargs
-    ):
+    def ping(self, **kwargs):
         """
         Ping a remote server.
 
 
         """
-        method = 'ping'
+        method = "ping"
 
         _args = list()
 
@@ -16924,7 +16439,7 @@ class ClientMeta(Client):
         o_sizelimit=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Report PKINIT status on the IPA masters
@@ -16948,33 +16463,28 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'pkinit_status'
+        method = "pkinit_status"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_server_server is not None:
-            _params['server_server'] = o_server_server
+            _params["server_server"] = o_server_server
         if o_status is not None:
-            _params['status'] = o_status
+            _params["status"] = o_status
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def plugins(
-        self,
-        o_server=False,
-        o_all=True,
-        **kwargs
-    ):
+    def plugins(self, o_server=False, o_all=True, **kwargs):
         """
         Show all loaded plugins.
 
@@ -16985,14 +16495,14 @@ class ClientMeta(Client):
             Affects command output.
         :type  o_all: bool
         """
-        method = 'plugins'
+        method = "plugins"
 
         _args = list()
 
         _params = dict()
         if o_server is not None:
-            _params['server'] = o_server
-        _params['all'] = o_all
+            _params["server"] = o_server
+        _params["all"] = o_all
 
         _params.update(kwargs)
 
@@ -17007,7 +16517,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new privilege.
@@ -17033,34 +16543,28 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'privilege_add'
+        method = "privilege_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def privilege_add_member(
-        self,
-        a_cn,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_role=None,
-        **kwargs
+        self, a_cn, o_all=True, o_raw=False, o_no_members=False, o_role=None, **kwargs
     ):
         """
         Add members to a privilege.
@@ -17079,17 +16583,17 @@ class ClientMeta(Client):
         :param o_role: roles to add
         :type  o_role: str
         """
-        method = 'privilege_add_member'
+        method = "privilege_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_role is not None:
-            _params['role'] = o_role
+            _params["role"] = o_role
 
         _params.update(kwargs)
 
@@ -17102,7 +16606,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_permission=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add permissions to a privilege.
@@ -17121,28 +16625,23 @@ class ClientMeta(Client):
         :param o_permission: permissions
         :type  o_permission: str
         """
-        method = 'privilege_add_permission'
+        method = "privilege_add_permission"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_permission is not None:
-            _params['permission'] = o_permission
+            _params["permission"] = o_permission
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def privilege_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def privilege_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a privilege.
 
@@ -17152,13 +16651,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'privilege_del'
+        method = "privilege_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -17175,7 +16674,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for privileges.
@@ -17204,25 +16703,25 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'privilege_find'
+        method = "privilege_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -17240,7 +16739,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a privilege.
@@ -17274,39 +16773,33 @@ class ClientMeta(Client):
         :param o_rename: Rename the privilege object
         :type  o_rename: str
         """
-        method = 'privilege_mod'
+        method = "privilege_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def privilege_remove_member(
-        self,
-        a_cn,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_role=None,
-        **kwargs
+        self, a_cn, o_all=True, o_raw=False, o_no_members=False, o_role=None, **kwargs
     ):
         """
         Remove members from a privilege
@@ -17325,17 +16818,17 @@ class ClientMeta(Client):
         :param o_role: roles to remove
         :type  o_role: str
         """
-        method = 'privilege_remove_member'
+        method = "privilege_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_role is not None:
-            _params['role'] = o_role
+            _params["role"] = o_role
 
         _params.update(kwargs)
 
@@ -17348,7 +16841,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_permission=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove permissions from a privilege.
@@ -17367,17 +16860,17 @@ class ClientMeta(Client):
         :param o_permission: permissions
         :type  o_permission: str
         """
-        method = 'privilege_remove_permission'
+        method = "privilege_remove_permission"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_permission is not None:
-            _params['permission'] = o_permission
+            _params["permission"] = o_permission
 
         _params.update(kwargs)
 
@@ -17390,7 +16883,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a privilege.
@@ -17410,16 +16903,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'privilege_show'
+        method = "privilege_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -17446,7 +16939,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new group password policy.
@@ -17502,56 +16995,51 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'pwpolicy_add'
+        method = "pwpolicy_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_krbmaxpwdlife is not None:
-            _params['krbmaxpwdlife'] = o_krbmaxpwdlife
+            _params["krbmaxpwdlife"] = o_krbmaxpwdlife
         if o_krbminpwdlife is not None:
-            _params['krbminpwdlife'] = o_krbminpwdlife
+            _params["krbminpwdlife"] = o_krbminpwdlife
         if o_krbpwdhistorylength is not None:
-            _params['krbpwdhistorylength'] = o_krbpwdhistorylength
+            _params["krbpwdhistorylength"] = o_krbpwdhistorylength
         if o_krbpwdmindiffchars is not None:
-            _params['krbpwdmindiffchars'] = o_krbpwdmindiffchars
+            _params["krbpwdmindiffchars"] = o_krbpwdmindiffchars
         if o_krbpwdminlength is not None:
-            _params['krbpwdminlength'] = o_krbpwdminlength
-        _params['cospriority'] = o_cospriority
+            _params["krbpwdminlength"] = o_krbpwdminlength
+        _params["cospriority"] = o_cospriority
         if o_krbpwdmaxfailure is not None:
-            _params['krbpwdmaxfailure'] = o_krbpwdmaxfailure
+            _params["krbpwdmaxfailure"] = o_krbpwdmaxfailure
         if o_krbpwdfailurecountinterval is not None:
-            _params['krbpwdfailurecountinterval'] = o_krbpwdfailurecountinterval
+            _params["krbpwdfailurecountinterval"] = o_krbpwdfailurecountinterval
         if o_krbpwdlockoutduration is not None:
-            _params['krbpwdlockoutduration'] = o_krbpwdlockoutduration
+            _params["krbpwdlockoutduration"] = o_krbpwdlockoutduration
         if o_ipapwdmaxrepeat is not None:
-            _params['ipapwdmaxrepeat'] = o_ipapwdmaxrepeat
+            _params["ipapwdmaxrepeat"] = o_ipapwdmaxrepeat
         if o_ipapwdmaxsequence is not None:
-            _params['ipapwdmaxsequence'] = o_ipapwdmaxsequence
+            _params["ipapwdmaxsequence"] = o_ipapwdmaxsequence
         if o_ipapwddictcheck is not None:
-            _params['ipapwddictcheck'] = o_ipapwddictcheck
+            _params["ipapwddictcheck"] = o_ipapwddictcheck
         if o_ipapwdusercheck is not None:
-            _params['ipapwdusercheck'] = o_ipapwdusercheck
+            _params["ipapwdusercheck"] = o_ipapwdusercheck
         if o_passwordgracelimit is not None:
-            _params['passwordgracelimit'] = o_passwordgracelimit
+            _params["passwordgracelimit"] = o_passwordgracelimit
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def pwpolicy_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def pwpolicy_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a group password policy.
 
@@ -17561,13 +17049,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'pwpolicy_del'
+        method = "pwpolicy_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -17596,7 +17084,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for group password policies.
@@ -17655,50 +17143,50 @@ class ClientMeta(Client):
             ("group")
         :type  o_pkey_only: bool
         """
-        method = 'pwpolicy_find'
+        method = "pwpolicy_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_krbmaxpwdlife is not None:
-            _params['krbmaxpwdlife'] = o_krbmaxpwdlife
+            _params["krbmaxpwdlife"] = o_krbmaxpwdlife
         if o_krbminpwdlife is not None:
-            _params['krbminpwdlife'] = o_krbminpwdlife
+            _params["krbminpwdlife"] = o_krbminpwdlife
         if o_krbpwdhistorylength is not None:
-            _params['krbpwdhistorylength'] = o_krbpwdhistorylength
+            _params["krbpwdhistorylength"] = o_krbpwdhistorylength
         if o_krbpwdmindiffchars is not None:
-            _params['krbpwdmindiffchars'] = o_krbpwdmindiffchars
+            _params["krbpwdmindiffchars"] = o_krbpwdmindiffchars
         if o_krbpwdminlength is not None:
-            _params['krbpwdminlength'] = o_krbpwdminlength
+            _params["krbpwdminlength"] = o_krbpwdminlength
         if o_cospriority is not None:
-            _params['cospriority'] = o_cospriority
+            _params["cospriority"] = o_cospriority
         if o_krbpwdmaxfailure is not None:
-            _params['krbpwdmaxfailure'] = o_krbpwdmaxfailure
+            _params["krbpwdmaxfailure"] = o_krbpwdmaxfailure
         if o_krbpwdfailurecountinterval is not None:
-            _params['krbpwdfailurecountinterval'] = o_krbpwdfailurecountinterval
+            _params["krbpwdfailurecountinterval"] = o_krbpwdfailurecountinterval
         if o_krbpwdlockoutduration is not None:
-            _params['krbpwdlockoutduration'] = o_krbpwdlockoutduration
+            _params["krbpwdlockoutduration"] = o_krbpwdlockoutduration
         if o_ipapwdmaxrepeat is not None:
-            _params['ipapwdmaxrepeat'] = o_ipapwdmaxrepeat
+            _params["ipapwdmaxrepeat"] = o_ipapwdmaxrepeat
         if o_ipapwdmaxsequence is not None:
-            _params['ipapwdmaxsequence'] = o_ipapwdmaxsequence
+            _params["ipapwdmaxsequence"] = o_ipapwdmaxsequence
         if o_ipapwddictcheck is not None:
-            _params['ipapwddictcheck'] = o_ipapwddictcheck
+            _params["ipapwddictcheck"] = o_ipapwddictcheck
         if o_ipapwdusercheck is not None:
-            _params['ipapwdusercheck'] = o_ipapwdusercheck
+            _params["ipapwdusercheck"] = o_ipapwdusercheck
         if o_passwordgracelimit is not None:
-            _params['passwordgracelimit'] = o_passwordgracelimit
+            _params["passwordgracelimit"] = o_passwordgracelimit
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -17727,7 +17215,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a group password policy.
@@ -17789,62 +17277,56 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'pwpolicy_mod'
+        method = "pwpolicy_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_krbmaxpwdlife is not None:
-            _params['krbmaxpwdlife'] = o_krbmaxpwdlife
+            _params["krbmaxpwdlife"] = o_krbmaxpwdlife
         if o_krbminpwdlife is not None:
-            _params['krbminpwdlife'] = o_krbminpwdlife
+            _params["krbminpwdlife"] = o_krbminpwdlife
         if o_krbpwdhistorylength is not None:
-            _params['krbpwdhistorylength'] = o_krbpwdhistorylength
+            _params["krbpwdhistorylength"] = o_krbpwdhistorylength
         if o_krbpwdmindiffchars is not None:
-            _params['krbpwdmindiffchars'] = o_krbpwdmindiffchars
+            _params["krbpwdmindiffchars"] = o_krbpwdmindiffchars
         if o_krbpwdminlength is not None:
-            _params['krbpwdminlength'] = o_krbpwdminlength
+            _params["krbpwdminlength"] = o_krbpwdminlength
         if o_cospriority is not None:
-            _params['cospriority'] = o_cospriority
+            _params["cospriority"] = o_cospriority
         if o_krbpwdmaxfailure is not None:
-            _params['krbpwdmaxfailure'] = o_krbpwdmaxfailure
+            _params["krbpwdmaxfailure"] = o_krbpwdmaxfailure
         if o_krbpwdfailurecountinterval is not None:
-            _params['krbpwdfailurecountinterval'] = o_krbpwdfailurecountinterval
+            _params["krbpwdfailurecountinterval"] = o_krbpwdfailurecountinterval
         if o_krbpwdlockoutduration is not None:
-            _params['krbpwdlockoutduration'] = o_krbpwdlockoutduration
+            _params["krbpwdlockoutduration"] = o_krbpwdlockoutduration
         if o_ipapwdmaxrepeat is not None:
-            _params['ipapwdmaxrepeat'] = o_ipapwdmaxrepeat
+            _params["ipapwdmaxrepeat"] = o_ipapwdmaxrepeat
         if o_ipapwdmaxsequence is not None:
-            _params['ipapwdmaxsequence'] = o_ipapwdmaxsequence
+            _params["ipapwdmaxsequence"] = o_ipapwdmaxsequence
         if o_ipapwddictcheck is not None:
-            _params['ipapwddictcheck'] = o_ipapwddictcheck
+            _params["ipapwddictcheck"] = o_ipapwddictcheck
         if o_ipapwdusercheck is not None:
-            _params['ipapwdusercheck'] = o_ipapwdusercheck
+            _params["ipapwdusercheck"] = o_ipapwdusercheck
         if o_passwordgracelimit is not None:
-            _params['passwordgracelimit'] = o_passwordgracelimit
+            _params["passwordgracelimit"] = o_passwordgracelimit
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def pwpolicy_show(
-        self,
-        a_cn=None,
-        o_rights=False,
-        o_user=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_cn=None, o_rights=False, o_user=None, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display information about password policy.
@@ -17864,17 +17346,17 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'pwpolicy_show'
+        method = "pwpolicy_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_user is not None:
-            _params['user'] = o_user
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["user"] = o_user
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -17893,7 +17375,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new RADIUS proxy server.
@@ -17931,39 +17413,34 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'radiusproxy_add'
+        method = "radiusproxy_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
-        _params['ipatokenradiusserver'] = o_ipatokenradiusserver
-        _params['ipatokenradiussecret'] = o_ipatokenradiussecret
+            _params["description"] = o_description
+        _params["ipatokenradiusserver"] = o_ipatokenradiusserver
+        _params["ipatokenradiussecret"] = o_ipatokenradiussecret
         if o_ipatokenradiustimeout is not None:
-            _params['ipatokenradiustimeout'] = o_ipatokenradiustimeout
+            _params["ipatokenradiustimeout"] = o_ipatokenradiustimeout
         if o_ipatokenradiusretries is not None:
-            _params['ipatokenradiusretries'] = o_ipatokenradiusretries
+            _params["ipatokenradiusretries"] = o_ipatokenradiusretries
         if o_ipatokenusermapattribute is not None:
-            _params['ipatokenusermapattribute'] = o_ipatokenusermapattribute
+            _params["ipatokenusermapattribute"] = o_ipatokenusermapattribute
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def radiusproxy_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def radiusproxy_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a RADIUS proxy server.
 
@@ -17973,13 +17450,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'radiusproxy_del'
+        method = "radiusproxy_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -18000,7 +17477,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for RADIUS proxy servers.
@@ -18041,34 +17518,34 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'radiusproxy_find'
+        method = "radiusproxy_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipatokenradiusserver is not None:
-            _params['ipatokenradiusserver'] = o_ipatokenradiusserver
+            _params["ipatokenradiusserver"] = o_ipatokenradiusserver
         if o_ipatokenradiussecret is not None:
-            _params['ipatokenradiussecret'] = o_ipatokenradiussecret
+            _params["ipatokenradiussecret"] = o_ipatokenradiussecret
         if o_ipatokenradiustimeout is not None:
-            _params['ipatokenradiustimeout'] = o_ipatokenradiustimeout
+            _params["ipatokenradiustimeout"] = o_ipatokenradiustimeout
         if o_ipatokenradiusretries is not None:
-            _params['ipatokenradiusretries'] = o_ipatokenradiusretries
+            _params["ipatokenradiusretries"] = o_ipatokenradiusretries
         if o_ipatokenusermapattribute is not None:
-            _params['ipatokenusermapattribute'] = o_ipatokenusermapattribute
+            _params["ipatokenusermapattribute"] = o_ipatokenusermapattribute
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -18090,7 +17567,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a RADIUS proxy server.
@@ -18136,48 +17613,41 @@ class ClientMeta(Client):
         :param o_rename: Rename the RADIUS proxy server object
         :type  o_rename: str
         """
-        method = 'radiusproxy_mod'
+        method = "radiusproxy_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipatokenradiusserver is not None:
-            _params['ipatokenradiusserver'] = o_ipatokenradiusserver
+            _params["ipatokenradiusserver"] = o_ipatokenradiusserver
         if o_ipatokenradiussecret is not None:
-            _params['ipatokenradiussecret'] = o_ipatokenradiussecret
+            _params["ipatokenradiussecret"] = o_ipatokenradiussecret
         if o_ipatokenradiustimeout is not None:
-            _params['ipatokenradiustimeout'] = o_ipatokenradiustimeout
+            _params["ipatokenradiustimeout"] = o_ipatokenradiustimeout
         if o_ipatokenradiusretries is not None:
-            _params['ipatokenradiusretries'] = o_ipatokenradiusretries
+            _params["ipatokenradiusretries"] = o_ipatokenradiusretries
         if o_ipatokenusermapattribute is not None:
-            _params['ipatokenusermapattribute'] = o_ipatokenusermapattribute
+            _params["ipatokenusermapattribute"] = o_ipatokenusermapattribute
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def radiusproxy_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def radiusproxy_show(self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a RADIUS proxy server.
 
@@ -18194,15 +17664,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'radiusproxy_show'
+        method = "radiusproxy_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -18220,7 +17690,7 @@ class ClientMeta(Client):
         o_force=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify realm domains
@@ -18265,39 +17735,33 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'realmdomains_mod'
+        method = "realmdomains_mod"
 
         _args = list()
 
         _params = dict()
         if o_associateddomain is not None:
-            _params['associateddomain'] = o_associateddomain
+            _params["associateddomain"] = o_associateddomain
         if o_add_domain is not None:
-            _params['add_domain'] = o_add_domain
+            _params["add_domain"] = o_add_domain
         if o_del_domain is not None:
-            _params['del_domain'] = o_del_domain
+            _params["del_domain"] = o_del_domain
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['force'] = o_force
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["force"] = o_force
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def realmdomains_show(
-        self,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def realmdomains_show(self, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Display the list of realm domains.
 
@@ -18312,14 +17776,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'realmdomains_show'
+        method = "realmdomains_show"
 
         _args = list()
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -18334,7 +17798,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new role.
@@ -18360,21 +17824,21 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'role_add'
+        method = "role_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -18392,7 +17856,7 @@ class ClientMeta(Client):
         o_hostgroup=None,
         o_service=None,
         o_idoverrideuser=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to a role.
@@ -18421,27 +17885,27 @@ class ClientMeta(Client):
         :param o_idoverrideuser: User ID overrides to add
         :type  o_idoverrideuser: str
         """
-        method = 'role_add_member'
+        method = "role_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_idoverrideuser is not None:
-            _params['idoverrideuser'] = o_idoverrideuser
+            _params["idoverrideuser"] = o_idoverrideuser
 
         _params.update(kwargs)
 
@@ -18454,7 +17918,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_privilege=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add privileges to a role.
@@ -18473,28 +17937,23 @@ class ClientMeta(Client):
         :param o_privilege: privileges
         :type  o_privilege: str
         """
-        method = 'role_add_privilege'
+        method = "role_add_privilege"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_privilege is not None:
-            _params['privilege'] = o_privilege
+            _params["privilege"] = o_privilege
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def role_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def role_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a role.
 
@@ -18504,13 +17963,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'role_del'
+        method = "role_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -18527,7 +17986,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for roles.
@@ -18556,25 +18015,25 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'role_find'
+        method = "role_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -18592,7 +18051,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a role.
@@ -18626,26 +18085,26 @@ class ClientMeta(Client):
         :param o_rename: Rename the role object
         :type  o_rename: str
         """
-        method = 'role_mod'
+        method = "role_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -18663,7 +18122,7 @@ class ClientMeta(Client):
         o_hostgroup=None,
         o_service=None,
         o_idoverrideuser=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from a role.
@@ -18692,27 +18151,27 @@ class ClientMeta(Client):
         :param o_idoverrideuser: User ID overrides to remove
         :type  o_idoverrideuser: str
         """
-        method = 'role_remove_member'
+        method = "role_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_idoverrideuser is not None:
-            _params['idoverrideuser'] = o_idoverrideuser
+            _params["idoverrideuser"] = o_idoverrideuser
 
         _params.update(kwargs)
 
@@ -18725,7 +18184,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_privilege=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove privileges from a role.
@@ -18744,17 +18203,17 @@ class ClientMeta(Client):
         :param o_privilege: privileges
         :type  o_privilege: str
         """
-        method = 'role_remove_privilege'
+        method = "role_remove_privilege"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_privilege is not None:
-            _params['privilege'] = o_privilege
+            _params["privilege"] = o_privilege
 
         _params.update(kwargs)
 
@@ -18767,7 +18226,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a role.
@@ -18787,26 +18246,22 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'role_show'
+        method = "role_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def schema(
-        self,
-        o_known_fingerprints=None,
-        **kwargs
-    ):
+    def schema(self, o_known_fingerprints=None, **kwargs):
         """
         Store and provide schema for commands and topics
 
@@ -18814,26 +18269,20 @@ class ClientMeta(Client):
         :param o_known_fingerprints: Fingerprint of schema cached by client
         :type  o_known_fingerprints: str
         """
-        method = 'schema'
+        method = "schema"
 
         _args = list()
 
         _params = dict()
         if o_known_fingerprints is not None:
-            _params['known_fingerprints'] = o_known_fingerprints
+            _params["known_fingerprints"] = o_known_fingerprints
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def selfservice_add(
-        self,
-        a_aciname,
-        o_attrs,
-        o_permissions=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_aciname, o_attrs, o_permissions=None, o_all=True, o_raw=False, **kwargs
     ):
         """
         Add a new self-service permission.
@@ -18853,27 +18302,23 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'selfservice_add'
+        method = "selfservice_add"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
-        _params['attrs'] = o_attrs
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["permissions"] = o_permissions
+        _params["attrs"] = o_attrs
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def selfservice_del(
-        self,
-        a_aciname,
-        **kwargs
-    ):
+    def selfservice_del(self, a_aciname, **kwargs):
         """
         Delete a self-service permission.
 
@@ -18881,7 +18326,7 @@ class ClientMeta(Client):
         :param a_aciname: Self-service name
         :type  a_aciname: str
         """
-        method = 'selfservice_del'
+        method = "selfservice_del"
 
         _args = list()
         _args.append(a_aciname)
@@ -18901,7 +18346,7 @@ class ClientMeta(Client):
         o_pkey_only=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for a self-service permission.
@@ -18926,22 +18371,22 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'selfservice_find'
+        method = "selfservice_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_aciname is not None:
-            _params['aciname'] = o_aciname
+            _params["aciname"] = o_aciname
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
+            _params["attrs"] = o_attrs
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["pkey_only"] = o_pkey_only
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -18954,7 +18399,7 @@ class ClientMeta(Client):
         o_attrs=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a self-service permission.
@@ -18974,30 +18419,24 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'selfservice_mod'
+        method = "selfservice_mod"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
         if o_permissions is not None:
-            _params['permissions'] = o_permissions
+            _params["permissions"] = o_permissions
         if o_attrs is not None:
-            _params['attrs'] = o_attrs
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["attrs"] = o_attrs
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def selfservice_show(
-        self,
-        a_aciname,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def selfservice_show(self, a_aciname, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a self-service permission.
 
@@ -19011,14 +18450,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'selfservice_show'
+        method = "selfservice_show"
 
         _args = list()
         _args.append(a_aciname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -19038,7 +18477,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new SELinux User Map.
@@ -19075,30 +18514,30 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'selinuxusermap_add'
+        method = "selinuxusermap_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['ipaselinuxuser'] = o_ipaselinuxuser
+        _params["ipaselinuxuser"] = o_ipaselinuxuser
         if o_seealso is not None:
-            _params['seealso'] = o_seealso
+            _params["seealso"] = o_seealso
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -19112,7 +18551,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add target hosts and hostgroups to an SELinux User Map rule.
@@ -19133,19 +18572,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'selinuxusermap_add_host'
+        method = "selinuxusermap_add_host"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -19159,7 +18598,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add users and groups to an SELinux User Map rule.
@@ -19180,30 +18619,25 @@ class ClientMeta(Client):
         :param o_group: groups to add
         :type  o_group: str
         """
-        method = 'selinuxusermap_add_user'
+        method = "selinuxusermap_add_user"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def selinuxusermap_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def selinuxusermap_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a SELinux User Map.
 
@@ -19213,23 +18647,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'selinuxusermap_del'
+        method = "selinuxusermap_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def selinuxusermap_disable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def selinuxusermap_disable(self, a_cn, **kwargs):
         """
         Disable an SELinux User Map rule.
 
@@ -19237,7 +18667,7 @@ class ClientMeta(Client):
         :param a_cn: Rule name
         :type  a_cn: str
         """
-        method = 'selinuxusermap_disable'
+        method = "selinuxusermap_disable"
 
         _args = list()
         _args.append(a_cn)
@@ -19248,11 +18678,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def selinuxusermap_enable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def selinuxusermap_enable(self, a_cn, **kwargs):
         """
         Enable an SELinux User Map rule.
 
@@ -19260,7 +18686,7 @@ class ClientMeta(Client):
         :param a_cn: Rule name
         :type  a_cn: str
         """
-        method = 'selinuxusermap_enable'
+        method = "selinuxusermap_enable"
 
         _args = list()
         _args.append(a_cn)
@@ -19287,7 +18713,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for SELinux User Maps.
@@ -19327,35 +18753,35 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'selinuxusermap_find'
+        method = "selinuxusermap_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_ipaselinuxuser is not None:
-            _params['ipaselinuxuser'] = o_ipaselinuxuser
+            _params["ipaselinuxuser"] = o_ipaselinuxuser
         if o_seealso is not None:
-            _params['seealso'] = o_seealso
+            _params["seealso"] = o_seealso
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -19377,7 +18803,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a SELinux User Map.
@@ -19420,34 +18846,34 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'selinuxusermap_mod'
+        method = "selinuxusermap_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipaselinuxuser is not None:
-            _params['ipaselinuxuser'] = o_ipaselinuxuser
+            _params["ipaselinuxuser"] = o_ipaselinuxuser
         if o_seealso is not None:
-            _params['seealso'] = o_seealso
+            _params["seealso"] = o_seealso
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -19461,7 +18887,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove target hosts and hostgroups from an SELinux User Map rule.
@@ -19482,19 +18908,19 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'selinuxusermap_remove_host'
+        method = "selinuxusermap_remove_host"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -19508,7 +18934,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove users and groups from an SELinux User Map rule.
@@ -19529,19 +18955,19 @@ class ClientMeta(Client):
         :param o_group: groups to remove
         :type  o_group: str
         """
-        method = 'selinuxusermap_remove_user'
+        method = "selinuxusermap_remove_user"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -19554,7 +18980,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display the properties of a SELinux User Map rule.
@@ -19574,27 +19000,22 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'selinuxusermap_show'
+        method = "selinuxusermap_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def server_conncheck(
-        self,
-        a_cn,
-        a_remote_cn,
-        **kwargs
-    ):
+    def server_conncheck(self, a_cn, a_remote_cn, **kwargs):
         """
         Check connection to remote IPA server.
 
@@ -19604,7 +19025,7 @@ class ClientMeta(Client):
         :param a_remote_cn: Remote IPA server hostname
         :type  a_remote_cn: str
         """
-        method = 'server_conncheck'
+        method = "server_conncheck"
 
         _args = list()
         _args.append(a_cn)
@@ -19623,7 +19044,7 @@ class ClientMeta(Client):
         o_ignore_topology_disconnect=False,
         o_ignore_last_of_role=False,
         o_force=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Delete IPA server.
@@ -19642,19 +19063,19 @@ class ClientMeta(Client):
         :param o_force: Force server removal even if it does not exist
         :type  o_force: bool
         """
-        method = 'server_del'
+        method = "server_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
         if o_ignore_topology_disconnect is not None:
-            _params['ignore_topology_disconnect'] = o_ignore_topology_disconnect
+            _params["ignore_topology_disconnect"] = o_ignore_topology_disconnect
         if o_ignore_last_of_role is not None:
-            _params['ignore_last_of_role'] = o_ignore_last_of_role
+            _params["ignore_last_of_role"] = o_ignore_last_of_role
         if o_force is not None:
-            _params['force'] = o_force
+            _params["force"] = o_force
 
         _params.update(kwargs)
 
@@ -19677,7 +19098,7 @@ class ClientMeta(Client):
         o_in_location=None,
         o_not_in_location=None,
         o_servrole=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for IPA servers.
@@ -19721,37 +19142,37 @@ class ClientMeta(Client):
         :param o_servrole: Search for servers with these enabled roles.
         :type  o_servrole: str
         """
-        method = 'server_find'
+        method = "server_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_ipamindomainlevel is not None:
-            _params['ipamindomainlevel'] = o_ipamindomainlevel
+            _params["ipamindomainlevel"] = o_ipamindomainlevel
         if o_ipamaxdomainlevel is not None:
-            _params['ipamaxdomainlevel'] = o_ipamaxdomainlevel
+            _params["ipamaxdomainlevel"] = o_ipamaxdomainlevel
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_topologysuffix is not None:
-            _params['topologysuffix'] = o_topologysuffix
+            _params["topologysuffix"] = o_topologysuffix
         if o_no_topologysuffix is not None:
-            _params['no_topologysuffix'] = o_no_topologysuffix
+            _params["no_topologysuffix"] = o_no_topologysuffix
         if o_in_location is not None:
-            _params['in_location'] = o_in_location
+            _params["in_location"] = o_in_location
         if o_not_in_location is not None:
-            _params['not_in_location'] = o_not_in_location
+            _params["not_in_location"] = o_not_in_location
         if o_servrole is not None:
-            _params['servrole'] = o_servrole
+            _params["servrole"] = o_servrole
 
         _params.update(kwargs)
 
@@ -19769,7 +19190,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify information about an IPA server.
@@ -19803,26 +19224,26 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'server_mod'
+        method = "server_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipalocation_location is not None:
-            _params['ipalocation_location'] = o_ipalocation_location
+            _params["ipalocation_location"] = o_ipalocation_location
         if o_ipaserviceweight is not None:
-            _params['ipaserviceweight'] = o_ipaserviceweight
+            _params["ipaserviceweight"] = o_ipaserviceweight
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -19839,7 +19260,7 @@ class ClientMeta(Client):
         o_include_master=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Find a server role on a server(s)
@@ -19867,37 +19288,32 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'server_role_find'
+        method = "server_role_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_server_server is not None:
-            _params['server_server'] = o_server_server
+            _params["server_server"] = o_server_server
         if o_role_servrole is not None:
-            _params['role_servrole'] = o_role_servrole
+            _params["role_servrole"] = o_role_servrole
         if o_status is not None:
-            _params['status'] = o_status
+            _params["status"] = o_status
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['include_master'] = o_include_master
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["include_master"] = o_include_master
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def server_role_show(
-        self,
-        a_server_server,
-        a_role_servrole,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_server_server, a_role_servrole, o_all=True, o_raw=False, **kwargs
     ):
         """
         Show role status on a server
@@ -19914,15 +19330,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'server_role_show'
+        method = "server_role_show"
 
         _args = list()
         _args.append(a_server_server)
         _args.append(a_role_servrole)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -19935,7 +19351,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Show IPA server.
@@ -19955,27 +19371,22 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'server_show'
+        method = "server_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def server_state(
-        self,
-        a_cn,
-        o_state,
-        **kwargs
-    ):
+    def server_state(self, a_cn, o_state, **kwargs):
         """
         Set enabled/hidden state of a server.
 
@@ -19985,13 +19396,13 @@ class ClientMeta(Client):
         :param o_state: Server state
         :type  o_state: str, valid values ['enabled', 'hidden']
         """
-        method = 'server_state'
+        method = "server_state"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['state'] = o_state
+        _params["state"] = o_state
 
         _params.update(kwargs)
 
@@ -20013,7 +19424,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new IPA service.
@@ -20067,33 +19478,33 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'service_add'
+        method = "service_add"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_ipakrbauthzdata is not None:
-            _params['ipakrbauthzdata'] = o_ipakrbauthzdata
+            _params["ipakrbauthzdata"] = o_ipakrbauthzdata
         if o_krbprincipalauthind is not None:
-            _params['krbprincipalauthind'] = o_krbprincipalauthind
+            _params["krbprincipalauthind"] = o_krbprincipalauthind
         if o_ipakrbrequirespreauth is not None:
-            _params['ipakrbrequirespreauth'] = o_ipakrbrequirespreauth
+            _params["ipakrbrequirespreauth"] = o_ipakrbrequirespreauth
         if o_ipakrbokasdelegate is not None:
-            _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
+            _params["ipakrbokasdelegate"] = o_ipakrbokasdelegate
         if o_ipakrboktoauthasdelegate is not None:
-            _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
+            _params["ipakrboktoauthasdelegate"] = o_ipakrboktoauthasdelegate
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['force'] = o_force
-        _params['skip_host_check'] = o_skip_host_check
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["force"] = o_force
+        _params["skip_host_check"] = o_skip_host_check
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -20106,7 +19517,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new certificates to a service
@@ -20125,16 +19536,16 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded service certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'service_add_cert'
+        method = "service_add_cert"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -20147,7 +19558,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new resource delegation to a service
@@ -20166,16 +19577,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'service_add_delegation'
+        method = "service_add_delegation"
 
         _args = list()
         _args.append(a_krbcanonicalname)
         _args.append(a_memberprincipal)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -20188,7 +19599,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_host=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add hosts that can manage this service.
@@ -20207,17 +19618,17 @@ class ClientMeta(Client):
         :param o_host: hosts to add
         :type  o_host: str
         """
-        method = 'service_add_host'
+        method = "service_add_host"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
 
         _params.update(kwargs)
 
@@ -20230,7 +19641,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new principal alias to a service
@@ -20249,16 +19660,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'service_add_principal'
+        method = "service_add_principal"
 
         _args = list()
         _args.append(a_krbcanonicalname)
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -20276,7 +19687,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new SMB service.
@@ -20310,7 +19721,7 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'service_add_smb'
+        method = "service_add_smb"
 
         _args = list()
         _args.append(a_fqdn)
@@ -20318,18 +19729,18 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_ipakrbokasdelegate is not None:
-            _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
+            _params["ipakrbokasdelegate"] = o_ipakrbokasdelegate
         if o_ipakrboktoauthasdelegate is not None:
-            _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["ipakrboktoauthasdelegate"] = o_ipakrboktoauthasdelegate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -20345,7 +19756,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Allow users, groups, hosts or host groups to handle a resource delegation of this service.
@@ -20370,23 +19781,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'service_allow_add_delegation'
+        method = "service_allow_add_delegation"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -20402,7 +19813,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Allow users, groups, hosts or host groups to create a keytab of this service.
@@ -20427,23 +19838,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'service_allow_create_keytab'
+        method = "service_allow_create_keytab"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -20459,7 +19870,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Allow users, groups, hosts or host groups to retrieve a keytab of this service.
@@ -20484,34 +19895,29 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to add
         :type  o_hostgroup: str
         """
-        method = 'service_allow_retrieve_keytab'
+        method = "service_allow_retrieve_keytab"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def service_del(
-        self,
-        a_krbcanonicalname,
-        o_continue=False,
-        **kwargs
-    ):
+    def service_del(self, a_krbcanonicalname, o_continue=False, **kwargs):
         """
         Delete an IPA service.
 
@@ -20521,23 +19927,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'service_del'
+        method = "service_del"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def service_disable(
-        self,
-        a_krbcanonicalname,
-        **kwargs
-    ):
+    def service_disable(self, a_krbcanonicalname, **kwargs):
         """
         Disable the Kerberos key and SSL certificate of a service.
 
@@ -20545,7 +19947,7 @@ class ClientMeta(Client):
         :param a_krbcanonicalname: Service principal
         :type  a_krbcanonicalname: Principal
         """
-        method = 'service_disable'
+        method = "service_disable"
 
         _args = list()
         _args.append(a_krbcanonicalname)
@@ -20566,7 +19968,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Disallow users, groups, hosts or host groups to handle a resource delegation of this service.
@@ -20591,23 +19993,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'service_disallow_add_delegation'
+        method = "service_disallow_add_delegation"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -20623,7 +20025,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Disallow users, groups, hosts or host groups to create a keytab of this service.
@@ -20648,23 +20050,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'service_disallow_create_keytab'
+        method = "service_disallow_create_keytab"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -20680,7 +20082,7 @@ class ClientMeta(Client):
         o_group=None,
         o_host=None,
         o_hostgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Disallow users, groups, hosts or host groups to retrieve a keytab of this service.
@@ -20705,23 +20107,23 @@ class ClientMeta(Client):
         :param o_hostgroup: host groups to remove
         :type  o_hostgroup: str
         """
-        method = 'service_disallow_retrieve_keytab'
+        method = "service_disallow_retrieve_keytab"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
 
         _params.update(kwargs)
 
@@ -20742,7 +20144,7 @@ class ClientMeta(Client):
         o_pkey_only=False,
         o_man_by_host=None,
         o_not_man_by_host=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for IPA services.
@@ -20790,33 +20192,33 @@ class ClientMeta(Client):
             hosts.
         :type  o_not_man_by_host: str
         """
-        method = 'service_find'
+        method = "service_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_krbcanonicalname is not None:
-            _params['krbcanonicalname'] = o_krbcanonicalname
+            _params["krbcanonicalname"] = o_krbcanonicalname
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_ipakrbauthzdata is not None:
-            _params['ipakrbauthzdata'] = o_ipakrbauthzdata
+            _params["ipakrbauthzdata"] = o_ipakrbauthzdata
         if o_krbprincipalauthind is not None:
-            _params['krbprincipalauthind'] = o_krbprincipalauthind
+            _params["krbprincipalauthind"] = o_krbprincipalauthind
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_man_by_host is not None:
-            _params['man_by_host'] = o_man_by_host
+            _params["man_by_host"] = o_man_by_host
         if o_not_man_by_host is not None:
-            _params['not_man_by_host'] = o_not_man_by_host
+            _params["not_man_by_host"] = o_not_man_by_host
 
         _params.update(kwargs)
 
@@ -20839,7 +20241,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify an existing IPA service.
@@ -20896,36 +20298,36 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'service_mod'
+        method = "service_mod"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_ipakrbauthzdata is not None:
-            _params['ipakrbauthzdata'] = o_ipakrbauthzdata
+            _params["ipakrbauthzdata"] = o_ipakrbauthzdata
         if o_krbprincipalauthind is not None:
-            _params['krbprincipalauthind'] = o_krbprincipalauthind
+            _params["krbprincipalauthind"] = o_krbprincipalauthind
         if o_ipakrbrequirespreauth is not None:
-            _params['ipakrbrequirespreauth'] = o_ipakrbrequirespreauth
+            _params["ipakrbrequirespreauth"] = o_ipakrbrequirespreauth
         if o_ipakrbokasdelegate is not None:
-            _params['ipakrbokasdelegate'] = o_ipakrbokasdelegate
+            _params["ipakrbokasdelegate"] = o_ipakrbokasdelegate
         if o_ipakrboktoauthasdelegate is not None:
-            _params['ipakrboktoauthasdelegate'] = o_ipakrboktoauthasdelegate
+            _params["ipakrboktoauthasdelegate"] = o_ipakrboktoauthasdelegate
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -20938,7 +20340,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove certificates from a service
@@ -20957,16 +20359,16 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded service certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'service_remove_cert'
+        method = "service_remove_cert"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -20979,7 +20381,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove resource delegation from a service
@@ -20998,16 +20400,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'service_remove_delegation'
+        method = "service_remove_delegation"
 
         _args = list()
         _args.append(a_krbcanonicalname)
         _args.append(a_memberprincipal)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -21020,7 +20422,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_host=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove hosts that can manage this service.
@@ -21039,17 +20441,17 @@ class ClientMeta(Client):
         :param o_host: hosts to remove
         :type  o_host: str
         """
-        method = 'service_remove_host'
+        method = "service_remove_host"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
 
         _params.update(kwargs)
 
@@ -21062,7 +20464,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove principal alias from a service
@@ -21081,16 +20483,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'service_remove_principal'
+        method = "service_remove_principal"
 
         _args = list()
         _args.append(a_krbcanonicalname)
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -21104,7 +20506,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about an IPA service.
@@ -21126,18 +20528,18 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'service_show'
+        method = "service_show"
 
         _args = list()
         _args.append(a_krbcanonicalname)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_out is not None:
-            _params['out'] = o_out
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["out"] = o_out
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -21151,7 +20553,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create a new service delegation rule.
@@ -21175,19 +20577,19 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'servicedelegationrule_add'
+        method = "servicedelegationrule_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -21200,7 +20602,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_principal=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add member to a named service delegation rule.
@@ -21219,17 +20621,17 @@ class ClientMeta(Client):
         :param o_principal: principal to add
         :type  o_principal: str
         """
-        method = 'servicedelegationrule_add_member'
+        method = "servicedelegationrule_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_principal is not None:
-            _params['principal'] = o_principal
+            _params["principal"] = o_principal
 
         _params.update(kwargs)
 
@@ -21242,7 +20644,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_servicedelegationtarget=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add target to a named service delegation rule.
@@ -21261,28 +20663,23 @@ class ClientMeta(Client):
         :param o_servicedelegationtarget: service delegation targets to add
         :type  o_servicedelegationtarget: str
         """
-        method = 'servicedelegationrule_add_target'
+        method = "servicedelegationrule_add_target"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_servicedelegationtarget is not None:
-            _params['servicedelegationtarget'] = o_servicedelegationtarget
+            _params["servicedelegationtarget"] = o_servicedelegationtarget
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def servicedelegationrule_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def servicedelegationrule_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete service delegation.
 
@@ -21292,13 +20689,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'servicedelegationrule_del'
+        method = "servicedelegationrule_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -21314,7 +20711,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for service delegations rule.
@@ -21341,23 +20738,23 @@ class ClientMeta(Client):
             ("delegation-name")
         :type  o_pkey_only: bool
         """
-        method = 'servicedelegationrule_find'
+        method = "servicedelegationrule_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -21370,7 +20767,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_principal=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove member from a named service delegation rule.
@@ -21389,17 +20786,17 @@ class ClientMeta(Client):
         :param o_principal: principal to remove
         :type  o_principal: str
         """
-        method = 'servicedelegationrule_remove_member'
+        method = "servicedelegationrule_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_principal is not None:
-            _params['principal'] = o_principal
+            _params["principal"] = o_principal
 
         _params.update(kwargs)
 
@@ -21412,7 +20809,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_servicedelegationtarget=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove target from a named service delegation rule.
@@ -21431,17 +20828,17 @@ class ClientMeta(Client):
         :param o_servicedelegationtarget: service delegation targets to remove
         :type  o_servicedelegationtarget: str
         """
-        method = 'servicedelegationrule_remove_target'
+        method = "servicedelegationrule_remove_target"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_servicedelegationtarget is not None:
-            _params['servicedelegationtarget'] = o_servicedelegationtarget
+            _params["servicedelegationtarget"] = o_servicedelegationtarget
 
         _params.update(kwargs)
 
@@ -21454,7 +20851,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a named service delegation rule.
@@ -21474,29 +20871,23 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'servicedelegationrule_show'
+        method = "servicedelegationrule_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_add(
-        self,
-        a_cn,
-        o_setattr=None,
-        o_addattr=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_cn, o_setattr=None, o_addattr=None, o_all=True, o_raw=False, **kwargs
     ):
         """
         Create a new service delegation target.
@@ -21518,30 +20909,25 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'servicedelegationtarget_add'
+        method = "servicedelegationtarget_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_add_member(
-        self,
-        a_cn,
-        o_all=True,
-        o_raw=False,
-        o_principal=None,
-        **kwargs
+        self, a_cn, o_all=True, o_raw=False, o_principal=None, **kwargs
     ):
         """
         Add member to a named service delegation target.
@@ -21558,27 +20944,22 @@ class ClientMeta(Client):
         :param o_principal: principal to add
         :type  o_principal: str
         """
-        method = 'servicedelegationtarget_add_member'
+        method = "servicedelegationtarget_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_principal is not None:
-            _params['principal'] = o_principal
+            _params["principal"] = o_principal
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def servicedelegationtarget_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def servicedelegationtarget_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete service delegation target.
 
@@ -21588,13 +20969,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'servicedelegationtarget_del'
+        method = "servicedelegationtarget_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -21609,7 +20990,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for service delegation target.
@@ -21634,34 +21015,29 @@ class ClientMeta(Client):
             ("delegation-name")
         :type  o_pkey_only: bool
         """
-        method = 'servicedelegationtarget_find'
+        method = "servicedelegationtarget_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_remove_member(
-        self,
-        a_cn,
-        o_all=True,
-        o_raw=False,
-        o_principal=None,
-        **kwargs
+        self, a_cn, o_all=True, o_raw=False, o_principal=None, **kwargs
     ):
         """
         Remove member from a named service delegation target.
@@ -21678,28 +21054,23 @@ class ClientMeta(Client):
         :param o_principal: principal to remove
         :type  o_principal: str
         """
-        method = 'servicedelegationtarget_remove_member'
+        method = "servicedelegationtarget_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_principal is not None:
-            _params['principal'] = o_principal
+            _params["principal"] = o_principal
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def servicedelegationtarget_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display information about a named service delegation target.
@@ -21717,30 +21088,27 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'servicedelegationtarget_show'
+        method = "servicedelegationtarget_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def session_logout(
-        self,
-        **kwargs
-    ):
+    def session_logout(self, **kwargs):
         """
         RPC command used to log the current user out of their session.
 
 
         """
-        method = 'session_logout'
+        method = "session_logout"
 
         _args = list()
 
@@ -21750,16 +21118,13 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def sidgen_was_run(
-        self,
-        **kwargs
-    ):
+    def sidgen_was_run(self, **kwargs):
         """
         Determine whether ipa-adtrust-install has been run with sidgen task
 
 
         """
-        method = 'sidgen_was_run'
+        method = "sidgen_was_run"
 
         _args = list()
 
@@ -21770,12 +21135,7 @@ class ClientMeta(Client):
         return self._request(method, _args, _params)
 
     def stageuser_activate(
-        self,
-        a_uid,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        **kwargs
+        self, a_uid, o_all=True, o_raw=False, o_no_members=False, **kwargs
     ):
         """
         Activate a stage user.
@@ -21792,15 +21152,15 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_activate'
+        method = "stageuser_activate"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -21855,7 +21215,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new stage user.
@@ -21963,98 +21323,98 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_add'
+        method = "stageuser_add"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['givenname'] = o_givenname
-        _params['sn'] = o_sn
-        _params['cn'] = o_cn
+        _params["givenname"] = o_givenname
+        _params["sn"] = o_sn
+        _params["cn"] = o_cn
         if o_displayname is not None:
-            _params['displayname'] = o_displayname
+            _params["displayname"] = o_displayname
         if o_initials is not None:
-            _params['initials'] = o_initials
+            _params["initials"] = o_initials
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_krbprincipalexpiration is not None:
-            _params['krbprincipalexpiration'] = o_krbprincipalexpiration
+            _params["krbprincipalexpiration"] = o_krbprincipalexpiration
         if o_krbpasswordexpiration is not None:
-            _params['krbpasswordexpiration'] = o_krbpasswordexpiration
+            _params["krbpasswordexpiration"] = o_krbpasswordexpiration
         if o_mail is not None:
-            _params['mail'] = o_mail
+            _params["mail"] = o_mail
         if o_userpassword is not None:
-            _params['userpassword'] = o_userpassword
+            _params["userpassword"] = o_userpassword
         if o_random is not None:
-            _params['random'] = o_random
+            _params["random"] = o_random
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_street is not None:
-            _params['street'] = o_street
+            _params["street"] = o_street
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_st is not None:
-            _params['st'] = o_st
+            _params["st"] = o_st
         if o_postalcode is not None:
-            _params['postalcode'] = o_postalcode
+            _params["postalcode"] = o_postalcode
         if o_telephonenumber is not None:
-            _params['telephonenumber'] = o_telephonenumber
+            _params["telephonenumber"] = o_telephonenumber
         if o_mobile is not None:
-            _params['mobile'] = o_mobile
+            _params["mobile"] = o_mobile
         if o_pager is not None:
-            _params['pager'] = o_pager
+            _params["pager"] = o_pager
         if o_facsimiletelephonenumber is not None:
-            _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
+            _params["facsimiletelephonenumber"] = o_facsimiletelephonenumber
         if o_ou is not None:
-            _params['ou'] = o_ou
+            _params["ou"] = o_ou
         if o_title is not None:
-            _params['title'] = o_title
+            _params["title"] = o_title
         if o_manager is not None:
-            _params['manager'] = o_manager
+            _params["manager"] = o_manager
         if o_carlicense is not None:
-            _params['carlicense'] = o_carlicense
+            _params["carlicense"] = o_carlicense
         if o_ipasshpubkey is not None:
-            _params['ipasshpubkey'] = o_ipasshpubkey
+            _params["ipasshpubkey"] = o_ipasshpubkey
         if o_ipauserauthtype is not None:
-            _params['ipauserauthtype'] = o_ipauserauthtype
+            _params["ipauserauthtype"] = o_ipauserauthtype
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipatokenradiusconfiglink is not None:
-            _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
+            _params["ipatokenradiusconfiglink"] = o_ipatokenradiusconfiglink
         if o_ipatokenradiususername is not None:
-            _params['ipatokenradiususername'] = o_ipatokenradiususername
+            _params["ipatokenradiususername"] = o_ipatokenradiususername
         if o_ipaidpconfiglink is not None:
-            _params['ipaidpconfiglink'] = o_ipaidpconfiglink
+            _params["ipaidpconfiglink"] = o_ipaidpconfiglink
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_departmentnumber is not None:
-            _params['departmentnumber'] = o_departmentnumber
+            _params["departmentnumber"] = o_departmentnumber
         if o_employeenumber is not None:
-            _params['employeenumber'] = o_employeenumber
+            _params["employeenumber"] = o_employeenumber
         if o_employeetype is not None:
-            _params['employeetype'] = o_employeetype
+            _params["employeetype"] = o_employeetype
         if o_preferredlanguage is not None:
-            _params['preferredlanguage'] = o_preferredlanguage
+            _params["preferredlanguage"] = o_preferredlanguage
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_from_delete is not None:
-            _params['from_delete'] = o_from_delete
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["from_delete"] = o_from_delete
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -22067,7 +21427,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add one or more certificates to the stageuser entry
@@ -22086,16 +21446,16 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'stageuser_add_cert'
+        method = "stageuser_add_cert"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -22111,7 +21471,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add one or more certificate mappings to the stage user entry.
@@ -22136,7 +21496,7 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_add_certmapdata'
+        method = "stageuser_add_certmapdata"
 
         _args = list()
         _args.append(a_uid)
@@ -22144,27 +21504,21 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_issuer is not None:
-            _params['issuer'] = o_issuer
+            _params["issuer"] = o_issuer
         if o_subject is not None:
-            _params['subject'] = o_subject
+            _params["subject"] = o_subject
         if o_certificate is not None:
-            _params['certificate'] = o_certificate
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["certificate"] = o_certificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def stageuser_add_manager(
-        self,
-        a_uid,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_user=None,
-        **kwargs
+        self, a_uid, o_all=True, o_raw=False, o_no_members=False, o_user=None, **kwargs
     ):
         """
         Add a manager to the stage user entry
@@ -22183,30 +21537,24 @@ class ClientMeta(Client):
         :param o_user: users to add
         :type  o_user: str
         """
-        method = 'stageuser_add_manager'
+        method = "stageuser_add_manager"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def stageuser_add_passkey(
-        self,
-        a_uid,
-        a_ipapasskey,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        **kwargs
+        self, a_uid, a_ipapasskey, o_all=True, o_raw=False, o_no_members=False, **kwargs
     ):
         """
         Add one or more passkey mappings to the stage user entry.
@@ -22225,16 +21573,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_add_passkey'
+        method = "stageuser_add_passkey"
 
         _args = list()
         _args.append(a_uid)
         _args.append(a_ipapasskey)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -22247,7 +21595,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new principal alias to the stageuser entry
@@ -22266,27 +21614,22 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_add_principal'
+        method = "stageuser_add_principal"
 
         _args = list()
         _args.append(a_uid)
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def stageuser_del(
-        self,
-        a_uid,
-        o_continue=False,
-        **kwargs
-    ):
+    def stageuser_del(self, a_uid, o_continue=False, **kwargs):
         """
         Delete a stage user.
 
@@ -22296,13 +21639,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'stageuser_del'
+        method = "stageuser_del"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -22372,7 +21715,7 @@ class ClientMeta(Client):
         o_not_in_sudorule=None,
         o_in_subid=None,
         o_not_in_subid=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for stage users.
@@ -22519,131 +21862,131 @@ class ClientMeta(Client):
             Subordinate ids.
         :type  o_not_in_subid: str
         """
-        method = 'stageuser_find'
+        method = "stageuser_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_uid is not None:
-            _params['uid'] = o_uid
+            _params["uid"] = o_uid
         if o_givenname is not None:
-            _params['givenname'] = o_givenname
+            _params["givenname"] = o_givenname
         if o_sn is not None:
-            _params['sn'] = o_sn
+            _params["sn"] = o_sn
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_displayname is not None:
-            _params['displayname'] = o_displayname
+            _params["displayname"] = o_displayname
         if o_initials is not None:
-            _params['initials'] = o_initials
+            _params["initials"] = o_initials
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_krbprincipalexpiration is not None:
-            _params['krbprincipalexpiration'] = o_krbprincipalexpiration
+            _params["krbprincipalexpiration"] = o_krbprincipalexpiration
         if o_krbpasswordexpiration is not None:
-            _params['krbpasswordexpiration'] = o_krbpasswordexpiration
+            _params["krbpasswordexpiration"] = o_krbpasswordexpiration
         if o_mail is not None:
-            _params['mail'] = o_mail
+            _params["mail"] = o_mail
         if o_userpassword is not None:
-            _params['userpassword'] = o_userpassword
+            _params["userpassword"] = o_userpassword
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_street is not None:
-            _params['street'] = o_street
+            _params["street"] = o_street
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_st is not None:
-            _params['st'] = o_st
+            _params["st"] = o_st
         if o_postalcode is not None:
-            _params['postalcode'] = o_postalcode
+            _params["postalcode"] = o_postalcode
         if o_telephonenumber is not None:
-            _params['telephonenumber'] = o_telephonenumber
+            _params["telephonenumber"] = o_telephonenumber
         if o_mobile is not None:
-            _params['mobile'] = o_mobile
+            _params["mobile"] = o_mobile
         if o_pager is not None:
-            _params['pager'] = o_pager
+            _params["pager"] = o_pager
         if o_facsimiletelephonenumber is not None:
-            _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
+            _params["facsimiletelephonenumber"] = o_facsimiletelephonenumber
         if o_ou is not None:
-            _params['ou'] = o_ou
+            _params["ou"] = o_ou
         if o_title is not None:
-            _params['title'] = o_title
+            _params["title"] = o_title
         if o_manager is not None:
-            _params['manager'] = o_manager
+            _params["manager"] = o_manager
         if o_carlicense is not None:
-            _params['carlicense'] = o_carlicense
+            _params["carlicense"] = o_carlicense
         if o_ipauserauthtype is not None:
-            _params['ipauserauthtype'] = o_ipauserauthtype
+            _params["ipauserauthtype"] = o_ipauserauthtype
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipatokenradiusconfiglink is not None:
-            _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
+            _params["ipatokenradiusconfiglink"] = o_ipatokenradiusconfiglink
         if o_ipatokenradiususername is not None:
-            _params['ipatokenradiususername'] = o_ipatokenradiususername
+            _params["ipatokenradiususername"] = o_ipatokenradiususername
         if o_ipaidpconfiglink is not None:
-            _params['ipaidpconfiglink'] = o_ipaidpconfiglink
+            _params["ipaidpconfiglink"] = o_ipaidpconfiglink
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_departmentnumber is not None:
-            _params['departmentnumber'] = o_departmentnumber
+            _params["departmentnumber"] = o_departmentnumber
         if o_employeenumber is not None:
-            _params['employeenumber'] = o_employeenumber
+            _params["employeenumber"] = o_employeenumber
         if o_employeetype is not None:
-            _params['employeetype'] = o_employeetype
+            _params["employeetype"] = o_employeetype
         if o_preferredlanguage is not None:
-            _params['preferredlanguage'] = o_preferredlanguage
+            _params["preferredlanguage"] = o_preferredlanguage
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_ipantlogonscript is not None:
-            _params['ipantlogonscript'] = o_ipantlogonscript
+            _params["ipantlogonscript"] = o_ipantlogonscript
         if o_ipantprofilepath is not None:
-            _params['ipantprofilepath'] = o_ipantprofilepath
+            _params["ipantprofilepath"] = o_ipantprofilepath
         if o_ipanthomedirectory is not None:
-            _params['ipanthomedirectory'] = o_ipanthomedirectory
+            _params["ipanthomedirectory"] = o_ipanthomedirectory
         if o_ipanthomedirectorydrive is not None:
-            _params['ipanthomedirectorydrive'] = o_ipanthomedirectorydrive
+            _params["ipanthomedirectorydrive"] = o_ipanthomedirectorydrive
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_in_group is not None:
-            _params['in_group'] = o_in_group
+            _params["in_group"] = o_in_group
         if o_not_in_group is not None:
-            _params['not_in_group'] = o_not_in_group
+            _params["not_in_group"] = o_not_in_group
         if o_in_netgroup is not None:
-            _params['in_netgroup'] = o_in_netgroup
+            _params["in_netgroup"] = o_in_netgroup
         if o_not_in_netgroup is not None:
-            _params['not_in_netgroup'] = o_not_in_netgroup
+            _params["not_in_netgroup"] = o_not_in_netgroup
         if o_in_role is not None:
-            _params['in_role'] = o_in_role
+            _params["in_role"] = o_in_role
         if o_not_in_role is not None:
-            _params['not_in_role'] = o_not_in_role
+            _params["not_in_role"] = o_not_in_role
         if o_in_hbacrule is not None:
-            _params['in_hbacrule'] = o_in_hbacrule
+            _params["in_hbacrule"] = o_in_hbacrule
         if o_not_in_hbacrule is not None:
-            _params['not_in_hbacrule'] = o_not_in_hbacrule
+            _params["not_in_hbacrule"] = o_not_in_hbacrule
         if o_in_sudorule is not None:
-            _params['in_sudorule'] = o_in_sudorule
+            _params["in_sudorule"] = o_in_sudorule
         if o_not_in_sudorule is not None:
-            _params['not_in_sudorule'] = o_not_in_sudorule
+            _params["not_in_sudorule"] = o_not_in_sudorule
         if o_in_subid is not None:
-            _params['in_subid'] = o_in_subid
+            _params["in_subid"] = o_in_subid
         if o_not_in_subid is not None:
-            _params['not_in_subid'] = o_not_in_subid
+            _params["not_in_subid"] = o_not_in_subid
 
         _params.update(kwargs)
 
@@ -22704,7 +22047,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a stage user.
@@ -22826,112 +22169,112 @@ class ClientMeta(Client):
         :param o_rename: Rename the stage user object
         :type  o_rename: str
         """
-        method = 'stageuser_mod'
+        method = "stageuser_mod"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
         if o_givenname is not None:
-            _params['givenname'] = o_givenname
+            _params["givenname"] = o_givenname
         if o_sn is not None:
-            _params['sn'] = o_sn
+            _params["sn"] = o_sn
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_displayname is not None:
-            _params['displayname'] = o_displayname
+            _params["displayname"] = o_displayname
         if o_initials is not None:
-            _params['initials'] = o_initials
+            _params["initials"] = o_initials
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_krbprincipalexpiration is not None:
-            _params['krbprincipalexpiration'] = o_krbprincipalexpiration
+            _params["krbprincipalexpiration"] = o_krbprincipalexpiration
         if o_krbpasswordexpiration is not None:
-            _params['krbpasswordexpiration'] = o_krbpasswordexpiration
+            _params["krbpasswordexpiration"] = o_krbpasswordexpiration
         if o_mail is not None:
-            _params['mail'] = o_mail
+            _params["mail"] = o_mail
         if o_userpassword is not None:
-            _params['userpassword'] = o_userpassword
+            _params["userpassword"] = o_userpassword
         if o_random is not None:
-            _params['random'] = o_random
+            _params["random"] = o_random
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_street is not None:
-            _params['street'] = o_street
+            _params["street"] = o_street
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_st is not None:
-            _params['st'] = o_st
+            _params["st"] = o_st
         if o_postalcode is not None:
-            _params['postalcode'] = o_postalcode
+            _params["postalcode"] = o_postalcode
         if o_telephonenumber is not None:
-            _params['telephonenumber'] = o_telephonenumber
+            _params["telephonenumber"] = o_telephonenumber
         if o_mobile is not None:
-            _params['mobile'] = o_mobile
+            _params["mobile"] = o_mobile
         if o_pager is not None:
-            _params['pager'] = o_pager
+            _params["pager"] = o_pager
         if o_facsimiletelephonenumber is not None:
-            _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
+            _params["facsimiletelephonenumber"] = o_facsimiletelephonenumber
         if o_ou is not None:
-            _params['ou'] = o_ou
+            _params["ou"] = o_ou
         if o_title is not None:
-            _params['title'] = o_title
+            _params["title"] = o_title
         if o_manager is not None:
-            _params['manager'] = o_manager
+            _params["manager"] = o_manager
         if o_carlicense is not None:
-            _params['carlicense'] = o_carlicense
+            _params["carlicense"] = o_carlicense
         if o_ipasshpubkey is not None:
-            _params['ipasshpubkey'] = o_ipasshpubkey
+            _params["ipasshpubkey"] = o_ipasshpubkey
         if o_ipauserauthtype is not None:
-            _params['ipauserauthtype'] = o_ipauserauthtype
+            _params["ipauserauthtype"] = o_ipauserauthtype
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipatokenradiusconfiglink is not None:
-            _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
+            _params["ipatokenradiusconfiglink"] = o_ipatokenradiusconfiglink
         if o_ipatokenradiususername is not None:
-            _params['ipatokenradiususername'] = o_ipatokenradiususername
+            _params["ipatokenradiususername"] = o_ipatokenradiususername
         if o_ipaidpconfiglink is not None:
-            _params['ipaidpconfiglink'] = o_ipaidpconfiglink
+            _params["ipaidpconfiglink"] = o_ipaidpconfiglink
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_departmentnumber is not None:
-            _params['departmentnumber'] = o_departmentnumber
+            _params["departmentnumber"] = o_departmentnumber
         if o_employeenumber is not None:
-            _params['employeenumber'] = o_employeenumber
+            _params["employeenumber"] = o_employeenumber
         if o_employeetype is not None:
-            _params['employeetype'] = o_employeetype
+            _params["employeetype"] = o_employeetype
         if o_preferredlanguage is not None:
-            _params['preferredlanguage'] = o_preferredlanguage
+            _params["preferredlanguage"] = o_preferredlanguage
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_ipantlogonscript is not None:
-            _params['ipantlogonscript'] = o_ipantlogonscript
+            _params["ipantlogonscript"] = o_ipantlogonscript
         if o_ipantprofilepath is not None:
-            _params['ipantprofilepath'] = o_ipantprofilepath
+            _params["ipantprofilepath"] = o_ipantprofilepath
         if o_ipanthomedirectory is not None:
-            _params['ipanthomedirectory'] = o_ipanthomedirectory
+            _params["ipanthomedirectory"] = o_ipanthomedirectory
         if o_ipanthomedirectorydrive is not None:
-            _params['ipanthomedirectorydrive'] = o_ipanthomedirectorydrive
+            _params["ipanthomedirectorydrive"] = o_ipanthomedirectorydrive
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -22944,7 +22287,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove one or more certificates to the stageuser entry
@@ -22963,16 +22306,16 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'stageuser_remove_cert'
+        method = "stageuser_remove_cert"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -22988,7 +22331,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove one or more certificate mappings from the stage user entry.
@@ -23013,7 +22356,7 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_remove_certmapdata'
+        method = "stageuser_remove_certmapdata"
 
         _args = list()
         _args.append(a_uid)
@@ -23021,27 +22364,21 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_issuer is not None:
-            _params['issuer'] = o_issuer
+            _params["issuer"] = o_issuer
         if o_subject is not None:
-            _params['subject'] = o_subject
+            _params["subject"] = o_subject
         if o_certificate is not None:
-            _params['certificate'] = o_certificate
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["certificate"] = o_certificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def stageuser_remove_manager(
-        self,
-        a_uid,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_user=None,
-        **kwargs
+        self, a_uid, o_all=True, o_raw=False, o_no_members=False, o_user=None, **kwargs
     ):
         """
         Remove a manager to the stage user entry
@@ -23060,30 +22397,24 @@ class ClientMeta(Client):
         :param o_user: users to remove
         :type  o_user: str
         """
-        method = 'stageuser_remove_manager'
+        method = "stageuser_remove_manager"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def stageuser_remove_passkey(
-        self,
-        a_uid,
-        a_ipapasskey,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        **kwargs
+        self, a_uid, a_ipapasskey, o_all=True, o_raw=False, o_no_members=False, **kwargs
     ):
         """
         Remove one or more passkey mappings from the stage user entry.
@@ -23102,16 +22433,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_remove_passkey'
+        method = "stageuser_remove_passkey"
 
         _args = list()
         _args.append(a_uid)
         _args.append(a_ipapasskey)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -23124,7 +22455,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove principal alias from the stageuser entry
@@ -23143,16 +22474,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_remove_principal'
+        method = "stageuser_remove_principal"
 
         _args = list()
         _args.append(a_uid)
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -23165,7 +22496,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a stage user.
@@ -23185,16 +22516,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'stageuser_show'
+        method = "stageuser_show"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -23210,7 +22541,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new subordinate id.
@@ -23239,34 +22570,29 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'subid_add'
+        method = "subid_add"
 
         _args = list()
         _args.append(a_ipauniqueid)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
-        _params['ipaowner'] = o_ipaowner
+            _params["description"] = o_description
+        _params["ipaowner"] = o_ipaowner
         if o_ipasubuidnumber is not None:
-            _params['ipasubuidnumber'] = o_ipasubuidnumber
+            _params["ipasubuidnumber"] = o_ipasubuidnumber
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def subid_del(
-        self,
-        a_ipauniqueid,
-        o_continue=False,
-        **kwargs
-    ):
+    def subid_del(self, a_ipauniqueid, o_continue=False, **kwargs):
         """
         Delete a subordinate id.
 
@@ -23276,13 +22602,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'subid_del'
+        method = "subid_del"
 
         _args = list()
         _args.append(a_ipauniqueid)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -23301,7 +22627,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for subordinate id.
@@ -23336,42 +22662,36 @@ class ClientMeta(Client):
             ("id")
         :type  o_pkey_only: bool
         """
-        method = 'subid_find'
+        method = "subid_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_ipauniqueid is not None:
-            _params['ipauniqueid'] = o_ipauniqueid
+            _params["ipauniqueid"] = o_ipauniqueid
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaowner is not None:
-            _params['ipaowner'] = o_ipaowner
+            _params["ipaowner"] = o_ipaowner
         if o_ipasubuidnumber is not None:
-            _params['ipasubuidnumber'] = o_ipasubuidnumber
+            _params["ipasubuidnumber"] = o_ipasubuidnumber
         if o_ipasubgidnumber is not None:
-            _params['ipasubgidnumber'] = o_ipasubgidnumber
+            _params["ipasubgidnumber"] = o_ipasubgidnumber
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def subid_generate(
-        self,
-        o_ipaowner=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def subid_generate(self, o_ipaowner=None, o_all=True, o_raw=False, **kwargs):
         """
         Generate and auto-assign subuid and subgid range to user entry
 
@@ -23385,15 +22705,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'subid_generate'
+        method = "subid_generate"
 
         _args = list()
 
         _params = dict()
         if o_ipaowner is not None:
-            _params['ipaowner'] = o_ipaowner
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["ipaowner"] = o_ipaowner
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -23408,7 +22728,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Match users by any subordinate uid in their range
@@ -23433,21 +22753,21 @@ class ClientMeta(Client):
             ("id")
         :type  o_pkey_only: bool
         """
-        method = 'subid_match'
+        method = "subid_match"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
-        _params['ipasubuidnumber'] = o_ipasubuidnumber
+        _params["ipasubuidnumber"] = o_ipasubuidnumber
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -23463,7 +22783,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a subordinate id.
@@ -23493,35 +22813,30 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'subid_mod'
+        method = "subid_mod"
 
         _args = list()
         _args.append(a_ipauniqueid)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def subid_show(
-        self,
-        a_ipauniqueid,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_ipauniqueid, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Display information about a subordinate id.
@@ -23539,26 +22854,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'subid_show'
+        method = "subid_show"
 
         _args = list()
         _args.append(a_ipauniqueid)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def subid_stats(
-        self,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def subid_stats(self, o_all=True, o_raw=False, **kwargs):
         """
         Subordinate id statistics
 
@@ -23570,13 +22880,13 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'subid_stats'
+        method = "subid_stats"
 
         _args = list()
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -23591,7 +22901,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create new Sudo Command.
@@ -23617,32 +22927,27 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudocmd_add'
+        method = "sudocmd_add"
 
         _args = list()
         _args.append(a_sudocmd)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def sudocmd_del(
-        self,
-        a_sudocmd,
-        o_continue=False,
-        **kwargs
-    ):
+    def sudocmd_del(self, a_sudocmd, o_continue=False, **kwargs):
         """
         Delete Sudo Command.
 
@@ -23652,13 +22957,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'sudocmd_del'
+        method = "sudocmd_del"
 
         _args = list()
         _args.append(a_sudocmd)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -23675,7 +22980,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for Sudo Commands.
@@ -23704,25 +23009,25 @@ class ClientMeta(Client):
             ("command")
         :type  o_pkey_only: bool
         """
-        method = 'sudocmd_find'
+        method = "sudocmd_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_sudocmd is not None:
-            _params['sudocmd'] = o_sudocmd
+            _params["sudocmd"] = o_sudocmd
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -23739,7 +23044,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify Sudo Command.
@@ -23771,24 +23076,24 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudocmd_mod'
+        method = "sudocmd_mod"
 
         _args = list()
         _args.append(a_sudocmd)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -23801,7 +23106,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display Sudo Command.
@@ -23821,16 +23126,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudocmd_show'
+        method = "sudocmd_show"
 
         _args = list()
         _args.append(a_sudocmd)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -23845,7 +23150,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create new Sudo Command Group.
@@ -23871,21 +23176,21 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudocmdgroup_add'
+        method = "sudocmdgroup_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -23898,7 +23203,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_sudocmd=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to Sudo Command Group.
@@ -23917,28 +23222,23 @@ class ClientMeta(Client):
         :param o_sudocmd: sudo commands to add
         :type  o_sudocmd: str
         """
-        method = 'sudocmdgroup_add_member'
+        method = "sudocmdgroup_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_sudocmd is not None:
-            _params['sudocmd'] = o_sudocmd
+            _params["sudocmd"] = o_sudocmd
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def sudocmdgroup_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def sudocmdgroup_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete Sudo Command Group.
 
@@ -23948,13 +23248,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'sudocmdgroup_del'
+        method = "sudocmdgroup_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -23971,7 +23271,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for Sudo Command Groups.
@@ -24000,25 +23300,25 @@ class ClientMeta(Client):
             ("sudocmdgroup-name")
         :type  o_pkey_only: bool
         """
-        method = 'sudocmdgroup_find'
+        method = "sudocmdgroup_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -24035,7 +23335,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify Sudo Command Group.
@@ -24067,24 +23367,24 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudocmdgroup_mod'
+        method = "sudocmdgroup_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -24097,7 +23397,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_sudocmd=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from Sudo Command Group.
@@ -24116,17 +23416,17 @@ class ClientMeta(Client):
         :param o_sudocmd: sudo commands to remove
         :type  o_sudocmd: str
         """
-        method = 'sudocmdgroup_remove_member'
+        method = "sudocmdgroup_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_sudocmd is not None:
-            _params['sudocmd'] = o_sudocmd
+            _params["sudocmd"] = o_sudocmd
 
         _params.update(kwargs)
 
@@ -24139,7 +23439,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display Sudo Command Group.
@@ -24159,16 +23459,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudocmdgroup_show'
+        method = "sudocmdgroup_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -24194,7 +23494,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Create new Sudo Rule.
@@ -24247,43 +23547,43 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudorule_add'
+        method = "sudorule_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_cmdcategory is not None:
-            _params['cmdcategory'] = o_cmdcategory
+            _params["cmdcategory"] = o_cmdcategory
         if o_ipasudorunasusercategory is not None:
-            _params['ipasudorunasusercategory'] = o_ipasudorunasusercategory
+            _params["ipasudorunasusercategory"] = o_ipasudorunasusercategory
         if o_ipasudorunasgroupcategory is not None:
-            _params['ipasudorunasgroupcategory'] = o_ipasudorunasgroupcategory
+            _params["ipasudorunasgroupcategory"] = o_ipasudorunasgroupcategory
         if o_sudoorder is not None:
-            _params['sudoorder'] = o_sudoorder
+            _params["sudoorder"] = o_sudoorder
         if o_externaluser is not None:
-            _params['externaluser'] = o_externaluser
+            _params["externaluser"] = o_externaluser
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_ipasudorunasextuser is not None:
-            _params['ipasudorunasextuser'] = o_ipasudorunasextuser
+            _params["ipasudorunasextuser"] = o_ipasudorunasextuser
         if o_ipasudorunasextgroup is not None:
-            _params['ipasudorunasextgroup'] = o_ipasudorunasextgroup
+            _params["ipasudorunasextgroup"] = o_ipasudorunasextgroup
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -24297,7 +23597,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_sudocmd=None,
         o_sudocmdgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add commands and sudo command groups affected by Sudo Rule.
@@ -24318,19 +23618,19 @@ class ClientMeta(Client):
         :param o_sudocmdgroup: sudo command groups to add
         :type  o_sudocmdgroup: str
         """
-        method = 'sudorule_add_allow_command'
+        method = "sudorule_add_allow_command"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_sudocmd is not None:
-            _params['sudocmd'] = o_sudocmd
+            _params["sudocmd"] = o_sudocmd
         if o_sudocmdgroup is not None:
-            _params['sudocmdgroup'] = o_sudocmdgroup
+            _params["sudocmdgroup"] = o_sudocmdgroup
 
         _params.update(kwargs)
 
@@ -24344,7 +23644,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_sudocmd=None,
         o_sudocmdgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add commands and sudo command groups affected by Sudo Rule.
@@ -24365,19 +23665,19 @@ class ClientMeta(Client):
         :param o_sudocmdgroup: sudo command groups to add
         :type  o_sudocmdgroup: str
         """
-        method = 'sudorule_add_deny_command'
+        method = "sudorule_add_deny_command"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_sudocmd is not None:
-            _params['sudocmd'] = o_sudocmd
+            _params["sudocmd"] = o_sudocmd
         if o_sudocmdgroup is not None:
-            _params['sudocmdgroup'] = o_sudocmdgroup
+            _params["sudocmdgroup"] = o_sudocmdgroup
 
         _params.update(kwargs)
 
@@ -24392,7 +23692,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_hostmask=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add hosts and hostgroups affected by Sudo Rule.
@@ -24415,34 +23715,28 @@ class ClientMeta(Client):
         :param o_hostmask: host masks of allowed hosts
         :type  o_hostmask: str
         """
-        method = 'sudorule_add_host'
+        method = "sudorule_add_host"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
         if o_hostmask is not None:
-            _params['hostmask'] = o_hostmask
+            _params["hostmask"] = o_hostmask
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def sudorule_add_option(
-        self,
-        a_cn,
-        o_ipasudoopt,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        **kwargs
+        self, a_cn, o_ipasudoopt, o_all=True, o_raw=False, o_no_members=False, **kwargs
     ):
         """
         Add an option to the Sudo Rule.
@@ -24461,29 +23755,23 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudorule_add_option'
+        method = "sudorule_add_option"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['ipasudoopt'] = o_ipasudoopt
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["ipasudoopt"] = o_ipasudoopt
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def sudorule_add_runasgroup(
-        self,
-        a_cn,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_group=None,
-        **kwargs
+        self, a_cn, o_all=True, o_raw=False, o_no_members=False, o_group=None, **kwargs
     ):
         """
         Add group for Sudo to execute as.
@@ -24502,17 +23790,17 @@ class ClientMeta(Client):
         :param o_group: groups to add
         :type  o_group: str
         """
-        method = 'sudorule_add_runasgroup'
+        method = "sudorule_add_runasgroup"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -24526,7 +23814,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add users and groups for Sudo to execute as.
@@ -24547,19 +23835,19 @@ class ClientMeta(Client):
         :param o_group: groups to add
         :type  o_group: str
         """
-        method = 'sudorule_add_runasuser'
+        method = "sudorule_add_runasuser"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -24573,7 +23861,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add users and groups affected by Sudo Rule.
@@ -24594,30 +23882,25 @@ class ClientMeta(Client):
         :param o_group: groups to add
         :type  o_group: str
         """
-        method = 'sudorule_add_user'
+        method = "sudorule_add_user"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def sudorule_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def sudorule_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete Sudo Rule.
 
@@ -24627,23 +23910,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'sudorule_del'
+        method = "sudorule_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def sudorule_disable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def sudorule_disable(self, a_cn, **kwargs):
         """
         Disable a Sudo Rule.
 
@@ -24651,7 +23930,7 @@ class ClientMeta(Client):
         :param a_cn: Rule name
         :type  a_cn: str
         """
-        method = 'sudorule_disable'
+        method = "sudorule_disable"
 
         _args = list()
         _args.append(a_cn)
@@ -24662,11 +23941,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def sudorule_enable(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def sudorule_enable(self, a_cn, **kwargs):
         """
         Enable a Sudo Rule.
 
@@ -24674,7 +23949,7 @@ class ClientMeta(Client):
         :param a_cn: Rule name
         :type  a_cn: str
         """
-        method = 'sudorule_enable'
+        method = "sudorule_enable"
 
         _args = list()
         _args.append(a_cn)
@@ -24707,7 +23982,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for Sudo Rule.
@@ -24763,47 +24038,47 @@ class ClientMeta(Client):
             ("sudorule-name")
         :type  o_pkey_only: bool
         """
-        method = 'sudorule_find'
+        method = "sudorule_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_cmdcategory is not None:
-            _params['cmdcategory'] = o_cmdcategory
+            _params["cmdcategory"] = o_cmdcategory
         if o_ipasudorunasusercategory is not None:
-            _params['ipasudorunasusercategory'] = o_ipasudorunasusercategory
+            _params["ipasudorunasusercategory"] = o_ipasudorunasusercategory
         if o_ipasudorunasgroupcategory is not None:
-            _params['ipasudorunasgroupcategory'] = o_ipasudorunasgroupcategory
+            _params["ipasudorunasgroupcategory"] = o_ipasudorunasgroupcategory
         if o_sudoorder is not None:
-            _params['sudoorder'] = o_sudoorder
+            _params["sudoorder"] = o_sudoorder
         if o_externaluser is not None:
-            _params['externaluser'] = o_externaluser
+            _params["externaluser"] = o_externaluser
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_ipasudorunasextuser is not None:
-            _params['ipasudorunasextuser'] = o_ipasudorunasextuser
+            _params["ipasudorunasextuser"] = o_ipasudorunasextuser
         if o_ipasudorunasextgroup is not None:
-            _params['ipasudorunasextgroup'] = o_ipasudorunasextgroup
+            _params["ipasudorunasextgroup"] = o_ipasudorunasextgroup
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -24832,7 +24107,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify Sudo Rule.
@@ -24893,48 +24168,48 @@ class ClientMeta(Client):
         :param o_rename: Rename the sudo rule object
         :type  o_rename: str
         """
-        method = 'sudorule_mod'
+        method = "sudorule_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipaenabledflag is not None:
-            _params['ipaenabledflag'] = o_ipaenabledflag
+            _params["ipaenabledflag"] = o_ipaenabledflag
         if o_usercategory is not None:
-            _params['usercategory'] = o_usercategory
+            _params["usercategory"] = o_usercategory
         if o_hostcategory is not None:
-            _params['hostcategory'] = o_hostcategory
+            _params["hostcategory"] = o_hostcategory
         if o_cmdcategory is not None:
-            _params['cmdcategory'] = o_cmdcategory
+            _params["cmdcategory"] = o_cmdcategory
         if o_ipasudorunasusercategory is not None:
-            _params['ipasudorunasusercategory'] = o_ipasudorunasusercategory
+            _params["ipasudorunasusercategory"] = o_ipasudorunasusercategory
         if o_ipasudorunasgroupcategory is not None:
-            _params['ipasudorunasgroupcategory'] = o_ipasudorunasgroupcategory
+            _params["ipasudorunasgroupcategory"] = o_ipasudorunasgroupcategory
         if o_sudoorder is not None:
-            _params['sudoorder'] = o_sudoorder
+            _params["sudoorder"] = o_sudoorder
         if o_externaluser is not None:
-            _params['externaluser'] = o_externaluser
+            _params["externaluser"] = o_externaluser
         if o_externalhost is not None:
-            _params['externalhost'] = o_externalhost
+            _params["externalhost"] = o_externalhost
         if o_ipasudorunasextuser is not None:
-            _params['ipasudorunasextuser'] = o_ipasudorunasextuser
+            _params["ipasudorunasextuser"] = o_ipasudorunasextuser
         if o_ipasudorunasextgroup is not None:
-            _params['ipasudorunasextgroup'] = o_ipasudorunasextgroup
+            _params["ipasudorunasextgroup"] = o_ipasudorunasextgroup
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -24948,7 +24223,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_sudocmd=None,
         o_sudocmdgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove commands and sudo command groups affected by Sudo Rule.
@@ -24969,19 +24244,19 @@ class ClientMeta(Client):
         :param o_sudocmdgroup: sudo command groups to remove
         :type  o_sudocmdgroup: str
         """
-        method = 'sudorule_remove_allow_command'
+        method = "sudorule_remove_allow_command"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_sudocmd is not None:
-            _params['sudocmd'] = o_sudocmd
+            _params["sudocmd"] = o_sudocmd
         if o_sudocmdgroup is not None:
-            _params['sudocmdgroup'] = o_sudocmdgroup
+            _params["sudocmdgroup"] = o_sudocmdgroup
 
         _params.update(kwargs)
 
@@ -24995,7 +24270,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_sudocmd=None,
         o_sudocmdgroup=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove commands and sudo command groups affected by Sudo Rule.
@@ -25016,19 +24291,19 @@ class ClientMeta(Client):
         :param o_sudocmdgroup: sudo command groups to remove
         :type  o_sudocmdgroup: str
         """
-        method = 'sudorule_remove_deny_command'
+        method = "sudorule_remove_deny_command"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_sudocmd is not None:
-            _params['sudocmd'] = o_sudocmd
+            _params["sudocmd"] = o_sudocmd
         if o_sudocmdgroup is not None:
-            _params['sudocmdgroup'] = o_sudocmdgroup
+            _params["sudocmdgroup"] = o_sudocmdgroup
 
         _params.update(kwargs)
 
@@ -25043,7 +24318,7 @@ class ClientMeta(Client):
         o_host=None,
         o_hostgroup=None,
         o_hostmask=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove hosts and hostgroups affected by Sudo Rule.
@@ -25066,34 +24341,28 @@ class ClientMeta(Client):
         :param o_hostmask: host masks of allowed hosts
         :type  o_hostmask: str
         """
-        method = 'sudorule_remove_host'
+        method = "sudorule_remove_host"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_host is not None:
-            _params['host'] = o_host
+            _params["host"] = o_host
         if o_hostgroup is not None:
-            _params['hostgroup'] = o_hostgroup
+            _params["hostgroup"] = o_hostgroup
         if o_hostmask is not None:
-            _params['hostmask'] = o_hostmask
+            _params["hostmask"] = o_hostmask
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def sudorule_remove_option(
-        self,
-        a_cn,
-        o_ipasudoopt,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        **kwargs
+        self, a_cn, o_ipasudoopt, o_all=True, o_raw=False, o_no_members=False, **kwargs
     ):
         """
         Remove an option from Sudo Rule.
@@ -25112,29 +24381,23 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudorule_remove_option'
+        method = "sudorule_remove_option"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['ipasudoopt'] = o_ipasudoopt
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["ipasudoopt"] = o_ipasudoopt
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def sudorule_remove_runasgroup(
-        self,
-        a_cn,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_group=None,
-        **kwargs
+        self, a_cn, o_all=True, o_raw=False, o_no_members=False, o_group=None, **kwargs
     ):
         """
         Remove group for Sudo to execute as.
@@ -25153,17 +24416,17 @@ class ClientMeta(Client):
         :param o_group: groups to remove
         :type  o_group: str
         """
-        method = 'sudorule_remove_runasgroup'
+        method = "sudorule_remove_runasgroup"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -25177,7 +24440,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove users and groups for Sudo to execute as.
@@ -25198,19 +24461,19 @@ class ClientMeta(Client):
         :param o_group: groups to remove
         :type  o_group: str
         """
-        method = 'sudorule_remove_runasuser'
+        method = "sudorule_remove_runasuser"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -25224,7 +24487,7 @@ class ClientMeta(Client):
         o_no_members=False,
         o_user=None,
         o_group=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove users and groups affected by Sudo Rule.
@@ -25245,19 +24508,19 @@ class ClientMeta(Client):
         :param o_group: groups to remove
         :type  o_group: str
         """
-        method = 'sudorule_remove_user'
+        method = "sudorule_remove_user"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
 
         _params.update(kwargs)
 
@@ -25270,7 +24533,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display Sudo Rule.
@@ -25290,28 +24553,23 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'sudorule_show'
+        method = "sudorule_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def topic_find(
-        self,
-        a_criteria=None,
-        o_all=True,
-        o_raw=False,
-        o_pkey_only=False,
-        **kwargs
+        self, a_criteria=None, o_all=True, o_raw=False, o_pkey_only=False, **kwargs
     ):
         """
         Search for help topics.
@@ -25329,28 +24587,22 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'topic_find'
+        method = "topic_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def topic_show(
-        self,
-        a_full_name,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def topic_show(self, a_full_name, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a help topic.
 
@@ -25364,14 +24616,14 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'topic_show'
+        method = "topic_show"
 
         _args = list()
         _args.append(a_full_name)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -25383,7 +24635,7 @@ class ClientMeta(Client):
         a_cn,
         o_iparepltoposegmentleftnode,
         o_iparepltoposegmentrightnode,
-        o_iparepltoposegmentdirection='both',
+        o_iparepltoposegmentdirection="both",
         o_nsds5replicastripattrs=None,
         o_nsds5replicatedattributelist=None,
         o_nsds5replicatedattributelisttotal=None,
@@ -25393,7 +24645,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new segment.
@@ -25444,44 +24696,40 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'topologysegment_add'
+        method = "topologysegment_add"
 
         _args = list()
         _args.append(a_topologysuffixcn)
         _args.append(a_cn)
 
         _params = dict()
-        _params['iparepltoposegmentleftnode'] = o_iparepltoposegmentleftnode
-        _params['iparepltoposegmentrightnode'] = o_iparepltoposegmentrightnode
-        _params['iparepltoposegmentdirection'] = o_iparepltoposegmentdirection
+        _params["iparepltoposegmentleftnode"] = o_iparepltoposegmentleftnode
+        _params["iparepltoposegmentrightnode"] = o_iparepltoposegmentrightnode
+        _params["iparepltoposegmentdirection"] = o_iparepltoposegmentdirection
         if o_nsds5replicastripattrs is not None:
-            _params['nsds5replicastripattrs'] = o_nsds5replicastripattrs
+            _params["nsds5replicastripattrs"] = o_nsds5replicastripattrs
         if o_nsds5replicatedattributelist is not None:
-            _params['nsds5replicatedattributelist'] = o_nsds5replicatedattributelist
+            _params["nsds5replicatedattributelist"] = o_nsds5replicatedattributelist
         if o_nsds5replicatedattributelisttotal is not None:
-            _params['nsds5replicatedattributelisttotal'] = o_nsds5replicatedattributelisttotal
+            _params["nsds5replicatedattributelisttotal"] = (
+                o_nsds5replicatedattributelisttotal
+            )
         if o_nsds5replicatimeout is not None:
-            _params['nsds5replicatimeout'] = o_nsds5replicatimeout
+            _params["nsds5replicatimeout"] = o_nsds5replicatimeout
         if o_nsds5replicaenabled is not None:
-            _params['nsds5replicaenabled'] = o_nsds5replicaenabled
+            _params["nsds5replicaenabled"] = o_nsds5replicaenabled
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def topologysegment_del(
-        self,
-        a_topologysuffixcn,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def topologysegment_del(self, a_topologysuffixcn, a_cn, o_continue=False, **kwargs):
         """
         Delete a segment.
 
@@ -25493,14 +24741,14 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'topologysegment_del'
+        method = "topologysegment_del"
 
         _args = list()
         _args.append(a_topologysuffixcn)
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -25524,7 +24772,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for topology segments.
@@ -25578,7 +24826,7 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'topologysegment_find'
+        method = "topologysegment_find"
 
         _args = list()
         _args.append(a_topologysuffixcn)
@@ -25586,31 +24834,33 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_iparepltoposegmentleftnode is not None:
-            _params['iparepltoposegmentleftnode'] = o_iparepltoposegmentleftnode
+            _params["iparepltoposegmentleftnode"] = o_iparepltoposegmentleftnode
         if o_iparepltoposegmentrightnode is not None:
-            _params['iparepltoposegmentrightnode'] = o_iparepltoposegmentrightnode
+            _params["iparepltoposegmentrightnode"] = o_iparepltoposegmentrightnode
         if o_iparepltoposegmentdirection is not None:
-            _params['iparepltoposegmentdirection'] = o_iparepltoposegmentdirection
+            _params["iparepltoposegmentdirection"] = o_iparepltoposegmentdirection
         if o_nsds5replicastripattrs is not None:
-            _params['nsds5replicastripattrs'] = o_nsds5replicastripattrs
+            _params["nsds5replicastripattrs"] = o_nsds5replicastripattrs
         if o_nsds5replicatedattributelist is not None:
-            _params['nsds5replicatedattributelist'] = o_nsds5replicatedattributelist
+            _params["nsds5replicatedattributelist"] = o_nsds5replicatedattributelist
         if o_nsds5replicatedattributelisttotal is not None:
-            _params['nsds5replicatedattributelisttotal'] = o_nsds5replicatedattributelisttotal
+            _params["nsds5replicatedattributelisttotal"] = (
+                o_nsds5replicatedattributelisttotal
+            )
         if o_nsds5replicatimeout is not None:
-            _params['nsds5replicatimeout'] = o_nsds5replicatimeout
+            _params["nsds5replicatimeout"] = o_nsds5replicatimeout
         if o_nsds5replicaenabled is not None:
-            _params['nsds5replicaenabled'] = o_nsds5replicaenabled
+            _params["nsds5replicaenabled"] = o_nsds5replicaenabled
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -25631,7 +24881,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a segment.
@@ -25679,7 +24929,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'topologysegment_mod'
+        method = "topologysegment_mod"
 
         _args = list()
         _args.append(a_topologysuffixcn)
@@ -25687,24 +24937,26 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_nsds5replicastripattrs is not None:
-            _params['nsds5replicastripattrs'] = o_nsds5replicastripattrs
+            _params["nsds5replicastripattrs"] = o_nsds5replicastripattrs
         if o_nsds5replicatedattributelist is not None:
-            _params['nsds5replicatedattributelist'] = o_nsds5replicatedattributelist
+            _params["nsds5replicatedattributelist"] = o_nsds5replicatedattributelist
         if o_nsds5replicatedattributelisttotal is not None:
-            _params['nsds5replicatedattributelisttotal'] = o_nsds5replicatedattributelisttotal
+            _params["nsds5replicatedattributelisttotal"] = (
+                o_nsds5replicatedattributelisttotal
+            )
         if o_nsds5replicatimeout is not None:
-            _params['nsds5replicatimeout'] = o_nsds5replicatimeout
+            _params["nsds5replicatimeout"] = o_nsds5replicatimeout
         if o_nsds5replicaenabled is not None:
-            _params['nsds5replicaenabled'] = o_nsds5replicaenabled
+            _params["nsds5replicaenabled"] = o_nsds5replicaenabled
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -25717,7 +24969,7 @@ class ClientMeta(Client):
         o_left=False,
         o_right=False,
         o_stop=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Request a full re-initialization of the node retrieving data from the other node.
@@ -25734,7 +24986,7 @@ class ClientMeta(Client):
         :param o_stop: Stop already started refresh of chosen node(s)
         :type  o_stop: bool
         """
-        method = 'topologysegment_reinitialize'
+        method = "topologysegment_reinitialize"
 
         _args = list()
         _args.append(a_topologysuffixcn)
@@ -25742,11 +24994,11 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_left is not None:
-            _params['left'] = o_left
+            _params["left"] = o_left
         if o_right is not None:
-            _params['right'] = o_right
+            _params["right"] = o_right
         if o_stop is not None:
-            _params['stop'] = o_stop
+            _params["stop"] = o_stop
 
         _params.update(kwargs)
 
@@ -25759,7 +25011,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display a segment.
@@ -25779,16 +25031,16 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'topologysegment_show'
+        method = "topologysegment_show"
 
         _args = list()
         _args.append(a_topologysuffixcn)
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -25802,7 +25054,7 @@ class ClientMeta(Client):
         o_addattr=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new topology suffix to be managed.
@@ -25826,30 +25078,25 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'topologysuffix_add'
+        method = "topologysuffix_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['iparepltopoconfroot'] = o_iparepltopoconfroot
+        _params["iparepltopoconfroot"] = o_iparepltopoconfroot
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def topologysuffix_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def topologysuffix_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a topology suffix.
 
@@ -25859,13 +25106,13 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'topologysuffix_del'
+        method = "topologysuffix_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
@@ -25881,7 +25128,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for topology suffixes.
@@ -25908,24 +25155,24 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'topologysuffix_find'
+        method = "topologysuffix_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_iparepltopoconfroot is not None:
-            _params['iparepltopoconfroot'] = o_iparepltopoconfroot
+            _params["iparepltopoconfroot"] = o_iparepltopoconfroot
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -25941,7 +25188,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a topology suffix.
@@ -25971,35 +25218,30 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'topologysuffix_mod'
+        method = "topologysuffix_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_iparepltopoconfroot is not None:
-            _params['iparepltopoconfroot'] = o_iparepltopoconfroot
+            _params["iparepltopoconfroot"] = o_iparepltopoconfroot
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def topologysuffix_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs
     ):
         """
         Show managed suffix.
@@ -26017,25 +25259,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'topologysuffix_show'
+        method = "topologysuffix_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def topologysuffix_verify(
-        self,
-        a_cn,
-        **kwargs
-    ):
+    def topologysuffix_verify(self, a_cn, **kwargs):
         """
         Verify replication topology for suffix.
 
@@ -26049,7 +25287,7 @@ class ClientMeta(Client):
         :param a_cn: Suffix name
         :type  a_cn: str
         """
-        method = 'topologysuffix_verify'
+        method = "topologysuffix_verify"
 
         _args = list()
         _args.append(a_cn)
@@ -26065,7 +25303,7 @@ class ClientMeta(Client):
         a_cn,
         o_setattr=None,
         o_addattr=None,
-        o_trust_type='ad',
+        o_trust_type="ad",
         o_realm_admin=None,
         o_realm_passwd=None,
         o_realm_server=None,
@@ -26077,7 +25315,7 @@ class ClientMeta(Client):
         o_external=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new trust to use.
@@ -26141,48 +25379,43 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trust_add'
+        method = "trust_add"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['trust_type'] = o_trust_type
+            _params["addattr"] = o_addattr
+        _params["trust_type"] = o_trust_type
         if o_realm_admin is not None:
-            _params['realm_admin'] = o_realm_admin
+            _params["realm_admin"] = o_realm_admin
         if o_realm_passwd is not None:
-            _params['realm_passwd'] = o_realm_passwd
+            _params["realm_passwd"] = o_realm_passwd
         if o_realm_server is not None:
-            _params['realm_server'] = o_realm_server
+            _params["realm_server"] = o_realm_server
         if o_trust_secret is not None:
-            _params['trust_secret'] = o_trust_secret
+            _params["trust_secret"] = o_trust_secret
         if o_base_id is not None:
-            _params['base_id'] = o_base_id
+            _params["base_id"] = o_base_id
         if o_range_size is not None:
-            _params['range_size'] = o_range_size
+            _params["range_size"] = o_range_size
         if o_range_type is not None:
-            _params['range_type'] = o_range_type
+            _params["range_type"] = o_range_type
         if o_bidirectional is not None:
-            _params['bidirectional'] = o_bidirectional
+            _params["bidirectional"] = o_bidirectional
         if o_external is not None:
-            _params['external'] = o_external
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["external"] = o_external
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def trust_del(
-        self,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def trust_del(self, a_cn, o_continue=False, **kwargs):
         """
         Delete a trust.
 
@@ -26192,24 +25425,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'trust_del'
+        method = "trust_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def trust_enable_agent(
-        self,
-        a_remote_cn,
-        o_enable_compat=False,
-        **kwargs
-    ):
+    def trust_enable_agent(self, a_remote_cn, o_enable_compat=False, **kwargs):
         """
         Configure this server as a trust agent.
 
@@ -26220,13 +25448,13 @@ class ClientMeta(Client):
             clients
         :type  o_enable_compat: bool
         """
-        method = 'trust_enable_agent'
+        method = "trust_enable_agent"
 
         _args = list()
         _args.append(a_remote_cn)
 
         _params = dict()
-        _params['enable_compat'] = o_enable_compat
+        _params["enable_compat"] = o_enable_compat
 
         _params.update(kwargs)
 
@@ -26241,7 +25469,7 @@ class ClientMeta(Client):
         o_realm_server=None,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Refresh list of the domains associated with the trust
@@ -26267,21 +25495,21 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trust_fetch_domains'
+        method = "trust_fetch_domains"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_realm_admin is not None:
-            _params['realm_admin'] = o_realm_admin
+            _params["realm_admin"] = o_realm_admin
         if o_realm_passwd is not None:
-            _params['realm_passwd'] = o_realm_passwd
+            _params["realm_passwd"] = o_realm_passwd
         if o_realm_server is not None:
-            _params['realm_server'] = o_realm_server
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["realm_server"] = o_realm_server
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -26300,7 +25528,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for trusts.
@@ -26333,30 +25561,30 @@ class ClientMeta(Client):
             ("realm")
         :type  o_pkey_only: bool
         """
-        method = 'trust_find'
+        method = "trust_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_ipantflatname is not None:
-            _params['ipantflatname'] = o_ipantflatname
+            _params["ipantflatname"] = o_ipantflatname
         if o_ipanttrusteddomainsid is not None:
-            _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
+            _params["ipanttrusteddomainsid"] = o_ipanttrusteddomainsid
         if o_ipantsidblacklistincoming is not None:
-            _params['ipantsidblacklistincoming'] = o_ipantsidblacklistincoming
+            _params["ipantsidblacklistincoming"] = o_ipantsidblacklistincoming
         if o_ipantsidblacklistoutgoing is not None:
-            _params['ipantsidblacklistoutgoing'] = o_ipantsidblacklistoutgoing
+            _params["ipantsidblacklistoutgoing"] = o_ipantsidblacklistoutgoing
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -26374,7 +25602,7 @@ class ClientMeta(Client):
         o_rights=False,
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a trust (for future use).
@@ -26411,39 +25639,33 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trust_mod'
+        method = "trust_mod"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_ipantsidblacklistincoming is not None:
-            _params['ipantsidblacklistincoming'] = o_ipantsidblacklistincoming
+            _params["ipantsidblacklistincoming"] = o_ipantsidblacklistincoming
         if o_ipantsidblacklistoutgoing is not None:
-            _params['ipantsidblacklistoutgoing'] = o_ipantsidblacklistoutgoing
+            _params["ipantsidblacklistoutgoing"] = o_ipantsidblacklistoutgoing
         if o_ipantadditionalsuffixes is not None:
-            _params['ipantadditionalsuffixes'] = o_ipantadditionalsuffixes
+            _params["ipantadditionalsuffixes"] = o_ipantadditionalsuffixes
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def trust_resolve(
-        self,
-        o_sids,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def trust_resolve(self, o_sids, o_all=True, o_raw=False, **kwargs):
         """
         Resolve security identifiers of users and groups in trusted domains
 
@@ -26457,27 +25679,20 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trust_resolve'
+        method = "trust_resolve"
 
         _args = list()
 
         _params = dict()
-        _params['sids'] = o_sids
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["sids"] = o_sids
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def trust_show(
-        self,
-        a_cn,
-        o_rights=False,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def trust_show(self, a_cn, o_rights=False, o_all=True, o_raw=False, **kwargs):
         """
         Display information about a trust.
 
@@ -26494,15 +25709,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trust_show'
+        method = "trust_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -26515,10 +25730,10 @@ class ClientMeta(Client):
         o_addattr=None,
         o_delattr=None,
         o_rights=False,
-        o_trust_type='ad',
+        o_trust_type="ad",
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify global trust configuration.
@@ -26548,35 +25763,30 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trustconfig_mod'
+        method = "trustconfig_mod"
 
         _args = list()
 
         _params = dict()
         if o_ipantfallbackprimarygroup is not None:
-            _params['ipantfallbackprimarygroup'] = o_ipantfallbackprimarygroup
+            _params["ipantfallbackprimarygroup"] = o_ipantfallbackprimarygroup
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['trust_type'] = o_trust_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["trust_type"] = o_trust_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def trustconfig_show(
-        self,
-        o_rights=False,
-        o_trust_type='ad',
-        o_all=True,
-        o_raw=False,
-        **kwargs
+        self, o_rights=False, o_trust_type="ad", o_all=True, o_raw=False, **kwargs
     ):
         """
         Show global trust configuration.
@@ -26594,15 +25804,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trustconfig_show'
+        method = "trustconfig_show"
 
         _args = list()
 
         _params = dict()
-        _params['rights'] = o_rights
-        _params['trust_type'] = o_trust_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["rights"] = o_rights
+        _params["trust_type"] = o_trust_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -26616,10 +25826,10 @@ class ClientMeta(Client):
         o_ipanttrusteddomainsid=None,
         o_setattr=None,
         o_addattr=None,
-        o_trust_type='ad',
+        o_trust_type="ad",
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Allow access from the trusted domain
@@ -26649,7 +25859,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trustdomain_add'
+        method = "trustdomain_add"
 
         _args = list()
         _args.append(a_trustcn)
@@ -26657,28 +25867,22 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_ipantflatname is not None:
-            _params['ipantflatname'] = o_ipantflatname
+            _params["ipantflatname"] = o_ipantflatname
         if o_ipanttrusteddomainsid is not None:
-            _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
+            _params["ipanttrusteddomainsid"] = o_ipanttrusteddomainsid
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['trust_type'] = o_trust_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["addattr"] = o_addattr
+        _params["trust_type"] = o_trust_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def trustdomain_del(
-        self,
-        a_trustcn,
-        a_cn,
-        o_continue=False,
-        **kwargs
-    ):
+    def trustdomain_del(self, a_trustcn, a_cn, o_continue=False, **kwargs):
         """
         Remove information about the domain associated with the trust.
 
@@ -26690,25 +25894,20 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'trustdomain_del'
+        method = "trustdomain_del"
 
         _args = list()
         _args.append(a_trustcn)
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def trustdomain_disable(
-        self,
-        a_trustcn,
-        a_cn,
-        **kwargs
-    ):
+    def trustdomain_disable(self, a_trustcn, a_cn, **kwargs):
         """
         Disable use of IPA resources by the domain of the trust
 
@@ -26718,7 +25917,7 @@ class ClientMeta(Client):
         :param a_cn: Domain name
         :type  a_cn: str
         """
-        method = 'trustdomain_disable'
+        method = "trustdomain_disable"
 
         _args = list()
         _args.append(a_trustcn)
@@ -26730,12 +25929,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def trustdomain_enable(
-        self,
-        a_trustcn,
-        a_cn,
-        **kwargs
-    ):
+    def trustdomain_enable(self, a_trustcn, a_cn, **kwargs):
         """
         Allow use of IPA resources by the domain of the trust
 
@@ -26745,7 +25939,7 @@ class ClientMeta(Client):
         :param a_cn: Domain name
         :type  a_cn: str
         """
-        method = 'trustdomain_enable'
+        method = "trustdomain_enable"
 
         _args = list()
         _args.append(a_trustcn)
@@ -26769,7 +25963,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search domains of the trust
@@ -26800,7 +25994,7 @@ class ClientMeta(Client):
             ("domain")
         :type  o_pkey_only: bool
         """
-        method = 'trustdomain_find'
+        method = "trustdomain_find"
 
         _args = list()
         _args.append(a_trustcn)
@@ -26808,19 +26002,19 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_ipantflatname is not None:
-            _params['ipantflatname'] = o_ipantflatname
+            _params["ipantflatname"] = o_ipantflatname
         if o_ipanttrusteddomainsid is not None:
-            _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
+            _params["ipanttrusteddomainsid"] = o_ipanttrusteddomainsid
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["sizelimit"] = o_sizelimit
+        _params["all"] = o_all
+        _params["raw"] = o_raw
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -26836,10 +26030,10 @@ class ClientMeta(Client):
         o_addattr=None,
         o_delattr=None,
         o_rights=False,
-        o_trust_type='ad',
+        o_trust_type="ad",
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify trustdomain of the trust
@@ -26875,7 +26069,7 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'trustdomain_mod'
+        method = "trustdomain_mod"
 
         _args = list()
         _args.append(a_trustcn)
@@ -26883,19 +26077,19 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_ipantflatname is not None:
-            _params['ipantflatname'] = o_ipantflatname
+            _params["ipantflatname"] = o_ipantflatname
         if o_ipanttrusteddomainsid is not None:
-            _params['ipanttrusteddomainsid'] = o_ipanttrusteddomainsid
+            _params["ipanttrusteddomainsid"] = o_ipanttrusteddomainsid
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['trust_type'] = o_trust_type
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["trust_type"] = o_trust_type
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -26951,7 +26145,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a new user.
@@ -27061,99 +26255,99 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'user_add'
+        method = "user_add"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['givenname'] = o_givenname
-        _params['sn'] = o_sn
-        _params['cn'] = o_cn
+        _params["givenname"] = o_givenname
+        _params["sn"] = o_sn
+        _params["cn"] = o_cn
         if o_displayname is not None:
-            _params['displayname'] = o_displayname
+            _params["displayname"] = o_displayname
         if o_initials is not None:
-            _params['initials'] = o_initials
+            _params["initials"] = o_initials
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_krbprincipalexpiration is not None:
-            _params['krbprincipalexpiration'] = o_krbprincipalexpiration
+            _params["krbprincipalexpiration"] = o_krbprincipalexpiration
         if o_krbpasswordexpiration is not None:
-            _params['krbpasswordexpiration'] = o_krbpasswordexpiration
+            _params["krbpasswordexpiration"] = o_krbpasswordexpiration
         if o_mail is not None:
-            _params['mail'] = o_mail
+            _params["mail"] = o_mail
         if o_userpassword is not None:
-            _params['userpassword'] = o_userpassword
+            _params["userpassword"] = o_userpassword
         if o_random is not None:
-            _params['random'] = o_random
+            _params["random"] = o_random
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_street is not None:
-            _params['street'] = o_street
+            _params["street"] = o_street
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_st is not None:
-            _params['st'] = o_st
+            _params["st"] = o_st
         if o_postalcode is not None:
-            _params['postalcode'] = o_postalcode
+            _params["postalcode"] = o_postalcode
         if o_telephonenumber is not None:
-            _params['telephonenumber'] = o_telephonenumber
+            _params["telephonenumber"] = o_telephonenumber
         if o_mobile is not None:
-            _params['mobile'] = o_mobile
+            _params["mobile"] = o_mobile
         if o_pager is not None:
-            _params['pager'] = o_pager
+            _params["pager"] = o_pager
         if o_facsimiletelephonenumber is not None:
-            _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
+            _params["facsimiletelephonenumber"] = o_facsimiletelephonenumber
         if o_ou is not None:
-            _params['ou'] = o_ou
+            _params["ou"] = o_ou
         if o_title is not None:
-            _params['title'] = o_title
+            _params["title"] = o_title
         if o_manager is not None:
-            _params['manager'] = o_manager
+            _params["manager"] = o_manager
         if o_carlicense is not None:
-            _params['carlicense'] = o_carlicense
+            _params["carlicense"] = o_carlicense
         if o_ipasshpubkey is not None:
-            _params['ipasshpubkey'] = o_ipasshpubkey
+            _params["ipasshpubkey"] = o_ipasshpubkey
         if o_ipauserauthtype is not None:
-            _params['ipauserauthtype'] = o_ipauserauthtype
+            _params["ipauserauthtype"] = o_ipauserauthtype
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipatokenradiusconfiglink is not None:
-            _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
+            _params["ipatokenradiusconfiglink"] = o_ipatokenradiusconfiglink
         if o_ipatokenradiususername is not None:
-            _params['ipatokenradiususername'] = o_ipatokenradiususername
+            _params["ipatokenradiususername"] = o_ipatokenradiususername
         if o_ipaidpconfiglink is not None:
-            _params['ipaidpconfiglink'] = o_ipaidpconfiglink
+            _params["ipaidpconfiglink"] = o_ipaidpconfiglink
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_departmentnumber is not None:
-            _params['departmentnumber'] = o_departmentnumber
+            _params["departmentnumber"] = o_departmentnumber
         if o_employeenumber is not None:
-            _params['employeenumber'] = o_employeenumber
+            _params["employeenumber"] = o_employeenumber
         if o_employeetype is not None:
-            _params['employeetype'] = o_employeetype
+            _params["employeetype"] = o_employeetype
         if o_preferredlanguage is not None:
-            _params['preferredlanguage'] = o_preferredlanguage
+            _params["preferredlanguage"] = o_preferredlanguage
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_nsaccountlock is not None:
-            _params['nsaccountlock'] = o_nsaccountlock
+            _params["nsaccountlock"] = o_nsaccountlock
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
-        _params['noprivate'] = o_noprivate
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["addattr"] = o_addattr
+        _params["noprivate"] = o_noprivate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -27166,7 +26360,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add one or more certificates to the user entry
@@ -27185,16 +26379,16 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'user_add_cert'
+        method = "user_add_cert"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -27210,7 +26404,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add one or more certificate mappings to the user entry.
@@ -27235,7 +26429,7 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'user_add_certmapdata'
+        method = "user_add_certmapdata"
 
         _args = list()
         _args.append(a_uid)
@@ -27243,27 +26437,21 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_issuer is not None:
-            _params['issuer'] = o_issuer
+            _params["issuer"] = o_issuer
         if o_subject is not None:
-            _params['subject'] = o_subject
+            _params["subject"] = o_subject
         if o_certificate is not None:
-            _params['certificate'] = o_certificate
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["certificate"] = o_certificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def user_add_manager(
-        self,
-        a_uid,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_user=None,
-        **kwargs
+        self, a_uid, o_all=True, o_raw=False, o_no_members=False, o_user=None, **kwargs
     ):
         """
         Add a manager to the user entry
@@ -27282,30 +26470,24 @@ class ClientMeta(Client):
         :param o_user: users to add
         :type  o_user: str
         """
-        method = 'user_add_manager'
+        method = "user_add_manager"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def user_add_passkey(
-        self,
-        a_uid,
-        a_ipapasskey,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        **kwargs
+        self, a_uid, a_ipapasskey, o_all=True, o_raw=False, o_no_members=False, **kwargs
     ):
         """
         Add one or more passkey mappings to the user entry.
@@ -27324,16 +26506,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'user_add_passkey'
+        method = "user_add_passkey"
 
         _args = list()
         _args.append(a_uid)
         _args.append(a_ipapasskey)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -27346,7 +26528,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add new principal alias to the user entry
@@ -27365,28 +26547,22 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'user_add_principal'
+        method = "user_add_principal"
 
         _args = list()
         _args.append(a_uid)
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def user_del(
-        self,
-        a_uid,
-        o_continue=False,
-        o_preserve=None,
-        **kwargs
-    ):
+    def user_del(self, a_uid, o_continue=False, o_preserve=None, **kwargs):
         """
         Delete a user.
 
@@ -27398,25 +26574,21 @@ class ClientMeta(Client):
         :param o_preserve: <preserve>
         :type  o_preserve: Bool
         """
-        method = 'user_del'
+        method = "user_del"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
         if o_preserve is not None:
-            _params['preserve'] = o_preserve
+            _params["preserve"] = o_preserve
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def user_disable(
-        self,
-        a_uid,
-        **kwargs
-    ):
+    def user_disable(self, a_uid, **kwargs):
         """
         Disable a user account.
 
@@ -27424,7 +26596,7 @@ class ClientMeta(Client):
         :param a_uid: User login
         :type  a_uid: str
         """
-        method = 'user_disable'
+        method = "user_disable"
 
         _args = list()
         _args.append(a_uid)
@@ -27435,11 +26607,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def user_enable(
-        self,
-        a_uid,
-        **kwargs
-    ):
+    def user_enable(self, a_uid, **kwargs):
         """
         Enable a user account.
 
@@ -27447,7 +26615,7 @@ class ClientMeta(Client):
         :param a_uid: User login
         :type  a_uid: str
         """
-        method = 'user_enable'
+        method = "user_enable"
 
         _args = list()
         _args.append(a_uid)
@@ -27525,7 +26693,7 @@ class ClientMeta(Client):
         o_not_in_sudorule=None,
         o_in_subid=None,
         o_not_in_subid=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for users.
@@ -27676,136 +26844,136 @@ class ClientMeta(Client):
             Subordinate ids.
         :type  o_not_in_subid: str
         """
-        method = 'user_find'
+        method = "user_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_uid is not None:
-            _params['uid'] = o_uid
+            _params["uid"] = o_uid
         if o_givenname is not None:
-            _params['givenname'] = o_givenname
+            _params["givenname"] = o_givenname
         if o_sn is not None:
-            _params['sn'] = o_sn
+            _params["sn"] = o_sn
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_displayname is not None:
-            _params['displayname'] = o_displayname
+            _params["displayname"] = o_displayname
         if o_initials is not None:
-            _params['initials'] = o_initials
+            _params["initials"] = o_initials
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_krbprincipalexpiration is not None:
-            _params['krbprincipalexpiration'] = o_krbprincipalexpiration
+            _params["krbprincipalexpiration"] = o_krbprincipalexpiration
         if o_krbpasswordexpiration is not None:
-            _params['krbpasswordexpiration'] = o_krbpasswordexpiration
+            _params["krbpasswordexpiration"] = o_krbpasswordexpiration
         if o_mail is not None:
-            _params['mail'] = o_mail
+            _params["mail"] = o_mail
         if o_userpassword is not None:
-            _params['userpassword'] = o_userpassword
+            _params["userpassword"] = o_userpassword
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_street is not None:
-            _params['street'] = o_street
+            _params["street"] = o_street
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_st is not None:
-            _params['st'] = o_st
+            _params["st"] = o_st
         if o_postalcode is not None:
-            _params['postalcode'] = o_postalcode
+            _params["postalcode"] = o_postalcode
         if o_telephonenumber is not None:
-            _params['telephonenumber'] = o_telephonenumber
+            _params["telephonenumber"] = o_telephonenumber
         if o_mobile is not None:
-            _params['mobile'] = o_mobile
+            _params["mobile"] = o_mobile
         if o_pager is not None:
-            _params['pager'] = o_pager
+            _params["pager"] = o_pager
         if o_facsimiletelephonenumber is not None:
-            _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
+            _params["facsimiletelephonenumber"] = o_facsimiletelephonenumber
         if o_ou is not None:
-            _params['ou'] = o_ou
+            _params["ou"] = o_ou
         if o_title is not None:
-            _params['title'] = o_title
+            _params["title"] = o_title
         if o_manager is not None:
-            _params['manager'] = o_manager
+            _params["manager"] = o_manager
         if o_carlicense is not None:
-            _params['carlicense'] = o_carlicense
+            _params["carlicense"] = o_carlicense
         if o_ipauserauthtype is not None:
-            _params['ipauserauthtype'] = o_ipauserauthtype
+            _params["ipauserauthtype"] = o_ipauserauthtype
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipatokenradiusconfiglink is not None:
-            _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
+            _params["ipatokenradiusconfiglink"] = o_ipatokenradiusconfiglink
         if o_ipatokenradiususername is not None:
-            _params['ipatokenradiususername'] = o_ipatokenradiususername
+            _params["ipatokenradiususername"] = o_ipatokenradiususername
         if o_ipaidpconfiglink is not None:
-            _params['ipaidpconfiglink'] = o_ipaidpconfiglink
+            _params["ipaidpconfiglink"] = o_ipaidpconfiglink
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_departmentnumber is not None:
-            _params['departmentnumber'] = o_departmentnumber
+            _params["departmentnumber"] = o_departmentnumber
         if o_employeenumber is not None:
-            _params['employeenumber'] = o_employeenumber
+            _params["employeenumber"] = o_employeenumber
         if o_employeetype is not None:
-            _params['employeetype'] = o_employeetype
+            _params["employeetype"] = o_employeetype
         if o_preferredlanguage is not None:
-            _params['preferredlanguage'] = o_preferredlanguage
+            _params["preferredlanguage"] = o_preferredlanguage
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_ipantlogonscript is not None:
-            _params['ipantlogonscript'] = o_ipantlogonscript
+            _params["ipantlogonscript"] = o_ipantlogonscript
         if o_ipantprofilepath is not None:
-            _params['ipantprofilepath'] = o_ipantprofilepath
+            _params["ipantprofilepath"] = o_ipantprofilepath
         if o_ipanthomedirectory is not None:
-            _params['ipanthomedirectory'] = o_ipanthomedirectory
+            _params["ipanthomedirectory"] = o_ipanthomedirectory
         if o_ipanthomedirectorydrive is not None:
-            _params['ipanthomedirectorydrive'] = o_ipanthomedirectorydrive
+            _params["ipanthomedirectorydrive"] = o_ipanthomedirectorydrive
         if o_nsaccountlock is not None:
-            _params['nsaccountlock'] = o_nsaccountlock
+            _params["nsaccountlock"] = o_nsaccountlock
         if o_preserved is not None:
-            _params['preserved'] = o_preserved
+            _params["preserved"] = o_preserved
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
-        _params['whoami'] = o_whoami
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["sizelimit"] = o_sizelimit
+        _params["whoami"] = o_whoami
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
         if o_in_group is not None:
-            _params['in_group'] = o_in_group
+            _params["in_group"] = o_in_group
         if o_not_in_group is not None:
-            _params['not_in_group'] = o_not_in_group
+            _params["not_in_group"] = o_not_in_group
         if o_in_netgroup is not None:
-            _params['in_netgroup'] = o_in_netgroup
+            _params["in_netgroup"] = o_in_netgroup
         if o_not_in_netgroup is not None:
-            _params['not_in_netgroup'] = o_not_in_netgroup
+            _params["not_in_netgroup"] = o_not_in_netgroup
         if o_in_role is not None:
-            _params['in_role'] = o_in_role
+            _params["in_role"] = o_in_role
         if o_not_in_role is not None:
-            _params['not_in_role'] = o_not_in_role
+            _params["not_in_role"] = o_not_in_role
         if o_in_hbacrule is not None:
-            _params['in_hbacrule'] = o_in_hbacrule
+            _params["in_hbacrule"] = o_in_hbacrule
         if o_not_in_hbacrule is not None:
-            _params['not_in_hbacrule'] = o_not_in_hbacrule
+            _params["not_in_hbacrule"] = o_not_in_hbacrule
         if o_in_sudorule is not None:
-            _params['in_sudorule'] = o_in_sudorule
+            _params["in_sudorule"] = o_in_sudorule
         if o_not_in_sudorule is not None:
-            _params['not_in_sudorule'] = o_not_in_sudorule
+            _params["not_in_sudorule"] = o_not_in_sudorule
         if o_in_subid is not None:
-            _params['in_subid'] = o_in_subid
+            _params["in_subid"] = o_in_subid
         if o_not_in_subid is not None:
-            _params['not_in_subid'] = o_not_in_subid
+            _params["not_in_subid"] = o_not_in_subid
 
         _params.update(kwargs)
 
@@ -27867,7 +27035,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=False,
         o_rename=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a user.
@@ -27991,114 +27159,114 @@ class ClientMeta(Client):
         :param o_rename: Rename the user object
         :type  o_rename: str
         """
-        method = 'user_mod'
+        method = "user_mod"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
         if o_givenname is not None:
-            _params['givenname'] = o_givenname
+            _params["givenname"] = o_givenname
         if o_sn is not None:
-            _params['sn'] = o_sn
+            _params["sn"] = o_sn
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_displayname is not None:
-            _params['displayname'] = o_displayname
+            _params["displayname"] = o_displayname
         if o_initials is not None:
-            _params['initials'] = o_initials
+            _params["initials"] = o_initials
         if o_homedirectory is not None:
-            _params['homedirectory'] = o_homedirectory
+            _params["homedirectory"] = o_homedirectory
         if o_gecos is not None:
-            _params['gecos'] = o_gecos
+            _params["gecos"] = o_gecos
         if o_loginshell is not None:
-            _params['loginshell'] = o_loginshell
+            _params["loginshell"] = o_loginshell
         if o_krbprincipalname is not None:
-            _params['krbprincipalname'] = o_krbprincipalname
+            _params["krbprincipalname"] = o_krbprincipalname
         if o_krbprincipalexpiration is not None:
-            _params['krbprincipalexpiration'] = o_krbprincipalexpiration
+            _params["krbprincipalexpiration"] = o_krbprincipalexpiration
         if o_krbpasswordexpiration is not None:
-            _params['krbpasswordexpiration'] = o_krbpasswordexpiration
+            _params["krbpasswordexpiration"] = o_krbpasswordexpiration
         if o_mail is not None:
-            _params['mail'] = o_mail
+            _params["mail"] = o_mail
         if o_userpassword is not None:
-            _params['userpassword'] = o_userpassword
+            _params["userpassword"] = o_userpassword
         if o_random is not None:
-            _params['random'] = o_random
+            _params["random"] = o_random
         if o_uidnumber is not None:
-            _params['uidnumber'] = o_uidnumber
+            _params["uidnumber"] = o_uidnumber
         if o_gidnumber is not None:
-            _params['gidnumber'] = o_gidnumber
+            _params["gidnumber"] = o_gidnumber
         if o_street is not None:
-            _params['street'] = o_street
+            _params["street"] = o_street
         if o_l is not None:
-            _params['l'] = o_l
+            _params["l"] = o_l
         if o_st is not None:
-            _params['st'] = o_st
+            _params["st"] = o_st
         if o_postalcode is not None:
-            _params['postalcode'] = o_postalcode
+            _params["postalcode"] = o_postalcode
         if o_telephonenumber is not None:
-            _params['telephonenumber'] = o_telephonenumber
+            _params["telephonenumber"] = o_telephonenumber
         if o_mobile is not None:
-            _params['mobile'] = o_mobile
+            _params["mobile"] = o_mobile
         if o_pager is not None:
-            _params['pager'] = o_pager
+            _params["pager"] = o_pager
         if o_facsimiletelephonenumber is not None:
-            _params['facsimiletelephonenumber'] = o_facsimiletelephonenumber
+            _params["facsimiletelephonenumber"] = o_facsimiletelephonenumber
         if o_ou is not None:
-            _params['ou'] = o_ou
+            _params["ou"] = o_ou
         if o_title is not None:
-            _params['title'] = o_title
+            _params["title"] = o_title
         if o_manager is not None:
-            _params['manager'] = o_manager
+            _params["manager"] = o_manager
         if o_carlicense is not None:
-            _params['carlicense'] = o_carlicense
+            _params["carlicense"] = o_carlicense
         if o_ipasshpubkey is not None:
-            _params['ipasshpubkey'] = o_ipasshpubkey
+            _params["ipasshpubkey"] = o_ipasshpubkey
         if o_ipauserauthtype is not None:
-            _params['ipauserauthtype'] = o_ipauserauthtype
+            _params["ipauserauthtype"] = o_ipauserauthtype
         if o_userclass is not None:
-            _params['userclass'] = o_userclass
+            _params["userclass"] = o_userclass
         if o_ipatokenradiusconfiglink is not None:
-            _params['ipatokenradiusconfiglink'] = o_ipatokenradiusconfiglink
+            _params["ipatokenradiusconfiglink"] = o_ipatokenradiusconfiglink
         if o_ipatokenradiususername is not None:
-            _params['ipatokenradiususername'] = o_ipatokenradiususername
+            _params["ipatokenradiususername"] = o_ipatokenradiususername
         if o_ipaidpconfiglink is not None:
-            _params['ipaidpconfiglink'] = o_ipaidpconfiglink
+            _params["ipaidpconfiglink"] = o_ipaidpconfiglink
         if o_ipaidpsub is not None:
-            _params['ipaidpsub'] = o_ipaidpsub
+            _params["ipaidpsub"] = o_ipaidpsub
         if o_departmentnumber is not None:
-            _params['departmentnumber'] = o_departmentnumber
+            _params["departmentnumber"] = o_departmentnumber
         if o_employeenumber is not None:
-            _params['employeenumber'] = o_employeenumber
+            _params["employeenumber"] = o_employeenumber
         if o_employeetype is not None:
-            _params['employeetype'] = o_employeetype
+            _params["employeetype"] = o_employeetype
         if o_preferredlanguage is not None:
-            _params['preferredlanguage'] = o_preferredlanguage
+            _params["preferredlanguage"] = o_preferredlanguage
         if o_usercertificate is not None:
-            _params['usercertificate'] = o_usercertificate
+            _params["usercertificate"] = o_usercertificate
         if o_ipantlogonscript is not None:
-            _params['ipantlogonscript'] = o_ipantlogonscript
+            _params["ipantlogonscript"] = o_ipantlogonscript
         if o_ipantprofilepath is not None:
-            _params['ipantprofilepath'] = o_ipantprofilepath
+            _params["ipantprofilepath"] = o_ipantprofilepath
         if o_ipanthomedirectory is not None:
-            _params['ipanthomedirectory'] = o_ipanthomedirectory
+            _params["ipanthomedirectory"] = o_ipanthomedirectory
         if o_ipanthomedirectorydrive is not None:
-            _params['ipanthomedirectorydrive'] = o_ipanthomedirectorydrive
+            _params["ipanthomedirectorydrive"] = o_ipanthomedirectorydrive
         if o_nsaccountlock is not None:
-            _params['nsaccountlock'] = o_nsaccountlock
+            _params["nsaccountlock"] = o_nsaccountlock
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_rename is not None:
-            _params['rename'] = o_rename
+            _params["rename"] = o_rename
 
         _params.update(kwargs)
 
@@ -28111,7 +27279,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove one or more certificates to the user entry
@@ -28130,16 +27298,16 @@ class ClientMeta(Client):
         :param o_usercertificate: Base-64 encoded user certificate
         :type  o_usercertificate: Certificate
         """
-        method = 'user_remove_cert'
+        method = "user_remove_cert"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
-        _params['usercertificate'] = o_usercertificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
+        _params["usercertificate"] = o_usercertificate
 
         _params.update(kwargs)
 
@@ -28155,7 +27323,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove one or more certificate mappings from the user entry.
@@ -28180,7 +27348,7 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'user_remove_certmapdata'
+        method = "user_remove_certmapdata"
 
         _args = list()
         _args.append(a_uid)
@@ -28188,27 +27356,21 @@ class ClientMeta(Client):
 
         _params = dict()
         if o_issuer is not None:
-            _params['issuer'] = o_issuer
+            _params["issuer"] = o_issuer
         if o_subject is not None:
-            _params['subject'] = o_subject
+            _params["subject"] = o_subject
         if o_certificate is not None:
-            _params['certificate'] = o_certificate
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["certificate"] = o_certificate
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def user_remove_manager(
-        self,
-        a_uid,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        o_user=None,
-        **kwargs
+        self, a_uid, o_all=True, o_raw=False, o_no_members=False, o_user=None, **kwargs
     ):
         """
         Remove a manager to the user entry
@@ -28227,30 +27389,24 @@ class ClientMeta(Client):
         :param o_user: users to remove
         :type  o_user: str
         """
-        method = 'user_remove_manager'
+        method = "user_remove_manager"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
     def user_remove_passkey(
-        self,
-        a_uid,
-        a_ipapasskey,
-        o_all=True,
-        o_raw=False,
-        o_no_members=False,
-        **kwargs
+        self, a_uid, a_ipapasskey, o_all=True, o_raw=False, o_no_members=False, **kwargs
     ):
         """
         Remove one or more passkey mappings from the user entry.
@@ -28269,16 +27425,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'user_remove_passkey'
+        method = "user_remove_passkey"
 
         _args = list()
         _args.append(a_uid)
         _args.append(a_ipapasskey)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -28291,7 +27447,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove principal alias from the user entry
@@ -28310,16 +27466,16 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'user_remove_principal'
+        method = "user_remove_principal"
 
         _args = list()
         _args.append(a_uid)
         _args.append(a_krbprincipalname)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -28333,7 +27489,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a user.
@@ -28355,29 +27511,24 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'user_show'
+        method = "user_show"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_out is not None:
-            _params['out'] = o_out
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["out"] = o_out
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def user_stage(
-        self,
-        a_uid,
-        o_continue=False,
-        **kwargs
-    ):
+    def user_stage(self, a_uid, o_continue=False, **kwargs):
         """
         Move deleted user into staged area
 
@@ -28387,25 +27538,19 @@ class ClientMeta(Client):
         :param o_continue: Continuous mode: Don't stop on errors.
         :type  o_continue: bool
         """
-        method = 'user_stage'
+        method = "user_stage"
 
         _args = list()
         _args.append(a_uid)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def user_status(
-        self,
-        a_useruid,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def user_status(self, a_useruid, o_all=True, o_raw=False, **kwargs):
         """
         Lockout status of a user account
 
@@ -28438,24 +27583,20 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'user_status'
+        method = "user_status"
 
         _args = list()
         _args.append(a_useruid)
 
         _params = dict()
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def user_undel(
-        self,
-        a_uid,
-        **kwargs
-    ):
+    def user_undel(self, a_uid, **kwargs):
         """
         Undelete a delete user account.
 
@@ -28463,7 +27604,7 @@ class ClientMeta(Client):
         :param a_uid: User login
         :type  a_uid: str
         """
-        method = 'user_undel'
+        method = "user_undel"
 
         _args = list()
         _args.append(a_uid)
@@ -28474,11 +27615,7 @@ class ClientMeta(Client):
 
         return self._request(method, _args, _params)
 
-    def user_unlock(
-        self,
-        a_uid,
-        **kwargs
-    ):
+    def user_unlock(self, a_uid, **kwargs):
         """
         Unlock a user account
 
@@ -28491,7 +27628,7 @@ class ClientMeta(Client):
         :param a_uid: User login
         :type  a_uid: str
         """
-        method = 'user_unlock'
+        method = "user_unlock"
 
         _args = list()
         _args.append(a_uid)
@@ -28506,7 +27643,7 @@ class ClientMeta(Client):
         self,
         a_cn,
         o_description=None,
-        o_ipavaulttype='symmetric',
+        o_ipavaulttype="symmetric",
         o_ipavaultsalt=None,
         o_ipavaultpublickey=None,
         o_setattr=None,
@@ -28517,7 +27654,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Add a vault.
@@ -28555,33 +27692,33 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'vault_add_internal'
+        method = "vault_add_internal"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipavaulttype is not None:
-            _params['ipavaulttype'] = o_ipavaulttype
+            _params["ipavaulttype"] = o_ipavaulttype
         if o_ipavaultsalt is not None:
-            _params['ipavaultsalt'] = o_ipavaultsalt
+            _params["ipavaultsalt"] = o_ipavaultsalt
         if o_ipavaultpublickey is not None:
-            _params['ipavaultpublickey'] = o_ipavaultpublickey
+            _params["ipavaultpublickey"] = o_ipavaultpublickey
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -28599,7 +27736,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add members to a vault.
@@ -28628,27 +27765,27 @@ class ClientMeta(Client):
         :param o_services: services to add
         :type  o_services: str
         """
-        method = 'vault_add_member'
+        method = "vault_add_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_services is not None:
-            _params['services'] = o_services
+            _params["services"] = o_services
 
         _params.update(kwargs)
 
@@ -28666,7 +27803,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add owners to a vault.
@@ -28695,27 +27832,27 @@ class ClientMeta(Client):
         :param o_services: services to add
         :type  o_services: str
         """
-        method = 'vault_add_owner'
+        method = "vault_add_owner"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_services is not None:
-            _params['services'] = o_services
+            _params["services"] = o_services
 
         _params.update(kwargs)
 
@@ -28730,10 +27867,10 @@ class ClientMeta(Client):
         o_service=None,
         o_shared=False,
         o_username=None,
-        o_wrapping_algo='des-ede3-cbc',
+        o_wrapping_algo="des-ede3-cbc",
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Archive data into a vault.
@@ -28762,25 +27899,25 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'vault_archive_internal'
+        method = "vault_archive_internal"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['session_key'] = o_session_key
-        _params['vault_data'] = o_vault_data
-        _params['nonce'] = o_nonce
+            _params["username"] = o_username
+        _params["session_key"] = o_session_key
+        _params["vault_data"] = o_vault_data
+        _params["nonce"] = o_nonce
         if o_wrapping_algo is not None:
-            _params['wrapping_algo'] = o_wrapping_algo
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["wrapping_algo"] = o_wrapping_algo
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -28793,7 +27930,7 @@ class ClientMeta(Client):
         o_service=None,
         o_shared=False,
         o_username=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Delete a vault.
@@ -28810,19 +27947,19 @@ class ClientMeta(Client):
         :param o_username: Username of the user vault
         :type  o_username: str
         """
-        method = 'vault_del'
+        method = "vault_del"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
+            _params["username"] = o_username
 
         _params.update(kwargs)
 
@@ -28845,7 +27982,7 @@ class ClientMeta(Client):
         o_raw=False,
         o_no_members=True,
         o_pkey_only=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Search for vaults.
@@ -28886,37 +28023,37 @@ class ClientMeta(Client):
             ("name")
         :type  o_pkey_only: bool
         """
-        method = 'vault_find'
+        method = "vault_find"
 
         _args = list()
         _args.append(a_criteria)
 
         _params = dict()
         if o_cn is not None:
-            _params['cn'] = o_cn
+            _params["cn"] = o_cn
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipavaulttype is not None:
-            _params['ipavaulttype'] = o_ipavaulttype
+            _params["ipavaulttype"] = o_ipavaulttype
         if o_timelimit is not None:
-            _params['timelimit'] = o_timelimit
+            _params["timelimit"] = o_timelimit
         if o_sizelimit is not None:
-            _params['sizelimit'] = o_sizelimit
+            _params["sizelimit"] = o_sizelimit
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
+            _params["username"] = o_username
         if o_services is not None:
-            _params['services'] = o_services
+            _params["services"] = o_services
         if o_users is not None:
-            _params['users'] = o_users
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["users"] = o_users
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_pkey_only is not None:
-            _params['pkey_only'] = o_pkey_only
+            _params["pkey_only"] = o_pkey_only
 
         _params.update(kwargs)
 
@@ -28939,7 +28076,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Modify a vault.
@@ -28983,36 +28120,36 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'vault_mod_internal'
+        method = "vault_mod_internal"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_description is not None:
-            _params['description'] = o_description
+            _params["description"] = o_description
         if o_ipavaulttype is not None:
-            _params['ipavaulttype'] = o_ipavaulttype
+            _params["ipavaulttype"] = o_ipavaulttype
         if o_ipavaultsalt is not None:
-            _params['ipavaultsalt'] = o_ipavaultsalt
+            _params["ipavaultsalt"] = o_ipavaultsalt
         if o_ipavaultpublickey is not None:
-            _params['ipavaultpublickey'] = o_ipavaultpublickey
+            _params["ipavaultpublickey"] = o_ipavaultpublickey
         if o_setattr is not None:
-            _params['setattr'] = o_setattr
+            _params["setattr"] = o_setattr
         if o_addattr is not None:
-            _params['addattr'] = o_addattr
+            _params["addattr"] = o_addattr
         if o_delattr is not None:
-            _params['delattr'] = o_delattr
-        _params['rights'] = o_rights
+            _params["delattr"] = o_delattr
+        _params["rights"] = o_rights
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
@@ -29030,7 +28167,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove members from a vault.
@@ -29059,27 +28196,27 @@ class ClientMeta(Client):
         :param o_services: services to remove
         :type  o_services: str
         """
-        method = 'vault_remove_member'
+        method = "vault_remove_member"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_services is not None:
-            _params['services'] = o_services
+            _params["services"] = o_services
 
         _params.update(kwargs)
 
@@ -29097,7 +28234,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove owners from a vault.
@@ -29126,27 +28263,27 @@ class ClientMeta(Client):
         :param o_services: services to remove
         :type  o_services: str
         """
-        method = 'vault_remove_owner'
+        method = "vault_remove_owner"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_services is not None:
-            _params['services'] = o_services
+            _params["services"] = o_services
 
         _params.update(kwargs)
 
@@ -29159,10 +28296,10 @@ class ClientMeta(Client):
         o_service=None,
         o_shared=False,
         o_username=None,
-        o_wrapping_algo='des-ede3-cbc',
+        o_wrapping_algo="des-ede3-cbc",
         o_all=True,
         o_raw=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Retrieve data from a vault.
@@ -29187,23 +28324,23 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'vault_retrieve_internal'
+        method = "vault_retrieve_internal"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['session_key'] = o_session_key
+            _params["username"] = o_username
+        _params["session_key"] = o_session_key
         if o_wrapping_algo is not None:
-            _params['wrapping_algo'] = o_wrapping_algo
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["wrapping_algo"] = o_wrapping_algo
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -29219,7 +28356,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a vault.
@@ -29245,34 +28382,28 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'vault_show'
+        method = "vault_show"
 
         _args = list()
         _args.append(a_cn)
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def vaultconfig_show(
-        self,
-        o_transport_out=None,
-        o_all=True,
-        o_raw=False,
-        **kwargs
-    ):
+    def vaultconfig_show(self, o_transport_out=None, o_all=True, o_raw=False, **kwargs):
         """
         Show vault configuration.
 
@@ -29286,15 +28417,15 @@ class ClientMeta(Client):
             output format.
         :type  o_raw: bool
         """
-        method = 'vaultconfig_show'
+        method = "vaultconfig_show"
 
         _args = list()
 
         _params = dict()
         if o_transport_out is not None:
-            _params['transport_out'] = o_transport_out
-        _params['all'] = o_all
-        _params['raw'] = o_raw
+            _params["transport_out"] = o_transport_out
+        _params["all"] = o_all
+        _params["raw"] = o_raw
 
         _params.update(kwargs)
 
@@ -29311,7 +28442,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Add owners to a vault container.
@@ -29338,26 +28469,26 @@ class ClientMeta(Client):
         :param o_services: services to add
         :type  o_services: str
         """
-        method = 'vaultcontainer_add_owner'
+        method = "vaultcontainer_add_owner"
 
         _args = list()
 
         _params = dict()
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_services is not None:
-            _params['services'] = o_services
+            _params["services"] = o_services
 
         _params.update(kwargs)
 
@@ -29369,7 +28500,7 @@ class ClientMeta(Client):
         o_service=None,
         o_shared=False,
         o_username=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Delete a vault container.
@@ -29384,18 +28515,18 @@ class ClientMeta(Client):
         :param o_username: Username of the user vault
         :type  o_username: str
         """
-        method = 'vaultcontainer_del'
+        method = "vaultcontainer_del"
 
         _args = list()
 
         _params = dict()
-        _params['continue'] = o_continue
+        _params["continue"] = o_continue
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
+            _params["username"] = o_username
 
         _params.update(kwargs)
 
@@ -29412,7 +28543,7 @@ class ClientMeta(Client):
         o_user=None,
         o_group=None,
         o_services=None,
-        **kwargs
+        **kwargs,
     ):
         """
         Remove owners from a vault container.
@@ -29439,26 +28570,26 @@ class ClientMeta(Client):
         :param o_services: services to remove
         :type  o_services: str
         """
-        method = 'vaultcontainer_remove_owner'
+        method = "vaultcontainer_remove_owner"
 
         _args = list()
 
         _params = dict()
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
         if o_user is not None:
-            _params['user'] = o_user
+            _params["user"] = o_user
         if o_group is not None:
-            _params['group'] = o_group
+            _params["group"] = o_group
         if o_services is not None:
-            _params['services'] = o_services
+            _params["services"] = o_services
 
         _params.update(kwargs)
 
@@ -29473,7 +28604,7 @@ class ClientMeta(Client):
         o_all=True,
         o_raw=False,
         o_no_members=False,
-        **kwargs
+        **kwargs,
     ):
         """
         Display information about a vault container.
@@ -29497,36 +28628,33 @@ class ClientMeta(Client):
         :param o_no_members: Suppress processing of membership attributes.
         :type  o_no_members: bool
         """
-        method = 'vaultcontainer_show'
+        method = "vaultcontainer_show"
 
         _args = list()
 
         _params = dict()
-        _params['rights'] = o_rights
+        _params["rights"] = o_rights
         if o_service is not None:
-            _params['service'] = o_service
+            _params["service"] = o_service
         if o_shared is not None:
-            _params['shared'] = o_shared
+            _params["shared"] = o_shared
         if o_username is not None:
-            _params['username'] = o_username
-        _params['all'] = o_all
-        _params['raw'] = o_raw
-        _params['no_members'] = o_no_members
+            _params["username"] = o_username
+        _params["all"] = o_all
+        _params["raw"] = o_raw
+        _params["no_members"] = o_no_members
 
         _params.update(kwargs)
 
         return self._request(method, _args, _params)
 
-    def whoami(
-        self,
-        **kwargs
-    ):
+    def whoami(self, **kwargs):
         """
         Describe currently authenticated identity.
 
 
         """
-        method = 'whoami'
+        method = "whoami"
 
         _args = list()
 

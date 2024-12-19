@@ -4,7 +4,7 @@
 class FreeIPAError(Exception):
     """Base exception class for FreeIPA client."""
 
-    message = 'An unknown exception occurred.'
+    message = "An unknown exception occurred."
 
     def __init__(self, message=None, code=None):
         """Initialize exception class with optional message and code."""
@@ -41,13 +41,13 @@ class BadRequest(FreeIPAError):
 class Unauthorized(BadRequest):
     """Raised when invalid credentials are provided."""
 
-    message = 'Unauthorized: bad credentials.'
+    message = "Unauthorized: bad credentials."
 
 
 class PasswordExpired(Unauthorized):
     """Raised when logging in with an expired password."""
 
-    message = 'PasswordExpired: password expired.'
+    message = "PasswordExpired: password expired."
 
 
 class KrbPrincipalExpired(Unauthorized):
@@ -65,7 +65,7 @@ class InvalidSessionPassword(Unauthorized):
 class UserLocked(Unauthorized):
     """Raised when a user account is locked."""
 
-    message = 'UserLocked: user account is locked.'
+    message = "UserLocked: user account is locked."
 
 
 class NotFound(BadRequest):
@@ -111,21 +111,21 @@ error_codes = {
 
 def parse_error(error):
     """Convert error object to FreeIPA exception class."""
-    message = error['message']
-    code = error['code']
+    message = error["message"]
+    code = error["code"]
     exception_class = error_codes.get(code, BadRequest)
     raise exception_class(message, code)
 
 
 def parse_group_management_error(data):
     """Convert group management error object to FreeIPA exception class."""
-    failed = data['failed']
-    if failed['member']['group'] or failed['member']['user']:
+    failed = data["failed"]
+    if failed["member"]["group"] or failed["member"]["user"]:
         raise ValidationError(failed)
 
 
 def parse_hostgroup_management_error(data):
     """Convert host group management error object to FreeIPA exception class."""
-    failed = data['failed']
-    if failed['member']['host'] or failed['member']['hostgroup']:
+    failed = data["failed"]
+    if failed["member"]["host"] or failed["member"]["hostgroup"]:
         raise ValidationError(failed)
