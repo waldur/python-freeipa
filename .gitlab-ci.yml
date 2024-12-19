@@ -2,25 +2,33 @@ include:
   - project: "waldur/waldur-pipelines"
     file: "/templates/stages.yml"
   - project: "waldur/waldur-pipelines"
+    file: "/templates/test/python-tests.yml"
+  - project: "waldur/waldur-pipelines"
     file: "/templates/test/check-merge-compatibility.yml"
   - project: "waldur/waldur-pipelines"
     file: "/templates/release/python-module-release.yml"
 
-image: 'registry.hpc.ut.ee/mirror/library/python:3.6'
 
-Run module tests:
-  stage: test
-  interruptible: true
-  rules:
-    - if: '$SKIP_TESTS == "true"'
-      when: never
-    - if: '$CI_COMMIT_BRANCH == "develop"'
-    - if: '$CI_COMMIT_BRANCH == "master"'
-    - if: '$CI_COMMIT_TAG =~ /^\d+\.\d+\.\d+$/'
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-  script:
-    - pip install -e .[tests]
-    - python setup.py test
+Run python v3.9 tests:
+  image: "registry.hpc.ut.ee/mirror/library/python:3.9"
+  extends: .Run tests template
+
+Run python v3.10 tests:
+  image: "registry.hpc.ut.ee/mirror/library/python:3.10"
+  extends: .Run tests template
+
+Run python v3.11 tests:
+  image: "registry.hpc.ut.ee/mirror/library/python:3.11"
+  extends: .Run tests template
+
+Run python v3.12 tests:
+  image: "registry.hpc.ut.ee/mirror/library/python:3.12"
+  extends: .Run tests template
+
+Run python v3.13 tests:
+  image: "registry.hpc.ut.ee/mirror/library/python:3.13"
+  extends: .Run tests template
+
 
 Run linters:
   image: registry.hpc.ut.ee/mirror/library/python:3.11-bullseye
