@@ -83,6 +83,7 @@ Here is what you need to do:
 
 .. code-block:: bash
 
+  sudo apt-get install libkrb5-dev
   # fetch code, create virtual environment, and install required packages
   git clone git@github.com:opennode/python-freeipa.git
   cd python-freeipa
