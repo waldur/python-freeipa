@@ -1,0 +1,19 @@
+
+site_name: Python FreeIPA client
+site_description: Python FreeIPA client API documentation
+copyright: 2018-2025, OpenNode team
+repo_name: python-freeipa
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdocstrings
+
+nav:
+  - Home: index.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
