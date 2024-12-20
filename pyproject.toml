@@ -7,7 +7,7 @@ name = "python-freeipa"
 version = "1.0.9"
 description = "Lightweight FreeIPA client"
 authors = ["OpenNode Team <info@opennodecloud.com>"]
-readme = "README.rst"
+readme = "README.md"
 documentation = "https://python-freeipa.readthedocs.io/"
 packages = [{include = "python_freeipa", from = "src"}]
 classifiers = [
