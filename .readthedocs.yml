@@ -2,9 +2,6 @@ version: 2
 
 formats: all
 
-sphinx:
-  configuration: docs/source/conf.py
-
 build:
   os: "ubuntu-22.04"
   tools:
