@@ -12,6 +12,9 @@ plugins:
       handlers:
         python:
           paths: [src]
+          options:
+            show_source: false
+            docstring_style: sphinx
 
 nav:
   - Home: index.md
