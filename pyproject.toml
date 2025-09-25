@@ -2,33 +2,50 @@
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry]
+[project]
 name = "python-freeipa"
 version = "1.0.9"
 description = "Lightweight FreeIPA client"
-authors = ["OpenNode Team <info@opennodecloud.com>"]
 readme = "README.md"
-documentation = "https://python-freeipa.readthedocs.io/"
-packages = [{include = "python_freeipa", from = "src"}]
+authors = [{ name = "OpenNode Team", email = "info@opennodecloud.com" }]
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["freeipa", "ipa", "authentication", "directory"]
 classifiers = [
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Software Development :: Libraries",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: System :: Systems Administration :: Authentication/Directory",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: System :: Systems Administration :: Authentication/Directory",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-requests = "*"
-srvlookup = "*"
-requests-gssapi = "*"
+# Require always
+dependencies = [
+  "requests",
+]
+
+# Optional dependencies exposed as extras
+[project.optional-dependencies]
+gssapi = ["requests-gssapi"]
+srv = ["srvlookup"]
+all = [
+  "requests-gssapi",
+  "srvlookup",
+]
+
+[project.urls]
+Documentation = "https://python-freeipa.readthedocs.io/"
+Homepage = "https://python-freeipa.readthedocs.io/"
+
+# Package discovery (PEP 621 backends may use tool-specific config; Poetry needs this)
+[tool.poetry]
+packages = [{ include = "python_freeipa", from = "src" }]
 
 [tool.poetry.group.test.dependencies]
 responses = "*"
