@@ -50,8 +50,6 @@ jobs:
     environment:
       name: pypi
       url: https://pypi.org/p/python-freeipa
-    permissions:
-      id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
     steps:
     - name: Download build artifacts
       uses: actions/download-artifact@v4
@@ -62,6 +60,8 @@ jobs:
     - name: Publish to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
+        username: ${{ secrets.PYPI_USERNAME }}
+        password: ${{ secrets.PYPI_PASSWORD }}
         print-hash: true
 
   create-github-release:
