@@ -42,28 +42,49 @@ client.login('admin', 'Secret123')
 
 ## Contributing
 
-1. Install `pre-commit`:
+### Development Setup
+
+1. Install `uv` for faster dependency management:
 
 ```bash
-pip install pre-commit
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+2. Create a virtual environment and install dependencies:
+
+```bash
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install -e ".[dev,test,docs]"
+```
+
+3. Install and set up `pre-commit`:
+
+```bash
 pre-commit install
 ```
 
-2. Install python-freeipa in development mode along with dependencies:
+### Running Tests
 
 ```bash
-poetry install
+uv run pytest
 ```
 
-3. Run tests suite:
+Or with coverage:
 
 ```bash
-poetry run pytest
+uv run pytest --cov=src/python_freeipa/
+```
+
+### Building Documentation
+
+```bash
+uv run mkdocs serve
 ```
 
 ## Recreation of MetaClient
 
-It is possible to manually recreate the "ClientMeta" class. This might be needed if the IPA/IdM Server you are using is not matching the on that has been used to build the packaged version.
+It is possible to manually recreate the "ClientMeta" class. This might be needed if the IPA/IdM Server you are using is not matching the one that has been used to build the packaged version.
 
 Here is what you need to do:
 
@@ -72,14 +93,15 @@ sudo apt-get install libkrb5-dev
 # fetch code, create virtual environment, and install required packages
 git clone git@github.com:opennode/python-freeipa.git
 cd python-freeipa
-poetry install
-poetry shell
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install -e ".[dev]"
 # recreate the ClientMeta class
 contrib/py_ipa_api_recreate --source-url ipa.demo1.freeipa.org --source-url-user admin --source-url-pass Secret123
 # move the file where it belongs
 mv meta_api.py src/python_freeipa/client_meta.py
 # build the python package
-poetry build
+uv build
 ```
 
 This will give you a python package, which you can install using "pip install"

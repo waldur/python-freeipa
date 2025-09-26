@@ -1,6 +1,6 @@
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "python-freeipa"
@@ -38,28 +38,28 @@ all = [
   "requests-gssapi",
   "srvlookup",
 ]
+test = [
+  "responses",
+  "pytest>=8.3.4",
+  "pytest-cov>=5.0.0",
+]
+dev = [
+  "pre-commit>=3.5.0",
+]
+docs = [
+  "mkdocs>=1.6.1",
+  "mkdocs-material>=9.5.49",
+  "mkdocstrings>=0.27.0",
+  "mkdocstrings-python>=1.12.2",
+]
 
 [project.urls]
 Documentation = "https://python-freeipa.readthedocs.io/"
 Homepage = "https://python-freeipa.readthedocs.io/"
 
-# Package discovery (PEP 621 backends may use tool-specific config; Poetry needs this)
-[tool.poetry]
-packages = [{ include = "python_freeipa", from = "src" }]
-
-[tool.poetry.group.test.dependencies]
-responses = "*"
-pytest = "^8.3.4"
-pytest-cov = "^5.0.0"
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = "^3.5.0"
-
-[tool.poetry.group.docs.dependencies]
-mkdocs = "^1.6.1"
-mkdocs-material = "^9.5.49"
-mkdocstrings = "^0.27.0"
-mkdocstrings-python = "^1.12.2"
+# Hatchling configuration for package discovery
+[tool.hatch.build.targets.wheel]
+packages = ["src/python_freeipa"]
 
 [tool.pytest.ini_options]
 addopts = "--cov=src/python_freeipa/"
